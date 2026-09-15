@@ -209,7 +209,7 @@ function head(page, criticalCss, cssHash) {
 
 // The official HCP logo, taken from the live site (1440x576 source, 2.5:1).
 const logoMark = (cls) =>
-  `<img src="/assets/img/logo.png" alt="Healthcare Compliance Pros" title="Healthcare Compliance Pros home" width="1440" height="576" class="${cls}" decoding="async">`;
+  `<img src="/assets/img/logo.png" alt="Healthcare Compliance Pros" title="Healthcare Compliance Pros home" width="1440" height="576" class="${cls}" decoding="async" fetchpriority="high">`;
 
 function navMarkup(currentPath) {
   return nav.map((item, i) => {

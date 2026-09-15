@@ -45,16 +45,16 @@ const faqs = [
 const body = [
   hero({
     eyebrow: 'Healthcare compliance software',
-    h1: 'Compliance that runs quietly in the background',
-    lead: `HIPAA, OSHA and corporate compliance in one platform, backed by a named team of compliance advisors who know your organization. Built for medical practices, hospitals, billing companies and business associates.`,
+    h1: '<em>Simplify Compliance</em><strong>with HIPAA Compliant Software</strong>',
+    lead: `Best-in-class healthcare compliance software, backed by compliance experts. HIPAA, OSHA and corporate compliance in one platform, supported by a named team who know your organization.`,
     bullets: [
       'Customized policies and procedures, kept current as regulations change',
       'Role-based training with automated assignments, reminders and certificates',
       'Documented security risk analysis and audit-ready evidence on demand',
       '3–5 assigned compliance advisors — included, not an upsell'
     ],
-    primary: { label: 'Get a free risk assessment', href: '/compliance-assessment/' },
-    secondary: { label: 'Schedule a consultation', href: '/contact/' },
+    primary: { label: 'Check Your Compliance Risk', href: '/compliance-assessment/' },
+    secondary: { label: 'Request a Consultation', href: '/contact/' },
     stat: `Trusted by healthcare organizations nationwide since ${site.founded}`,
     media: {
       src: '/assets/img/site/feature-map.webp',
@@ -65,33 +65,25 @@ const body = [
   }),
 
   section({
-    cls: 'sec-alt',
-    eyebrow: 'The problem',
-    h2: 'Compliance fails in the gap between knowing and proving',
-    lead: 'Almost every practice knows what the rules require. What breaks down is the evidence — and evidence is what investigators ask for.',
-    body: prose([
-      `Healthcare organizations carry an unusual regulatory load. HIPAA governs how patient information is stored, transmitted and disclosed. OSHA governs a physical environment that includes sharps, chemicals and infectious material. CMS and the Office of Inspector General expect a documented corporate compliance program covering billing integrity, exclusion screening and a channel for reporting concerns. Each of these is a full body of requirements, and none of them are the reason clinicians went into medicine.`,
-      `The common failure mode is not ignorance. It is drift. A policy manual is written thoroughly in year one and never revised. Annual training is completed by most of the staff, but nobody can say which ones. A security risk analysis is performed once, then cited for six years as if the network never changed. Business associate agreements are signed and filed somewhere nobody can locate. The program looks fine right up until someone asks for proof on a deadline.`,
-      `<h3>What regulators actually request</h3>`,
-      `<p>When the Office for Civil Rights opens an inquiry, or an OSHA inspector arrives, or a payer initiates an audit, the request is specific and time-bound. Expect to produce, typically within 10 to 30 days:</p>`,
-      `<ul>
-        <li>Your current written policies and procedures, with revision dates</li>
-        <li>Evidence each workforce member received and acknowledged them</li>
-        <li>Training completion records by individual, by topic, with dates</li>
-        <li>Your most recent security risk analysis and the risk management plan addressing what it found</li>
-        <li>Executed business associate agreements for every vendor touching PHI</li>
-        <li>Incident logs, investigations and breach risk assessments</li>
-        <li>Exclusion screening results for staff and contracted vendors</li>
-        <li>Safety inspection records, SDS access and exposure control documentation</li>
-      </ul>`,
-      `Organizations that maintain this continuously answer in an afternoon. Organizations that reconstruct it under deadline spend weeks, pay outside counsel, and frequently discover gaps they cannot close retroactively. That difference — continuous versus reconstructed — is the entire design premise of the HCP platform.`
-    ])
+    h2: '<em>Your Trusted Partner</em><strong>in Healthcare Compliance Software</strong>',
+    lead: 'Navigate compliance regulations with ease, backed by experts who are with you every step of the way.',
+    body: `<ul class="trust">
+      <li><span class="n" aria-hidden="true">1</span><h3>Dedicated Compliance Support Team</h3>
+        <p>Every client is assigned a team of 3&ndash;5 experienced compliance professionals, available to provide personalized guidance and support.</p></li>
+      <li><span class="n" aria-hidden="true">2</span><h3>Comprehensive Audit Support</h3>
+        <p>Expert assistance for any HIPAA, OSHA or corporate compliance audit, ensuring your organization is well prepared and protected.</p></li>
+      <li><span class="n" aria-hidden="true">3</span><h3>Policy &amp; Procedure Management</h3>
+        <p>Customized policies and procedures updated regularly to meet changing regulations, with employee acknowledgement tracking.</p></li>
+      <li><span class="n" aria-hidden="true">4</span><h3>Technical Support</h3>
+        <p>Year-round access to a dedicated support team for troubleshooting and getting the most out of the platform.</p></li>
+      <li><span class="n" aria-hidden="true">5</span><h3>Centralized Resources</h3>
+        <p>A robust library of company forms, compliance guides and training materials, all updated to meet the latest standards.</p></li>
+    </ul>`
   }),
 
   section({
-    eyebrow: 'What you get',
-    h2: 'One platform for every compliance obligation you carry',
-    lead: 'Four connected programs, one staff login, one dashboard showing where every requirement stands.',
+    h2: '<em>Manage Your</em><strong>HIPAA &amp; OSHA Compliance Requirements</strong>',
+    lead: 'Powered by HCP SHIELD software &mdash; four connected programs, one staff login, one dashboard.',
     body: `<div class="pillars">
       ${pillar({
         tag: 'HIPAA', title: 'HIPAA Compliance',
@@ -163,8 +155,7 @@ const body = [
   }),
 
   section({
-    eyebrow: 'Beyond the platform',
-    h2: 'Looking for more ways to strengthen your compliance strategy?',
+    h2: 'Looking for more ways to enhance your compliance strategy?',
     lead: 'Expert services that plug into your program when you need capability the software alone cannot provide.',
     body: services([
       { icon: '/assets/img/site/icon-fractional.svg', title: 'Fractional Compliance Officer', text: 'Fill the role without a full-time hire', href: '/fractional-compliance-officer/' },
@@ -177,8 +168,7 @@ const body = [
 
   section({
     cls: 'sec-stats',
-    eyebrow: 'Why it matters',
-    h2: 'The cost of getting this wrong keeps rising',
+    h2: '<em>Why Compliance Matters</em><strong>The Risks of Non-Compliance</strong>',
     lead: 'Enforcement activity, breach volume and audit recovery have all trended upward across the last decade.',
     body: stats([
       { value: '$16M', label: 'Largest single HIPAA settlement on record, resolving a breach affecting nearly 79 million people.' },
@@ -242,8 +232,7 @@ const body = [
     cls: 'sec-alt',
     body: `<div class="split">
       <div class="split-copy">
-        <p class="eyebrow">Comprehensive healthcare compliance software</p>
-        <h2>Stay current. Avoid penalties.</h2>
+        <h2><em>Comprehensive Healthcare Compliance Software</em><strong>Stay Current. Avoid Penalties.</strong></h2>
         <p>Healthcare organizations face relentless regulatory oversight across HIPAA, OSHA, corporate
         compliance and human resources. Most have struggled to find an efficient, affordable way to stay
         current with obligations that carry high overhead and no revenue.</p>
@@ -262,8 +251,7 @@ const body = [
   }),
 
   section({
-    eyebrow: 'Client feedback',
-    h2: 'What compliance officers tell us',
+    h2: '<em>Hear What Our</em><strong>Clients Have To Say</strong>',
     lead: 'The consistent theme: responsiveness, and no longer carrying the program alone.',
     body: quotes([
       { text: 'We moved from a binder nobody opened to a system that tells me exactly who is behind on training. When our advisor says she will call back, she calls back.', name: 'Practice Administrator', role: 'Multi-provider family medicine group', portrait: '/assets/img/site/person-1.webp' },
@@ -280,8 +268,7 @@ const body = [
 
   section({
     cls: 'sec-alt',
-    eyebrow: 'From the blog',
-    h2: 'Recommended reading',
+    h2: 'Recommended Articles',
     lead: 'Practical guidance from the advisors who handle these situations with clients.',
     body: `<ul class="posts">
       <li class="post"><div class="post-media">${img({ src: '/assets/img/site/article-tools.webp', alt: 'Compliance management tools illustration', title: 'Compliance management tools', width: 800, height: 533 })}</div>
@@ -310,10 +297,34 @@ const body = [
   ]),
 
   cta({
-    h2: 'See where your program actually stands',
+    h2: '<em>A User Friendly, Simple Compliance Program</em><strong>Healthcare Compliance Software</strong>',
     text: 'The free risk assessment takes about 20 minutes and produces a written gap analysis against HIPAA, OSHA and corporate compliance requirements. No obligation, and the findings are yours to keep.',
-    primary: { label: 'Start your free assessment', href: '/compliance-assessment/' },
+    primary: { label: 'Simplify Compliance Today!', href: '/compliance-assessment/' },
     secondary: { label: 'Talk to an advisor', href: '/contact/' }
+  }),
+
+  section({
+    cls: 'sec-alt',
+    body: `<div class="news-in">
+      <div>
+        <h2>Stay Informed &amp; Educated</h2>
+        <p>Subscribers learn from Compliance Advisors who share:</p>
+        <ul>
+          <li>The latest regulatory updates you don&rsquo;t want to miss</li>
+          <li>Trending topics so your organization can get ahead</li>
+          <li>Access to resources that help you stay compliant</li>
+        </ul>
+      </div>
+      <div>
+        <form class="news-form" action="/contact/" method="get">
+          <label class="visually-hidden" for="news-email">Work email</label>
+          <input type="email" id="news-email" name="email" placeholder="Your work email" required>
+          <button type="submit" class="btn btn-primary">Subscribe</button>
+        </form>
+        <p class="form-note">We use your email only to send compliance updates. Unsubscribe any time &mdash;
+          see our <a href="/privacypolicy/">privacy policy</a>.</p>
+      </div>
+    </div>`
   })
 ].join('\n');
 
