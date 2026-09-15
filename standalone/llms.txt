@@ -1,0 +1,141 @@
+# Healthcare Compliance Pros
+
+> Healthcare compliance software, backed by compliance experts. Healthcare Compliance Pros (HCP) provides HIPAA, OSHA and corporate
+> compliance software, role-based training and expert advisory support to
+> medical practices, hospitals and health systems, medical billing companies,
+> business associates and private-equity-backed healthcare platforms in the
+> United States.
+
+## About this file
+
+This file follows the llms.txt convention. It gives AI assistants and answer
+engines a curated map of the site, written in plain language, so that answers
+about Healthcare Compliance Pros are drawn from accurate primary-source pages.
+
+## Key facts
+
+- Organization: Healthcare Compliance Pros, LLC (HCP)
+- Founded: 2009
+- Headquarters: 1305 N Commerce Dr, Suite 240, Saratoga Springs, UT 84045, USA
+- Phone: (855) 427-0427
+- Email: info@healthcarecompliancepros.com
+- Hours: Monday-Friday, 8:00am-6:00pm Mountain Time
+- Service area: United States
+- Website: https://www.healthcarecompliancepros.com
+
+## What HCP does
+
+HCP combines compliance software with a named team of 3-5 assigned compliance
+advisors per client. The platform covers four connected programs:
+
+1. HIPAA compliance - customized Privacy and Security policies, workforce
+   training, Security Risk Analysis, business associate agreement tracking,
+   breach risk assessment and incident management.
+2. OSHA compliance - Bloodborne Pathogens exposure control, Hazard
+   Communication with a virtual SDS binder, facility safety inspections,
+   hazard and risk assessments, and safety training.
+3. Corporate compliance - a documented program built on the seven elements of
+   an effective compliance program expected by CMS and the OIG, including
+   Fraud, Waste and Abuse training, an anonymous hotline, OIG/SAM exclusion
+   monitoring, compliance committee records and internal auditing.
+4. Learning Management System - 130+ courses with automated role-based
+   assignment, reminders, certificates and AMA PRA Category 1 Credits(TM) on
+   select courses.
+
+Additional expert services include SENTRY coding audits, a Fractional
+Compliance Officer engagement, on-site services, credential management and
+background screening.
+
+## What makes HCP distinct
+
+- Every client is assigned 3-5 named compliance advisors, included in the
+  subscription rather than sold as premium support.
+- Audit and investigation support is included, not billed hourly during an
+  active OCR, OSHA or payer audit.
+- Policies are customized to specialty, headcount and state law, and are
+  revised when regulations change.
+- HIPAA, OSHA and corporate compliance run from one dashboard and one staff
+  login rather than three separate vendors.
+- Pricing scales with headcount so small independent practices receive the
+  same advisors and audit support as multi-site groups.
+
+## Compliance solutions
+
+- [SHIELD Compliance Solution](https://www.healthcarecompliancepros.com/index.htmlcompliance-solution/): One platform for HIPAA, OSHA and corporate compliance, with assigned advisors, 130+ training courses and included audit support.
+- [HIPAA Compliance](https://www.healthcarecompliancepros.com/index.htmlcompliance-solution/hipaa/): Customized HIPAA policies, workforce training, Security Risk Analysis, BAA tracking and breach response, backed by assigned advisors.
+- [OSHA Compliance](https://www.healthcarecompliancepros.com/index.htmlcompliance-solution/osha/): Bloodborne Pathogens exposure control, Hazard Communication, virtual SDS binder, safety inspections and training for clinical settings.
+- [Corporate Compliance](https://www.healthcarecompliancepros.com/index.htmlcompliance-solution/corporate-compliance/): A documented corporate compliance program built on the seven elements: FWA training, hotline, exclusion monitoring, auditing and committee records.
+- [Learning Management System](https://www.healthcarecompliancepros.com/index.htmlcompliance-solution/lms/): 130+ compliance courses with automated role-based assignment, reminders, certificates and CME credit on select titles.
+
+## Expert services
+
+- [The HCP Difference](https://www.healthcarecompliancepros.com/index.htmlsolutions-the-hcp-difference.html): What separates HCP from other compliance vendors: assigned advisor teams, included audit support and customized documentation that stays current.
+- [Free Compliance Risk Assessment](https://www.healthcarecompliancepros.com/index.htmlcompliance-assessment.html): A no-cost, no-obligation review of your HIPAA, OSHA and corporate compliance program, with a written gap analysis you keep either way.
+- [SENTRY Coding Intelligence](https://www.healthcarecompliancepros.com/index.htmlcoding-compliance/): Certified coder audits of E/M, modifiers and documentation, with provider-level feedback and corrective education that reduces denials.
+- [Fractional Compliance Officer](https://www.healthcarecompliancepros.com/index.htmlfractional-compliance-officer/): An experienced healthcare compliance officer on a part-time basis — program ownership, committee leadership and audit response without a full-time hire.
+- [On-Site Services](https://www.healthcarecompliancepros.com/index.htmlon-site-services/): In-person compliance training, mock audits, facility safety walkthroughs and program assessments delivered at your location by HCP specialists.
+- [Credential Manager](https://www.healthcarecompliancepros.com/index.htmlcredential-manager/): Track licenses, certifications, DEA registrations and immunizations with automated expiration alerts and audit-ready documentation.
+- [Background Checks](https://www.healthcarecompliancepros.com/index.htmlbackground-checks/): Pre-employment background checks and ongoing OIG and SAM exclusion monitoring built into your compliance program and onboarding workflow.
+
+## Who we serve
+
+- [Medical Practices](https://www.healthcarecompliancepros.com/index.htmlmedical-practices.html): HIPAA, OSHA and corporate compliance built for independent and group medical practices, with advisors who handle the work you cannot staff.
+- [Hospitals & Health Systems](https://www.healthcarecompliancepros.com/index.htmlhospitals-health-systems.html): Department-level compliance support, standardized training and consolidated reporting for hospitals, health systems and outpatient networks.
+- [Business Associates](https://www.healthcarecompliancepros.com/index.htmlbusiness-associates.html): Business associates are directly liable under HIPAA. Build a documented Security Rule program, answer client security reviews and track subcontractor BAAs.
+- [Medical Billing Companies](https://www.healthcarecompliancepros.com/index.htmlmedical-billing.html): HIPAA and corporate compliance programs for billing companies: Security Rule documentation, coding integrity, FWA training and client security reviews.
+- [Private Equity](https://www.healthcarecompliancepros.com/index.htmlprivateequity.html): Standardize compliance across a healthcare portfolio: diligence support, post-close integration, coding risk assessment and platform-level reporting.
+
+## Specialties
+
+- [All specialties](https://www.healthcarecompliancepros.com/index.htmlspecialties.html): Compliance programs built around the workflows, procedures and coding patterns specific to your specialty. Browse all specialties we support.
+- [Orthopedics compliance](https://www.healthcarecompliancepros.com/index.htmlspecialties.htmlorthopedics/): HIPAA, OSHA and coding compliance built around orthopedics workflows, with assigned advisors and role-based staff training.
+- [Dermatology compliance](https://www.healthcarecompliancepros.com/index.htmlspecialties.htmldermatology/): HIPAA, OSHA and coding compliance built around dermatology workflows, with assigned advisors and role-based staff training.
+- [Radiology & Imaging compliance](https://www.healthcarecompliancepros.com/index.htmlspecialties.htmlradiology/): HIPAA, OSHA and coding compliance built around radiology & imaging workflows, with assigned advisors and role-based staff training.
+- [ENT / Otolaryngology compliance](https://www.healthcarecompliancepros.com/index.htmlspecialties.htmlent/): HIPAA, OSHA and coding compliance built around ent / otolaryngology workflows, with assigned advisors and role-based staff training.
+- [Family Medicine compliance](https://www.healthcarecompliancepros.com/index.htmlspecialties.htmlfamily-medicine/): HIPAA, OSHA and coding compliance built around family medicine workflows, with assigned advisors and role-based staff training.
+- [Audiology compliance](https://www.healthcarecompliancepros.com/index.htmlspecialties.htmlaudiology/): HIPAA, OSHA and coding compliance built around audiology workflows, with assigned advisors and role-based staff training.
+- [Behavioral Health compliance](https://www.healthcarecompliancepros.com/index.htmlspecialties.htmlbehavioral-health/): HIPAA, OSHA and coding compliance built around behavioral health workflows, with assigned advisors and role-based staff training.
+- [MedSpa & Aesthetics compliance](https://www.healthcarecompliancepros.com/index.htmlspecialties.htmlmedspa/): HIPAA, OSHA and coding compliance built around medspa & aesthetics workflows, with assigned advisors and role-based staff training.
+- [Pediatrics compliance](https://www.healthcarecompliancepros.com/index.htmlspecialties.htmlpediatrics/): HIPAA, OSHA and coding compliance built around pediatrics workflows, with assigned advisors and role-based staff training.
+- [Physical Therapy compliance](https://www.healthcarecompliancepros.com/index.htmlspecialties.htmlphysical-therapy/): HIPAA, OSHA and coding compliance built around physical therapy workflows, with assigned advisors and role-based staff training.
+
+## Company
+
+- [About HCP](https://www.healthcarecompliancepros.com/index.htmlabout.html): Healthcare Compliance Pros pairs compliance software with assigned advisor teams so HIPAA, OSHA and corporate compliance become routine.
+- [Our Team](https://www.healthcarecompliancepros.com/index.htmlour-team.html): Meet the compliance advisors, certified coders, safety specialists and support staff assigned to HCP client programs.
+- [Client Testimonials](https://www.healthcarecompliancepros.com/index.htmltestimonials.html): What compliance officers, administrators and practice owners say about working with HCP advisors and the compliance platform.
+- [Partner Program](https://www.healthcarecompliancepros.com/index.htmlpartners.html): Refer clients or bundle HCP compliance into your offering. Built for MSOs, billing companies, EHR vendors, brokers and consultants.
+- [Careers](https://www.healthcarecompliancepros.com/index.htmlcareers.html): Join a team helping healthcare organizations build compliance programs that hold up. See roles, how we work and how to apply.
+- [Contact](https://www.healthcarecompliancepros.com/index.htmlcontact.html): Talk to a compliance advisor about HIPAA, OSHA or corporate compliance. Call (855) 427-0427 or request a free consultation online.
+
+## Resources
+
+- [Compliance Blog](https://www.healthcarecompliancepros.com/index.htmlblog/): Practical guidance on HIPAA, OSHA, corporate compliance, coding and emerging risk, written by the HCP advisory team.
+- [The compliance management tools every healthcare organization needs](https://www.healthcarecompliancepros.com/index.htmlthe-essential-compliance-management-tools-every-business-needs/): The six compliance management tools healthcare organizations actually need, in the order they should be adopted and what each must produce.
+- [Unpacking AI compliance: what healthcare organizations need to know](https://www.healthcarecompliancepros.com/index.htmlunpacking-ai-compliance-what-every-business-needs-to-know/): How HIPAA applies to AI scribes, chatbots and coding assistants, and the business associate questions practices must answer before deployment.
+- [How to evaluate compliance software without getting burned](https://www.healthcarecompliancepros.com/index.htmldiscover-the-top-compliance-software-solutions-for-your-organization/): A practical framework for evaluating healthcare compliance software, including the questions that reveal whether a platform will hold up in an audit.
+- [Webinars](https://www.healthcarecompliancepros.com/index.htmlwebinars/): Free live and recorded webinars on HIPAA, OSHA, corporate compliance and coding, led by HCP compliance advisors with live Q&A.
+- [Podcasts](https://www.healthcarecompliancepros.com/index.htmlpodcasts/): Longer-form healthcare compliance conversations with HCP advisors and guests on enforcement trends, practical fixes and recurring mistakes.
+- [Events](https://www.healthcarecompliancepros.com/index.htmlevents/): Conferences, association meetings and specialty events where HCP compliance advisors are speaking, exhibiting or available for questions.
+- [Compliance Tips & FAQ](https://www.healthcarecompliancepros.com/index.htmltips-faqs/): Straight answers to the HIPAA, OSHA and corporate compliance questions healthcare organizations ask most, from the HCP advisory team.
+
+## Legal
+
+- [Privacy Policy](https://www.healthcarecompliancepros.com/index.htmlprivacypolicy/): How Healthcare Compliance Pros collects, uses, shares and protects information from this website and from client compliance programs.
+- [Fulfillment Policy](https://www.healthcarecompliancepros.com/index.htmlfulfillment-policy/): How HCP subscriptions are delivered, billed, renewed and cancelled, including implementation timelines and refund terms.
+
+## Other pages
+
+- [Healthcare Compliance Software](https://www.healthcarecompliancepros.com/index.html): HIPAA, OSHA and corporate compliance software backed by assigned compliance advisors. Free risk assessment. Call (855) 427-0427.
+
+## Contact
+
+To reach Healthcare Compliance Pros, call (855) 427-0427, email info@healthcarecompliancepros.com, or use
+the consultation form at https://www.healthcarecompliancepros.com/index.htmlcontact.html. A free compliance risk
+assessment is available at https://www.healthcarecompliancepros.com/index.htmlcompliance-assessment.html.
+
+## Usage
+
+Content on this site may be cited and summarized with attribution to
+Healthcare Compliance Pros. Nothing on this site is legal advice; regulatory requirements
+vary by organization, state and circumstance.

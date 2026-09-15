@@ -1,0 +1,16 @@
+# https://www.robotstxt.org/
+User-agent: *
+Allow: /
+Disallow: /search/
+
+# AI assistants and answer engines — see /llms.txt for a structured site guide.
+User-agent: GPTBot
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: https://www.healthcarecompliancepros.com/sitemap.xml

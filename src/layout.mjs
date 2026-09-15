@@ -1,0 +1,359 @@
+import { site, nav, footerNav } from './site.mjs';
+import { spriteFor } from './icons.mjs';
+
+/* ------------------------------------------------------------------ *
+ * Small helpers
+ * ------------------------------------------------------------------ */
+
+export const esc = (s = '') =>
+  String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+
+export const abs = (path) => site.origin + path;
+
+/**
+ * Every <img> on this site goes through here, which is how we guarantee
+ * the audit's "image title attributes not found" issue can never regress:
+ * alt AND title are both required arguments.
+ */
+export function img({ src, alt, title, width, height, cls = '', loading = 'lazy', fetchpriority }) {
+  if (!alt || !title) throw new Error(`img() requires alt and title (src: ${src})`);
+  return `<img src="${src}" alt="${esc(alt)}" title="${esc(title)}" width="${width}" height="${height}"` +
+    (cls ? ` class="${cls}"` : '') +
+    ` loading="${loading}" decoding="async"` +
+    (fetchpriority ? ` fetchpriority="${fetchpriority}"` : '') + '>';
+}
+
+/** Reference an icon from the per-page inline sprite (keeps markup lean). */
+export const icon = (name, cls = 'ic') =>
+  `<svg class="${cls}" aria-hidden="true" focusable="false"><use href="#${name}"></use></svg>`;
+
+/* ------------------------------------------------------------------ *
+ * Structured data (audit issues 1, 2, 3 + FAQPage)
+ * ------------------------------------------------------------------ */
+
+function organizationSchema() {
+  return {
+    '@type': 'Organization',
+    '@id': abs('/#organization'),
+    name: site.name,
+    legalName: site.legalName,
+    alternateName: site.shortName,
+    url: abs('/'),
+    logo: {
+      '@type': 'ImageObject',
+      '@id': abs('/#logo'),
+      url: abs('/assets/img/logo.png'),
+      contentUrl: abs('/assets/img/logo.png'),
+      width: 1440,
+      height: 576,
+      caption: `${site.name} logo`
+    },
+    image: { '@id': abs('/#logo') },
+    description:
+      'Healthcare Compliance Pros provides HIPAA, OSHA and corporate compliance software, ' +
+      'training and expert support for medical practices, hospitals and business associates.',
+    foundingDate: site.founded,
+    telephone: site.phoneE164,
+    email: site.email,
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: site.address.street,
+      addressLocality: site.address.locality,
+      addressRegion: site.address.region,
+      postalCode: site.address.postalCode,
+      addressCountry: site.address.country
+    },
+    contactPoint: [
+      {
+        '@type': 'ContactPoint',
+        telephone: site.phoneE164,
+        contactType: 'sales',
+        areaServed: 'US',
+        availableLanguage: 'English'
+      },
+      {
+        '@type': 'ContactPoint',
+        telephone: site.phoneE164,
+        contactType: 'customer support',
+        areaServed: 'US',
+        availableLanguage: 'English'
+      }
+    ],
+    sameAs: site.social,
+    knowsAbout: [
+      'HIPAA compliance', 'OSHA compliance', 'Corporate compliance', 'HIPAA Security Risk Analysis',
+      'Fraud, Waste and Abuse training', 'Medical coding audits', 'Healthcare compliance training'
+    ],
+    areaServed: { '@type': 'Country', name: 'United States' }
+  };
+}
+
+function websiteSchema() {
+  return {
+    '@type': 'WebSite',
+    '@id': abs('/#website'),
+    url: abs('/'),
+    name: site.name,
+    alternateName: `${site.shortName} Compliance`,
+    description: site.tagline,
+    inLanguage: 'en-US',
+    publisher: { '@id': abs('/#organization') },
+    potentialAction: {
+      '@type': 'SearchAction',
+      target: { '@type': 'EntryPoint', urlTemplate: abs('/search/?q={search_term_string}') },
+      'query-input': 'required name=search_term_string'
+    }
+  };
+}
+
+function breadcrumbSchema(page) {
+  const trail = [{ label: 'Home', href: '/' }, ...(page.breadcrumbs || [])];
+  return {
+    '@type': 'BreadcrumbList',
+    '@id': abs(page.path) + '#breadcrumb',
+    itemListElement: trail.map((c, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: c.label,
+      item: abs(c.href)
+    }))
+  };
+}
+
+function webPageSchema(page) {
+  return {
+    '@type': page.pageType || 'WebPage',
+    '@id': abs(page.path) + '#webpage',
+    url: abs(page.path),
+    name: page.title,
+    description: page.description,
+    isPartOf: { '@id': abs('/#website') },
+    about: { '@id': abs('/#organization') },
+    breadcrumb: { '@id': abs(page.path) + '#breadcrumb' },
+    inLanguage: 'en-US',
+    datePublished: page.datePublished || '2026-01-06',
+    dateModified: page.dateModified || '2026-09-15',
+    primaryImageOfPage: { '@id': abs('/#logo') }
+  };
+}
+
+function faqSchema(page) {
+  if (!page.faqs || !page.faqs.length) return null;
+  return {
+    '@type': 'FAQPage',
+    '@id': abs(page.path) + '#faq',
+    mainEntity: page.faqs.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a.replace(/<[^>]+>/g, '') }
+    }))
+  };
+}
+
+function buildGraph(page) {
+  const graph = [
+    organizationSchema(),
+    websiteSchema(),
+    webPageSchema(page),
+    breadcrumbSchema(page)
+  ];
+  const faq = faqSchema(page);
+  if (faq) graph.push(faq);
+  if (page.extraSchema) graph.push(...page.extraSchema);
+  return JSON.stringify({ '@context': 'https://schema.org', '@graph': graph });
+}
+
+/* ------------------------------------------------------------------ *
+ * Head
+ * ------------------------------------------------------------------ */
+
+function head(page, criticalCss, cssHash) {
+  const canonical = abs(page.path);
+  const ogImage = abs(page.ogImage || '/assets/img/og-default.png');
+  return `<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>${esc(page.title)}</title>
+<meta name="description" content="${esc(page.description)}">
+<link rel="canonical" href="${canonical}">
+<meta name="robots" content="${page.noindex ? 'noindex,follow' : 'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1'}">
+<meta name="theme-color" content="#094879">
+<meta property="og:type" content="${page.ogType || 'website'}">
+<meta property="og:site_name" content="${esc(site.name)}">
+<meta property="og:locale" content="en_US">
+<meta property="og:url" content="${canonical}">
+<meta property="og:title" content="${esc(page.ogTitle || page.title)}">
+<meta property="og:description" content="${esc(page.description)}">
+<meta property="og:image" content="${ogImage}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@HCPcompliance">
+<meta name="twitter:title" content="${esc(page.ogTitle || page.title)}">
+<meta name="twitter:description" content="${esc(page.description)}">
+<meta name="twitter:image" content="${ogImage}">
+<link rel="icon" href="/assets/img/favicon.png" type="image/png" sizes="48x48">
+<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="sitemap" type="application/xml" href="/sitemap.xml">
+<style>${criticalCss}</style>
+<link rel="preload" href="/assets/css/main.css?v=${cssHash}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="/assets/css/main.css?v=${cssHash}"></noscript>
+<script type="application/ld+json">${buildGraph(page)}</script>`;
+}
+
+/* ------------------------------------------------------------------ *
+ * Header / navigation
+ * ------------------------------------------------------------------ */
+
+// The official HCP logo, taken from the live site (1440x576 source, 2.5:1).
+const logoMark = (cls) =>
+  `<img src="/assets/img/logo.png" alt="Healthcare Compliance Pros" title="Healthcare Compliance Pros home" width="1440" height="576" class="${cls}" decoding="async">`;
+
+function navMarkup(currentPath) {
+  return nav.map((item, i) => {
+    const active = currentPath === item.href || (item.href !== '/' && currentPath.startsWith(item.href));
+    if (!item.mega) {
+      return `<li><a href="${item.href}"${active ? ' aria-current="page"' : ''}>${esc(item.label)}</a></li>`;
+    }
+    const id = `mega-${i}`;
+    const cols = item.mega.map((col) =>
+      `<div class="mega-col"><p class="mega-h">${esc(col.heading)}</p><ul>` +
+      col.links.map((l) => `<li><a href="${l.href}">${esc(l.label)}</a></li>`).join('') +
+      `</ul></div>`
+    ).join('');
+    return `<li class="has-mega">
+<button type="button" class="nav-trigger" aria-expanded="false" aria-controls="${id}"${active ? ' data-active="true"' : ''}>${esc(item.label)}${icon('chevron', 'ic ic-xs')}</button>
+<div class="mega" id="${id}" hidden><div class="mega-inner">${cols}</div></div>
+</li>`;
+  }).join('');
+}
+
+function header(page) {
+  return `<a class="skip" href="#main">Skip to main content</a>
+<div class="topbar">
+  <div class="wrap topbar-in">
+    <p class="topbar-msg">Trusted by healthcare organizations nationwide since ${site.founded}.</p>
+    <p class="topbar-actions">
+      <a href="tel:${site.phoneE164}" class="topbar-link">${icon('phone', 'ic ic-xs')}<span>${site.phoneDisplay}</span></a>
+      <a href="${site.loginUrl}" class="topbar-link" rel="nofollow">Client Login</a>
+    </p>
+  </div>
+</div>
+<header class="site-head">
+  <div class="wrap head-in">
+    <a class="brand" href="/">${logoMark('brand-img')}</a>
+    <nav class="primary" aria-label="Primary">
+      <ul class="nav-list">${navMarkup(page.path)}</ul>
+    </nav>
+    <div class="head-cta">
+      <a class="btn btn-ghost" href="/compliance-assessment/">Free Risk Assessment</a>
+      <a class="btn btn-primary" href="/contact/">Schedule a Consultation</a>
+    </div>
+    <button type="button" class="burger" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-nav" id="mobile-nav" hidden>
+    <nav aria-label="Mobile">
+      <ul class="mnav">
+        ${nav.map((item, i) => item.mega
+          ? `<li><button type="button" class="macc" aria-expanded="false" aria-controls="macc-${i}">${esc(item.label)}${icon('chevron', 'ic ic-xs')}</button>
+<div class="macc-panel" id="macc-${i}" hidden>${item.mega.map((c) =>
+              `<p class="mega-h">${esc(c.heading)}</p><ul>${c.links.map((l) => `<li><a href="${l.href}">${esc(l.label)}</a></li>`).join('')}</ul>`
+            ).join('')}</div></li>`
+          : `<li><a href="${item.href}">${esc(item.label)}</a></li>`).join('')}
+        <li><a href="${site.loginUrl}" rel="nofollow">Client Login</a></li>
+      </ul>
+      <div class="mnav-cta">
+        <a class="btn btn-primary btn-block" href="/contact/">Schedule a Consultation</a>
+        <a class="btn btn-ghost btn-block" href="tel:${site.phoneE164}">Call ${site.phoneDisplay}</a>
+      </div>
+    </nav>
+  </div>
+</header>`;
+}
+
+/** Visible breadcrumb trail, mirroring the BreadcrumbList schema. */
+function breadcrumbNav(page) {
+  if (page.path === '/') return '';
+  const trail = [{ label: 'Home', href: '/' }, ...(page.breadcrumbs || [])];
+  return `<nav class="crumbs" aria-label="Breadcrumb"><div class="wrap"><ol>` +
+    trail.map((c, i) =>
+      i === trail.length - 1
+        ? `<li><span aria-current="page">${esc(c.label)}</span></li>`
+        : `<li><a href="${c.href}">${esc(c.label)}</a></li>`
+    ).join('') +
+    `</ol></div></nav>`;
+}
+
+/* ------------------------------------------------------------------ *
+ * Footer
+ * ------------------------------------------------------------------ */
+
+const socialLabels = { facebook: 'Facebook', x: 'X (Twitter)', youtube: 'YouTube', linkedin: 'LinkedIn' };
+
+function footer() {
+  const year = 2026;
+  const socialLinks = site.social.map((url) => {
+    const key = url.includes('facebook') ? 'facebook'
+      : url.includes('x.com') ? 'x'
+      : url.includes('youtube') ? 'youtube' : 'linkedin';
+    return `<li><a href="${url}" rel="noopener me" target="_blank" aria-label="${socialLabels[key]}" title="${socialLabels[key]}">${icon(key, 'ic')}</a></li>`;
+  }).join('');
+
+  return `<footer class="site-foot" id="footer">
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <a href="/">${logoMark('brand-img foot-logo')}</a>
+        <p>Healthcare Compliance Pros combines a purpose-built compliance platform with a named team of
+        compliance advisors, so HIPAA, OSHA and corporate compliance stop being a scramble and start being routine.</p>
+        <address class="foot-addr">
+          <span>${esc(site.address.street)}</span>
+          <span>${esc(site.address.locality)}, ${site.address.region} ${site.address.postalCode}</span>
+          <a href="tel:${site.phoneE164}">${site.phoneDisplay}</a>
+          <a href="mailto:${site.email}">${site.email}</a>
+        </address>
+        <ul class="social">${socialLinks}</ul>
+      </div>
+      <div class="foot-cols">
+        ${footerNav.map((col) =>
+          `<nav class="foot-col" aria-label="${esc(col.heading)}"><p class="foot-h">${esc(col.heading)}</p><ul>` +
+          col.links.map((l) => `<li><a href="${l.href}">${esc(l.label)}</a></li>`).join('') +
+          `</ul></nav>`).join('')}
+      </div>
+    </div>
+    <div class="foot-bar">
+      <p>&copy; ${year} ${esc(site.legalName)}. All rights reserved.</p>
+      <ul class="foot-legal">
+        <li><a href="/privacypolicy/">Privacy Policy</a></li>
+        <li><a href="/fulfillment-policy/">Fulfillment Policy</a></li>
+        <li><a href="/sitemap.xml">Sitemap</a></li>
+        <li><a href="/llms.txt">llms.txt</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>`;
+}
+
+/* ------------------------------------------------------------------ *
+ * Page shell
+ * ------------------------------------------------------------------ */
+
+export function renderPage(page, { criticalCss, cssHash, jsHash }) {
+  const shell = `${header(page)}
+${breadcrumbNav(page)}
+<main id="main">
+${page.body}
+</main>
+${footer()}`;
+  return `<!doctype html>
+<html lang="en-US">
+<head>
+${head(page, criticalCss, cssHash)}
+</head>
+<body class="${page.bodyClass || ''}">
+${spriteFor(shell)}
+${shell}
+<script src="/assets/js/main.js?v=${jsHash}" defer></script>
+</body>
+</html>`;
+}
