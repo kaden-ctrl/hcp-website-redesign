@@ -1,5 +1,5 @@
 import { buildPage, section, prose, cards, checklist, steps, quotes } from '../shared.mjs';
-import { abs, esc } from '../layout.mjs';
+import { abs, esc, img } from '../layout.mjs';
 import { site } from '../site.mjs';
 
 const G = 'Company';
@@ -175,6 +175,7 @@ const about = buildPage({
     'Clients from solo practices to health system departments and PE platforms'
   ],
   heroStat: `Founded in ${site.founded}`,
+  heroMedia: { src: '/assets/img/site/feature-comprehensive.webp', alt: 'A team of healthcare professionals standing together', title: 'The Healthcare Compliance Pros team', width: 1000, height: 563 },
   sections: [
     section({
       cls: 'sec-alt',
@@ -252,15 +253,24 @@ const team = buildPage({
       eyebrow: 'Roles on your team',
       h2: 'Who does what',
       lead: 'Compliance work spans several disciplines. Rather than one generalist, you get specialists for each.',
-      body: `<ul class="people">
-        <li class="person"><span class="person-av" aria-hidden="true">CA</span><h3>Compliance Advisor</h3><p class="person-role">Your primary contact</p><p>Owns your program day to day: policy customization, regulatory updates, incident guidance and audit response. Learns your specialty and your history so context does not have to be re-explained.</p></li>
-        <li class="person"><span class="person-av" aria-hidden="true">IS</span><h3>Implementation Specialist</h3><p class="person-role">Onboarding</p><p>Runs your build: discovery, policy customization, roster import, role-to-training mapping and the dashboard walkthrough that gets your compliance officer operating independently.</p></li>
-        <li class="person"><span class="person-av" aria-hidden="true">SR</span><h3>Security Risk Analyst</h3><p class="person-role">HIPAA Security</p><p>Conducts your Security Risk Analysis against actual systems and data flows, documents findings, and builds the risk management plan with owners and target dates.</p></li>
-        <li class="person"><span class="person-av" aria-hidden="true">CC</span><h3>Certified Coder</h3><p class="person-role">Coding &amp; documentation</p><p>Audits documentation against billed claims in your specialty, produces provider-level findings, and builds the corrective education assigned through the platform.</p></li>
-        <li class="person"><span class="person-av" aria-hidden="true">SS</span><h3>Safety Specialist</h3><p class="person-role">OSHA programs</p><p>Builds exposure control and hazard communication programs, conducts facility walkthroughs, and supports inspection response for clinical environments.</p></li>
-        <li class="person"><span class="person-av" aria-hidden="true">TS</span><h3>Technical Support</h3><p class="person-role">Platform</p><p>Handles access, configuration, reporting questions and integrations, so platform mechanics never become the reason a compliance task stalls.</p></li>
+      body: `<ul class="people people-photo">
+        <li class="person"><span class="person-photo">${img({ src: '/assets/img/site/team-eric.webp', alt: 'Eric Christensen', title: 'Eric Christensen, Owner / Co-Founder', width: 520, height: 520 })}</span>
+          <h3>Eric Christensen</h3><p class="person-role">Owner / Co-Founder</p></li>
+        <li class="person"><span class="person-photo">${img({ src: '/assets/img/site/team-bryan.webp', alt: 'Bryan Roberts', title: 'Bryan Roberts, Owner / Co-Founder', width: 520, height: 520 })}</span>
+          <h3>Bryan Roberts</h3><p class="person-role">Owner / Co-Founder</p></li>
+        <li class="person"><span class="person-photo">${img({ src: '/assets/img/site/team-adam.webp', alt: 'Adam Laing', title: 'Adam Laing, Chief Executive Officer', width: 520, height: 520 })}</span>
+          <h3>Adam Laing</h3><p class="person-role">Chief Executive Officer</p></li>
+        <li class="person"><span class="person-photo">${img({ src: '/assets/img/site/team-chad.webp', alt: 'Chad Schiffman', title: 'Chad Schiffman, Director of Risk Management', width: 520, height: 520 })}</span>
+          <h3>Chad Schiffman</h3><p class="person-role">Director of Risk Management</p></li>
+        <li class="person"><span class="person-photo">${img({ src: '/assets/img/site/team-mystee.webp', alt: 'Mystee Sudbury', title: 'Mystee Sudbury, Director of Operations', width: 520, height: 520 })}</span>
+          <h3>Mystee Sudbury</h3><p class="person-role">Director of Operations</p></li>
+        <li class="person"><span class="person-photo">${img({ src: '/assets/img/site/team-kristin.webp', alt: 'Kristin Torres', title: 'Kristin Torres, Operations Manager', width: 520, height: 520 })}</span>
+          <h3>Kristin Torres</h3><p class="person-role">Operations Manager</p></li>
+        <li class="person"><span class="person-photo">${img({ src: '/assets/img/site/team-jeremy.webp', alt: 'Jeremy Winn', title: 'Jeremy Winn, Director of Sales', width: 520, height: 520 })}</span>
+          <h3>Jeremy Winn</h3><p class="person-role">Director of Sales</p></li>
       </ul>
-      <p class="center mt-2">Leadership biographies and individual advisor profiles are available on request —
+      <p class="center mt-2">Beyond the leadership team, every client is supported by assigned advisors,
+      certified coders, safety specialists and implementation staff —
       <a href="/contact/">ask to meet your team</a> before you commit.</p>`
     }),
     section({

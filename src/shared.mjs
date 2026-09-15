@@ -1,6 +1,7 @@
 import {
   hero, section, prose, cards, checklist, steps, stats,
-  differentiators, useCases, faqSection, quotes, cta, related, icon
+  differentiators, useCases, faqSection, quotes, cta, related, icon,
+  pillar, services, media
 } from './components.mjs';
 
 /* Differentiators reused where a page has no more specific angle. */
@@ -35,7 +36,8 @@ export function buildPage(cfg) {
       primary: cfg.primaryCta || { label: 'Get a free risk assessment', href: '/compliance-assessment/' },
       secondary: cfg.secondaryCta || { label: 'Schedule a consultation', href: '/contact/' },
       stat: cfg.heroStat,
-      variant: cfg.heroVariant || 'dark'
+      variant: cfg.heroVariant || 'dark',
+      media: cfg.heroMedia
     }),
     ...(cfg.sections || []),
     differentiators({
@@ -76,4 +78,4 @@ export function buildPage(cfg) {
   };
 }
 
-export { hero, section, prose, cards, checklist, steps, stats, quotes, related, cta, icon, faqSection, useCases, differentiators };
+export { hero, section, prose, cards, checklist, steps, stats, quotes, related, cta, icon, faqSection, useCases, differentiators, pillar, services, media };

@@ -1,7 +1,9 @@
 import {
   hero, section, prose, cards, checklist, steps, stats,
-  differentiators, useCases, faqSection, quotes, cta, related, icon
+  differentiators, useCases, faqSection, quotes, cta, related, icon,
+  pillar, services, media
 } from '../components.mjs';
+import { img } from '../layout.mjs';
 import { site } from '../site.mjs';
 import { abs } from '../layout.mjs';
 
@@ -53,7 +55,13 @@ const body = [
     ],
     primary: { label: 'Get a free risk assessment', href: '/compliance-assessment/' },
     secondary: { label: 'Schedule a consultation', href: '/contact/' },
-    stat: `Trusted by healthcare organizations nationwide since ${site.founded}`
+    stat: `Trusted by healthcare organizations nationwide since ${site.founded}`,
+    media: {
+      src: '/assets/img/site/feature-map.webp',
+      alt: 'Two healthcare professionals reviewing compliance documentation on a laptop and tablet',
+      title: 'Healthcare teams using the HCP compliance platform',
+      width: 1400, height: 812
+    }
   }),
 
   section({
@@ -85,62 +93,38 @@ const body = [
     h2: 'One platform for every compliance obligation you carry',
     lead: 'Four connected programs, one staff login, one dashboard showing where every requirement stands.',
     body: `<div class="pillars">
-      <article class="pillar">
-        <p class="pillar-tag">Program</p>
-        <h3>HIPAA Compliance</h3>
-        <p>Privacy and Security Rule coverage from documentation through incident response.</p>
-        ${checklist([
-          'Customized Privacy &amp; Security policies and procedures',
-          'Annual and role-based HIPAA training',
-          'Security Risk Analysis with a tracked remediation plan',
-          'Business Associate Agreement management',
-          'Breach risk assessment and notification guidance',
-          'Expert audit and investigation support'
-        ])}
-        <a class="btn btn-ghost" href="/compliance-solution/hipaa/">Explore HIPAA compliance</a>
-      </article>
-      <article class="pillar">
-        <p class="pillar-tag">Program</p>
-        <h3>OSHA Compliance</h3>
-        <p>Workplace safety built for clinical environments, not generic industrial templates.</p>
-        ${checklist([
-          'Bloodborne Pathogens exposure control plan',
-          'Hazard Communication and virtual SDS binder',
-          'Facility safety inspection checklists and logs',
-          'Hazard and risk assessments',
-          'Annual and new-hire safety training',
-          'Inspection preparation and response support'
-        ])}
-        <a class="btn btn-ghost" href="/compliance-solution/osha/">Explore OSHA compliance</a>
-      </article>
-      <article class="pillar">
-        <p class="pillar-tag">Program</p>
-        <h3>Corporate Compliance</h3>
-        <p>A documented program built on the seven elements CMS and the OIG expect to see.</p>
-        ${checklist([
-          'Code of conduct and compliance policies',
-          'Fraud, Waste &amp; Abuse and False Claims Act training',
-          'Anonymous compliance hotline',
-          'OIG and SAM exclusion monitoring',
-          'Compliance committee structure and meeting records',
-          'Internal auditing and corrective action tracking'
-        ])}
-        <a class="btn btn-ghost" href="/compliance-solution/corporate-compliance/">Explore corporate compliance</a>
-      </article>
-      <article class="pillar">
-        <p class="pillar-tag">Platform</p>
-        <h3>Learning Management System</h3>
-        <p>130+ courses with automated assignment, reminders and certificate tracking.</p>
-        ${checklist([
-          'Role-based training tracks assigned automatically',
-          'Automated scheduling, reminders and annual refreshers',
-          'AMA PRA Category 1 Credits&trade; on select courses',
-          'Custom course builder with narration, video and quizzes',
-          'Real-time completion reporting by person and department',
-          'Certificates generated and stored automatically'
-        ])}
-        <a class="btn btn-ghost" href="/compliance-solution/lms/">Explore the LMS</a>
-      </article>
+      ${pillar({
+        tag: 'HIPAA', title: 'HIPAA Compliance',
+        text: 'Privacy and Security Rule coverage from documentation through incident response.',
+        image: { src: '/assets/img/site/prog-hipaa.webp', alt: 'Clinician interacting with a HIPAA data security interface', title: 'HIPAA compliance program', width: 900, height: 601 },
+        badgeIcon: '/assets/img/site/tab-hipaa.webp',
+        items: ['Customized Privacy &amp; Security policies', 'Annual and role-based HIPAA training', 'Security Risk Analysis with tracked remediation', 'Business Associate Agreement management', 'Breach risk assessment and notification guidance', 'Expert audit and investigation support'],
+        href: '/compliance-solution/hipaa/', cta: 'Explore HIPAA compliance'
+      })}
+      ${pillar({
+        tag: 'OSHA', title: 'OSHA Compliance',
+        text: 'Workplace safety built for clinical environments, not generic industrial templates.',
+        image: { src: '/assets/img/site/prog-osha.webp', alt: 'Clinical staff member in surgical gown, mask and gloves', title: 'OSHA compliance program', width: 900, height: 601 },
+        badgeIcon: '/assets/img/site/tab-osha.webp',
+        items: ['Bloodborne Pathogens exposure control plan', 'Hazard Communication and virtual SDS binder', 'Facility safety inspection checklists and logs', 'Hazard and risk assessments', 'Annual and new-hire safety training', 'Inspection preparation and response support'],
+        href: '/compliance-solution/osha/', cta: 'Explore OSHA compliance'
+      })}
+      ${pillar({
+        tag: 'Corporate', title: 'Corporate Compliance',
+        text: 'A documented program built on the seven elements CMS and the OIG expect to see.',
+        image: { src: '/assets/img/site/prog-corporate.webp', alt: 'Illustration representing billing integrity and fraud, waste and abuse risk', title: 'Corporate compliance program', width: 900, height: 506, cut: true },
+        badgeIcon: '/assets/img/site/tab-corporate.webp',
+        items: ['Code of conduct and compliance policies', 'Fraud, Waste &amp; Abuse and False Claims Act training', 'Anonymous compliance hotline', 'OIG and SAM exclusion monitoring', 'Compliance committee structure and records', 'Internal auditing and corrective action tracking'],
+        href: '/compliance-solution/corporate-compliance/', cta: 'Explore corporate compliance'
+      })}
+      ${pillar({
+        tag: 'LMS', title: 'Learning Management System',
+        text: '130+ courses with automated assignment, reminders and certificate tracking.',
+        image: { src: '/assets/img/site/prog-lms.webp', alt: 'Clinician completing online compliance training at a desk', title: 'Learning management system', width: 900, height: 600 },
+        badgeIcon: '/assets/img/site/tab-lms.webp',
+        items: ['Role-based training tracks assigned automatically', 'Automated scheduling, reminders and refreshers', 'AMA PRA Category 1 Credits&trade; on select courses', 'Custom course builder with narration and quizzes', 'Real-time completion reporting', 'Certificates generated and stored automatically'],
+        href: '/compliance-solution/lms/', cta: 'Explore the LMS'
+      })}
     </div>`
   }),
 
@@ -176,6 +160,19 @@ const body = [
       { capability: 'Security Risk Analysis', hcp: 'Guided, documented, with tracked remediation', them: 'Self-service questionnaire with a PDF output' },
       { capability: 'Regulatory updates', hcp: 'Pushed into your policies and courses', them: 'Emailed newsletter; updates are your responsibility' }
     ]
+  }),
+
+  section({
+    eyebrow: 'Beyond the platform',
+    h2: 'Looking for more ways to strengthen your compliance strategy?',
+    lead: 'Expert services that plug into your program when you need capability the software alone cannot provide.',
+    body: services([
+      { icon: '/assets/img/site/icon-fractional.svg', title: 'Fractional Compliance Officer', text: 'Fill the role without a full-time hire', href: '/fractional-compliance-officer/' },
+      { icon: '/assets/img/site/icon-onsite.svg', title: 'On-Site Services', text: 'Training, walkthroughs and mock audits', href: '/on-site-services/' },
+      { icon: '/assets/img/site/icon-credential.svg', title: 'Credential Manager', text: 'Licences tracked before they lapse', href: '/credential-manager/' },
+      { icon: '/assets/img/site/icon-background.svg', title: 'Background Checks', text: 'Screening that continues after hire', href: '/background-checks/' },
+      { icon: '/assets/img/site/tab-corporate.webp', title: 'Coding Auditing', text: 'Find coding risk before a payer does', href: '/coding-compliance/' }
+    ])
   }),
 
   section({
@@ -242,13 +239,36 @@ const body = [
   }),
 
   section({
+    cls: 'sec-alt',
+    body: `<div class="split">
+      <div class="split-copy">
+        <p class="eyebrow">Comprehensive healthcare compliance software</p>
+        <h2>Stay current. Avoid penalties.</h2>
+        <p>Healthcare organizations face relentless regulatory oversight across HIPAA, OSHA, corporate
+        compliance and human resources. Most have struggled to find an efficient, affordable way to stay
+        current with obligations that carry high overhead and no revenue.</p>
+        <p>HCP was built to remove that burden: online tools that generate evidence as your team works,
+        paired with compliance professionals who know your organization by name. You focus on patient
+        care; we handle the detail.</p>
+        <p class="hero-cta"><a class="btn btn-primary" href="/solutions/the-hcp-difference/">Explore the HCP difference</a></p>
+      </div>
+      <div class="split-media">${media({
+        src: '/assets/img/site/feature-comprehensive.webp',
+        alt: 'A team of healthcare professionals standing together',
+        title: 'The Healthcare Compliance Pros approach',
+        width: 1000, height: 563, cut: true
+      })}</div>
+    </div>`
+  }),
+
+  section({
     eyebrow: 'Client feedback',
     h2: 'What compliance officers tell us',
     lead: 'The consistent theme: responsiveness, and no longer carrying the program alone.',
     body: quotes([
-      { text: 'We moved from a binder nobody opened to a system that tells me exactly who is behind on training. When our advisor says she will call back, she calls back.', name: 'Practice Administrator', role: 'Multi-provider family medicine group' },
-      { text: 'The audit support alone justified the subscription. Having someone who had done this before on the phone within the hour changed the whole experience.', name: 'Compliance Officer', role: 'Regional specialty network' },
-      { text: 'Our staff finishes their training now, which was never true before. The assignments show up, the reminders go out, and I stop chasing people.', name: 'Office Manager', role: 'Independent dermatology practice' }
+      { text: 'We moved from a binder nobody opened to a system that tells me exactly who is behind on training. When our advisor says she will call back, she calls back.', name: 'Practice Administrator', role: 'Multi-provider family medicine group', portrait: '/assets/img/site/person-1.webp' },
+      { text: 'The audit support alone justified the subscription. Having someone who had done this before on the phone within the hour changed the whole experience.', name: 'Compliance Officer', role: 'Regional specialty network', portrait: '/assets/img/site/person-2.webp' },
+      { text: 'Our staff finishes their training now, which was never true before. The assignments show up, the reminders go out, and I stop chasing people.', name: 'Office Manager', role: 'Independent dermatology practice', portrait: '/assets/img/site/person-3.webp' }
     ]) + `<p class="center mt-2"><a class="btn btn-ghost" href="/testimonials/">Read more client stories</a></p>`
   }),
 
@@ -256,6 +276,30 @@ const body = [
     h2: 'Questions healthcare organizations ask before switching',
     lead: 'Straight answers to what most prospective clients raise on the first call.',
     faqs
+  }),
+
+  section({
+    cls: 'sec-alt',
+    eyebrow: 'From the blog',
+    h2: 'Recommended reading',
+    lead: 'Practical guidance from the advisors who handle these situations with clients.',
+    body: `<ul class="posts">
+      <li class="post"><div class="post-media">${img({ src: '/assets/img/site/article-tools.webp', alt: 'Compliance management tools illustration', title: 'Compliance management tools', width: 800, height: 533 })}</div>
+        <div class="post-body"><p class="post-meta">Program management · 8 min read</p>
+        <h3><a href="/the-essential-compliance-management-tools-every-business-needs/">The compliance management tools every healthcare organization needs</a></h3>
+        <p>Compliance tooling is often bought backwards — training first, evidence last. Here is the order that actually works.</p>
+        <p><a class="card-link" href="/the-essential-compliance-management-tools-every-business-needs/">Continue reading</a></p></div></li>
+      <li class="post"><div class="post-media">${img({ src: '/assets/img/site/article-ai.webp', alt: 'Artificial intelligence and compliance illustration', title: 'AI compliance', width: 800, height: 533 })}</div>
+        <div class="post-body"><p class="post-meta">Emerging risk · 9 min read</p>
+        <h3><a href="/unpacking-ai-compliance-what-every-business-needs-to-know/">Unpacking AI compliance: what healthcare organizations need to know</a></h3>
+        <p>Ambient scribes and coding assistants are already in clinical workflows. The HIPAA questions they raise need answers now.</p>
+        <p><a class="card-link" href="/unpacking-ai-compliance-what-every-business-needs-to-know/">Continue reading</a></p></div></li>
+      <li class="post"><div class="post-media">${img({ src: '/assets/img/site/article-software.webp', alt: 'Compliance software evaluation illustration', title: 'Compliance software solutions', width: 800, height: 533 })}</div>
+        <div class="post-body"><p class="post-meta">Buying guide · 7 min read</p>
+        <h3><a href="/discover-the-top-compliance-software-solutions-for-your-organization/">How to evaluate compliance software without getting burned</a></h3>
+        <p>Most demos show the same four screens. These are the questions that reveal whether a platform will hold up.</p>
+        <p><a class="card-link" href="/discover-the-top-compliance-software-solutions-for-your-organization/">Continue reading</a></p></div></li>
+    </ul>`
   }),
 
   related([

@@ -2,8 +2,13 @@ import { esc, icon, img } from './layout.mjs';
 import { site } from './site.mjs';
 
 /* Hero -------------------------------------------------------------- */
-export function hero({ eyebrow, h1, lead, bullets = [], primary, secondary, stat, variant = 'dark' }) {
-  return `<section class="hero hero-${variant}">
+export function hero({ eyebrow, h1, lead, bullets = [], primary, secondary, stat, variant = 'dark', media }) {
+  const mediaHtml = media ? `<div class="hero-media">${img({
+    src: media.src, alt: media.alt, title: media.title,
+    width: media.width, height: media.height,
+    loading: 'eager', fetchpriority: 'high'
+  })}</div>` : '';
+  return `<section class="hero hero-${variant}${media ? ' hero-has-media' : ''}">
   <div class="wrap hero-in">
     <div class="hero-copy">
       ${eyebrow ? `<p class="eyebrow">${esc(eyebrow)}</p>` : ''}
@@ -16,6 +21,7 @@ export function hero({ eyebrow, h1, lead, bullets = [], primary, secondary, stat
       </p>
       ${stat ? `<p class="hero-trust">${icon('shield', 'ic ic-sm')}<span>${stat}</span></p>` : ''}
     </div>
+    ${mediaHtml}
   </div>
 </section>`;
 }
@@ -156,7 +162,10 @@ export function faqSection({ h2, lead, faqs }) {
 export function quotes(items) {
   return `<ul class="quotes">${items.map((q) => `<li><figure class="quote">
   <blockquote><p>${q.text}</p></blockquote>
-  <figcaption>${esc(q.name)}<span>${esc(q.role)}</span></figcaption>
+  ${q.portrait ? `<figcaption class="quote-person">
+    <span class="quote-portrait">${img({ src: q.portrait, alt: `${q.name}, ${q.role}`, title: q.name, width: 425, height: 700 })}</span>
+    <span>${esc(q.name)}<span>${esc(q.role)}</span></span>
+  </figcaption>` : `<figcaption>${esc(q.name)}<span>${esc(q.role)}</span></figcaption>`}
 </figure></li>`).join('')}</ul>`;
 }
 
@@ -187,3 +196,36 @@ export function related(items, heading = 'Keep exploring') {
 }
 
 export { img, icon };
+
+/* Image-led program pillar (HIPAA / OSHA / Corporate / LMS). */
+export function pillar({ tag, title, text, image, badgeIcon, items, href, cta }) {
+  return `<article class="pillar">
+  <div class="pillar-media${image.cut ? ' pillar-media-cut' : ''}">
+    ${img({ src: image.src, alt: image.alt, title: image.title, width: image.width, height: image.height })}
+    ${badgeIcon ? `<span class="pillar-badge">${img({ src: badgeIcon, alt: '', title: esc(title) })}<span>${esc(tag)}</span></span>` : ''}
+  </div>
+  <div class="pillar-body">
+    <h3>${esc(title)}</h3>
+    <p>${text}</p>
+    ${checklist(items)}
+    <a class="btn btn-ghost" href="${href}">${esc(cta)}</a>
+  </div>
+</article>`;
+}
+
+/* Additional-services row using the brand line icons. */
+export function services(items) {
+  return `<ul class="svcs">${items.map((s) => `<li><a href="${s.href}">
+  <span class="svc-ic">${img({ src: s.icon, alt: '', title: esc(s.title) })}</span>
+  <strong>${esc(s.title)}</strong>
+  <span>${esc(s.text)}</span>
+</a></li>`).join('')}</ul>`;
+}
+
+/* A framed photograph or a cut-out subject on a colour field. */
+export function media({ src, alt, title, width, height, cut = false, dark = false, cls = '' }) {
+  const inner = img({ src, alt, title, width, height });
+  return cut
+    ? `<div class="media-cut${dark ? ' media-cut-dark' : ''} ${cls}">${inner}</div>`
+    : `<div class="media-frame ${cls}">${inner}</div>`;
+}

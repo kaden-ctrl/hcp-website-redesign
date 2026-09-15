@@ -35,6 +35,7 @@ const shield = buildPage({
     'Included audit support from the team that built your program'
   ],
   heroStat: 'Implementation typically completes in two to three weeks',
+  heroMedia: { src: '/assets/img/site/feature-map.webp', alt: 'Two healthcare professionals reviewing compliance documentation', title: 'SHIELD compliance platform', width: 1400, height: 812 },
   extraSchema: [serviceSchema('SHIELD Compliance Solution', 'Integrated HIPAA, OSHA and corporate compliance management platform with assigned compliance advisors.', '/compliance-solution/')],
   sections: [
     section({
@@ -106,6 +107,7 @@ const hipaa = buildPage({
     'Breach risk assessment and notification guidance when it counts'
   ],
   heroStat: 'OCR inquiry support is included in every plan',
+  heroMedia: { src: '/assets/img/site/prog-hipaa.webp', alt: 'Clinician interacting with a HIPAA data security interface', title: 'HIPAA compliance program', width: 900, height: 601 },
   extraSchema: [serviceSchema('HIPAA Compliance Program', 'HIPAA Privacy and Security Rule compliance software, training, risk analysis and advisory support for covered entities and business associates.', '/compliance-solution/hipaa/')],
   sections: [
     section({
@@ -201,6 +203,7 @@ const osha = buildPage({
     'Inspection response support from your advisor team'
   ],
   heroStat: 'Written programs, training records and logs in one place',
+  heroMedia: { src: '/assets/img/site/prog-osha.webp', alt: 'Clinical staff member in surgical gown, mask and gloves', title: 'OSHA compliance program', width: 900, height: 601 },
   extraSchema: [serviceSchema('OSHA Compliance Program', 'OSHA workplace safety compliance for healthcare, including Bloodborne Pathogens exposure control, Hazard Communication, SDS management, inspections and training.', '/compliance-solution/osha/')],
   sections: [
     section({
@@ -283,6 +286,7 @@ const corporate = buildPage({
     'OIG and SAM exclusion screening, run and recorded on schedule'
   ],
   heroStat: 'Required for many payer, Medicare Advantage and PE diligence reviews',
+  heroMedia: { src: '/assets/img/site/prog-corporate.webp', alt: 'Illustration representing billing integrity and financial compliance risk', title: 'Corporate compliance program', width: 900, height: 506 },
   extraSchema: [serviceSchema('Corporate Compliance Program', 'Healthcare corporate compliance program covering the seven elements, Fraud Waste and Abuse training, exclusion monitoring, hotline and internal auditing.', '/compliance-solution/corporate-compliance/')],
   sections: [
     section({
@@ -353,6 +357,7 @@ const lms = buildPage({
     'Custom course builder with narration, video, quizzes and certificates'
   ],
   heroStat: 'Completion reporting by person, department and site',
+  heroMedia: { src: '/assets/img/site/prog-lms.webp', alt: 'Clinician completing online compliance training at a desk', title: 'Learning management system', width: 900, height: 600 },
   extraSchema: [serviceSchema('HCP Learning Management System', 'Healthcare compliance learning management system with 130+ courses, automated role-based assignment, CME credit and completion tracking.', '/compliance-solution/lms/')],
   sections: [
     section({

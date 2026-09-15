@@ -32,6 +32,7 @@ const practices = buildPage({
     'Assigned advisors who answer the phone when something happens'
   ],
   heroStat: 'Implementation typically completes in two to three weeks',
+  heroMedia: { src: '/assets/img/site/feature-comprehensive.webp', alt: 'A team of healthcare professionals standing together', title: 'Compliance for medical practices', width: 1000, height: 563 },
   extraSchema: [svc('Compliance for Medical Practices', 'HIPAA, OSHA and corporate compliance programs for independent and group medical practices.', '/medical-practices/', 'Medical practices')],
   sections: [
     section({

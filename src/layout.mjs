@@ -16,7 +16,11 @@ export const abs = (path) => site.origin + path;
  * alt AND title are both required arguments.
  */
 export function img({ src, alt, title, width, height, cls = '', loading = 'lazy', fetchpriority }) {
-  if (!alt || !title) throw new Error(`img() requires alt and title (src: ${src})`);
+  // `title` is always required (audit finding #9). `alt` must always be present,
+  // but may be deliberately empty for decorative images that sit beside a
+  // visible text label — an empty alt is the correct accessibility choice there.
+  if (alt === undefined || alt === null) throw new Error(`img() requires an alt attribute (src: ${src})`);
+  if (!title) throw new Error(`img() requires a title attribute (src: ${src})`);
   return `<img src="${src}" alt="${esc(alt)}" title="${esc(title)}" width="${width}" height="${height}"` +
     (cls ? ` class="${cls}"` : '') +
     ` loading="${loading}" decoding="async"` +
@@ -210,42 +214,38 @@ const logoMark = (cls) =>
 function navMarkup(currentPath) {
   return nav.map((item, i) => {
     const active = currentPath === item.href || (item.href !== '/' && currentPath.startsWith(item.href));
-    if (!item.mega) {
+    if (!item.items && !item.columns) {
       return `<li><a href="${item.href}"${active ? ' aria-current="page"' : ''}>${esc(item.label)}</a></li>`;
     }
-    const id = `mega-${i}`;
-    const cols = item.mega.map((col) =>
-      `<div class="mega-col"><p class="mega-h">${esc(col.heading)}</p><ul>` +
-      col.links.map((l) => `<li><a href="${l.href}">${esc(l.label)}</a></li>`).join('') +
-      `</ul></div>`
-    ).join('');
-    return `<li class="has-mega">
+    const id = `dd-${i}`;
+    const panel = item.columns
+      ? `<div class="dd-cols">${item.columns.map((c) =>
+          `<div class="dd-col"><p class="dd-h">${c.heading}</p><ul>` +
+          c.links.map((l) => `<li><a href="${l.href}">${esc(l.label)}</a></li>`).join('') +
+          `</ul></div>`).join('')}</div>`
+      : `<ul>${item.items.map((l) => `<li><a href="${l.href}">${esc(l.label)}</a></li>`).join('')}</ul>`;
+    return `<li class="has-menu">
 <button type="button" class="nav-trigger" aria-expanded="false" aria-controls="${id}"${active ? ' data-active="true"' : ''}>${esc(item.label)}${icon('chevron', 'ic ic-xs')}</button>
-<div class="mega" id="${id}" hidden><div class="mega-inner">${cols}</div></div>
+<div class="dd${item.columns ? ' dd-wide' : ''}" id="${id}" hidden>${panel}</div>
 </li>`;
   }).join('');
 }
 
 function header(page) {
   return `<a class="skip" href="#main">Skip to main content</a>
-<div class="topbar">
-  <div class="wrap topbar-in">
-    <p class="topbar-msg">Trusted by healthcare organizations nationwide since ${site.founded}.</p>
-    <p class="topbar-actions">
-      <a href="tel:${site.phoneE164}" class="topbar-link">${icon('phone', 'ic ic-xs')}<span>${site.phoneDisplay}</span></a>
-      <a href="${site.loginUrl}" class="topbar-link" rel="nofollow">Client Login</a>
-    </p>
-  </div>
-</div>
 <header class="site-head">
   <div class="wrap head-in">
     <a class="brand" href="/">${logoMark('brand-img')}</a>
-    <nav class="primary" aria-label="Primary">
-      <ul class="nav-list">${navMarkup(page.path)}</ul>
-    </nav>
-    <div class="head-cta">
-      <a class="btn btn-ghost" href="/compliance-assessment/">Free Risk Assessment</a>
-      <a class="btn btn-primary" href="/contact/">Schedule a Consultation</a>
+    <div class="head-right">
+      <div class="head-top">
+        <a class="head-phone" href="tel:${site.phoneE164}">${icon('phone', 'ic ic-sm')}<span>${site.phone.replace(/-/g, '.')}</span></a>
+        <a class="head-login" href="${site.loginUrl}" rel="nofollow">Login</a>
+        <a class="btn btn-primary head-quote" href="/contact/">Schedule a Free Consultation</a>
+      </div>
+      <nav class="primary" aria-label="Primary">
+        <ul class="nav-list">${navMarkup(page.path)}</ul>
+        <a class="nav-search" href="/search/" aria-label="Search this site" title="Search">${icon('search', 'ic ic-sm')}</a>
+      </nav>
     </div>
     <button type="button" class="burger" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu">
       <span></span><span></span><span></span>
@@ -254,16 +254,18 @@ function header(page) {
   <div class="mobile-nav" id="mobile-nav" hidden>
     <nav aria-label="Mobile">
       <ul class="mnav">
-        ${nav.map((item, i) => item.mega
+        ${nav.map((item, i) => (item.items || item.columns)
           ? `<li><button type="button" class="macc" aria-expanded="false" aria-controls="macc-${i}">${esc(item.label)}${icon('chevron', 'ic ic-xs')}</button>
-<div class="macc-panel" id="macc-${i}" hidden>${item.mega.map((c) =>
-              `<p class="mega-h">${esc(c.heading)}</p><ul>${c.links.map((l) => `<li><a href="${l.href}">${esc(l.label)}</a></li>`).join('')}</ul>`
-            ).join('')}</div></li>`
+<div class="macc-panel" id="macc-${i}" hidden>${
+              item.columns
+                ? item.columns.map((c) => `${c.heading.trim() ? `<p class="dd-h">${c.heading}</p>` : ''}<ul>${c.links.map((l) => `<li><a href="${l.href}">${esc(l.label)}</a></li>`).join('')}</ul>`).join('')
+                : `<ul>${item.items.map((l) => `<li><a href="${l.href}">${esc(l.label)}</a></li>`).join('')}</ul>`
+            }</div></li>`
           : `<li><a href="${item.href}">${esc(item.label)}</a></li>`).join('')}
-        <li><a href="${site.loginUrl}" rel="nofollow">Client Login</a></li>
+        <li><a href="${site.loginUrl}" rel="nofollow">Login</a></li>
       </ul>
       <div class="mnav-cta">
-        <a class="btn btn-primary btn-block" href="/contact/">Schedule a Consultation</a>
+        <a class="btn btn-primary btn-block" href="/contact/">Schedule a Free Consultation</a>
         <a class="btn btn-ghost btn-block" href="tel:${site.phoneE164}">Call ${site.phoneDisplay}</a>
       </div>
     </nav>

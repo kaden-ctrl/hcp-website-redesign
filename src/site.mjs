@@ -51,48 +51,28 @@ export const nav = [
   {
     label: 'Solutions',
     href: '/compliance-solution/',
-    mega: [
-      {
-        heading: 'Compliance Programs',
-        links: [
-          { label: 'SHIELD Compliance Solution', href: '/compliance-solution/' },
-          { label: 'HIPAA Compliance', href: '/compliance-solution/hipaa/' },
-          { label: 'OSHA Compliance', href: '/compliance-solution/osha/' },
-          { label: 'Corporate Compliance', href: '/compliance-solution/corporate-compliance/' },
-          { label: 'Learning Management System', href: '/compliance-solution/lms/' }
-        ]
-      },
-      {
-        heading: 'Expert Services',
-        links: [
-          { label: 'SENTRY Coding Intelligence', href: '/coding-compliance/' },
-          { label: 'Fractional Compliance Officer', href: '/fractional-compliance-officer/' },
-          { label: 'On-Site Services', href: '/on-site-services/' },
-          { label: 'Credential Manager', href: '/credential-manager/' },
-          { label: 'Background Checks', href: '/background-checks/' }
-        ]
-      },
-      {
-        heading: 'Get Started',
-        links: [
-          { label: 'Free Compliance Risk Assessment', href: '/compliance-assessment/' },
-          { label: 'The HCP Difference', href: '/solutions/the-hcp-difference/' },
-          { label: 'Request a Consultation', href: '/contact/' }
-        ]
-      }
+    items: [
+      { label: 'SHIELD Compliance Solution', href: '/compliance-solution/' },
+      { label: 'HIPAA Compliance', href: '/compliance-solution/hipaa/' },
+      { label: 'OSHA Compliance', href: '/compliance-solution/osha/' },
+      { label: 'Corporate Compliance', href: '/compliance-solution/corporate-compliance/' },
+      { label: 'SENTRY Coding Intelligence', href: '/coding-compliance/' },
+      { label: 'Learning Management System', href: '/compliance-solution/lms/' },
+      { label: 'Fractional Compliance Officer', href: '/fractional-compliance-officer/' }
     ]
   },
   {
-    label: 'Who We Serve',
+    label: 'Specialties',
     href: '/specialties/',
-    mega: [
+    wide: true,
+    columns: [
       {
         heading: 'Organizations',
         links: [
-          { label: 'Medical Practices', href: '/medical-practices/' },
-          { label: 'Hospitals & Health Systems', href: '/hospitals-health-systems/' },
           { label: 'Business Associates', href: '/business-associates/' },
-          { label: 'Medical Billing Companies', href: '/medical-billing/' },
+          { label: 'Medical Practices', href: '/medical-practices/' },
+          { label: 'Hospitals and Health Systems', href: '/hospitals-health-systems/' },
+          { label: 'Medical Billing', href: '/medical-billing/' },
           { label: 'Private Equity', href: '/privateequity/' }
         ]
       },
@@ -101,17 +81,17 @@ export const nav = [
         links: [
           { label: 'Orthopedics', href: '/specialties/orthopedics/' },
           { label: 'Dermatology', href: '/specialties/dermatology/' },
-          { label: 'Radiology & Imaging', href: '/specialties/radiology/' },
+          { label: 'Radiology', href: '/specialties/radiology/' },
           { label: 'ENT', href: '/specialties/ent/' },
-          { label: 'Family Medicine', href: '/specialties/family-medicine/' }
+          { label: 'Family Medicine', href: '/specialties/family-medicine/' },
+          { label: 'Audiology', href: '/specialties/audiology/' }
         ]
       },
       {
-        heading: 'More Specialties',
+        heading: '\u00a0',
         links: [
-          { label: 'Audiology', href: '/specialties/audiology/' },
           { label: 'Behavioral Health', href: '/specialties/behavioral-health/' },
-          { label: 'MedSpa & Aesthetics', href: '/specialties/medspa/' },
+          { label: 'MedSpa/Aesthetics/Wellness', href: '/specialties/medspa/' },
           { label: 'Pediatrics', href: '/specialties/pediatrics/' },
           { label: 'Physical Therapy', href: '/specialties/physical-therapy/' },
           { label: 'View All Specialties', href: '/specialties/' }
@@ -119,44 +99,29 @@ export const nav = [
       }
     ]
   },
-  { label: 'Partners', href: '/partners/' },
   {
-    label: 'Resources',
+    label: 'News & Events',
     href: '/blog/',
-    mega: [
-      {
-        heading: 'Learn',
-        links: [
-          { label: 'Blog', href: '/blog/' },
-          { label: 'Webinars', href: '/webinars/' },
-          { label: 'Podcasts', href: '/podcasts/' },
-          { label: 'Events', href: '/events/' }
-        ]
-      },
-      {
-        heading: 'Answers',
-        links: [
-          { label: 'Compliance Tips & FAQ', href: '/tips-faqs/' },
-          { label: 'Client Testimonials', href: '/testimonials/' }
-        ]
-      }
+    items: [
+      { label: 'Blog', href: '/blog/' },
+      { label: 'Events', href: '/events/' },
+      { label: 'Podcasts', href: '/podcasts/' },
+      { label: 'Webinars', href: '/webinars/' },
+      { label: 'FAQ', href: '/tips-faqs/' }
     ]
   },
   {
     label: 'About',
     href: '/about/',
-    mega: [
-      {
-        heading: 'Company',
-        links: [
-          { label: 'About HCP', href: '/about/' },
-          { label: 'Our Team', href: '/our-team/' },
-          { label: 'Careers', href: '/careers/' },
-          { label: 'Contact Us', href: '/contact/' }
-        ]
-      }
+    items: [
+      { label: 'Our Team', href: '/our-team/' },
+      { label: 'About Us', href: '/about/' },
+      { label: 'Partners', href: '/partners/' },
+      { label: 'Testimonials', href: '/testimonials/' },
+      { label: 'Careers', href: '/careers/' }
     ]
-  }
+  },
+  { label: 'Contact', href: '/contact/' }
 ];
 
 export const footerNav = [

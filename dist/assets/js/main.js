@@ -40,7 +40,7 @@
     // cursor can travel from the trigger into the panel.
     var timer;
     var item = trigger.closest('li');
-    if (item && window.matchMedia('(hover:hover) and (min-width:1081px)').matches) {
+    if (item && window.matchMedia('(hover:hover) and (min-width:1041px)').matches) {
       item.addEventListener('mouseenter', function () { clearTimeout(timer); open(); });
       item.addEventListener('mouseleave', function () { timer = setTimeout(close, 180); });
       panel.addEventListener('mouseenter', function () { clearTimeout(timer); });
