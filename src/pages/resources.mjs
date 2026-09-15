@@ -115,7 +115,8 @@ const articlePages = articles.map((a) => buildPage({
   title: a.title.length > 60 ? a.title.slice(0, 57) + '…' : a.title,
   description: a.desc.slice(0, 155),
   breadcrumbs: [crumbBlog, { label: a.title, href: `/${a.slug}/` }],
-  pageType: 'Article',
+  // The dedicated Article node below carries the article metadata, so the page
+  // node stays a plain WebPage — emitting Article twice conflicts.
   ogType: 'article',
   datePublished: a.date,
   eyebrow: `${a.topic} · ${a.read}`,

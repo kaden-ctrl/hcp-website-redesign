@@ -1,0 +1,22 @@
+# Netlify build configuration for healthcarecompliancepros.com
+# Zero dependencies — the build is a single Node script.
+
+[build]
+  command = "node build.mjs"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# dist/_headers already carries the security + caching rules; these mirror the
+# redirects that clean URLs need and the 404 fallback.
+[[redirects]]
+  from = "/index/login-page"
+  to = "https://www.healthcarecompliancepros.com/index/login-page"
+  status = 302
+  force = false
+
+[[redirects]]
+  from = "/*"
+  to = "/404/index.html"
+  status = 404

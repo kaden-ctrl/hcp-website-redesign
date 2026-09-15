@@ -71,6 +71,11 @@ function checkPage(page, html) {
     const bc = graph.find((n) => n['@type'] === 'BreadcrumbList');
     if (bc && (!bc.itemListElement || bc.itemListElement.length < 1)) add(3, 'BreadcrumbList has no items');
     if (page.faqs?.length && !types.includes('FAQPage')) add(11, 'FAQPage schema missing despite FAQs');
+    const dupes = types.filter((t, i) => types.indexOf(t) !== i);
+    if (dupes.length) add(1, `duplicate schema @type in @graph: ${[...new Set(dupes)].join(', ')}`);
+    const ids = graph.map((n) => n['@id']).filter(Boolean);
+    const dupeIds = ids.filter((v, i) => ids.indexOf(v) !== i);
+    if (dupeIds.length) add(1, `duplicate @id in @graph: ${[...new Set(dupeIds)].join(', ')}`);
   }
 
   // 8 — meta description length
