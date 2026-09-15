@@ -299,37 +299,18 @@ function footer() {
     return `<li><a href="${url}" rel="noopener me" target="_blank" aria-label="${socialLabels[key]}" title="${socialLabels[key]}">${icon(key, 'ic')}</a></li>`;
   }).join('');
 
+  // The live site uses a single minimal footer bar rather than a sitemap
+  // footer. Crawlability is carried by the primary nav, breadcrumbs and the
+  // per-page "keep exploring" links.
   return `<footer class="site-foot" id="footer">
-  <div class="wrap">
-    <div class="foot-top">
-      <div class="foot-brand">
-        <a href="/">${logoMark('brand-img foot-logo')}</a>
-        <p>Healthcare Compliance Pros combines a purpose-built compliance platform with a named team of
-        compliance advisors, so HIPAA, OSHA and corporate compliance stop being a scramble and start being routine.</p>
-        <address class="foot-addr">
-          <span>${esc(site.address.street)}</span>
-          <span>${esc(site.address.locality)}, ${site.address.region} ${site.address.postalCode}</span>
-          <a href="tel:${site.phoneE164}">${site.phoneDisplay}</a>
-          <a href="mailto:${site.email}">${site.email}</a>
-        </address>
-        <ul class="social">${socialLinks}</ul>
-      </div>
-      <div class="foot-cols">
-        ${footerNav.map((col) =>
-          `<nav class="foot-col" aria-label="${esc(col.heading)}"><p class="foot-h">${esc(col.heading)}</p><ul>` +
-          col.links.map((l) => `<li><a href="${l.href}">${esc(l.label)}</a></li>`).join('') +
-          `</ul></nav>`).join('')}
-      </div>
-    </div>
-    <div class="foot-bar">
-      <p>&copy; ${year} ${esc(site.legalName)}. All rights reserved.</p>
-      <ul class="foot-legal">
-        <li><a href="/privacypolicy/">Privacy Policy</a></li>
-        <li><a href="/fulfillment-policy/">Fulfillment Policy</a></li>
-        <li><a href="/sitemap.xml">Sitemap</a></li>
-        <li><a href="/llms.txt">llms.txt</a></li>
-      </ul>
-    </div>
+  <div class="wrap foot-bar">
+    <p class="foot-copy">Copyright &copy; ${year} All Rights Reserved.</p>
+    <ul class="foot-legal">
+      <li><a href="/privacypolicy/">Privacy Policy</a></li>
+      <li><a href="/fulfillment-policy/">Fulfillment Policy</a></li>
+      <li><a href="tel:${site.phoneE164}">${site.phone}</a></li>
+    </ul>
+    <ul class="social">${socialLinks}</ul>
   </div>
 </footer>`;
 }

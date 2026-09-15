@@ -229,27 +229,17 @@
 .rel-list .ic{color:var(--navy);margin-left:auto}
 
 /* ---- Footer ----------------------------------------------------------- */
-.site-foot{background:var(--navy-deep);color:#a9c6dc;padding:clamp(3rem,2rem + 3vw,4.5rem) 0 2rem;font-size:.94rem}
-.foot-top{display:grid;gap:3rem;grid-template-columns:minmax(260px,1fr) 2.2fr;padding-bottom:3rem;border-bottom:1px solid rgba(255,255,255,.12)}
-.foot-logo{width:180px;height:72px;filter:brightness(0) invert(1);opacity:.95}
-.foot-brand p{margin:1rem 0 1.25rem;max-width:34rem}
-.foot-addr{font-style:normal;display:grid;gap:.25rem;margin-bottom:1.25rem}
-.foot-addr a{color:var(--green);text-decoration:none;font-weight:700}
-.foot-addr a:hover{text-decoration:underline}
-.social{list-style:none;display:flex;gap:.6rem;margin:0;padding:0}
-.social a{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.08);color:#cfe0ee;transition:background .18s,color .18s}
-.social a:hover{background:var(--green);color:var(--navy-deep)}
-.foot-cols{display:grid;gap:2rem;grid-template-columns:repeat(auto-fit,minmax(165px,1fr))}
-.foot-h{font-family:var(--head);font-weight:800;font-size:.78rem;letter-spacing:.11em;text-transform:uppercase;color:#fff;margin:0 0 .85rem}
-.foot-col ul{list-style:none;margin:0;padding:0;display:grid;gap:.45rem}
-.foot-col a{color:#a9c6dc;text-decoration:none;font-size:.92rem}
-.foot-col a:hover{color:var(--green)}
-.foot-bar{display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between;align-items:center;padding-top:1.75rem;font-size:.86rem}
-.foot-bar p{margin:0}
-.foot-legal{list-style:none;display:flex;flex-wrap:wrap;gap:1.25rem;margin:0;padding:0}
+.site-foot{background:var(--navy-deep);color:#a9c6dc;padding:1.75rem 0;font-size:.92rem}
+.foot-bar{display:flex;flex-wrap:wrap;gap:1rem 2rem;align-items:center;justify-content:space-between}
+.foot-copy{margin:0}
+.foot-legal{list-style:none;display:flex;flex-wrap:wrap;gap:1.5rem;margin:0;padding:0}
 .foot-legal a{color:#a9c6dc;text-decoration:none}
 .foot-legal a:hover{color:var(--green)}
-@media (max-width:860px){.foot-top{grid-template-columns:1fr;gap:2.5rem}}
+.social{list-style:none;display:flex;gap:.6rem;margin:0;padding:0}
+.social a{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;
+  background:rgba(255,255,255,.08);color:#cfe0ee;transition:background .18s,color .18s}
+.social a:hover{background:var(--green);color:var(--navy-deep)}
+@media (max-width:720px){.foot-bar{justify-content:center;text-align:center}}
 
 /* ---- Utilities -------------------------------------------------------- */
 .center{text-align:center}
