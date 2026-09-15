@@ -138,10 +138,8 @@ for (const page of pages) {
   // Inline ALL css for the standalone build. A double-clicked file:// page
   // cannot rely on the preload -> stylesheet swap firing consistently across
   // browsers, so we remove the external stylesheet entirely.
-  const raw = renderPage(page, { criticalCss: criticalCss + '\n' + mainCssMin, cssHash: h(mainCss), jsHash: h(mainJs) });
-  const html = rewrite(raw, map)
-    .replace(/<link rel="preload" href="\/?assets\/css\/main\.css[^>]*>\n?/, '')
-    .replace(/<noscript><link rel="stylesheet" href="\/?assets\/css\/main\.css[^>]*><\/noscript>\n?/, '');
+  const raw = renderPage(page, { criticalCss: criticalCss + mainCssMin, cssHash: h(mainCss), jsHash: h(mainJs) });
+  const html = rewrite(raw, map);
   const file = flatName(page.path);
   await writeFile(path.join(out, file), html);
   const { e, ratio } = check(page, html);

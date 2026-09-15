@@ -87,6 +87,8 @@ function checkPage(page, html) {
   // 6 — no render-blocking resources
   if (/<link[^>]+rel="stylesheet"/.test(html.split('</head>')[0].replace(/<noscript>[\s\S]*?<\/noscript>/g, '')))
     add(6, 'render-blocking stylesheet in <head>');
+  if (/onload=/.test(html)) add(6, 'inline onload handler present — blocked by our CSP');
+  if (/\.css/.test(html)) add(6, 'external stylesheet reference survived; CSS must be inlined');
   const headScripts = (html.split('</head>')[0].match(/<script(?![^>]*type="application\/ld\+json")[^>]*>/g) || [])
     .filter((s) => !/defer|async/.test(s));
   if (headScripts.length) add(6, 'render-blocking script in <head>');
@@ -277,9 +279,13 @@ function webmanifest() {
 async function build() {
   const pages = await loadPages();
 
-  const criticalCss = (await readFile(path.join(root, 'assets/css/critical.css'), 'utf8'))
-    .replace(/\/\*[\s\S]*?\*\//g, '').replace(/\s*\n\s*/g, '').trim();
+  // All CSS is inlined into every page. An inline <style> is not a
+  // render-blocking *request*, and it avoids the preload -> stylesheet swap,
+  // which relies on an inline onload handler that our own CSP (script-src
+  // 'self') correctly blocks.
+  const min = (css) => css.replace(/\/\*[\s\S]*?\*\//g, '').replace(/\s*\n\s*/g, '').trim();
   const mainCss = await readFile(path.join(root, 'assets/css/main.css'), 'utf8');
+  const criticalCss = min(await readFile(path.join(root, 'assets/css/critical.css'), 'utf8')) + min(mainCss);
   const mainJs = await readFile(path.join(root, 'assets/js/main.js'), 'utf8');
   const hash = (s) => createHash('sha1').update(s).digest('hex').slice(0, 8);
   const cssHash = hash(mainCss);

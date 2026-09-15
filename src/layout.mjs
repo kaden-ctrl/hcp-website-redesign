@@ -198,8 +198,6 @@ function head(page, criticalCss, cssHash) {
 <link rel="manifest" href="/site.webmanifest">
 <link rel="sitemap" type="application/xml" href="/sitemap.xml">
 <style>${criticalCss}</style>
-<link rel="preload" href="/assets/css/main.css?v=${cssHash}" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="/assets/css/main.css?v=${cssHash}"></noscript>
 <script type="application/ld+json">${buildGraph(page)}</script>`;
 }
 
