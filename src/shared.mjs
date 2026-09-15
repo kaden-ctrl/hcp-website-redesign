@@ -37,7 +37,8 @@ export function buildPage(cfg) {
       secondary: cfg.secondaryCta || { label: 'Schedule a consultation', href: '/contact/' },
       stat: cfg.heroStat,
       variant: cfg.heroVariant || 'dark',
-      media: cfg.heroMedia
+      media: cfg.heroMedia,
+      offers: cfg.heroOffers
     }),
     ...(cfg.sections || []),
     differentiators({

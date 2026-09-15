@@ -119,3 +119,21 @@
     });
   }
 })();
+
+/* Hero "What HCP Offers" rotator — purely decorative, pauses on hover. */
+(function () {
+  var list = document.querySelector('.offer-rotator');
+  if (!list) return;
+  var items = list.querySelectorAll('.offer');
+  if (items.length < 2) return;
+  if (window.matchMedia('(prefers-reduced-motion:reduce)').matches) return;
+  var i = 0, paused = false;
+  list.addEventListener('mouseenter', function () { paused = true; });
+  list.addEventListener('mouseleave', function () { paused = false; });
+  setInterval(function () {
+    if (paused) return;
+    items[i].removeAttribute('data-active');
+    i = (i + 1) % items.length;
+    items[i].setAttribute('data-active', '');
+  }, 3200);
+})();

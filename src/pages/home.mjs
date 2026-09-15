@@ -44,30 +44,31 @@ const faqs = [
 
 const body = [
   hero({
-    eyebrow: 'Healthcare compliance software',
+    variant: 'light',
     h1: '<em>Simplify Compliance</em><strong>with HIPAA Compliant Software</strong>',
-    lead: `Best-in-class healthcare compliance software, backed by compliance experts. HIPAA, OSHA and corporate compliance in one platform, supported by a named team who know your organization.`,
-    bullets: [
-      'Customized policies and procedures, kept current as regulations change',
-      'Role-based training with automated assignments, reminders and certificates',
-      'Documented security risk analysis and audit-ready evidence on demand',
-      '3–5 assigned compliance advisors — included, not an upsell'
-    ],
+    lead: `Best Healthcare Compliance Software, backed by Compliance Experts.`,
     primary: { label: 'Check Your Compliance Risk', href: '/compliance-assessment/' },
     secondary: { label: 'Request a Consultation', href: '/contact/' },
-    stat: `Trusted by healthcare organizations nationwide since ${site.founded}`,
-    media: {
-      src: '/assets/img/site/feature-map.webp',
-      alt: 'Two healthcare professionals reviewing compliance documentation on a laptop and tablet',
-      title: 'Healthcare teams using the HCP compliance platform',
-      width: 1400, height: 812
-    }
+    offers: [
+      { icon: 'breach', label: 'Breach Support' },
+      { icon: 'policy', label: 'Custom Policies &amp; Procedures' },
+      { icon: 'training', label: 'Online Training' },
+      { icon: 'audit', label: 'Expert Audit Support' },
+      { icon: 'risk', label: 'Security Risk Analysis' },
+      { icon: 'hotline', label: 'Compliance Hotline' }
+    ]
   }),
 
   section({
     h2: '<em>Your Trusted Partner</em><strong>in Healthcare Compliance Software</strong>',
     lead: 'Navigate compliance regulations with ease, backed by experts who are with you every step of the way.',
-    body: `<ul class="trust">
+    body: `<div class="trust-photo">${img({
+        src: '/assets/img/site/feature-map.webp',
+        alt: 'Two healthcare professionals reviewing compliance documentation together',
+        title: 'Healthcare teams supported by HCP compliance advisors',
+        width: 1400, height: 812, loading: 'eager'
+      })}</div>
+    <ul class="trust">
       <li><span class="n" aria-hidden="true">1</span><h3>Dedicated Compliance Support Team</h3>
         <p>Every client is assigned a team of 3&ndash;5 experienced compliance professionals, available to provide personalized guidance and support.</p></li>
       <li><span class="n" aria-hidden="true">2</span><h3>Comprehensive Audit Support</h3>

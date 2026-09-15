@@ -2,13 +2,32 @@ import { esc, icon, img } from './layout.mjs';
 import { site } from './site.mjs';
 
 /* Hero -------------------------------------------------------------- */
-export function hero({ eyebrow, h1, lead, bullets = [], primary, secondary, stat, variant = 'dark', media }) {
-  const mediaHtml = media ? `<div class="hero-media">${img({
+// Line-art offerings that rotate inside the navy hero panel.
+const OFFER_ICONS = {
+  breach: '<path d="M22 44c0-6 5-10 10-10s10 4 10 10"/><path d="M26 34l-6-8m16 8l6-8"/><circle cx="37" cy="22" r="6"/><path d="M14 14l-4-5m10 2l-2-6m-10 12l-6-1"/>',
+  policy: '<rect x="14" y="10" width="34" height="44" rx="3"/><path d="M22 22h18M22 30h18M22 38h12"/>',
+  training: '<path d="M31 12 8 24l23 12 23-12z"/><path d="M18 30v12c0 4 6 7 13 7s13-3 13-7V30"/>',
+  audit: '<circle cx="27" cy="27" r="15"/><path d="M38 38l12 12"/><path d="M21 27l4 4 8-9"/>',
+  risk: '<path d="M31 8 8 50h46z"/><path d="M31 24v12m0 6v2"/>',
+  hotline: '<path d="M16 12h8l4 10-5 3a22 22 0 0 0 12 12l3-5 10 4v8a4 4 0 0 1-4 4A34 34 0 0 1 12 16a4 4 0 0 1 4-4z"/>'
+};
+
+export function hero({ eyebrow, h1, lead, bullets = [], primary, secondary, stat, variant = 'dark', media, offers }) {
+  const light = variant === 'light';
+  const mediaHtml = offers ? `<div class="hero-media"><div class="hero-offers">
+    <p class="hero-offers-h"><span>What HCP Offers</span></p>
+    <ul class="offer-rotator">${offers.map((o, i) => `<li class="offer"${i === 0 ? ' data-active' : ''}>
+      <svg viewBox="0 0 62 62" aria-hidden="true" focusable="false">${OFFER_ICONS[o.icon] || OFFER_ICONS.policy}</svg>
+      <span>${esc(o.label)}</span></li>`).join('')}</ul>
+  </div></div>`
+  : media ? `<div class="hero-media">${img({
     src: media.src, alt: media.alt, title: media.title,
     width: media.width, height: media.height,
     loading: 'eager', fetchpriority: 'high'
   })}</div>` : '';
-  return `<section class="hero hero-${variant}${media ? ' hero-has-media' : ''}">
+  const primaryCls = light ? 'btn-primary' : 'btn-accent';
+  const secondaryCls = light ? 'btn-accent' : 'btn-outline';
+  return `<section class="hero hero-${variant}${(media || offers) ? ' hero-has-media' : ''}">
   <div class="wrap hero-in">
     <div class="hero-copy">
       ${eyebrow ? `<p class="eyebrow">${esc(eyebrow)}</p>` : ''}
@@ -16,8 +35,8 @@ export function hero({ eyebrow, h1, lead, bullets = [], primary, secondary, stat
       <p class="lead">${lead}</p>
       ${bullets.length ? `<ul class="hero-bullets">${bullets.map((b) => `<li>${icon('check', 'ic ic-sm')}<span>${b}</span></li>`).join('')}</ul>` : ''}
       <p class="hero-cta">
-        <a class="btn btn-accent" href="${primary.href}">${esc(primary.label)}</a>
-        ${secondary ? `<a class="btn btn-outline" href="${secondary.href}">${esc(secondary.label)}</a>` : ''}
+        <a class="btn ${primaryCls}" href="${primary.href}">${esc(primary.label)}</a>
+        ${secondary ? `<a class="btn ${secondaryCls}" href="${secondary.href}">${esc(secondary.label)}</a>` : ''}
       </p>
       ${stat ? `<p class="hero-trust">${icon('shield', 'ic ic-sm')}<span>${stat}</span></p>` : ''}
     </div>

@@ -334,3 +334,7 @@
 .news-form{display:flex;gap:.6rem;flex-wrap:wrap}
 .news-form input{flex:1 1 220px;font-family:var(--body);font-size:1rem;padding:.8rem .95rem;border:1px solid #c6d3de;border-radius:8px}
 @media (max-width:820px){.news-in{grid-template-columns:1fr}}
+
+/* Trusted Partner photo card. */
+.trust-photo{max-width:900px;margin:0 auto 3rem;border-radius:var(--r-lg);overflow:hidden;background:var(--off)}
+.trust-photo img{display:block;width:100%;height:auto}
