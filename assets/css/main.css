@@ -338,3 +338,16 @@
 /* Trusted Partner photo card. */
 .trust-photo{max-width:900px;margin:0 auto 3rem;border-radius:var(--r-lg);overflow:hidden;background:var(--off)}
 .trust-photo img{display:block;width:100%;height:auto}
+
+/* ---- Alternating feature bands (interior solution pages) --------------- */
+.feature-row{padding:var(--sec-pad) 0}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,1rem + 4vw,4rem);align-items:center}
+.frow-flip .frow-media{order:2}
+.frow-media{border-radius:var(--r-lg);overflow:hidden;background:var(--off);box-shadow:var(--sh-lg)}
+.frow-media img{display:block;width:100%;height:100%;object-fit:cover;aspect-ratio:3/2}
+.frow-copy h2{margin-bottom:.35em}
+.frow-sub{font-family:var(--head);font-weight:700;font-size:1.08rem;color:var(--navy-deep);margin:0 0 1em}
+.frow-copy p{color:var(--ink)}
+.frow-copy .checklist{margin:1.25rem 0 0}
+.frow-cta{margin:1.75rem 0 0}
+@media (max-width:860px){.frow{grid-template-columns:1fr}.frow-flip .frow-media{order:0}}

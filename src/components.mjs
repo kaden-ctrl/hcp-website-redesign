@@ -266,3 +266,27 @@ export function media({ src, alt, title, width, height, cut = false, dark = fals
     ? `<div class="media-cut${dark ? ' media-cut-dark' : ''} ${cls}">${inner}</div>`
     : `<div class="media-frame ${cls}">${inner}</div>`;
 }
+
+/**
+ * Alternating image/text feature band — the layout their interior solution
+ * pages use for each product capability. `flip` puts the image on the right.
+ */
+export function featureRow({ title, sub, body, items = [], image, cta, flip = false, alt = false }) {
+  return `<section class="sec feature-row${alt ? ' sec-alt' : ''}">
+  <div class="wrap">
+    <div class="frow${flip ? ' frow-flip' : ''}">
+      <div class="frow-media">${img({
+        src: image.src, alt: image.alt, title: image.title,
+        width: image.width, height: image.height
+      })}</div>
+      <div class="frow-copy">
+        <h2>${title}</h2>
+        ${sub ? `<p class="frow-sub">${sub}</p>` : ''}
+        ${body.map((p) => `<p>${p}</p>`).join('')}
+        ${items.length ? checklist(items) : ''}
+        ${cta ? `<p class="frow-cta"><a class="btn btn-primary" href="${cta.href}">${esc(cta.label)}</a></p>` : ''}
+      </div>
+    </div>
+  </div>
+</section>`;
+}

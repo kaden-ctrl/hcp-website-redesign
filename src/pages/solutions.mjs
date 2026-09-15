@@ -1,4 +1,4 @@
-import { buildPage, section, prose, cards, checklist, steps, quotes } from '../shared.mjs';
+import { buildPage, section, prose, cards, checklist, steps, quotes, featureRow } from '../shared.mjs';
 import { abs } from '../layout.mjs';
 
 const G = 'Compliance solutions';
@@ -107,9 +107,79 @@ const hipaa = buildPage({
     'Breach risk assessment and notification guidance when it counts'
   ],
   heroStat: 'OCR inquiry support is included in every plan',
-  heroPhoto: { src: '/assets/img/site/prog-hipaa.webp', alt: 'Clinician interacting with a HIPAA data security interface', title: 'HIPAA compliance program', width: 900, height: 601 },
+  heroPhoto: { src: '/assets/img/site/hero-hipaa.webp', title: 'HIPAA compliance program', width: 1400, height: 560 },
   extraSchema: [serviceSchema('HIPAA Compliance Program', 'HIPAA Privacy and Security Rule compliance software, training, risk analysis and advisory support for covered entities and business associates.', '/compliance-solution/hipaa/')],
   sections: [
+    featureRow({
+      title: 'Security Risk Analysis',
+      sub: 'Safeguarding PHI and ensuring HIPAA compliance',
+      image: { src: '/assets/img/site/band-sra.webp', alt: 'Compliance advisor reviewing a security risk analysis with a client', title: 'HIPAA Security Risk Analysis', width: 900, height: 600 },
+      body: [
+        'The Security Rule requires an accurate and thorough assessment of the risks and vulnerabilities to the confidentiality, integrity and availability of electronic protected health information. It is the single most frequently cited deficiency in federal enforcement, and the most common failure is not the absence of an analysis but the absence of what follows it.',
+        'Our analysis works through structured questionnaires, a review of your policies and procedures, and an assessment of your actual technical environment &mdash; the systems, devices and data flows you really run, not a generic template.'
+      ],
+      items: [
+        'Administrative, physical and technical safeguard review',
+        'Documented findings ranked by regulatory exposure',
+        'Risk management plan with owners, target dates and status',
+        'Re-assessment whenever your systems materially change'
+      ],
+      cta: { label: 'Talk through your risk analysis', href: '/contact/' }
+    }),
+
+    featureRow({
+      flip: true, alt: true,
+      title: 'HIPAA Virtual Walkthrough',
+      sub: 'Proactively identifying risks and enhancing compliance',
+      image: { src: '/assets/img/site/band-walkthrough.webp', alt: 'Clinician completing a compliance walkthrough on a laptop', title: 'HIPAA Virtual Walkthrough', width: 900, height: 600 },
+      body: [
+        'The Virtual Walkthrough is a compliance tool your team completes on any device. It complements the Security Risk Analysis by capturing what is actually happening in your physical environment &mdash; screen placement, records storage, disposal practice, visitor access and workstation security.',
+        'It generates internal compliance reports and keeps time-stamped records, so the evidence of your own monitoring accumulates continuously rather than being reconstructed the week an investigator asks.'
+      ],
+      items: [
+        'Completed on phone, tablet or desktop',
+        'Photo documentation attached to findings',
+        'Time-stamped reports retained automatically',
+        'Repeatable on a schedule you set'
+      ],
+      cta: { label: 'See how the walkthrough works', href: '/contact/' }
+    }),
+
+    featureRow({
+      title: 'Business Associate &amp; Vendor Tracking',
+      sub: 'Ensuring compliance and simplifying agreements',
+      image: { src: '/assets/img/site/band-baa.webp', alt: 'Close-up of a business associate agreement document', title: 'Business Associate Agreement management', width: 900, height: 600 },
+      body: [
+        'Our Business Associate Agreement management system is a cloud-based database that automates the storage, tracking and renewal of every agreement you hold. Most practices we assess discover at least two vendors with access to protected health information and no executed agreement on file.',
+        'Backed by advisor support, we review agreements, supply current templates and guide you through the vendor relationships that are easy to miss &mdash; the shredding service, the answering service, the cloud backup nobody inventoried.'
+      ],
+      items: [
+        'Central inventory of every vendor touching PHI',
+        'Executed agreements stored with renewal reminders',
+        'Current, compliant BAA templates supplied',
+        'Audit-ready documentation on demand'
+      ],
+      cta: { label: 'Review your vendor list', href: '/contact/' }
+    }),
+
+    featureRow({
+      flip: true, alt: true,
+      title: 'HIPAA Incident Management',
+      sub: 'Efficiently track, report and mitigate compliance risks',
+      image: { src: '/assets/img/site/band-incident.webp', alt: 'Healthcare worker reviewing a HIPAA incident report on a phone', title: 'HIPAA incident management', width: 900, height: 601 },
+      body: [
+        'Aligned to the Breach Notification Rule at 45 CFR §§ 164.400&ndash;414, the incident log captures what happened, when it was discovered and what you did about it &mdash; including the incidents you conclude are not reportable, where the documented reasoning is your defence.',
+        'The log includes step-by-step guidance through the reporting process, and your advisor team works the four-factor risk assessment with you when a determination actually has to be made.'
+      ],
+      items: [
+        'Guided four-factor breach risk assessment',
+        'Step-by-step reporting workflow and tutorial',
+        'Notification timelines and required content',
+        'Expert support through active incidents'
+      ],
+      cta: { label: 'Report an incident concern', href: '/contact/' }
+    }),
+
     section({
       cls: 'sec-alt',
       eyebrow: 'What the rule requires',
@@ -206,6 +276,58 @@ const osha = buildPage({
   heroPhoto: { src: '/assets/img/site/prog-osha.webp', alt: 'Clinical staff member in surgical gown, mask and gloves', title: 'OSHA compliance program', width: 900, height: 601 },
   extraSchema: [serviceSchema('OSHA Compliance Program', 'OSHA workplace safety compliance for healthcare, including Bloodborne Pathogens exposure control, Hazard Communication, SDS management, inspections and training.', '/compliance-solution/osha/')],
   sections: [
+    featureRow({
+      title: 'Virtual Safety Data Sheet (SDS) Binder',
+      sub: 'Accessible from any workstation, on every shift',
+      image: { src: '/assets/img/site/band-baa.webp', alt: 'Safety documentation being reviewed', title: 'Virtual SDS binder', width: 900, height: 600 },
+      body: [
+        'Hazard Communication requires safety data sheets to be readily accessible to employees during every shift, with no barriers. The most common citation we see is not a missing binder &mdash; it is a binder locked in an office that closes at 5pm while evening staff are still handling chemicals.',
+        'The virtual binder removes that failure mode. Your chemical inventory and its data sheets are searchable from any device, and updates flow in without anyone reprinting a page.'
+      ],
+      items: [
+        'Searchable inventory of every product in use',
+        'Reachable from any workstation or phone',
+        'Secondary container labelling guidance',
+        'Updated as products change'
+      ],
+      cta: { label: 'Review your chemical inventory', href: '/contact/' }
+    }),
+
+    featureRow({
+      flip: true, alt: true,
+      title: 'OSHA Self-Inspection',
+      sub: 'Recurring checks that generate their own evidence',
+      image: { src: '/assets/img/site/svc-onsite.webp', alt: 'Staff member conducting a facility safety inspection', title: 'OSHA self-inspection', width: 900, height: 475 },
+      body: [
+        'Inspections are triggered by employee complaints, reported injuries, referrals and emphasis programmes &mdash; usually with little or no notice. What an inspector asks for first is documentation, and organisations that inspect themselves on a schedule can produce it immediately.',
+        'Structured checklists walk your team through the physical environment: sharps containers, eyewash stations, chemical storage, exit routes, PPE availability and SDS access, with photo documentation attached to each finding.'
+      ],
+      items: [
+        'Checklists scoped to your equipment and procedures',
+        'Photo documentation attached to findings',
+        'Corrective actions tracked to closure',
+        'Records retained and produced on demand'
+      ],
+      cta: { label: 'Schedule an inspection review', href: '/contact/' }
+    }),
+
+    featureRow({
+      title: 'OSHA Hazard Risk Assessment',
+      sub: 'Identifying exposure before it becomes an incident',
+      image: { src: '/assets/img/site/prog-osha.webp', alt: 'Clinical staff member in protective equipment', title: 'Hazard risk assessment', width: 900, height: 601 },
+      body: [
+        'A hazard assessment establishes which tasks carry reasonably anticipated exposure, what controls apply, and what personal protective equipment your organisation must provide at no cost to the employee.',
+        'It also underpins the annual review of your exposure control plan, including the consideration of safer medical devices and the frontline employee input that review is required to reflect.'
+      ],
+      items: [
+        'Task-based exposure determination',
+        'Engineering and work practice controls',
+        'PPE selection documented by role',
+        'Safer sharps evaluation with employee input'
+      ],
+      cta: { label: 'Assess your exposure risk', href: '/contact/' }
+    }),
+
     section({
       cls: 'sec-alt',
       eyebrow: 'Why healthcare is different',
@@ -289,6 +411,58 @@ const corporate = buildPage({
   heroPhoto: { src: '/assets/img/site/prog-corporate.webp', alt: 'Illustration representing billing integrity and financial compliance risk', title: 'Corporate compliance program', width: 900, height: 506 },
   extraSchema: [serviceSchema('Corporate Compliance Program', 'Healthcare corporate compliance program covering the seven elements, Fraud Waste and Abuse training, exclusion monitoring, hotline and internal auditing.', '/compliance-solution/corporate-compliance/')],
   sections: [
+    featureRow({
+      title: 'Exclusion Monitoring',
+      sub: 'Screened at hire, and every month after',
+      image: { src: '/assets/img/site/band-sra.webp', alt: 'Compliance team reviewing screening results', title: 'Exclusion monitoring', width: 900, height: 600 },
+      body: [
+        'Federal health care programmes will not pay for items or services furnished, ordered or prescribed by an excluded individual or entity &mdash; and that reaches administrative and billing staff, contractors and vendors, not only clinicians.',
+        'Screening at hire and never again is one of the most common gaps we find. Liability attaches from the effective date of exclusion, not from the date you discover it, so the exposure accumulates silently for years.'
+      ],
+      items: [
+        'OIG List of Excluded Individuals and Entities',
+        'System for Award Management (SAM)',
+        'State Medicaid exclusion lists where applicable',
+        'Monthly screening with date-stamped retention'
+      ],
+      cta: { label: 'Check your screening cadence', href: '/contact/' }
+    }),
+
+    featureRow({
+      flip: true, alt: true,
+      title: 'Compliance Hotline',
+      sub: 'A reporting channel that actually functions',
+      image: { src: '/assets/img/site/aud-ba-2.webp', alt: 'Colleagues discussing a compliance matter', title: 'Compliance hotline', width: 900, height: 600 },
+      body: [
+        'Effective lines of communication are the fourth element of an effective compliance programme. We regularly find organisations whose policy references a hotline that was never actually implemented &mdash; a gap that fails any serious review.',
+        'An anonymous channel is only half of it. What matters in a review is the documented trail: intake, investigation, disposition and demonstrated non-retaliation for every report received.'
+      ],
+      items: [
+        'Anonymous reporting available to all staff',
+        'Documented intake and investigation workflow',
+        'Disposition recorded for every report',
+        'Manager training on non-retaliation'
+      ],
+      cta: { label: 'Set up your hotline', href: '/contact/' }
+    }),
+
+    featureRow({
+      title: 'Compliance Committee Meetings',
+      sub: 'Governance you can evidence',
+      image: { src: '/assets/img/site/feature-comprehensive.webp', alt: 'Healthcare leadership team meeting', title: 'Compliance committee', width: 1000, height: 563 },
+      body: [
+        'A designated compliance officer and an active committee are the second element of the framework. Auditors look for evidence the programme is operating, and the clearest evidence is a meeting cadence with dated minutes and closed action items.',
+        'The platform supplies agenda templates, attendance tracking and minutes storage, so the cadence and the topics covered are documented rather than remembered.'
+      ],
+      items: [
+        'Agenda templates aligned to the seven elements',
+        'Attendance tracked per meeting',
+        'Minutes stored with dates and action items',
+        'Board and ownership reporting'
+      ],
+      cta: { label: 'Structure your committee', href: '/contact/' }
+    }),
+
     section({
       cls: 'sec-alt',
       eyebrow: 'The framework',
@@ -360,6 +534,76 @@ const lms = buildPage({
   heroPhoto: { src: '/assets/img/site/prog-lms.webp', alt: 'Clinician completing online compliance training at a desk', title: 'Learning management system', width: 900, height: 600 },
   extraSchema: [serviceSchema('HCP Learning Management System', 'Healthcare compliance learning management system with 130+ courses, automated role-based assignment, CME credit and completion tracking.', '/compliance-solution/lms/')],
   sections: [
+    featureRow({
+      title: 'Extensive Library',
+      sub: 'More than 130 courses, assigned by role',
+      image: { src: '/assets/img/site/prog-lms.webp', alt: 'Clinician completing an online training course', title: 'Course library', width: 900, height: 600 },
+      body: [
+        'Blanket assignment is why completion rates are poor. When a front desk coordinator is assigned sharps handling and a clinical assistant gets the same generic module as everyone else, staff learn that assignments are noise and treat them accordingly.',
+        'Assignment driven by role, department and location makes each course relevant &mdash; which is the only durable route to high completion.'
+      ],
+      items: [
+        'HIPAA Privacy, Security and awareness',
+        'OSHA safety and infection control',
+        'Fraud, Waste &amp; Abuse and False Claims Act',
+        'Coding, documentation and HR conduct'
+      ],
+      cta: { label: 'Browse the library', href: '/contact/' }
+    }),
+
+    featureRow({
+      flip: true, alt: true,
+      title: 'CME Credit',
+      sub: 'AMA PRA Category 1 Credits&trade; on select courses',
+      image: { src: '/assets/img/site/band-walkthrough.webp', alt: 'Clinician studying on a laptop', title: 'CME credit', width: 900, height: 600 },
+      body: [
+        'Select courses carry AMA PRA Category 1 Credits&trade;, so clinicians can meet licensure and credentialing requirements without a separate CME vendor and a second set of records.',
+        'Eligible titles are flagged in the catalogue, and certificates are generated and stored against each individual automatically.'
+      ],
+      items: [
+        'Accredited titles flagged in the catalogue',
+        'Certificates generated and stored per person',
+        'Licensure and credentialing requirements supported',
+        'One record set for compliance and CME'
+      ],
+      cta: { label: 'See accredited courses', href: '/contact/' }
+    }),
+
+    featureRow({
+      title: 'Custom Course Creation',
+      sub: 'Your workflows, built once and assigned automatically',
+      image: { src: '/assets/img/site/svc-fractional.webp', alt: 'Team building a custom training module', title: 'Custom course creation', width: 900, height: 600 },
+      body: [
+        'Library content covers regulatory requirements. Your onboarding, your EHR workflows, your specialty protocols and your own policies are specific to you, and repeating them live for every new hire does not scale.',
+        'Build them once as custom modules with voice narration, video, embedded documents, quizzes and certificates &mdash; then assign and track them exactly like library content.'
+      ],
+      items: [
+        'Voice narration, video and embedded documents',
+        'Quizzes with pass thresholds',
+        'Certificates on completion',
+        'Assigned automatically on a hire date'
+      ],
+      cta: { label: 'Discuss a custom course', href: '/contact/' }
+    }),
+
+    featureRow({
+      flip: true, alt: true,
+      title: 'SCORM Compatibility',
+      sub: 'Bring the content you already own',
+      image: { src: '/assets/img/site/about-2.webp', alt: 'Healthcare professionals reviewing training records', title: 'SCORM compatibility', width: 1000, height: 667 },
+      body: [
+        'If your organisation has already invested in training built to the SCORM standard, it does not have to be rebuilt. SCORM packages can be uploaded and delivered alongside library and custom content.',
+        'Completion, scoring and certificates are tracked in the same place, so your evidence stays in one record set rather than split across systems.'
+      ],
+      items: [
+        'Upload existing SCORM packages',
+        'Delivered alongside library content',
+        'Completion and scoring tracked centrally',
+        'One export for auditors and payers'
+      ],
+      cta: { label: 'Ask about migration', href: '/contact/' }
+    }),
+
     section({
       cls: 'sec-alt',
       eyebrow: 'The library',

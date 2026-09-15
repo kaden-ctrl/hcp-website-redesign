@@ -1,7 +1,7 @@
 import {
   hero, section, prose, cards, checklist, steps, stats,
   differentiators, useCases, faqSection, quotes, cta, related, icon,
-  pillar, services, media
+  pillar, services, media, featureRow
 } from './components.mjs';
 
 /* The "more ways to enhance your compliance strategy" band appears on every
@@ -68,14 +68,16 @@ export function buildPage(cfg) {
       items: cfg.cases
     }),
     faqSection({ h2: cfg.faqH2, lead: cfg.faqLead, faqs: cfg.faqs }),
-    ...(cfg.servicesBand === false ? [] : [servicesBand()]),
     ...(cfg.related ? [related(cfg.related)] : []),
+    // Their interior pages close with "Compliance Made Simple", then the
+    // shared additional-services band.
     cta(cfg.cta || {
-      h2: 'See where your compliance program actually stands',
-      text: 'The free risk assessment takes about 20 minutes and produces a written gap analysis against HIPAA, OSHA and corporate compliance requirements. No obligation.',
-      primary: { label: 'Start your free assessment', href: '/compliance-assessment/' },
-      secondary: { label: 'Talk to an advisor', href: '/contact/' }
-    })
+      h2: '<em>Compliance Made Simple</em><strong>Comprehensive Solutions for a Secure Organization</strong>',
+      text: 'Simplify compliance with expert-led services including training, credentialing, risk assessments and incident management &mdash; backed by advisors who know your organization.',
+      primary: { label: 'Contact us today to get started', href: '/contact/' },
+      secondary: { label: 'Check your compliance risk', href: '/compliance-assessment/' }
+    }),
+    ...(cfg.servicesBand === false ? [] : [servicesBand()])
   ];
 
   return {
@@ -95,4 +97,4 @@ export function buildPage(cfg) {
   };
 }
 
-export { hero, section, prose, cards, checklist, steps, stats, quotes, related, cta, icon, faqSection, useCases, differentiators, pillar, services, media };
+export { hero, section, prose, cards, checklist, steps, stats, quotes, related, cta, icon, faqSection, useCases, differentiators, pillar, services, media, featureRow };
