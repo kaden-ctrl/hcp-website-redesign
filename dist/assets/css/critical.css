@@ -120,3 +120,18 @@ h1 em,h2 em{display:block;font-style:normal;font-weight:400}
 @media (max-width:1080px){.primary,.head-cta{display:none}.burger{display:flex}.brand-img{width:160px;height:64px}}
 @media (max-width:640px){.topbar-msg{display:none}.topbar-in{justify-content:center}}
 @media (prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+/* Interior page hero: full-bleed photo under a white wash, centred copy. */
+.hero-photo{position:relative;background:#eceff2;overflow:hidden;text-align:center}
+.hero-photo .hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.hero-photo::after{content:"";position:absolute;inset:0;background:rgba(255,255,255,.80);z-index:1}
+.hero-photo::before{display:none}
+.hero-photo .hero-in{position:relative;z-index:2;padding:clamp(3rem,2rem + 4vw,6rem) 0;display:block}
+.hero-photo .hero-copy{max-width:56rem;margin:0 auto;text-align:center}
+.hero-photo h1{font-size:clamp(2.1rem,1.4rem + 3vw,4rem);font-weight:700;color:var(--navy);margin-bottom:.3em}
+.hero-photo h1 em,.hero-photo h1 strong{display:inline;color:var(--navy)}
+.hero-photo h1 strong{font-weight:800}
+.hero-photo .eyebrow{color:var(--green-dark)}
+.hero-photo .lead{font-size:clamp(1.1rem,1rem + .55vw,1.5rem);line-height:1.45;color:#1a1a1a;max-width:44rem;margin:0 auto 1.75em}
+.hero-photo .hero-cta{display:flex;flex-wrap:wrap;gap:.75rem;justify-content:center;margin:0 0 1rem}
+.hero-photo .btn{border-radius:9px}
+.hero-photo .hero-trust{justify-content:center;color:var(--slate)}

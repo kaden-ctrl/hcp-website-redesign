@@ -175,7 +175,7 @@ const about = buildPage({
     'Clients from solo practices to health system departments and PE platforms'
   ],
   heroStat: `Founded in ${site.founded}`,
-  heroMedia: { src: '/assets/img/site/feature-comprehensive.webp', alt: 'A team of healthcare professionals standing together', title: 'The Healthcare Compliance Pros team', width: 1000, height: 563 },
+  heroPhoto: { src: '/assets/img/site/feature-comprehensive.webp', alt: 'A team of healthcare professionals standing together', title: 'The Healthcare Compliance Pros team', width: 1000, height: 563 },
   sections: [
     section({
       cls: 'sec-alt',

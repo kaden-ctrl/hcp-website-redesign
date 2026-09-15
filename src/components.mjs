@@ -12,8 +12,26 @@ const OFFER_ICONS = {
   hotline: '<path d="M16 12h8l4 10-5 3a22 22 0 0 0 12 12l3-5 10 4v8a4 4 0 0 1-4 4A34 34 0 0 1 12 16a4 4 0 0 1 4-4z"/>'
 };
 
-export function hero({ eyebrow, h1, lead, bullets = [], primary, secondary, stat, variant = 'dark', media, offers }) {
+export function hero({ eyebrow, h1, lead, bullets = [], primary, secondary, stat, variant = 'dark', media, offers, photo }) {
   const light = variant === 'light';
+  // Interior pages: full-bleed photograph under a heavy white wash, centred copy.
+  if (photo) {
+    return `<section class="hero hero-photo">
+  ${img({ src: photo.src, alt: '', title: photo.title, width: photo.width, height: photo.height, cls: 'hero-bg', loading: 'eager', fetchpriority: 'high' })}
+  <div class="wrap hero-in">
+    <div class="hero-copy">
+      ${eyebrow ? `<p class="eyebrow">${esc(eyebrow)}</p>` : ''}
+      <h1>${h1}</h1>
+      <p class="lead">${lead}</p>
+      <p class="hero-cta">
+        <a class="btn btn-primary" href="${primary.href}">${esc(primary.label)}</a>
+        ${secondary ? `<a class="btn btn-accent" href="${secondary.href}">${esc(secondary.label)}</a>` : ''}
+      </p>
+      ${stat ? `<p class="hero-trust">${icon('shield', 'ic ic-sm')}<span>${stat}</span></p>` : ''}
+    </div>
+  </div>
+</section>`;
+  }
   const mediaHtml = offers ? `<div class="hero-media"><div class="hero-offers">
     <p class="hero-offers-h"><span>What HCP Offers</span></p>
     <ul class="offer-rotator">${offers.map((o, i) => `<li class="offer"${i === 0 ? ' data-active' : ''}>

@@ -32,7 +32,7 @@ const practices = buildPage({
     'Assigned advisors who answer the phone when something happens'
   ],
   heroStat: 'Implementation typically completes in two to three weeks',
-  heroMedia: { src: '/assets/img/site/feature-comprehensive.webp', alt: 'A team of healthcare professionals standing together', title: 'Compliance for medical practices', width: 1000, height: 563 },
+  heroPhoto: { src: '/assets/img/site/feature-comprehensive.webp', alt: 'A team of healthcare professionals standing together', title: 'Compliance for medical practices', width: 1000, height: 563 },
   extraSchema: [svc('Compliance for Medical Practices', 'HIPAA, OSHA and corporate compliance programs for independent and group medical practices.', '/medical-practices/', 'Medical practices')],
   sections: [
     section({
@@ -334,6 +334,8 @@ const pe = buildPage({
 
 /* =============== Specialty pages =============== */
 
+const SPECIALTY_PHOTOS = {'orthopedics': 'spec-physical-therapy', 'dermatology': 'spec-dermatology', 'radiology': 'svc-coding', 'ent': 'spec-audiology', 'family-medicine': 'feature-comprehensive', 'audiology': 'spec-audiology', 'behavioral-health': 'spec-behavioral-health', 'medspa': 'spec-medspa', 'pediatrics': 'spec-therapy-2', 'physical-therapy': 'spec-physical-therapy'};
+
 const specialtyData = [
   {
     slug: 'orthopedics', name: 'Orthopedics',
@@ -514,6 +516,7 @@ const specialtyPages = specialtyData.map((s) => buildPage({
     'Assigned advisors who understand your service mix'
   ],
   heroStat: 'HIPAA, OSHA, corporate compliance and training in one platform',
+  heroPhoto: { src: `/assets/img/site/${SPECIALTY_PHOTOS[s.slug] || 'feature-comprehensive'}.webp`, title: `${s.name} compliance`, width: 900, height: 600 },
   extraSchema: [svc(`${s.name} Compliance Program`, `Healthcare compliance program for ${s.name.toLowerCase()} practices, covering HIPAA, OSHA, corporate compliance, coding audits and staff training.`, `/specialties/${s.slug}/`, `${s.name} practices`)],
   sections: [
     section({

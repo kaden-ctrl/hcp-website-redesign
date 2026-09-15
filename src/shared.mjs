@@ -4,6 +4,20 @@ import {
   pillar, services, media
 } from './components.mjs';
 
+/* The "more ways to enhance your compliance strategy" band appears on every
+   page of the live site, not just the homepage. */
+export const servicesBand = () => section({
+  h2: 'Looking for more ways to enhance your compliance strategy?',
+  lead: 'Expert services that plug into your program when you need capability the software alone cannot provide.',
+  body: services([
+    { icon: '/assets/img/site/icon-fractional.svg', title: 'Fractional Compliance Officer', text: 'Fill the role without a full-time hire', href: '/fractional-compliance-officer/' },
+    { icon: '/assets/img/site/icon-onsite.svg', title: 'On-Site Services', text: 'Training, walkthroughs and mock audits', href: '/on-site-services/' },
+    { icon: '/assets/img/site/icon-credential.svg', title: 'Credential Manager', text: 'Licences tracked before they lapse', href: '/credential-manager/' },
+    { icon: '/assets/img/site/icon-background.svg', title: 'Background Checks', text: 'Screening that continues after hire', href: '/background-checks/' },
+    { icon: '/assets/img/site/tab-corporate.webp', title: 'Coding Auditing', text: 'Find coding risk before a payer does', href: '/coding-compliance/' }
+  ])
+});
+
 /* Differentiators reused where a page has no more specific angle. */
 export const coreDifferentiators = [
   { icon: 'users', title: 'A named advisor team, not a ticket queue', text: 'Every client is assigned 3–5 experienced compliance professionals who learn your organization and answer when you call.' },
@@ -38,7 +52,8 @@ export function buildPage(cfg) {
       stat: cfg.heroStat,
       variant: cfg.heroVariant || 'dark',
       media: cfg.heroMedia,
-      offers: cfg.heroOffers
+      offers: cfg.heroOffers,
+      photo: cfg.heroPhoto || { src: '/assets/img/site/feature-comprehensive.webp', title: cfg.h1.replace(/<[^>]+>/g, ' ').trim(), width: 1000, height: 563 }
     }),
     ...(cfg.sections || []),
     differentiators({
@@ -53,6 +68,7 @@ export function buildPage(cfg) {
       items: cfg.cases
     }),
     faqSection({ h2: cfg.faqH2, lead: cfg.faqLead, faqs: cfg.faqs }),
+    ...(cfg.servicesBand === false ? [] : [servicesBand()]),
     ...(cfg.related ? [related(cfg.related)] : []),
     cta(cfg.cta || {
       h2: 'See where your compliance program actually stands',
