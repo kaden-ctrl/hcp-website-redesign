@@ -376,3 +376,14 @@
 .sec-shapes::before,.sec-shapes::after{content:"";position:absolute;border-radius:52px;pointer-events:none;z-index:0}
 .sec-shapes::before{width:340px;height:300px;border:12px solid rgba(9,72,121,.10);left:-90px;top:120px}
 .sec-shapes::after{width:380px;height:330px;border:12px solid rgba(166,203,57,.22);right:-110px;top:180px}
+
+/* ---- Migrated blog article ------------------------------------------- */
+.post-single{padding:clamp(2.5rem,2rem + 2vw,4rem) 0 1rem}
+.post-single h1{font-size:clamp(1.7rem,1.3rem + 1.6vw,2.4rem);margin-bottom:.6em}
+.post-single .post-meta{margin-bottom:1rem}
+.post-body{max-width:none}
+.post-body img{max-width:100%;height:auto;border-radius:var(--r);margin:1.5rem 0}
+.post-body table{width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:.95rem}
+.post-body th,.post-body td{border:1px solid var(--line);padding:.6rem .8rem;text-align:left}
+.post-body blockquote{margin:1.5rem 0;padding:.5rem 0 .5rem 1.25rem;border-left:3px solid var(--green);color:var(--slate)}
+.post-back{margin:2.5rem 0 0;font-family:var(--head);font-weight:700}

@@ -1,0 +1,14 @@
+{
+ "id": "1720960",
+ "url": "/blog/test-results-sent-to-wrong-doctor/",
+ "slug": "test-results-sent-to-wrong-doctor",
+ "title": "Test Results Sent to Wrong Doctor",
+ "titleTag": "Test Results Sent to Wrong Doctor",
+ "description": "Is it a HIPAA violation that needs to be reported when the wrong doctor receives a patient's test results ?",
+ "date": "2011-03-08",
+ "updated": "2025-11-04",
+ "oldUrl": "blog/test-results-sent-to-wrong-doctor",
+ "words": 192,
+ "thin": true,
+ "body": "<p> We have received some recent inquiries from offices regarding the following question: </p><p> Is it a HIPAA violation that needs to be reported when the wrong doctor receives a patient's test results? (For example: patient X goes to a specialist and the results are sent to the specialist and the patient's family doctor instead of just the specialist.)</p><p> If a patient's results go to a physician who is not providing direct or indirect treatment to the patient, this would be considered an incident involving an unauthorized disclosure, and as many of you know, would be considered a HIPAA violation. The good news is that (in the example above) since both physicians would also be considered covered entities, they too are bound to comply with the HIPAA regulations, so the risk of harm to the patient would be in the low to extremely low range. </p><p> Thus, you would need to record this in the accounting of disclosures database or tracking mechanism (Disclosure Log) for this patient. Other than that, you are good to go and hopefully whatever caused the mix up can be chalked up to a good lesson learned without too much pain. </p>"
+}

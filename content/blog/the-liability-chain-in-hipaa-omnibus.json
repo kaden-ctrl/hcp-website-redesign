@@ -1,0 +1,14 @@
+{
+ "id": "1720729",
+ "url": "/blog/the-liability-chain-in-hipaa-omnibus/",
+ "slug": "the-liability-chain-in-hipaa-omnibus",
+ "title": "The Liability Chain in HIPAA Omnibus",
+ "titleTag": "The Liability Chain in HIPAA Omnibus",
+ "description": "The HIPAA Omnibus Rule creates a complex chain of compliance liability among covered entities and their business partners.",
+ "date": "2013-05-01",
+ "updated": "2025-11-04",
+ "oldUrl": "blog/the-liability-chain-in-hipaa-omnibus",
+ "words": 182,
+ "thin": true,
+ "body": "<p>The HIPAA Omnibus Rule creates a complex chain of compliance liability among covered entities and their business partners.</p><p>Under HIPAA Omnibus, covered entities, business associates and subcontractors can be held responsible for the compliance conduct of their \"downstream\" partners.</p><p>For example, a practice could be responsible for the conduct of a downstream business associate if the vendor qualifies as an \"agent\" of the practice. The term \"agent\" refers to vendors that have received certain instructions from the covered entity about how to perform various functions.</p><p>As a result, if there is a breach in which an \"agent\" such as a business associate is at fault, the practice could face civil penalties.</p><p>Vendors providing services to healthcare organizations need to take the initiative to carefully determine if they qualify as a business associate under the expanded definition in HIPAA Omnibus including health information organizations and e-prescribing gateways. If they don't know they're a business associate, they might not be taking all the steps they need to comply. HIPAA Omnibus makes it clear that business associates and their subcontractors must comply with HIPAA provisions.</p>"
+}

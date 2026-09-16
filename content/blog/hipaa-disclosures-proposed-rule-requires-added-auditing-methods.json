@@ -1,0 +1,14 @@
+{
+ "id": "1720916",
+ "url": "/blog/hipaa-disclosures-proposed-rule-requires-added-auditing-methods/",
+ "slug": "hipaa-disclosures-proposed-rule-requires-added-auditing-methods",
+ "title": "HIPAA Disclosures Proposed Rule Requires Added Auditing Methods",
+ "titleTag": "HIPAA Disclosures Proposed Rule Requires Added Auditing Methods",
+ "description": "HIPAA experts say the major take-away from the HIPAA Privacy Rule disclosures proposed rule is the need to revisit existing auditing methods for disclosures of PHI.",
+ "date": "2011-06-14",
+ "updated": "2025-11-04",
+ "oldUrl": "blog/hipaa-disclosures-proposed-rule-requires-added-auditing-methods",
+ "words": 174,
+ "thin": true,
+ "body": "<p>HIPAA experts say the major take-away from the HIPAA Privacy Rule disclosures proposed rule is the need to revisit existing auditing methods for disclosures of protected health information. The proposed rule requires a more in-depth and on-going method of auditing in order to provide an accurate accounting of disclosures, especially electronic disclosures.</p><p>The HIPAA Security Rule already requires audit tracking: Rule 45 CFR 164.312, technical safeguards, requires covered entities (CEs) (and now business associates, per HITECH) to \"implement hardware, software, and/or procedural mechanisms that record and examine activity in information systems that contain or use ePHI.\"</p><p>The HITECH Act requires CEs and BAs to provide an accounting of disclosures of PHI through an electronic health record (EHR), for treatment, payment, and healthcare operations (TPO) dating back three years from such a request. The proposed rule implements this requirement through the right to an \"access report,\" which includes an accounting of who accessed electronic health information in a designated record set (DRS), for any reason. This includes both uses and disclosures, regardless of the purpose.</p>"
+}

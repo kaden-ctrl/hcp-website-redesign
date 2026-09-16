@@ -1,0 +1,14 @@
+{
+ "id": "1720795",
+ "url": "/blog/hipaa-hitech-stage-2-and-mu-2/",
+ "slug": "hipaa-hitech-stage-2-and-mu-2",
+ "title": "HIPAA HITECH Stage 2 and MU 2",
+ "titleTag": "HIPAA HITECH Stage 2 and MU 2",
+ "description": "The best way for you to prepare to comply with HITECH Stage 2 Privacy and Security requirements is for you to start conducting a thorough risk assessment.",
+ "date": "2012-09-05",
+ "updated": "2025-11-04",
+ "oldUrl": "blog/hipaa-hitech-stage-2-and-mu-2",
+ "words": 342,
+ "thin": false,
+ "body": "<p>The best way for you to prepare to comply with HITECH Stage 2 Privacy and Security requirements is for you to start conducting a thorough risk assessment.</p><p>A risk assessment helps hospitals and physicians identify potential areas of their administrative, physical and technical environments that are vulnerable and that they may need to mitigate.</p><p>We advise that your risk assessments should focus, in particular, on using encryption to protect data.</p><p>The HITECH Act electronic health record incentive program is providing billions of dollars in incentives to hospitals and physicians for using EHRs. The Meaningful Use rule for Stage 2 of the program, which starts in 2014, specifically requires that hospitals and physicians conduct a risk analysis that addresses the encryption/security of data stored in certified electronic health records technology.</p><p>The HIPAA Security Rule already requires a risk assessment, but stops short of an explicit encryption mandate. And the Stage 2 rules don't alter the HIPAA requirements.</p><p>If you choose to use an alternative to encryption to protect data then you must carefully document your decision.</p><p>The Stage 2 software certification rule, which sets standards for EHRs that qualify for the program, requires that the software be designed to encrypt, by default, electronic health information stored locally on end-user devices.</p><p>This encryption requirement gives you a tool to make sure stored data is protected.</p><p>We at Healthcare Compliance Pros have provided our clients with a risk assessment in our training and on our website. This risk assessment is REQUIRED for both HIPAA and Meaningful Use qualification. We will provide more information on these issues in the next few weeks. In the meantime, be aware of the following points:</p><p><strong>* The Stage 2 HITECH rule emphasizes encrypting data at rest.</strong></p><p><strong>* Federal officials determined that it was premature to mandate the use of specific authentication technologies in Stage 2;</strong></p><p><strong>* The Stage 2 Meaningful Use rule stresses the importance of giving patients secure access to their records.</strong></p><p>If you have any questions regarding your own risk assessment, please do not hesitate to contact us.</p>"
+}

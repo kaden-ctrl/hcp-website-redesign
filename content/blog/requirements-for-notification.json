@@ -1,0 +1,14 @@
+{
+ "id": "1720829",
+ "url": "/blog/requirements-for-notification/",
+ "slug": "requirements-for-notification",
+ "title": "Requirements for Notification",
+ "titleTag": "Requirements for Notification",
+ "description": "This HIPAA question was recently submitted by a client, but this situation could be encountered by any practice.",
+ "date": "2012-04-11",
+ "updated": "2025-11-04",
+ "oldUrl": "blog/requirements-for-notification",
+ "words": 185,
+ "thin": true,
+ "body": "<p>This question was recently submitted by a client, but this situation could be encountered by any practice:</p><p><strong> </strong></p><p><strong>Q.</strong> What constitutes a privacy breach that requires notification to patients? Recently, a thief broke into an employee's car and took her address/memo book. The book contained patients' last names only and a medical ID number, or maybe first and last names with medical ID numbers, and an occasional note regarding the care or a question the patient asked. How should we handle this?</p><p><strong>A.</strong> The American Recovery and Reinvestment Act of 2009 (ARRA) defines a breach as an unauthorized acquisition, access, use, or disclosure of PHI that compromises the security or privacy of the information. This incident meets the definition of a breach under ARRA.</p><p>Although this incident does constitute a privacy breach, you must evaluate the information contained in the address book to determine whether a significant risk of harm exists. For entries that include only the patient's name and medical record number, the risk is probably not significant. If the notes regarding care or questions asked reveal the patient's diagnosis, the risk may be significant.</p>"
+}

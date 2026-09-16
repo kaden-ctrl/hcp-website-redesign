@@ -1,0 +1,14 @@
+{
+ "id": "1720875",
+ "url": "/blog/employee-emr-access/",
+ "slug": "employee-emr-access",
+ "title": "Employee EMR Access",
+ "titleTag": "Employee EMR Access",
+ "description": "Can employees access their own PHI through the EMR without first signing a release?",
+ "date": "2011-10-25",
+ "updated": "2025-11-04",
+ "oldUrl": "blog/employee-emr-access",
+ "words": 135,
+ "thin": true,
+ "body": "<p><strong>Q.</strong> May we allow employees who have been granted access to PHI through the workforce clearance procedure to access their own PHI through the electronic medical record (EMR) without first requiring them to sign a release or authorization?</p><p><strong>A.</strong> HIPAA permits patients access to their medical and billing records. Covered entities (CE) may ask patients to sign an authorization form to obtain their records, but that is not a requirement. Organizations have discretion to establish policies and procedures for patients who are employees to access their medical records.</p><p>Some organizations allow employees to access their own records, but require them to go through formal channels (usually the HIM department) to access records of family members, including minor children. Other organizations prohibit employees from accessing their own records, requiring them to obtain copies via formal channels.</p>"
+}

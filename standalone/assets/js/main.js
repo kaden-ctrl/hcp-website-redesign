@@ -169,3 +169,17 @@
     });
   });
 })();
+
+/* Load the non-critical stylesheet. Done from this external, deferred script
+   rather than an inline onload handler, which our CSP (script-src 'self')
+   correctly blocks. Critical CSS is inlined, so there is no flash. */
+(function () {
+  if (document.querySelector('link[data-main-css]')) return;
+  var l = document.createElement('link');
+  l.rel = 'stylesheet';
+  l.href = document.currentScript && document.currentScript.src.indexOf('assets/js') > -1
+    ? document.currentScript.src.replace(/assets\/js\/main\.js.*$/, 'assets/css/main.css')
+    : '/assets/css/main.css';
+  l.setAttribute('data-main-css', '');
+  document.head.appendChild(l);
+})();

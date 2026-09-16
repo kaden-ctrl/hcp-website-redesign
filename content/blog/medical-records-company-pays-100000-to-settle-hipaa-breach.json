@@ -1,0 +1,14 @@
+{
+ "id": "1720980",
+ "url": "/blog/medical-records-company-pays-100000-to-settle-hipaa-breach/",
+ "slug": "medical-records-company-pays-100000-to-settle-hipaa-breach",
+ "title": "Medical Records Company Pays $100,000 to Settle HIPAA Breach",
+ "titleTag": "HIPAA Breach Costs $100,000",
+ "description": "Medical records company must pay $100,000 due to a HIPAA breach.",
+ "date": "2019-06-10",
+ "updated": "2025-11-04",
+ "oldUrl": "blog/medical-records-company-pays-100000-to-settle-hipaa-breach",
+ "words": 268,
+ "thin": false,
+ "body": "<p>Recently the Office for Civil Rights (OCR) announced a $100,000 settlement with a medical records company. In addition to paying $100,000, the medical records company agreed to take corrective action to settle the potential HIPAA Privacy and HIPAA Security Rules violations.</p><p>The company provides software and electronic medical records services to healthcare providers. According to OCR, on July 23, 2015, the company filed a breach report with OCR following the discovery that hackers used a compromised user ID and password to access the electronically protected health information (ePHI) of approximately 3.5 million people. </p><p>During OCR's investigation, they discovered that the medical records company did not conduct a comprehensive risk analysis prior to the breach. \"Entities entrusted with medical records must be on guard against hackers,\" said OCR Director Roger Severino. \"The failure to identify potential risks and vulnerabilities to ePHI opens the door to breaches and violates HIPAA.\"</p><p><strong>Did you know?</strong></p><p>One of the best safeguards healthcare organizations can have in place is a strong password policy. This means requiring a password that requires uppercase, lowercase and special characters. The password should be difficult to guess, and at least 8 characters. These passwords should be assigned to anyone and any system that accesses, creates, modifies, or stores ePHI. Additionally, your Security Risk Analysis (SRA) should consider your password policy so that you can determine if there are any potential risks that can be mitigated with some additional requirements. Entities who have a unique user ID and strong password policy and perform an initial SRA and subsequent SRA reviews/updates are well on their way to complying with HIPAA requirements. </p>"
+}

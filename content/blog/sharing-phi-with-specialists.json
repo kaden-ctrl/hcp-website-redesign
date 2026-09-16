@@ -1,0 +1,14 @@
+{
+ "id": "1720806",
+ "url": "/blog/sharing-phi-with-specialists/",
+ "slug": "sharing-phi-with-specialists",
+ "title": "Sharing PHI with Specialists",
+ "titleTag": "Sharing PHI with Specialists",
+ "description": "The answer to the following question regarding sharing PHI with specialists may surprise you.",
+ "date": "2012-07-03",
+ "updated": "2025-11-04",
+ "oldUrl": "blog/sharing-phi-with-specialists",
+ "words": 233,
+ "thin": false,
+ "body": "<p><strong>Q: </strong>A patient who presented with an order from the primary care physician for lab work had also seen a specialist who ordered x-rays. Both physicians were entered into the system, and both received the laboratory test results and x-rays. The patient said this violated HIPAA because the specialist did not need the laboratory test results. Did this violate HIPAA?</p><p><strong>A: </strong>Pursuant to the HIPAA Privacy Rule [45 CFR 164.502(b)(2)(i)], the minimum necessary standard does not apply when sharing patient information for treatment purposes.</p><p>The ultimate question is whether the specialist needed to see the laboratory results with respect to the care being provided. If the answer is \"yes\", the disclosure did not violate HIPAA.</p><p>If the specialist should not have received the laboratory results, a breach (although not necessarily a reportable breach) may have occurred. This merits investigation because it would constitute a security incident. All security incidents should be investigated, regardless of whether a breach occurred .</p><p>You should investigate this incident. You are required to notify the patient or OCR if you conclude upon investigation that the patient will not experience significant harm.</p><p>You must document the investigation. Responding to the patient complaint and explaining that you are taking steps to implement practices to prevent future similar occurrences is advisable.</p><p>Work with the laboratory to the extent feasible to prevent transmission of PHI to providers without a \"need to know.\"</p>"
+}

@@ -1,0 +1,14 @@
+{
+ "id": "1720845",
+ "url": "/blog/encryption-and-hipaa/",
+ "slug": "encryption-and-hipaa",
+ "title": "Encryption and HIPAA",
+ "titleTag": "Encryption and HIPAA",
+ "description": "Is sending PHI in unencrypted emails to an email address within the same domain a violation of the HIPAA Security Rule?",
+ "date": "2012-02-21",
+ "updated": "2025-11-04",
+ "oldUrl": "blog/encryption-and-hipaa",
+ "words": 97,
+ "thin": true,
+ "body": "<p><strong>Q.</strong> Would a covered entity or business associate be in violation of the HIPAA Security Rule if it sends PHI in unencrypted emails to an email address within the same domain using a Microsoft Exchange server behind the organization's firewall?</p><p><strong>A.</strong> No. PHI can be sent unencrypted within what is called a closed network. A network that is internal to the organization and protected by a firewall is considered a closed network. If the firewall is breached and unencrypted PHI is accessed, that would be considered a breach of unsecure PHI and breach notification requirements would apply.</p>"
+}

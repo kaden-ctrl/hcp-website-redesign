@@ -1,0 +1,14 @@
+{
+ "id": "1720878",
+ "url": "/blog/faxing-phi-to-the-wrong-fax-number/",
+ "slug": "faxing-phi-to-the-wrong-fax-number",
+ "title": "Faxing PHI to the Wrong Fax Number",
+ "titleTag": "Faxing PHI to the Wrong Fax Number",
+ "description": "If a fax containing PHI is sent to an incorrect fax number, did the covered entity violate HIPAA?",
+ "date": "2011-10-18",
+ "updated": "2025-11-04",
+ "oldUrl": "blog/faxing-phi-to-the-wrong-fax-number",
+ "words": 156,
+ "thin": true,
+ "body": "<p><strong>Q: </strong>A fax containing PHI is sent to an incorrect fax number. Did the covered entity (CE) or business associate (BA) violate HIPAA? Must we include this incident in the patient disclosure accounting record?</p><p><strong>A:</strong> Faxing PHI to a wrong number is a disclosure of PHI not authorized by the patient and must be included in the patient disclosure accounting. This incident represents a breach of unsecure PHI. If the CE determines that faxing the PHI to a wrong number will likely cause significant harm to the patient, it must notify the patient, add the breach-related information to its breach log, and report the breach to OCR within 60 days of the end of the calendar year.</p><p>If a CE or BA has implemented appropriate security controls to reasonably ensure PHI is not inappropriately disclosed and has implemented appropriate incident response practices (including breach notification policies, procedures, and practices), it is likely no HIPAA violation occurred.</p>"
+}

@@ -1,0 +1,14 @@
+{
+ "id": "1720907",
+ "url": "/blog/sign-in-sheets/",
+ "slug": "sign-in-sheets",
+ "title": "Sign-in Sheets",
+ "titleTag": "Sign-in Sheets",
+ "description": "Do patient sign-in sheets violate the HIPAA Privacy Rule? If they don't, does a recommended format exist?",
+ "date": "2011-07-12",
+ "updated": "2025-11-04",
+ "oldUrl": "blog/sign-in-sheets",
+ "words": 112,
+ "thin": true,
+ "body": "<p><strong>Q.</strong> Do patient sign-in sheets violate the HIPAA Privacy Rule? If they don't, does a recommended format exist?</p><p><strong>A.</strong> Covered entities are responsible for limiting incidental disclosures. Using a patient sign-in sheet is allowed but can be perceived as not taking the necessary steps to limit incidental disclosure and a violation of the HIPAA Privacy Rule.</p><p>If you use a sign-in sheet, the information on the sheet should be kept to a minimum.</p><p>No preferred format exists, however, covered entities that use a sign-in sheet should very strictly limit the PHI to the following:</p><p><strong>(1) the patient's name;</strong></p><p><strong>(2) the provider being seen;</strong></p><p><strong>(3) the arrival time; and</strong></p><p><strong>(4) the appointment time.</strong></p>"
+}

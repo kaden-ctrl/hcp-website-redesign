@@ -1,0 +1,14 @@
+{
+ "id": "1720816",
+ "url": "/blog/answering-service-messages/",
+ "slug": "answering-service-messages",
+ "title": "Answering Service Messages",
+ "titleTag": "Answering Service Messages",
+ "description": "To encrypt or not to encrypt...what am I required to do?",
+ "date": "2012-05-30",
+ "updated": "2025-11-04",
+ "oldUrl": "blog/answering-service-messages",
+ "words": 189,
+ "thin": true,
+ "body": "<p>This is a question that is often asked. To encrypt or not to encrypt\u00e2\u20ac\u00a6what am I required to do?</p><p><strong>Q: </strong>If a physician uses an answering service and receives unencrypted messages from an answering service, is it a violation of the HIPAA Security Rule?</p><p><strong> </strong></p><p><strong>A:</strong> If a physician uses his or her Smartphone to contact an answering service, it is not a violation of the HIPAA Security Rule. It may represent a risk, but generally phone transmissions (mobile and landlines) do not need to be encrypted unless the answering service is an automated service where messages are stored on a server that is open to the Internet (such as cloud-based answering services).</p><p>Even then, encryption is not required, but it is strongly recommended. Conduct a risk analysis, identify risks such as those related to unencrypted PHI, and then determine whether those risks are acceptable risks. A covered entity or business associate can elect to prohibit physicians and other workforce members from using a Smartphone to access messages from an answering service. That, though, is a decision that is made at the entity level and is not a HIPAA mandate.</p>"
+}

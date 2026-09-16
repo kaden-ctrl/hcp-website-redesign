@@ -1,0 +1,14 @@
+{
+ "id": "1720759",
+ "url": "/blog/ehr-incentive-program-q-a/",
+ "slug": "ehr-incentive-program-q-a",
+ "title": "EHR Incentive Program Q & A",
+ "titleTag": "EHR Incentive Program Q & A",
+ "description": "The EHR Incentive program for achieving",
+ "date": "2013-01-16",
+ "updated": "2025-11-04",
+ "oldUrl": "blog/ehr-incentive-program-q-a",
+ "words": 355,
+ "thin": false,
+ "body": "<p>The EHR Incentive program for achieving <strong>\"Meaningful Use\" </strong>can cause a lot of questions and confusion. Here is another question regarding that program:</p><p><strong>Q:</strong> To meet the third measure of the objective of providing \"a summary of care record for each transition of care or referral\" for the Medicare and Medicaid Electronic Health Record (EHR) Incentive Programs, must the electronic exchange with a recipient using technology designed by a different EHR developer occur for each provider or can there be one exchange per location? What if the provider chooses instead to exchange information with the CMS test EHR?</p><p><strong>A:</strong> If a summary of care record used for an actual transition of care or referral is electronically exchanged with a recipient who has EHR technology that was developed designed by a different EHR technology developer than the sender's EHR technology, then that exchange can be considered to have met the third measure of the objective for all providers involved in that transition of care and referral using the same Certified EHR Technology.</p><p>If the provider chooses instead to meet this third measure by exchanging with the CMS test EHR, Medicare clarifies that the use of test information about a fictional patient that would be identical in form to what would be sent about an actual patient (e.g., \"dummy data\") must be used for the purposes of conducting the test. Providers that use the same EHR technology and share a network for which their organization either has operational control of or license to use can conduct one test that covers all providers in the organization.</p><p>For example, if a large group of EPs with multiple physical locations use the same EHR technology and those locations are connected using a network that the group has either operational control of or license to use, then a single test would cover all EPs in that group. Similarly, if a provider uses an EHR technology that is hosted (cloud-based) on the developer's network, then a single test would allow all EPs, eligible hospitals, and CAHs using the EHR technology that is hosted (cloud-based) on the developer's network to meet the measure.</p>"
+}

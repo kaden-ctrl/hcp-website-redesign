@@ -1,0 +1,14 @@
+{
+ "id": "1720935",
+ "url": "/blog/faxing-protected-health-information/",
+ "slug": "faxing-protected-health-information",
+ "title": "Faxing Protected Health Information",
+ "titleTag": "Faxing Protected Health Information",
+ "description": "Does a clinic have a legal obligation to report a breach of PHI that was faxed to an individual from sources other than the clinic?",
+ "date": "2011-05-03",
+ "updated": "2025-11-04",
+ "oldUrl": "blog/faxing-protected-health-information",
+ "words": 235,
+ "thin": false,
+ "body": "<p> Recently, a client called in requesting clarification of whether they had violated HIPAA Privacy rules due to faxing protected health information (PHI). The following was their scenario and our answer: </p><p><strong> Scenario: </strong> Last week, a private individual notified a clinic that he has been receiving faxed PHI pertaining to its patients from sources other than the clinic. His home fax number differs from the clinic by only one number. </p><p> The individual has said the clinic has a legal obligation to report the breach. The clinic believes it is not violating HIPAA because another sender faxed the PHI. The individual has not communicated the source of the faxes containing the PHI. The clinic has taken reasonable measures to ensure those staff members who provide its fax number ask senders to repeat the number and to notify them of the likelihood they will be sending faxes to similar numbers. </p> <p><strong>Answer:</strong> The interim final breach notification rule does not require the clinic to notify patients when another entity or individual faxes their PHI to an unauthorized individual. Responsibility for doing so lies with the entity or individual faxing patient PHI to the wrong number. The clinic appears to be taking reasonable steps to ensure that its fax number is communicated correctly. The clinic also appears to be informing individuals who send it PHI via fax to exercise care to avoid inadvertently sending information to an unauthorized entity or individual. </p>"
+}

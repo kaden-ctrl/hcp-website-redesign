@@ -1,0 +1,14 @@
+{
+ "id": "1720717",
+ "url": "/blog/hipaa-security-risk-analysis-and-risk-management/",
+ "slug": "hipaa-security-risk-analysis-and-risk-management",
+ "title": "HIPAA Security: Risk Analysis and Risk Management",
+ "titleTag": "HIPAA Security: Risk Analysis and Risk Management",
+ "description": "HIPAA Security guidelines regarding specific risk analysis or risk management methodology under the Security Rule.",
+ "date": "2013-06-11",
+ "updated": "2025-11-04",
+ "oldUrl": "blog/hipaa-security-risk-analysis-and-risk-management",
+ "words": 249,
+ "thin": false,
+ "body": "<p>The Security Management Process standard, at \u00a7 164.308(a)(1)(i)) in the Administrative Safeguards section of the Security Rule, requires covered entities to \"[i]mplement policies and procedures to prevent, detect, contain, and correct security violations.\" The Security Management Process standard has four required implementation specifications. Two of the implementation specifications are Risk Analysis and Risk Management.</p><p>The required implementation specification at \u00a7 164.308(a)(1)(ii)(A), for Risk Analysis, requires a covered entity to, \"[c]onduct an accurate and thorough assessment of the potential risks and vulnerabilities to the confidentiality, integrity, and availability of electronic protected health information held by the covered entity.\"</p><p>The required implementation specification at \u00a7 164.308(a)(1)(ii)(B), for Risk Management, requires a covered entity to \"[i]mplement security measures sufficient to reduce risks and vulnerabilities to a reasonable and appropriate level to comply with \u00a7 164.306(a) [(the General Requirements of the Security Rule)].\"</p><p>Both risk analysis and risk management are standard information security processes and are critical to a covered entity's Security Rule compliance efforts. As stated in the responses to public comment in the preamble to the Security Rule, risk analysis and risk management are important to covered entities since these processes will \"form the foundation upon which an entity's necessary security activities are built.\" (68 Fed. Reg. 8346.)</p><p>The Security Rule does not prescribe a specific risk analysis or risk management methodology.</p><p>HCP can help you complete your risk analysis and risk management activities in order to satisfy the HIPAA legal requirement and to qualify for all levels of Meaningful Use.</p>"
+}

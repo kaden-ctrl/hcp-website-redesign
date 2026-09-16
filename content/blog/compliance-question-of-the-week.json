@@ -1,0 +1,14 @@
+{
+ "id": "1720588",
+ "url": "/blog/compliance-question-of-the-week/",
+ "slug": "compliance-question-of-the-week",
+ "title": "Compliance Question of the Week",
+ "titleTag": "Compliance Question of the Week",
+ "description": "You have a practice that is wondering if they send email internally (Physician to PA) containing only the patient's medical record number, if that is acceptable under HIPAA?",
+ "date": "2014-11-11",
+ "updated": "2025-11-04",
+ "oldUrl": "blog/compliance-question-of-the-week",
+ "words": 185,
+ "thin": true,
+ "body": "<p>You have a practice that is wondering if they send email internally (Physician to PA) containing only the patient's medical record number, if that is acceptable under HIPAA?</p><p><strong>Healthcare Compliance Pros Response: </strong></p><p>Under the HIPAA Privacy Rule, covered health care providers are allowed to share PHI electronically (or in any other form) for treatment purposes, as long as they apply reasonable safeguards when doing so. For example, a physician may consult with another physician by email about a patient's condition. In addition, the Privacy Rule allows covered health care providers to communicate electronically, such as through email, with their patients, provided they apply reasonable safeguards when doing so. See 45 C.F.R. \u00a7 164.530(c)</p><p>Based on the facts restated above, health care providers are allowed to share PHI electronically. In our opinion, only sending the patient's medical record number without a name or any other personal information is a reasonable safeguard, and it would be acceptable under HIPAA. This would not be against HIPAA regulations.</p><p><strong>If you have any additional questions or require further assistance, please do not hesitate to contact one of our professional consultants.</strong></p>"
+}

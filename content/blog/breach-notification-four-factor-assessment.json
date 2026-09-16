@@ -1,0 +1,14 @@
+{
+ "id": "1720723",
+ "url": "/blog/breach-notification-four-factor-assessment/",
+ "slug": "breach-notification-four-factor-assessment",
+ "title": "Breach Notification: Four-factor Assessment",
+ "titleTag": "Breach Notification: Four-factor Assessment",
+ "description": "Under the Omnibus Rule, security incidents are presumed to be reportable data breaches unless healthcare organizations demonstrate through a four-factor assessment that risks are low.",
+ "date": "2013-05-21",
+ "updated": "2025-11-04",
+ "oldUrl": "blog/breach-notification-four-factor-assessment",
+ "words": 199,
+ "thin": true,
+ "body": "<p>Under the HIPAA Omnibus Rule, security incidents are presumed to be reportable data breaches unless healthcare organizations demonstrate through a four-factor assessment that risks are low.</p><p>The factors that need to be assessed include:</p><ol> <li>The nature and extent of the protected health information involved, including types of identifiers, and the likelihood of re-identification;</li><li>The unauthorized party who used the PHI or to whom the disclosure was made;</li><li>Whether PHI was actually acquired or viewed; and</li><li>The extent to which the risk to the PHI has been mitigated.</li></ol><p>Mitigating risk to PHI once there's been a disclosure can prove difficult. There's not much you can do when the horse is already out of the barn.</p><p>The factors to be considered in an assessment of whether an incident is a reportable breach had been included in the preamble of the interim final breach notification rule that's been in effect since September 2009. But the final version of the rule, included within HIPAA Omnibus, clarifies the guidance.</p><p>Breach notification requirements for business associates are the same as for covered entities under the new rule.</p><p><strong>The HIPAA Omnibus Rule went into effect on March 26 and has a compliance deadline of Sept. 23.</strong></p>"
+}

@@ -1,0 +1,14 @@
+{
+ "id": "1720881",
+ "url": "/blog/hospital-hipaa-breach-posted-on-stanford-website/",
+ "slug": "hospital-hipaa-breach-posted-on-stanford-website",
+ "title": "Hospital HIPAA Breach Posted on Stanford Website",
+ "titleTag": "Hospital HIPAA Breach Posted on Stanford Website",
+ "description": "Stanford (CA) Hospital & Clinics (SHC) reported on its website October 3 that it found a vendor's electronic file that included certain patient information on a student homework website.",
+ "date": "2011-10-11",
+ "updated": "2025-11-04",
+ "oldUrl": "blog/hospital-hipaa-breach-posted-on-stanford-website",
+ "words": 179,
+ "thin": true,
+ "body": "<p>Stanford (CA) Hospital & Clinics (SHC) reported on its website October 3 that it found a vendor's electronic file that included certain patient information on a student homework website and removed it the following day. But the information was out there for nearly a year.</p><p>According to Stanford, Multi-Specialty Collection Services, LLC (MSCS), a vendor, received encrypted patient information from the hospital for business purposes. MSCS decrypted the data and used it to create a spreadsheet. Then an MSCS staff member provided it to an unauthorized person who posted it on a student homework website to get help creating a bar graph and charts.</p><p>SHC immediately suspended all work with the vendor and demanded that MSCS lock down all patient information. SHC terminated the vendor relationship.</p><p>The vendor's file, posted September 9, 2010, included information on about 20,000 patients treated in SHC's emergency department from March 1 through August 31, 2009, including:</p><p>* Patient's name</p><p>* Medical record</p><p>* Hospital account numbers</p><p>* Emergency department admission/discharge date</p><p>* Diagnosis codes related to the emergency department visit</p><p>* Billing charges</p>"
+}
