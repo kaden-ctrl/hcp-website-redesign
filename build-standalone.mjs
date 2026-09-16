@@ -42,6 +42,9 @@ function rewrite(html, map) {
 
   // 2. Root-relative asset paths -> relative (pages are flat at the root).
   html = html.replace(/(href|src)="\/assets\//g, '$1="assets/');
+  // srcset carries several comma-separated URLs, so rewrite each one.
+  html = html.replace(/srcset="([^"]+)"/g, (m, set) =>
+    'srcset="' + set.replace(/\/assets\//g, 'assets/') + '"');
 
   // 3. Root-relative page links -> flat filenames, preserving #fragments.
   html = html.replace(/href="(\/[^"#]*)(#[^"]*)?"/g, (m, p, frag) => {

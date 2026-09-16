@@ -38,6 +38,33 @@
   to = "/medspa/"
   status = 301
 
+# Legacy /solutions/* aliases point at the canonical pages rather than
+# duplicating content, which would split ranking signals.
+[[redirects]]
+  from = "/solutions/hipaa-compliance"
+  to = "/compliance-solution/hipaa/"
+  status = 301
+[[redirects]]
+  from = "/solutions/osha-compliance"
+  to = "/compliance-solution/osha/"
+  status = 301
+[[redirects]]
+  from = "/solutions/corporate-compliance"
+  to = "/compliance-solution/corporate-compliance/"
+  status = 301
+[[redirects]]
+  from = "/sentry"
+  to = "/coding-compliance/"
+  status = 301
+[[redirects]]
+  from = "/risk-assessment-healthcare"
+  to = "/compliance-assessment/"
+  status = 301
+[[redirects]]
+  from = "/consultation-form"
+  to = "/contact/"
+  status = 301
+
 [[redirects]]
   from = "/*"
   to = "/404/index.html"

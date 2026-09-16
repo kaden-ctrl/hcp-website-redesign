@@ -66,7 +66,7 @@ const body = [
         src: '/assets/img/site/feature-map.webp',
         alt: 'Two healthcare professionals reviewing compliance documentation together',
         title: 'Healthcare teams supported by HCP compliance advisors',
-        width: 1400, height: 812, loading: 'eager'
+        width: 1400, height: 812, loading: 'eager', sizes: '(max-width: 940px) 100vw, 900px'
       })}</div>
     <ul class="trust">
       <li><span class="n" aria-hidden="true">1</span><h3>Dedicated Compliance Support Team</h3>
@@ -263,17 +263,17 @@ const body = [
     h2: 'Recommended Articles',
     lead: 'Practical guidance from the advisors who handle these situations with clients.',
     body: `<ul class="posts">
-      <li class="post"><div class="post-media">${img({ src: '/assets/img/site/article-tools.webp', alt: 'Compliance management tools illustration', title: 'Compliance management tools', width: 800, height: 533 })}</div>
+      <li class="post"><div class="post-media">${img({ src: '/assets/img/site/article-tools.webp', alt: 'Compliance management tools illustration', title: 'Compliance management tools', width: 800, height: 533, sizes: '(max-width: 900px) 100vw, 370px' })}</div>
         <div class="post-body"><p class="post-meta">Program management · 8 min read</p>
         <h3><a href="/the-essential-compliance-management-tools-every-business-needs/">The compliance management tools every healthcare organization needs</a></h3>
         <p>Compliance tooling is often bought backwards — training first, evidence last. Here is the order that actually works.</p>
         <p><a class="card-link" href="/the-essential-compliance-management-tools-every-business-needs/">Continue reading</a></p></div></li>
-      <li class="post"><div class="post-media">${img({ src: '/assets/img/site/article-ai.webp', alt: 'Artificial intelligence and compliance illustration', title: 'AI compliance', width: 800, height: 533 })}</div>
+      <li class="post"><div class="post-media">${img({ src: '/assets/img/site/article-ai.webp', alt: 'Artificial intelligence and compliance illustration', title: 'AI compliance', width: 800, height: 533, sizes: '(max-width: 900px) 100vw, 370px' })}</div>
         <div class="post-body"><p class="post-meta">Emerging risk · 9 min read</p>
         <h3><a href="/unpacking-ai-compliance-what-every-business-needs-to-know/">Unpacking AI compliance: what healthcare organizations need to know</a></h3>
         <p>Ambient scribes and coding assistants are already in clinical workflows. The HIPAA questions they raise need answers now.</p>
         <p><a class="card-link" href="/unpacking-ai-compliance-what-every-business-needs-to-know/">Continue reading</a></p></div></li>
-      <li class="post"><div class="post-media">${img({ src: '/assets/img/site/article-software.webp', alt: 'Compliance software evaluation illustration', title: 'Compliance software solutions', width: 800, height: 533 })}</div>
+      <li class="post"><div class="post-media">${img({ src: '/assets/img/site/article-software.webp', alt: 'Compliance software evaluation illustration', title: 'Compliance software solutions', width: 800, height: 533, sizes: '(max-width: 900px) 100vw, 370px' })}</div>
         <div class="post-body"><p class="post-meta">Buying guide · 7 min read</p>
         <h3><a href="/discover-the-top-compliance-software-solutions-for-your-organization/">How to evaluate compliance software without getting burned</a></h3>
         <p>Most demos show the same four screens. These are the questions that reveal whether a platform will hold up.</p>

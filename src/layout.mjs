@@ -1,5 +1,7 @@
 import { site, nav, footerNav } from './site.mjs';
 import { spriteFor } from './icons.mjs';
+import { createRequire } from 'node:module';
+const manifest = createRequire(import.meta.url)('./image-manifest.json');
 
 /* ------------------------------------------------------------------ *
  * Small helpers
@@ -15,13 +17,28 @@ export const abs = (path) => site.origin + path;
  * the audit's "image title attributes not found" issue can never regress:
  * alt AND title are both required arguments.
  */
-export function img({ src, alt, title, width, height, cls = '', loading = 'lazy', fetchpriority }) {
+export function img({ src, alt, title, width, height, cls = '', loading = 'lazy', fetchpriority, sizes }) {
   // `title` is always required (audit finding #9). `alt` must always be present,
   // but may be deliberately empty for decorative images that sit beside a
   // visible text label — an empty alt is the correct accessibility choice there.
   if (alt === undefined || alt === null) throw new Error(`img() requires an alt attribute (src: ${src})`);
   if (!title) throw new Error(`img() requires a title attribute (src: ${src})`);
-  return `<img src="${src}" alt="${esc(alt)}" title="${esc(title)}" width="${width}" height="${height}"` +
+
+  // Responsive variants let the browser download a correctly sized file rather
+  // than one desktop-width image for every viewport.
+  const entry = manifest[src];
+  let srcset = '';
+  if (entry && entry.variants.length > 1) {
+    const seen = new Set();
+    const set = entry.variants
+      .filter((v) => (seen.has(v.w) ? false : seen.add(v.w)))
+      .sort((a, b) => a.w - b.w)
+      .map((v) => `${v.file} ${v.w}w`)
+      .join(', ');
+    srcset = ` srcset="${set}" sizes="${sizes || '(max-width: 900px) 100vw, 50vw'}"`;
+  }
+
+  return `<img src="${src}"${srcset} alt="${esc(alt)}" title="${esc(title)}" width="${width}" height="${height}"` +
     (cls ? ` class="${cls}"` : '') +
     ` loading="${loading}" decoding="async"` +
     (fetchpriority ? ` fetchpriority="${fetchpriority}"` : '') + '>';

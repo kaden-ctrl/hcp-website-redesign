@@ -1,0 +1,866 @@
+{
+ "/assets/img/site/about-1.webp": {
+  "h": 673,
+  "variants": [
+   {
+    "file": "/assets/img/site/about-1-400w.webp",
+    "h": 269,
+    "w": 400
+   },
+   {
+    "file": "/assets/img/site/about-1-700w.webp",
+    "h": 471,
+    "w": 700
+   },
+   {
+    "file": "/assets/img/site/about-1-1000w.webp",
+    "h": 673,
+    "w": 1000
+   },
+   {
+    "file": "/assets/img/site/about-1.webp",
+    "h": 673,
+    "w": 1000
+   }
+  ],
+  "w": 1000
+ },
+ "/assets/img/site/about-2.webp": {
+  "h": 667,
+  "variants": [
+   {
+    "file": "/assets/img/site/about-2-400w.webp",
+    "h": 267,
+    "w": 400
+   },
+   {
+    "file": "/assets/img/site/about-2-700w.webp",
+    "h": 467,
+    "w": 700
+   },
+   {
+    "file": "/assets/img/site/about-2-1000w.webp",
+    "h": 667,
+    "w": 1000
+   },
+   {
+    "file": "/assets/img/site/about-2.webp",
+    "h": 667,
+    "w": 1000
+   }
+  ],
+  "w": 1000
+ },
+ "/assets/img/site/article-ai.webp": {
+  "h": 533,
+  "variants": [
+   {
+    "file": "/assets/img/site/article-ai-400w.webp",
+    "h": 266,
+    "w": 400
+   },
+   {
+    "file": "/assets/img/site/article-ai-700w.webp",
+    "h": 466,
+    "w": 700
+   },
+   {
+    "file": "/assets/img/site/article-ai.webp",
+    "h": 533,
+    "w": 800
+   }
+  ],
+  "w": 800
+ },
+ "/assets/img/site/article-software.webp": {
+  "h": 533,
+  "variants": [
+   {
+    "file": "/assets/img/site/article-software-400w.webp",
+    "h": 266,
+    "w": 400
+   },
+   {
+    "file": "/assets/img/site/article-software-700w.webp",
+    "h": 466,
+    "w": 700
+   },
+   {
+    "file": "/assets/img/site/article-software.webp",
+    "h": 533,
+    "w": 800
+   }
+  ],
+  "w": 800
+ },
+ "/assets/img/site/article-tools.webp": {
+  "h": 533,
+  "variants": [
+   {
+    "file": "/assets/img/site/article-tools-400w.webp",
+    "h": 266,
+    "w": 400
+   },
+   {
+    "file": "/assets/img/site/article-tools-700w.webp",
+    "h": 466,
+    "w": 700
+   },
+   {
+    "file": "/assets/img/site/article-tools.webp",
+    "h": 533,
+    "w": 800
+   }
+  ],
+  "w": 800
+ },
+ "/assets/img/site/aud-ba-2.webp": {
+  "h": 600,
+  "variants": [
+   {
+    "file": "/assets/img/site/aud-ba-2-400w.webp",
+    "h": 267,
+    "w": 400
+   },
+   {
+    "file": "/assets/img/site/aud-ba-2-700w.webp",
+    "h": 467,
+    "w": 700
+   },
+   {
+    "file": "/assets/img/site/aud-ba-2.webp",
+    "h": 600,
+    "w": 900
+   }
+  ],
+  "w": 900
+ },
+ "/assets/img/site/aud-business-associates.webp": {
+  "h": 589,
+  "variants": [
+   {
+    "file": "/assets/img/site/aud-business-associates-400w.webp",
+    "h": 262,
+    "w": 400
+   },
+   {
+    "file": "/assets/img/site/aud-business-associates-700w.webp",
+    "h": 458,
+    "w": 700
+   },
+   {
+    "file": "/assets/img/site/aud-business-associates.webp",
+    "h": 589,
+    "w": 900
+   }
+  ],
+  "w": 900
+ },
+ "/assets/img/site/aud-pe-2.webp": {
+  "h": 600,
+  "variants": [
+   {
+    "file": "/assets/img/site/aud-pe-2-400w.webp",
+    "h": 267,
+    "w": 400
+   },
+   {
+    "file": "/assets/img/site/aud-pe-2-700w.webp",
+    "h": 467,
+    "w": 700
+   },
+   {
+    "file": "/assets/img/site/aud-pe-2.webp",
+    "h": 600,
+    "w": 900
+   }
+  ],
+  "w": 900
+ },
+ "/assets/img/site/aud-private-equity.webp": {
+  "h": 395,
+  "variants": [
+   {
+    "file": "/assets/img/site/aud-private-equity-400w.webp",
+    "h": 176,
+    "w": 400
+   },
+   {
+    "file": "/assets/img/site/aud-private-equity-700w.webp",
+    "h": 307,
+    "w": 700
+   },
+   {
+    "file": "/assets/img/site/aud-private-equity.webp",
+    "h": 395,
+    "w": 900
+   }
+  ],
+  "w": 900
+ },
+ "/assets/img/site/band-baa.webp": {
+  "h": 600,
+  "variants": [
+   {
+    "file": "/assets/img/site/band-baa-400w.webp",
+    "h": 267,
+    "w": 400
+   },
+   {
+    "file": "/assets/img/site/band-baa-700w.webp",
+    "h": 467,
+    "w": 700
+   },
+   {
+    "file": "/assets/img/site/band-baa.webp",
+    "h": 600,
+    "w": 900
+   }
+  ],
+  "w": 900
+ },
+ "/assets/img/site/band-incident.webp": {
+  "h": 601,
+  "variants": [
+   {
+    "file": "/assets/img/site/band-incident-400w.webp",
+    "h": 267,
+    "w": 400
+   },
+   {
+    "file": "/assets/img/site/band-incident-700w.webp",
+    "h": 467,
+    "w": 700
+   },
+   {
+    "file": "/assets/img/site/band-incident.webp",
+    "h": 601,
+    "w": 900
+   }
+  ],
+  "w": 900
+ },
+ "/assets/img/site/band-sra.webp": {
+  "h": 600,
+  "variants": [
+   {
+    "file": "/assets/img/site/band-sra-400w.webp",
+    "h": 267,
+    "w": 400
+   },
+   {
+    "file": "/assets/img/site/band-sra-700w.webp",
+    "h": 467,
+    "w": 700
+   },
+   {
+    "file": "/assets/img/site/band-sra.webp",
+    "h": 600,
+    "w": 900
+   }
+  ],
+  "w": 900
+ },
+ "/assets/img/site/feature-comprehensive.webp": {
+  "h": 563,
+  "variants": [
+   {
+    "file": "/assets/img/site/feature-comprehensive-400w.webp",
+    "h": 225,
+    "w": 400
+   },
+   {
+    "file": "/assets/img/site/feature-comprehensive-700w.webp",
+    "h": 394,
+    "w": 700
+   },
+   {
+    "file": "/assets/img/site/feature-comprehensive-1000w.webp",
+    "h": 563,
+    "w": 1000
+   },
+   {
+    "file": "/assets/img/site/feature-comprehensive.webp",
+    "h": 563,
+    "w": 1000
+   }
+  ],
+  "w": 1000
+ },
+ "/assets/img/site/feature-map.webp": {
+  "h": 812,
+  "variants": [
+   {
+    "file": "/assets/img/site/feature-map-400w.webp",
+    "h": 232,
+    "w": 400
+   },
+   {
+    "file": "/assets/img/site/feature-map-700w.webp",
+    "h": 406,
+    "w": 700
+   },
+   {
+    "file": "/assets/img/site/feature-map-1000w.webp",
+    "h": 580,
+    "w": 1000
+   },
+   {
+    "file": "/assets/img/site/feature-map-1400w.webp",
+    "h": 812,
+    "w": 1400
+   },
+   {
+    "file": "/assets/img/site/feature-map.webp",
+    "h": 812,
+    "w": 1400
+   }
+  ],
+  "w": 1400
+ },
+ "/assets/img/site/hero-hipaa.webp": {
+  "h": 560,
+  "variants": [
+   {
+    "file": "/assets/img/site/hero-hipaa-400w.webp",
+    "h": 160,
+    "w": 400
+   },
+   {
+    "file": "/assets/img/site/hero-hipaa-700w.webp",
+    "h": 280,
+    "w": 700
+   },
+   {
+    "file": "/assets/img/site/hero-hipaa-1000w.webp",
+    "h": 400,
+    "w": 1000
+   },
+   {
+    "file": "/assets/img/site/hero-hipaa-1400w.webp",
+    "h": 560,
+    "w": 1400
+   },
+   {
+    "file": "/assets/img/site/hero-hipaa.webp",
+    "h": 560,
+    "w": 1400
+   }
+  ],
+  "w": 1400
+ },
+ "/assets/img/site/logo-sentry.webp": {
+  "h": 479,
+  "variants": [
+   {
+    "file": "/assets/img/site/logo-sentry-400w.webp",
+    "h": 274,
+    "w": 400
+   },
+   {
+    "file": "/assets/img/site/logo-sentry-700w.webp",
+    "h": 479,
+    "w": 700
+   },
+   {
+    "file": "/assets/img/site/logo-sentry.webp",
+    "h": 479,
+    "w": 700
+   }
+  ],
+  "w": 700
+ },
+ "/assets/img/site/person-1.webp": {
+  "h": 700,
+  "variants": [
+   {
+    "file": "/assets/img/site/person-1-400w.webp",
+    "h": 659,
+    "w": 400
+   },
+   {
+    "file": "/assets/img/site/person-1.webp",
+    "h": 700,
+    "w": 425
+   }
+  ],
+  "w": 425
+ },
+ "/assets/img/site/person-2.webp": {
+  "h": 700,
+  "variants": [
+   {
+    "file": "/assets/img/site/person-2-400w.webp",
+    "h": 659,
+    "w": 400
+   },
+   {
+    "file": "/assets/img/site/person-2.webp",
+    "h": 700,
+    "w": 425
+   }
+  ],
+  "w": 425
+ },
+ "/assets/img/site/person-3.webp": {
+  "h": 700,
+  "variants": [
+   {
+    "file": "/assets/img/site/person-3-400w.webp",
+    "h": 659,
+    "w": 400
+   },
+   {
+    "file": "/assets/img/site/person-3.webp",
+    "h": 700,
+    "w": 425
+   }
+  ],
+  "w": 425
+ },
+ "/assets/img/site/prog-corporate.webp": {
+  "h": 506,
+  "variants": [
+   {
+    "file": "/assets/img/site/prog-corporate-400w.webp",
+    "h": 225,
+    "w": 400
+   },
+   {
+    "file": "/assets/img/site/prog-corporate-700w.webp",
+    "h": 394,
+    "w": 700
+   },
+   {
+    "file": "/assets/img/site/prog-corporate.webp",
+    "h": 506,
+    "w": 900
+   }
+  ],
+  "w": 900
+ },
+ "/assets/img/site/prog-hipaa.webp": {
+  "h": 601,
+  "variants": [
+   {
+    "file": "/assets/img/site/prog-hipaa-400w.webp",
+    "h": 267,
+    "w": 400
+   },
+   {
+    "file": "/assets/img/site/prog-hipaa-700w.webp",
+    "h": 467,
+    "w": 700
+   },
+   {
+    "file": "/assets/img/site/prog-hipaa.webp",
+    "h": 601,
+    "w": 900
+   }
+  ],
+  "w": 900
+ },
+ "/assets/img/site/prog-lms.webp": {
+  "h": 600,
+  "variants": [
+   {
+    "file": "/assets/img/site/prog-lms-400w.webp",
+    "h": 267,
+    "w": 400
+   },
+   {
+    "file": "/assets/img/site/prog-lms-700w.webp",
+    "h": 467,
+    "w": 700
+   },
+   {
+    "file": "/assets/img/site/prog-lms.webp",
+    "h": 600,
+    "w": 900
+   }
+  ],
+  "w": 900
+ },
+ "/assets/img/site/prog-osha.webp": {
+  "h": 601,
+  "variants": [
+   {
+    "file": "/assets/img/site/prog-osha-400w.webp",
+    "h": 267,
+    "w": 400
+   },
+   {
+    "file": "/assets/img/site/prog-osha-700w.webp",
+    "h": 467,
+    "w": 700
+   },
+   {
+    "file": "/assets/img/site/prog-osha.webp",
+    "h": 601,
+    "w": 900
+   }
+  ],
+  "w": 900
+ },
+ "/assets/img/site/spec-audiology.webp": {
+  "h": 701,
+  "variants": [
+   {
+    "file": "/assets/img/site/spec-audiology-400w.webp",
+    "h": 312,
+    "w": 400
+   },
+   {
+    "file": "/assets/img/site/spec-audiology-700w.webp",
+    "h": 545,
+    "w": 700
+   },
+   {
+    "file": "/assets/img/site/spec-audiology.webp",
+    "h": 701,
+    "w": 900
+   }
+  ],
+  "w": 900
+ },
+ "/assets/img/site/spec-behavioral-health.webp": {
+  "h": 600,
+  "variants": [
+   {
+    "file": "/assets/img/site/spec-behavioral-health-400w.webp",
+    "h": 267,
+    "w": 400
+   },
+   {
+    "file": "/assets/img/site/spec-behavioral-health-700w.webp",
+    "h": 467,
+    "w": 700
+   },
+   {
+    "file": "/assets/img/site/spec-behavioral-health.webp",
+    "h": 600,
+    "w": 900
+   }
+  ],
+  "w": 900
+ },
+ "/assets/img/site/spec-derm-2.webp": {
+  "h": 600,
+  "variants": [
+   {
+    "file": "/assets/img/site/spec-derm-2-400w.webp",
+    "h": 267,
+    "w": 400
+   },
+   {
+    "file": "/assets/img/site/spec-derm-2-700w.webp",
+    "h": 467,
+    "w": 700
+   },
+   {
+    "file": "/assets/img/site/spec-derm-2.webp",
+    "h": 600,
+    "w": 900
+   }
+  ],
+  "w": 900
+ },
+ "/assets/img/site/spec-dermatology.webp": {
+  "h": 900,
+  "variants": [
+   {
+    "file": "/assets/img/site/spec-dermatology-400w.webp",
+    "h": 500,
+    "w": 400
+   },
+   {
+    "file": "/assets/img/site/spec-dermatology-700w.webp",
+    "h": 875,
+    "w": 700
+   },
+   {
+    "file": "/assets/img/site/spec-dermatology.webp",
+    "h": 900,
+    "w": 720
+   }
+  ],
+  "w": 720
+ },
+ "/assets/img/site/spec-medspa.webp": {
+  "h": 900,
+  "variants": [
+   {
+    "file": "/assets/img/site/spec-medspa-400w.webp",
+    "h": 545,
+    "w": 400
+   },
+   {
+    "file": "/assets/img/site/spec-medspa.webp",
+    "h": 900,
+    "w": 661
+   }
+  ],
+  "w": 661
+ },
+ "/assets/img/site/spec-physical-therapy.webp": {
+  "h": 600,
+  "variants": [
+   {
+    "file": "/assets/img/site/spec-physical-therapy-400w.webp",
+    "h": 267,
+    "w": 400
+   },
+   {
+    "file": "/assets/img/site/spec-physical-therapy-700w.webp",
+    "h": 467,
+    "w": 700
+   },
+   {
+    "file": "/assets/img/site/spec-physical-therapy.webp",
+    "h": 600,
+    "w": 900
+   }
+  ],
+  "w": 900
+ },
+ "/assets/img/site/spec-therapy-2.webp": {
+  "h": 599,
+  "variants": [
+   {
+    "file": "/assets/img/site/spec-therapy-2-400w.webp",
+    "h": 266,
+    "w": 400
+   },
+   {
+    "file": "/assets/img/site/spec-therapy-2-700w.webp",
+    "h": 466,
+    "w": 700
+   },
+   {
+    "file": "/assets/img/site/spec-therapy-2.webp",
+    "h": 599,
+    "w": 900
+   }
+  ],
+  "w": 900
+ },
+ "/assets/img/site/svc-coding.webp": {
+  "h": 385,
+  "variants": [
+   {
+    "file": "/assets/img/site/svc-coding-400w.webp",
+    "h": 171,
+    "w": 400
+   },
+   {
+    "file": "/assets/img/site/svc-coding-700w.webp",
+    "h": 299,
+    "w": 700
+   },
+   {
+    "file": "/assets/img/site/svc-coding.webp",
+    "h": 385,
+    "w": 900
+   }
+  ],
+  "w": 900
+ },
+ "/assets/img/site/svc-fractional.webp": {
+  "h": 600,
+  "variants": [
+   {
+    "file": "/assets/img/site/svc-fractional-400w.webp",
+    "h": 267,
+    "w": 400
+   },
+   {
+    "file": "/assets/img/site/svc-fractional-700w.webp",
+    "h": 467,
+    "w": 700
+   },
+   {
+    "file": "/assets/img/site/svc-fractional.webp",
+    "h": 600,
+    "w": 900
+   }
+  ],
+  "w": 900
+ },
+ "/assets/img/site/svc-onsite.webp": {
+  "h": 475,
+  "variants": [
+   {
+    "file": "/assets/img/site/svc-onsite-400w.webp",
+    "h": 211,
+    "w": 400
+   },
+   {
+    "file": "/assets/img/site/svc-onsite-700w.webp",
+    "h": 369,
+    "w": 700
+   },
+   {
+    "file": "/assets/img/site/svc-onsite.webp",
+    "h": 475,
+    "w": 900
+   }
+  ],
+  "w": 900
+ },
+ "/assets/img/site/tab-corporate.webp": {
+  "h": 64,
+  "variants": [
+   {
+    "file": "/assets/img/site/tab-corporate.webp",
+    "h": 64,
+    "w": 63
+   }
+  ],
+  "w": 63
+ },
+ "/assets/img/site/tab-hipaa.webp": {
+  "h": 64,
+  "variants": [
+   {
+    "file": "/assets/img/site/tab-hipaa.webp",
+    "h": 64,
+    "w": 60
+   }
+  ],
+  "w": 60
+ },
+ "/assets/img/site/tab-lms.webp": {
+  "h": 57,
+  "variants": [
+   {
+    "file": "/assets/img/site/tab-lms.webp",
+    "h": 57,
+    "w": 64
+   }
+  ],
+  "w": 64
+ },
+ "/assets/img/site/tab-osha.webp": {
+  "h": 64,
+  "variants": [
+   {
+    "file": "/assets/img/site/tab-osha.webp",
+    "h": 64,
+    "w": 52
+   }
+  ],
+  "w": 52
+ },
+ "/assets/img/site/team-adam.webp": {
+  "h": 520,
+  "variants": [
+   {
+    "file": "/assets/img/site/team-adam-400w.webp",
+    "h": 400,
+    "w": 400
+   },
+   {
+    "file": "/assets/img/site/team-adam.webp",
+    "h": 520,
+    "w": 520
+   }
+  ],
+  "w": 520
+ },
+ "/assets/img/site/team-bryan.webp": {
+  "h": 520,
+  "variants": [
+   {
+    "file": "/assets/img/site/team-bryan-400w.webp",
+    "h": 400,
+    "w": 400
+   },
+   {
+    "file": "/assets/img/site/team-bryan.webp",
+    "h": 520,
+    "w": 520
+   }
+  ],
+  "w": 520
+ },
+ "/assets/img/site/team-chad.webp": {
+  "h": 509,
+  "variants": [
+   {
+    "file": "/assets/img/site/team-chad-400w.webp",
+    "h": 401,
+    "w": 400
+   },
+   {
+    "file": "/assets/img/site/team-chad.webp",
+    "h": 509,
+    "w": 508
+   }
+  ],
+  "w": 508
+ },
+ "/assets/img/site/team-eric.webp": {
+  "h": 506,
+  "variants": [
+   {
+    "file": "/assets/img/site/team-eric-400w.webp",
+    "h": 391,
+    "w": 400
+   },
+   {
+    "file": "/assets/img/site/team-eric.webp",
+    "h": 506,
+    "w": 518
+   }
+  ],
+  "w": 518
+ },
+ "/assets/img/site/team-jeremy.webp": {
+  "h": 520,
+  "variants": [
+   {
+    "file": "/assets/img/site/team-jeremy-400w.webp",
+    "h": 400,
+    "w": 400
+   },
+   {
+    "file": "/assets/img/site/team-jeremy.webp",
+    "h": 520,
+    "w": 520
+   }
+  ],
+  "w": 520
+ },
+ "/assets/img/site/team-kristin.webp": {
+  "h": 520,
+  "variants": [
+   {
+    "file": "/assets/img/site/team-kristin-400w.webp",
+    "h": 400,
+    "w": 400
+   },
+   {
+    "file": "/assets/img/site/team-kristin.webp",
+    "h": 520,
+    "w": 520
+   }
+  ],
+  "w": 520
+ },
+ "/assets/img/site/team-mystee.webp": {
+  "h": 520,
+  "variants": [
+   {
+    "file": "/assets/img/site/team-mystee-400w.webp",
+    "h": 400,
+    "w": 400
+   },
+   {
+    "file": "/assets/img/site/team-mystee.webp",
+    "h": 520,
+    "w": 520
+   }
+  ],
+  "w": 520
+ }
+}

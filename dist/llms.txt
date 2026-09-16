@@ -151,6 +151,12 @@ background screening.
 - [CLIA Series training](https://www.healthcarecompliancepros.com/clia-series-training/): CLIA Series training for laboratory and clinical staff, assigned by role with automated reminders and per-person completion records.
 - [State-Specific Courses training](https://www.healthcarecompliancepros.com/state-specific-courses/): State-Specific Courses training for staff in states with additional mandates, assigned by role with automated reminders and per-person completion records.
 
+## Guides & answers
+
+- [Common HIPAA Violations](https://www.healthcarecompliancepros.com/common-hipaa-violations/): The HIPAA violations that generate the most enforcement activity, why they happen, and the specific control that prevents each one.
+- [What HIPAA Stands For](https://www.healthcarecompliancepros.com/hipaa-stands-for/): HIPAA stands for the Health Insurance Portability and Accountability Act. What each rule requires, and who has to comply.
+- [Consequences of a Data Breach](https://www.healthcarecompliancepros.com/data-breach-consequences/): What a healthcare data breach actually costs: regulatory penalties, notification obligations, operational disruption and patient trust.
+
 ## Contact
 
 To reach Healthcare Compliance Pros, call (855) 427-0427, email info@healthcarecompliancepros.com, or use

@@ -17,7 +17,7 @@ export function hero({ eyebrow, h1, lead, bullets = [], primary, secondary, stat
   // Interior pages: full-bleed photograph under a heavy white wash, centred copy.
   if (photo) {
     return `<section class="hero hero-photo">
-  ${img({ src: photo.src, alt: '', title: photo.title, width: photo.width, height: photo.height, cls: 'hero-bg', loading: 'eager', fetchpriority: 'high' })}
+  ${img({ src: photo.src, alt: '', title: photo.title, width: photo.width, height: photo.height, cls: 'hero-bg', loading: 'eager', fetchpriority: 'high', sizes: '100vw' })}
   <div class="wrap hero-in">
     <div class="hero-copy">
       ${eyebrow ? `<p class="eyebrow">${esc(eyebrow)}</p>` : ''}
@@ -200,7 +200,7 @@ export function quotes(items) {
   return `<ul class="quotes">${items.map((q) => `<li><figure class="quote">
   <blockquote><p>${q.text}</p></blockquote>
   ${q.portrait ? `<figcaption class="quote-person">
-    <span class="quote-portrait">${img({ src: q.portrait, alt: `${q.name}, ${q.role}`, title: q.name, width: 425, height: 700 })}</span>
+    <span class="quote-portrait">${img({ src: q.portrait, alt: `${q.name}, ${q.role}`, title: q.name, width: 425, height: 700, sizes: '140px' })}</span>
     <span>${esc(q.name)}<span>${esc(q.role)}</span></span>
   </figcaption>` : `<figcaption>${esc(q.name)}<span>${esc(q.role)}</span></figcaption>`}
 </figure></li>`).join('')}</ul>`;
@@ -238,7 +238,7 @@ export { img, icon };
 export function pillar({ tag, title, text, image, badgeIcon, items, href, cta }) {
   return `<article class="pillar">
   <div class="pillar-media${image.cut ? ' pillar-media-cut' : ''}">
-    ${img({ src: image.src, alt: image.alt, title: image.title, width: image.width, height: image.height })}
+    ${img({ src: image.src, alt: image.alt, title: image.title, width: image.width, height: image.height, sizes: '(max-width: 900px) 100vw, 370px' })}
     ${badgeIcon ? `<span class="pillar-badge">${img({ src: badgeIcon, alt: '', title: esc(title) })}<span>${esc(tag)}</span></span>` : ''}
   </div>
   <div class="pillar-body">
@@ -277,7 +277,8 @@ export function featureRow({ title, sub, body, items = [], image, cta, flip = fa
     <div class="frow${flip ? ' frow-flip' : ''}">
       <div class="frow-media">${img({
         src: image.src, alt: image.alt, title: image.title,
-        width: image.width, height: image.height
+        width: image.width, height: image.height,
+        sizes: '(max-width: 860px) 100vw, 560px'
       })}</div>
       <div class="frow-copy">
         <h2>${title}</h2>
@@ -310,7 +311,7 @@ export function programTabs({ tabs }) {
       <ul class="ppanel-list">${t.items.map((x) => `<li>${icon('chevron', 'ic ic-xs')}<span>${x}</span></li>`).join('')}</ul>
       <p class="ppanel-cta"><a class="btn btn-primary" href="${t.href}">${esc(t.cta)}</a></p>
     </div>
-    <div class="ppanel-media">${img({ src: t.image.src, alt: t.image.alt, title: t.image.title, width: t.image.width, height: t.image.height })}</div>
+    <div class="ppanel-media">${img({ src: t.image.src, alt: t.image.alt, title: t.image.title, width: t.image.width, height: t.image.height, sizes: '(max-width: 940px) 100vw, 420px' })}</div>
   </div>`).join('');
 
   return `<div class="ptabs">
