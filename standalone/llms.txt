@@ -160,18 +160,20 @@ background screening.
 - [CLIA Series training](https://www.healthcarecompliancepros.com/index.htmlclia-series-training.html): CLIA Series training for laboratory and clinical staff, assigned by role with automated reminders and per-person completion records.
 - [State-Specific Courses training](https://www.healthcarecompliancepros.com/index.htmlstate-specific-courses.html): State-Specific Courses training for staff in states with additional mandates, assigned by role with automated reminders and per-person completion records.
 
+## Guides & answers
+
+- [Healthcare Compliance Examples](https://www.healthcarecompliancepros.com/index.htmlhealthcare-compliance-examples.html): Concrete examples of healthcare compliance in practice across HIPAA, OSHA and corporate compliance — what good looks like day to day.
+- [Automating Compliance](https://www.healthcarecompliancepros.com/index.htmlautomating-healthcare-compliance.html): What compliance automation should and should not do, which tasks automate cleanly, and where human judgment remains essential.
+- [Common HIPAA Violations](https://www.healthcarecompliancepros.com/index.htmlcommon-hipaa-violations/): The HIPAA violations that generate the most enforcement activity, why they happen, and the specific control that prevents each one.
+- [What HIPAA Stands For](https://www.healthcarecompliancepros.com/index.htmlhipaa-stands-for/): HIPAA stands for the Health Insurance Portability and Accountability Act. What each rule requires, and who has to comply.
+- [Consequences of a Data Breach](https://www.healthcarecompliancepros.com/index.htmldata-breach-consequences/): What a healthcare data breach actually costs: regulatory penalties, notification obligations, operational disruption and patient trust.
+
 ## Solutions & packages
 
 - [Human Resources Compliance](https://www.healthcarecompliancepros.com/index.htmlsolutions/human-resources/): Employment law, harassment prevention, onboarding documentation and personnel file requirements for healthcare employers.
 - [Compliance Support](https://www.healthcarecompliancepros.com/index.htmlsolutions/support/): What included support actually means: named advisors, audit response, incident help and technical support, with no per-incident charge.
 - [OSHA Plus](https://www.healthcarecompliancepros.com/index.htmlosha-plus/): An expanded OSHA program adding on-site inspection support, expanded training and deeper hazard assessment to the standard package.
 - [Corporate Compliance Plus](https://www.healthcarecompliancepros.com/index.htmlcorporate-compliance-plus/): An expanded corporate compliance package adding coding audits, committee facilitation and board-level reporting to the standard program.
-
-## Guides & answers
-
-- [Common HIPAA Violations](https://www.healthcarecompliancepros.com/index.htmlcommon-hipaa-violations/): The HIPAA violations that generate the most enforcement activity, why they happen, and the specific control that prevents each one.
-- [What HIPAA Stands For](https://www.healthcarecompliancepros.com/index.htmlhipaa-stands-for/): HIPAA stands for the Health Insurance Portability and Accountability Act. What each rule requires, and who has to comply.
-- [Consequences of a Data Breach](https://www.healthcarecompliancepros.com/index.htmldata-breach-consequences/): What a healthcare data breach actually costs: regulatory penalties, notification obligations, operational disruption and patient trust.
 
 ## Contact
 
