@@ -232,7 +232,7 @@ function head(page, criticalCss, cssHash) {
 // Displayed at 230x92; serve a 2x asset rather than the 1440px original,
 // which is kept only as the Organization schema logo.
 const logoMark = (cls) =>
-  `<img src="/assets/img/logo-460.png" alt="Healthcare Compliance Pros" title="Healthcare Compliance Pros home" width="460" height="184" class="${cls}" decoding="async" fetchpriority="high">`;
+  `<img src="/assets/img/logo-230.png" srcset="/assets/img/logo-230.png 230w, /assets/img/logo-460.png 460w" sizes="230px" alt="Healthcare Compliance Pros" title="Healthcare Compliance Pros home" width="230" height="92" class="${cls}" decoding="async" fetchpriority="high">`;
 
 function navMarkup(currentPath) {
   return nav.map((item, i) => {

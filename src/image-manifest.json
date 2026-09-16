@@ -261,6 +261,27 @@
   ],
   "w": 900
  },
+ "/assets/img/site/band-walkthrough.webp": {
+  "h": 600,
+  "variants": [
+   {
+    "file": "/assets/img/site/band-walkthrough-400w.webp",
+    "h": 267,
+    "w": 400
+   },
+   {
+    "file": "/assets/img/site/band-walkthrough-700w.webp",
+    "h": 467,
+    "w": 700
+   },
+   {
+    "file": "/assets/img/site/band-walkthrough.webp",
+    "h": 600,
+    "w": 900
+   }
+  ],
+  "w": 900
+ },
  "/assets/img/site/feature-comprehensive.webp": {
   "h": 563,
   "variants": [

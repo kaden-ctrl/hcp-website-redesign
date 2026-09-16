@@ -4,7 +4,7 @@
 Lighthouse's "properly size images" fails when one fixed-width image is served
 to every viewport. This emits several widths per source so the browser can pick.
 """
-import json, os, glob
+import json, os, glob, re
 from PIL import Image
 Image.MAX_IMAGE_PIXELS = None
 
@@ -15,7 +15,10 @@ QUALITY = 76          # down from 84; visually indistinguishable at these sizes
 manifest, before, after = {}, 0, 0
 
 # only originals (skip previously generated -NNNw variants)
-sources = [f for f in sorted(glob.glob(f'{SRC_DIR}/*.webp')) if '-w' not in os.path.basename(f)]
+# match the -NNNw.webp variant suffix specifically; a loose '-w' test also
+# excluded real sources like band-walkthrough.webp
+sources = [f for f in sorted(glob.glob(f'{SRC_DIR}/*.webp'))
+           if not re.search(r'-\d+w\.webp$', os.path.basename(f))]
 
 for src in sources:
     base = os.path.splitext(os.path.basename(src))[0]
