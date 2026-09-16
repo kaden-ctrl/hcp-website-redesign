@@ -7,8 +7,13 @@ const manifest = createRequire(import.meta.url)('./image-manifest.json');
  * Small helpers
  * ------------------------------------------------------------------ */
 
+// Entity-aware: a bare & is escaped, but an already-valid entity such as
+// &amp; or &mdash; is left alone. Without this, copy written with HTML
+// entities gets double-escaped and renders as literal "&amp;" on the page.
 export const esc = (s = '') =>
-  String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  String(s)
+    .replace(/&(?!(?:[a-zA-Z][a-zA-Z0-9]*|#[0-9]+|#x[0-9a-fA-F]+);)/g, '&amp;')
+    .replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
 export const abs = (path) => site.origin + path;
 
@@ -223,8 +228,10 @@ function head(page, criticalCss, cssHash) {
  * ------------------------------------------------------------------ */
 
 // The official HCP logo, taken from the live site (1440x576 source, 2.5:1).
+// Displayed at 230x92; serve a 2x asset rather than the 1440px original,
+// which is kept only as the Organization schema logo.
 const logoMark = (cls) =>
-  `<img src="/assets/img/logo.png" alt="Healthcare Compliance Pros" title="Healthcare Compliance Pros home" width="1440" height="576" class="${cls}" decoding="async" fetchpriority="high">`;
+  `<img src="/assets/img/logo-460.png" alt="Healthcare Compliance Pros" title="Healthcare Compliance Pros home" width="460" height="184" class="${cls}" decoding="async" fetchpriority="high">`;
 
 function navMarkup(currentPath) {
   return nav.map((item, i) => {

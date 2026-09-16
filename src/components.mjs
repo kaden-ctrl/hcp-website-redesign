@@ -299,7 +299,7 @@ export function featureRow({ title, sub, body, items = [], image, cta, flip = fa
  */
 export function programTabs({ tabs }) {
   const list = tabs.map((t, i) => `<li role="presentation">
-    <button role="tab" id="tab-${t.id}" aria-controls="panel-${t.id}" aria-selected="${i === 0}" tabindex="${i === 0 ? 0 : -1}" class="ptab">
+    <button role="tab" id="tab-${t.id}" aria-controls="panel-${t.id}" aria-selected="${i === 0}" tabindex="${i === 0 ? 0 : -1}" class="ptab" aria-label="${esc(/compliance/i.test(t.label) ? t.label : t.label + ' compliance')}">
       <span class="ptab-ic">${img({ src: t.icon, alt: '', title: esc(t.label) })}</span>
       <span class="ptab-l">${esc(t.label)}</span>
     </button></li>`).join('');

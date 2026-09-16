@@ -3,9 +3,9 @@
 @font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:500 800;font-display:swap;src:url(/assets/fonts/jakarta-var.woff2) format('woff2')}
 :root{
 --navy:#094879;--navy-deep:#011a2e;--navy-mid:#0b3a5e;--navy-soft:#0f5a94;
---green:#a6cb39;--green-dark:#7fa524;--green-tint:#f2f8e4;
+--green:#a6cb39;--green-dark:#7a9627;--green-text:#61771f;--green-tint:#f2f8e4;
 --blue:#64a2da;--blue-tint:#ecf7fd;
---ink:#333;--slate:#4a5a6a;--muted:#6b7b8b;
+--ink:#333;--slate:#47566a;--muted:#5c6b7a;
 --line:#dde5ec;--off:#f2f2f2;--white:#fff;
 --head:'Plus Jakarta Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
 --body:Lato,system-ui,-apple-system,'Segoe UI',sans-serif;
@@ -32,7 +32,7 @@ p strong,li strong,td strong{color:var(--navy-deep)}
 h1 strong,h2 strong,h1 b,h2 b{display:block;font-weight:800;color:inherit}
 h1 em,h2 em{display:block;font-style:normal;font-weight:400}
 .wrap-narrow{width:min(100% - 2.5rem,820px)}
-.eyebrow{font-family:var(--head);font-weight:700;font-size:.78rem;letter-spacing:.13em;text-transform:uppercase;color:var(--green-dark);margin:0 0 .7em}
+.eyebrow{font-family:var(--head);font-weight:700;font-size:.78rem;letter-spacing:.13em;text-transform:uppercase;color:var(--green-text);margin:0 0 .7em}
 .skip{position:absolute;left:-9999px;top:0;z-index:999;background:var(--navy-deep);color:#fff;padding:.8rem 1.2rem;border-radius:0 0 var(--r) 0}
 .skip:focus{left:0}
 .ic{width:20px;height:20px;fill:currentColor;flex:none}
@@ -130,7 +130,7 @@ h1 em,h2 em{display:block;font-style:normal;font-weight:400}
 .hero-photo h1{font-size:clamp(2.1rem,1.4rem + 3vw,4rem);font-weight:700;color:var(--navy);margin-bottom:.3em}
 .hero-photo h1 em,.hero-photo h1 strong{display:inline;color:var(--navy)}
 .hero-photo h1 strong{font-weight:800}
-.hero-photo .eyebrow{color:var(--green-dark)}
+.hero-photo .eyebrow{color:var(--green-text)}
 .hero-photo .lead{font-size:clamp(1.1rem,1rem + .55vw,1.5rem);line-height:1.45;color:#1a1a1a;max-width:44rem;margin:0 auto 1.75em}
 .hero-photo .hero-cta{display:flex;flex-wrap:wrap;gap:.75rem;justify-content:center;margin:0 0 1rem}
 .hero-photo .btn{border-radius:9px}
