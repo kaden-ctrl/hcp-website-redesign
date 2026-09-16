@@ -387,3 +387,40 @@
 .post-body th,.post-body td{border:1px solid var(--line);padding:.6rem .8rem;text-align:left}
 .post-body blockquote{margin:1.5rem 0;padding:.5rem 0 .5rem 1.25rem;border-left:3px solid var(--green);color:var(--slate)}
 .post-back{margin:2.5rem 0 0;font-family:var(--head);font-weight:700}
+
+/* ---- Section variants matched to the live site's layout system ---------
+   Their design system is built from 46 section types; these five account for
+   ~1,200 of the instances. Measurements taken from the live stylesheet:
+   content-image splits 1.5fr/1fr with a 3em gutter, the CTA bar centres and
+   caps its image at 150px, service column tiles invert onto primary-dark. */
+
+/* Full Width Content — centred prose band, generous vertical rhythm */
+.sec-fullwidth{padding:clamp(3rem,2rem + 3vw,5rem) 0;text-align:center}
+.sec-fullwidth .prose{margin-inline:auto;text-align:left}
+.sec-fullwidth .sec-head{margin-bottom:1.75rem}
+
+/* Content and Image — their 1.5fr / 1fr split with a 3em gutter */
+.frow-wide{grid-template-columns:1.5fr 1fr;gap:0 3em}
+@media (max-width:860px){.frow-wide{grid-template-columns:1fr;gap:2rem}}
+/* floating-card treatment: image overhangs the copy column */
+.frow-float .frow-media{--card-overhang:clamp(1rem,2vw,2rem);position:relative;
+  margin-block:calc(var(--card-overhang) * -1) 0;box-shadow:var(--sh-lg)}
+
+/* CTA Bar — centred, image capped, buttons on their own row */
+.sec-cta.cta-fullwidth{text-align:center}
+.sec-cta .cta-logo{max-width:150px;margin:0 auto 2rem;display:block}
+.sec-cta .cta-btns{margin-top:2em}
+
+/* Service Columns — tile variant inverts onto the dark primary */
+.svcs.svcs-tiles a{background:var(--navy-deep);border-color:transparent;color:#fff}
+.svcs.svcs-tiles strong{color:#fff}
+.svcs.svcs-tiles span{color:#cfe0ee}
+.svcs.svcs-tiles .svc-ic{background:rgba(255,255,255,.12)}
+.svcs.svcs-tiles a:hover{background:var(--navy);border-color:var(--green)}
+
+/* Hero — their fixed-background variant runs a much taller band */
+.hero-tall .hero-in{padding-block:clamp(4rem,3rem + 5vw,10em)}
+
+/* The third brand accent, used on some section variants */
+.accent-purple{color:var(--accent-purple)}
+.bg-accent-purple{background:var(--accent-purple);color:#fff}

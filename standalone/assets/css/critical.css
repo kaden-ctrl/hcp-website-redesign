@@ -2,9 +2,9 @@
 @font-face{font-family:Lato;font-style:normal;font-weight:700;font-display:swap;src:url(/assets/fonts/lato-700.woff2) format('woff2')}
 @font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:500 800;font-display:swap;src:url(/assets/fonts/jakarta-var.woff2) format('woff2')}
 :root{
---navy:#094879;--navy-deep:#011a2e;--navy-mid:#0b3a5e;--navy-soft:#0f5a94;
+--navy:#094879;--navy-deep:#011a2e;--navy-mid:#0b3a5e;--navy-soft:#0f5a94;--accent-purple:#913a7a;--green-light:#97bf2a;
 --green:#a6cb39;--green-dark:#7a9627;--green-text:#61771f;--green-tint:#f2f8e4;
---blue:#64a2da;--blue-tint:#ecf7fd;
+--blue:#64a2da;--blue-tint:#ecf7fd;/* matches --primary-lightest */
 --ink:#333;--slate:#47566a;--muted:#5c6b7a;
 --line:#dde5ec;--off:#f2f2f2;--white:#fff;
 --head:'Plus Jakarta Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
