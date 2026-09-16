@@ -110,6 +110,9 @@ background screening.
 
 ## Resources
 
+- [Compliance Checklists](https://www.healthcarecompliancepros.com/checklists/): Practical checklists for HIPAA, OSHA and corporate compliance — what to verify, how often, and what evidence each check should produce.
+- [Additional Tools](https://www.healthcarecompliancepros.com/compliance-solution/additional-tools/): Tools included alongside the core programs: document library, incident log, reporting, acknowledgement tracking and virtual binders.
+- [HIPAA Experts](https://www.healthcarecompliancepros.com/hipaa-experts/): Speak with an experienced HIPAA compliance advisor about risk analysis, breach assessment, business associate agreements or an active audit.
 - [Compliance Blog](https://www.healthcarecompliancepros.com/blog/): Practical guidance on HIPAA, OSHA, corporate compliance, coding and emerging risk, written by the HCP advisory team.
 - [The compliance management tools every healthcare organization needs](https://www.healthcarecompliancepros.com/the-essential-compliance-management-tools-every-business-needs/): The six compliance management tools healthcare organizations actually need, in the order they should be adopted and what each must produce.
 - [Unpacking AI compliance: what healthcare organizations need to know](https://www.healthcarecompliancepros.com/unpacking-ai-compliance-what-every-business-needs-to-know/): How HIPAA applies to AI scribes, chatbots and coding assistants, and the business associate questions practices must answer before deployment.
@@ -127,6 +130,12 @@ background screening.
 ## Other pages
 
 - [Healthcare Compliance Software](https://www.healthcarecompliancepros.com/): HIPAA, OSHA and corporate compliance software backed by assigned compliance advisors. Free risk assessment. Call (855) 427-0427.
+
+## Get started
+
+- [Get Compliant](https://www.healthcarecompliancepros.com/getcompliant/): A clear path from wherever your compliance program is today to a documented, defensible one — usually inside three weeks.
+- [Return on Investment](https://www.healthcarecompliancepros.com/roi/): How to think about compliance spend: avoided penalties, recovered administrative time, protected revenue and reduced coding risk.
+- [Referral Program](https://www.healthcarecompliancepros.com/referral-program/): Refer a healthcare organization to HCP. Simple introduction, compensation on closed business, and a client experience that reflects well on you.
 
 ## Training & courses
 
