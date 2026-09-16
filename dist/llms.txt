@@ -110,6 +110,9 @@ background screening.
 
 ## Resources
 
+- [Compliance Newsletter](https://www.healthcarecompliancepros.com/newsletter/): Regulatory updates, enforcement trends and practical guidance from HCP compliance advisors. No cost, unsubscribe any time.
+- [Audit Results & Findings](https://www.healthcarecompliancepros.com/audit-results/): What compliance audits typically find, how findings are prioritised by regulatory exposure, and what a corrective action plan should contain.
+- [Medical Assistant Credentialing](https://www.healthcarecompliancepros.com/medical-assistant-credentialing/): Tracking medical assistant certifications, scope of practice and required training, with alerts before credentials lapse.
 - [Compliance Checklists](https://www.healthcarecompliancepros.com/checklists/): Practical checklists for HIPAA, OSHA and corporate compliance — what to verify, how often, and what evidence each check should produce.
 - [Additional Tools](https://www.healthcarecompliancepros.com/compliance-solution/additional-tools/): Tools included alongside the core programs: document library, incident log, reporting, acknowledgement tracking and virtual binders.
 - [HIPAA Experts](https://www.healthcarecompliancepros.com/hipaa-experts/): Speak with an experienced HIPAA compliance advisor about risk analysis, breach assessment, business associate agreements or an active audit.
