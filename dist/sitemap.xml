@@ -43,10 +43,10 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.healthcarecompliancepros.com/specialties/dermatology/</loc>
+    <loc>https://www.healthcarecompliancepros.com/dermatology-compliance-program/</loc>
     <lastmod>2026-09-15</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.healthcarecompliancepros.com/specialties/radiology/</loc>
@@ -67,22 +67,22 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.healthcarecompliancepros.com/specialties/audiology/</loc>
+    <loc>https://www.healthcarecompliancepros.com/audiology-compliance-program/</loc>
     <lastmod>2026-09-15</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.healthcarecompliancepros.com/specialties/behavioral-health/</loc>
+    <loc>https://www.healthcarecompliancepros.com/behavioral-health-compliance/</loc>
     <lastmod>2026-09-15</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.healthcarecompliancepros.com/specialties/medspa/</loc>
+    <loc>https://www.healthcarecompliancepros.com/medspa/</loc>
     <lastmod>2026-09-15</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.healthcarecompliancepros.com/specialties/pediatrics/</loc>
@@ -91,10 +91,10 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.healthcarecompliancepros.com/specialties/physical-therapy/</loc>
+    <loc>https://www.healthcarecompliancepros.com/physical-therapy-compliance-program/</loc>
     <lastmod>2026-09-15</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.healthcarecompliancepros.com/solutions/the-hcp-difference/</loc>
@@ -140,6 +140,126 @@
   </url>
   <url>
     <loc>https://www.healthcarecompliancepros.com/contact/</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.healthcarecompliancepros.com/clinical-training/</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.healthcarecompliancepros.com/osha-training/</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.healthcarecompliancepros.com/osha-series/</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.healthcarecompliancepros.com/osha-series-general-safety/</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.healthcarecompliancepros.com/osha-standard-precautions/</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.healthcarecompliancepros.com/hand-hygiene/</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.healthcarecompliancepros.com/ppe/</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.healthcarecompliancepros.com/safe-patient-handling-techniques/</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.healthcarecompliancepros.com/wound-cleaning-and-healing/</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.healthcarecompliancepros.com/allergic-reactions-anaphylaxis/</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.healthcarecompliancepros.com/records-management/</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.healthcarecompliancepros.com/disaster-recovery-plan/</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.healthcarecompliancepros.com/medical-identity-theft-prevention/</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.healthcarecompliancepros.com/cyber-security-awareness-spanish/</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.healthcarecompliancepros.com/suicide-prevention/</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.healthcarecompliancepros.com/trauma-informed-care/</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.healthcarecompliancepros.com/sexual-harassment-prevention-cme/</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.healthcarecompliancepros.com/mandated-reporter-training/</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.healthcarecompliancepros.com/clia-series-training/</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.healthcarecompliancepros.com/state-specific-courses/</loc>
     <lastmod>2026-09-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>

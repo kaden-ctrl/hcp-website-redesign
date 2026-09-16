@@ -16,6 +16,28 @@
   status = 302
   force = false
 
+# Specialty pages moved to their canonical top-level URLs.
+[[redirects]]
+  from = "/specialties/dermatology/*"
+  to = "/dermatology-compliance-program/"
+  status = 301
+[[redirects]]
+  from = "/specialties/behavioral-health/*"
+  to = "/behavioral-health-compliance/"
+  status = 301
+[[redirects]]
+  from = "/specialties/audiology/*"
+  to = "/audiology-compliance-program/"
+  status = 301
+[[redirects]]
+  from = "/specialties/physical-therapy/*"
+  to = "/physical-therapy-compliance-program/"
+  status = 301
+[[redirects]]
+  from = "/specialties/medspa/*"
+  to = "/medspa/"
+  status = 301
+
 [[redirects]]
   from = "/*"
   to = "/404/index.html"

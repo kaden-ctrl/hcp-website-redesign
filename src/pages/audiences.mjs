@@ -499,13 +499,17 @@ const specialtyData = [
   }
 ];
 
+// Their canonical specialty URLs are top-level, not nested under /specialties/.
+const SPECIALTY_URLS = {'dermatology': '/dermatology-compliance-program/', 'behavioral-health': '/behavioral-health-compliance/', 'audiology': '/audiology-compliance-program/', 'physical-therapy': '/physical-therapy-compliance-program/', 'medspa': '/medspa/'};
+const specialtyUrl = (slug) => SPECIALTY_URLS[slug] || `/specialties/${slug}/`;
+
 const specialtyPages = specialtyData.map((s) => buildPage({
-  path: `/specialties/${s.slug}/`,
+  path: specialtyUrl(s.slug),
   group: GSP,
   llmsLabel: `${s.name} compliance`,
   title: `${s.name} Compliance Program | HCP`,
   description: `HIPAA, OSHA and coding compliance built around ${s.name.toLowerCase()} workflows, with assigned advisors and role-based staff training.`.slice(0, 155),
-  breadcrumbs: [crumbSpec, { label: s.name, href: `/specialties/${s.slug}/` }],
+  breadcrumbs: [crumbSpec, { label: s.name, href: specialtyUrl(s.slug) }],
   eyebrow: `${s.name} compliance`,
   h1: `Compliance built around how ${s.name.toLowerCase()} actually works`,
   lead: s.lead,
@@ -517,7 +521,7 @@ const specialtyPages = specialtyData.map((s) => buildPage({
   ],
   heroStat: 'HIPAA, OSHA, corporate compliance and training in one platform',
   heroPhoto: { src: `/assets/img/site/${SPECIALTY_PHOTOS[s.slug] || 'feature-comprehensive'}.webp`, title: `${s.name} compliance`, width: 900, height: 600 },
-  extraSchema: [svc(`${s.name} Compliance Program`, `Healthcare compliance program for ${s.name.toLowerCase()} practices, covering HIPAA, OSHA, corporate compliance, coding audits and staff training.`, `/specialties/${s.slug}/`, `${s.name} practices`)],
+  extraSchema: [svc(`${s.name} Compliance Program`, `Healthcare compliance program for ${s.name.toLowerCase()} practices, covering HIPAA, OSHA, corporate compliance, coding audits and staff training.`, specialtyUrl(s.slug), `${s.name} practices`)],
   sections: [
     section({
       cls: 'sec-alt',
@@ -598,7 +602,7 @@ const specialtiesHub = buildPage({
       h2: 'Specialty compliance programs',
       lead: 'Each program covers HIPAA, OSHA, corporate compliance and training, configured for that setting.',
       body: `<ul class="dir">${specialtyData.map((s) =>
-        `<li><a href="/specialties/${s.slug}/"><strong>${esc(s.name)}</strong><span>${esc(s.lead.slice(0, 96))}…</span></a></li>`).join('')}</ul>
+        `<li><a href="${specialtyUrl(s.slug)}"><strong>${esc(s.name)}</strong><span>${esc(s.lead.slice(0, 96))}…</span></a></li>`).join('')}</ul>
         <p class="center mt-2">Not listed? We build custom programs for any specialty. <a href="/contact/">Tell us what you do</a>.</p>`
     }),
     section({

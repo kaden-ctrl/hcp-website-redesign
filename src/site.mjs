@@ -80,20 +80,20 @@ export const nav = [
         heading: 'Specialties',
         links: [
           { label: 'Orthopedics', href: '/specialties/orthopedics/' },
-          { label: 'Dermatology', href: '/specialties/dermatology/' },
+          { label: 'Dermatology', href: '/dermatology-compliance-program/' },
           { label: 'Radiology', href: '/specialties/radiology/' },
           { label: 'ENT', href: '/specialties/ent/' },
           { label: 'Family Medicine', href: '/specialties/family-medicine/' },
-          { label: 'Audiology', href: '/specialties/audiology/' }
+          { label: 'Audiology', href: '/audiology-compliance-program/' }
         ]
       },
       {
         heading: '\u00a0',
         links: [
-          { label: 'Behavioral Health', href: '/specialties/behavioral-health/' },
-          { label: 'MedSpa/Aesthetics/Wellness', href: '/specialties/medspa/' },
+          { label: 'Behavioral Health', href: '/behavioral-health-compliance/' },
+          { label: 'MedSpa/Aesthetics/Wellness', href: '/medspa/' },
           { label: 'Pediatrics', href: '/specialties/pediatrics/' },
-          { label: 'Physical Therapy', href: '/specialties/physical-therapy/' },
+          { label: 'Physical Therapy', href: '/physical-therapy-compliance-program/' },
           { label: 'View All Specialties', href: '/specialties/' }
         ]
       }

@@ -89,15 +89,15 @@ background screening.
 
 - [All specialties](https://www.healthcarecompliancepros.com/index.htmlspecialties.html): Compliance programs built around the workflows, procedures and coding patterns specific to your specialty. Browse all specialties we support.
 - [Orthopedics compliance](https://www.healthcarecompliancepros.com/index.htmlspecialties.htmlorthopedics/): HIPAA, OSHA and coding compliance built around orthopedics workflows, with assigned advisors and role-based staff training.
-- [Dermatology compliance](https://www.healthcarecompliancepros.com/index.htmlspecialties.htmldermatology/): HIPAA, OSHA and coding compliance built around dermatology workflows, with assigned advisors and role-based staff training.
+- [Dermatology compliance](https://www.healthcarecompliancepros.com/index.htmldermatology-compliance-program.html): HIPAA, OSHA and coding compliance built around dermatology workflows, with assigned advisors and role-based staff training.
 - [Radiology & Imaging compliance](https://www.healthcarecompliancepros.com/index.htmlspecialties.htmlradiology/): HIPAA, OSHA and coding compliance built around radiology & imaging workflows, with assigned advisors and role-based staff training.
 - [ENT / Otolaryngology compliance](https://www.healthcarecompliancepros.com/index.htmlspecialties.htmlent/): HIPAA, OSHA and coding compliance built around ent / otolaryngology workflows, with assigned advisors and role-based staff training.
 - [Family Medicine compliance](https://www.healthcarecompliancepros.com/index.htmlspecialties.htmlfamily-medicine/): HIPAA, OSHA and coding compliance built around family medicine workflows, with assigned advisors and role-based staff training.
-- [Audiology compliance](https://www.healthcarecompliancepros.com/index.htmlspecialties.htmlaudiology/): HIPAA, OSHA and coding compliance built around audiology workflows, with assigned advisors and role-based staff training.
-- [Behavioral Health compliance](https://www.healthcarecompliancepros.com/index.htmlspecialties.htmlbehavioral-health/): HIPAA, OSHA and coding compliance built around behavioral health workflows, with assigned advisors and role-based staff training.
-- [MedSpa & Aesthetics compliance](https://www.healthcarecompliancepros.com/index.htmlspecialties.htmlmedspa/): HIPAA, OSHA and coding compliance built around medspa & aesthetics workflows, with assigned advisors and role-based staff training.
+- [Audiology compliance](https://www.healthcarecompliancepros.com/index.htmlaudiology-compliance-program.html): HIPAA, OSHA and coding compliance built around audiology workflows, with assigned advisors and role-based staff training.
+- [Behavioral Health compliance](https://www.healthcarecompliancepros.com/index.htmlbehavioral-health-compliance.html): HIPAA, OSHA and coding compliance built around behavioral health workflows, with assigned advisors and role-based staff training.
+- [MedSpa & Aesthetics compliance](https://www.healthcarecompliancepros.com/index.htmlmedspa.html): HIPAA, OSHA and coding compliance built around medspa & aesthetics workflows, with assigned advisors and role-based staff training.
 - [Pediatrics compliance](https://www.healthcarecompliancepros.com/index.htmlspecialties.htmlpediatrics/): HIPAA, OSHA and coding compliance built around pediatrics workflows, with assigned advisors and role-based staff training.
-- [Physical Therapy compliance](https://www.healthcarecompliancepros.com/index.htmlspecialties.htmlphysical-therapy/): HIPAA, OSHA and coding compliance built around physical therapy workflows, with assigned advisors and role-based staff training.
+- [Physical Therapy compliance](https://www.healthcarecompliancepros.com/index.htmlphysical-therapy-compliance-program.html): HIPAA, OSHA and coding compliance built around physical therapy workflows, with assigned advisors and role-based staff training.
 
 ## Company
 
@@ -127,6 +127,29 @@ background screening.
 ## Other pages
 
 - [Healthcare Compliance Software](https://www.healthcarecompliancepros.com/index.html): HIPAA, OSHA and corporate compliance software backed by assigned compliance advisors. Free risk assessment. Call (855) 427-0427.
+
+## Training & courses
+
+- [Clinical Training training](https://www.healthcarecompliancepros.com/index.htmlclinical-training.html): Clinical Training training for clinical staff, assigned by role with automated reminders and per-person completion records.
+- [OSHA Training training](https://www.healthcarecompliancepros.com/index.htmlosha-training.html): OSHA Training training for all staff with occupational exposure, assigned by role with automated reminders and per-person completion records.
+- [OSHA Series training](https://www.healthcarecompliancepros.com/index.htmlosha-series.html): OSHA Series training for clinical and support staff, assigned by role with automated reminders and per-person completion records.
+- [OSHA General Safety training](https://www.healthcarecompliancepros.com/index.htmlosha-series-general-safety.html): OSHA General Safety training for all employees, assigned by role with automated reminders and per-person completion records.
+- [Standard Precautions training](https://www.healthcarecompliancepros.com/index.htmlosha-standard-precautions.html): Standard Precautions training for clinical staff, assigned by role with automated reminders and per-person completion records.
+- [Hand Hygiene training](https://www.healthcarecompliancepros.com/index.htmlhand-hygiene.html): Hand Hygiene training for all clinical and support staff, assigned by role with automated reminders and per-person completion records.
+- [Personal Protective Equipment training](https://www.healthcarecompliancepros.com/index.htmlppe.html): Personal Protective Equipment training for staff with occupational exposure, assigned by role with automated reminders and per-person completion records.
+- [Safe Patient Handling training](https://www.healthcarecompliancepros.com/index.htmlsafe-patient-handling-techniques.html): Safe Patient Handling training for clinical and direct-care staff, assigned by role with automated reminders and per-person completion records.
+- [Wound Care training](https://www.healthcarecompliancepros.com/index.htmlwound-cleaning-and-healing.html): Wound Care training for clinical staff, assigned by role with automated reminders and per-person completion records.
+- [Anaphylaxis Response training](https://www.healthcarecompliancepros.com/index.htmlallergic-reactions-anaphylaxis.html): Anaphylaxis Response training for all clinical staff, assigned by role with automated reminders and per-person completion records.
+- [Records Management training](https://www.healthcarecompliancepros.com/index.htmlrecords-management.html): Records Management training for administrative and clinical staff, assigned by role with automated reminders and per-person completion records.
+- [Disaster Recovery Planning training](https://www.healthcarecompliancepros.com/index.htmldisaster-recovery-plan.html): Disaster Recovery Planning training for leadership and IT-responsible staff, assigned by role with automated reminders and per-person completion records.
+- [Medical Identity Theft Prevention training](https://www.healthcarecompliancepros.com/index.htmlmedical-identity-theft-prevention.html): Medical Identity Theft Prevention training for front office and billing staff, assigned by role with automated reminders and per-person completion records.
+- [Cybersecurity Awareness (Spanish) training](https://www.healthcarecompliancepros.com/index.htmlcyber-security-awareness-spanish.html): Cybersecurity Awareness (Spanish) training for Spanish-speaking staff, assigned by role with automated reminders and per-person completion records.
+- [Suicide Prevention training](https://www.healthcarecompliancepros.com/index.htmlsuicide-prevention.html): Suicide Prevention training for clinical and behavioral health staff, assigned by role with automated reminders and per-person completion records.
+- [Trauma-Informed Care training](https://www.healthcarecompliancepros.com/index.htmltrauma-informed-care.html): Trauma-Informed Care training for clinical and front-line staff, assigned by role with automated reminders and per-person completion records.
+- [Sexual Harassment Prevention training](https://www.healthcarecompliancepros.com/index.htmlsexual-harassment-prevention-cme.html): Sexual Harassment Prevention training for all staff and supervisors, assigned by role with automated reminders and per-person completion records.
+- [Mandated Reporter Training training](https://www.healthcarecompliancepros.com/index.htmlmandated-reporter-training.html): Mandated Reporter Training training for licensed professionals and designated staff, assigned by role with automated reminders and per-person completion re
+- [CLIA Series training](https://www.healthcarecompliancepros.com/index.htmlclia-series-training.html): CLIA Series training for laboratory and clinical staff, assigned by role with automated reminders and per-person completion records.
+- [State-Specific Courses training](https://www.healthcarecompliancepros.com/index.htmlstate-specific-courses.html): State-Specific Courses training for staff in states with additional mandates, assigned by role with automated reminders and per-person completion records.
 
 ## Contact
 
