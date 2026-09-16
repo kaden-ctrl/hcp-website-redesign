@@ -1,7 +1,7 @@
 import {
   hero, section, prose, cards, checklist, steps, stats,
   differentiators, useCases, faqSection, quotes, cta, related, icon,
-  pillar, services, media
+  pillar, services, media, programTabs
 } from '../components.mjs';
 import { img } from '../layout.mjs';
 import { site } from '../site.mjs';
@@ -85,40 +85,31 @@ const body = [
   section({
     h2: '<em>Manage Your</em><strong>HIPAA &amp; OSHA Compliance Requirements</strong>',
     lead: 'Powered by HCP SHIELD software &mdash; four connected programs, one staff login, one dashboard.',
-    body: `<div class="pillars">
-      ${pillar({
-        tag: 'HIPAA', title: 'HIPAA Compliance',
-        text: 'Privacy and Security Rule coverage from documentation through incident response.',
-        image: { src: '/assets/img/site/prog-hipaa.webp', alt: 'Clinician interacting with a HIPAA data security interface', title: 'HIPAA compliance program', width: 900, height: 601 },
-        badgeIcon: '/assets/img/site/tab-hipaa.webp',
-        items: ['Customized Privacy &amp; Security policies', 'Annual and role-based HIPAA training', 'Security Risk Analysis with tracked remediation', 'Business Associate Agreement management', 'Breach risk assessment and notification guidance', 'Expert audit and investigation support'],
-        href: '/compliance-solution/hipaa/', cta: 'Explore HIPAA compliance'
-      })}
-      ${pillar({
-        tag: 'OSHA', title: 'OSHA Compliance',
-        text: 'Workplace safety built for clinical environments, not generic industrial templates.',
-        image: { src: '/assets/img/site/prog-osha.webp', alt: 'Clinical staff member in surgical gown, mask and gloves', title: 'OSHA compliance program', width: 900, height: 601 },
-        badgeIcon: '/assets/img/site/tab-osha.webp',
-        items: ['Bloodborne Pathogens exposure control plan', 'Hazard Communication and virtual SDS binder', 'Facility safety inspection checklists and logs', 'Hazard and risk assessments', 'Annual and new-hire safety training', 'Inspection preparation and response support'],
-        href: '/compliance-solution/osha/', cta: 'Explore OSHA compliance'
-      })}
-      ${pillar({
-        tag: 'Corporate', title: 'Corporate Compliance',
-        text: 'A documented program built on the seven elements CMS and the OIG expect to see.',
-        image: { src: '/assets/img/site/prog-corporate.webp', alt: 'Illustration representing billing integrity and fraud, waste and abuse risk', title: 'Corporate compliance program', width: 900, height: 506, cut: true },
-        badgeIcon: '/assets/img/site/tab-corporate.webp',
-        items: ['Code of conduct and compliance policies', 'Fraud, Waste &amp; Abuse and False Claims Act training', 'Anonymous compliance hotline', 'OIG and SAM exclusion monitoring', 'Compliance committee structure and records', 'Internal auditing and corrective action tracking'],
-        href: '/compliance-solution/corporate-compliance/', cta: 'Explore corporate compliance'
-      })}
-      ${pillar({
-        tag: 'LMS', title: 'Learning Management System',
-        text: '130+ courses with automated assignment, reminders and certificate tracking.',
-        image: { src: '/assets/img/site/prog-lms.webp', alt: 'Clinician completing online compliance training at a desk', title: 'Learning management system', width: 900, height: 600 },
-        badgeIcon: '/assets/img/site/tab-lms.webp',
-        items: ['Role-based training tracks assigned automatically', 'Automated scheduling, reminders and refreshers', 'AMA PRA Category 1 Credits&trade; on select courses', 'Custom course builder with narration and quizzes', 'Real-time completion reporting', 'Certificates generated and stored automatically'],
-        href: '/compliance-solution/lms/', cta: 'Explore the LMS'
-      })}
-    </div>`
+    cls: 'sec-shapes',
+    body: programTabs({
+      tabs: [
+        { id: 'hipaa', label: 'HIPAA', icon: '/assets/img/site/tab-hipaa.webp',
+          heading: 'HIPAA', href: '/compliance-solution/hipaa/', cta: 'Become Compliant with HIPAA',
+          text: 'Privacy and Security Rule coverage from documentation through incident response, powered by user-friendly software and backed by a team of compliance experts.',
+          items: ['Custom Policies &amp; Procedures', 'Online Training', 'Breach Management Services', 'Business Associate Agreements', 'Expert Audit Support', 'Advanced Security Risk Analysis'],
+          image: { src: '/assets/img/site/prog-hipaa.webp', alt: 'Clinician working with HIPAA compliance tools', title: 'HIPAA compliance', width: 900, height: 601 } },
+        { id: 'osha', label: 'OSHA', icon: '/assets/img/site/tab-osha.webp',
+          heading: 'OSHA', href: '/compliance-solution/osha/', cta: 'Meet OSHA Standards',
+          text: 'Combining expert guidance with user-friendly software, our solution lets you focus on providing quality care while we handle the compliance details.',
+          items: ['Customized Policies &amp; Procedures', 'Online Training', 'Virtual SDS Binder', 'Facility Safety Inspection', 'Hazard Risk Assessment', 'Audit Support'],
+          image: { src: '/assets/img/site/prog-osha.webp', alt: 'Clinical staff member in protective equipment', title: 'OSHA compliance', width: 900, height: 601 } },
+        { id: 'corporate', label: 'Corporate Compliance', icon: '/assets/img/site/tab-corporate.webp',
+          heading: 'CORPORATE COMPLIANCE', href: '/compliance-solution/corporate-compliance/', cta: 'Corporate Compliance Made Easy',
+          text: 'Meet and maintain compliance with CMS and OIG requirements, with a custom plan built around the seven elements of an effective program.',
+          items: ['Customized Policies &amp; Procedures', 'Fraud, Waste, and Abuse Training', 'Compliance Hotline', 'Exclusion Monitoring', 'Compliance Committee Meeting', 'Audit Support'],
+          image: { src: '/assets/img/site/prog-corporate.webp', alt: 'Billing integrity and corporate compliance', title: 'Corporate compliance', width: 900, height: 506 } },
+        { id: 'lms', label: 'LMS', icon: '/assets/img/site/tab-lms.webp',
+          heading: 'LMS', href: '/compliance-solution/lms/', cta: 'Learning Management System (LMS)',
+          text: 'Empower your organization with a state-of-the-art Learning Management System designed to simplify compliance training and elevate professional development.',
+          items: ['<strong>Extensive Course Library</strong>: over 130 courses covering critical compliance topics', '<strong>Automated Scheduling &amp; Reminders</strong>: task automation and annual refreshers', '<strong>CME Credits</strong>: select courses with AMA PRA Category 1 Credits&trade;', '<strong>Custom Course Options</strong>: narration, video, quizzes and certifications'],
+          image: { src: '/assets/img/site/prog-lms.webp', alt: 'Clinician completing online training', title: 'Learning management system', width: 900, height: 600 } }
+      ]
+    })
   }),
 
   section({

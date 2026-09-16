@@ -1,7 +1,7 @@
 import {
   hero, section, prose, cards, checklist, steps, stats,
   differentiators, useCases, faqSection, quotes, cta, related, icon,
-  pillar, services, media, featureRow
+  pillar, services, media, featureRow, programTabs
 } from './components.mjs';
 
 /* The "more ways to enhance your compliance strategy" band appears on every
@@ -97,4 +97,4 @@ export function buildPage(cfg) {
   };
 }
 
-export { hero, section, prose, cards, checklist, steps, stats, quotes, related, cta, icon, faqSection, useCases, differentiators, pillar, services, media, featureRow };
+export { hero, section, prose, cards, checklist, steps, stats, quotes, related, cta, icon, faqSection, useCases, differentiators, pillar, services, media, featureRow, programTabs };

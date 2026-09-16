@@ -137,3 +137,35 @@
     items[i].setAttribute('data-active', '');
   }, 3200);
 })();
+
+/* Homepage program tabs — roving tabindex, arrow-key navigable.
+   Without JS every panel stays visible, so content is never hidden. */
+(function () {
+  var list = document.querySelector('.ptab-list');
+  if (!list) return;
+  var tabs = [].slice.call(list.querySelectorAll('[role="tab"]'));
+  if (!tabs.length) return;
+
+  function select(idx, focus) {
+    tabs.forEach(function (t, i) {
+      var panel = document.getElementById(t.getAttribute('aria-controls'));
+      var on = i === idx;
+      t.setAttribute('aria-selected', String(on));
+      t.tabIndex = on ? 0 : -1;
+      if (panel) panel.hidden = !on;
+    });
+    if (focus) tabs[idx].focus();
+  }
+
+  tabs.forEach(function (t, i) {
+    t.addEventListener('click', function () { select(i); });
+    t.addEventListener('keydown', function (e) {
+      var k = e.key, n = null;
+      if (k === 'ArrowDown' || k === 'ArrowRight') n = (i + 1) % tabs.length;
+      else if (k === 'ArrowUp' || k === 'ArrowLeft') n = (i - 1 + tabs.length) % tabs.length;
+      else if (k === 'Home') n = 0;
+      else if (k === 'End') n = tabs.length - 1;
+      if (n !== null) { e.preventDefault(); select(n, true); }
+    });
+  });
+})();

@@ -341,3 +341,36 @@
 .frow-copy .checklist{margin:1.25rem 0 0}
 .frow-cta{margin:1.75rem 0 0}
 @media (max-width:860px){.frow{grid-template-columns:1fr}.frow-flip .frow-media{order:0}}
+
+/* ---- Program tabs (homepage) ------------------------------------------ */
+.ptabs{display:grid;grid-template-columns:300px 1fr;gap:clamp(1.5rem,1rem + 3vw,3.5rem);align-items:start;position:relative;z-index:1}
+.ptab-list{list-style:none;margin:0;padding:0;display:grid;gap:.5rem}
+.ptab{display:flex;align-items:center;gap:1rem;width:100%;padding:.85rem 1.25rem;border:0;border-radius:999px;
+  background:transparent;cursor:pointer;text-align:left;font-family:var(--head);font-weight:800;font-size:1rem;
+  letter-spacing:.04em;text-transform:uppercase;color:var(--navy-deep);transition:background .18s,box-shadow .18s}
+.ptab:hover{background:#eef3f8}
+.ptab[aria-selected=true]{background:#fff;box-shadow:var(--sh)}
+.ptab-ic{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;
+  background:var(--blue-tint);flex:none}
+.ptab[aria-selected=true] .ptab-ic{background:var(--green-tint)}
+.ptab-ic img{width:22px;height:22px;object-fit:contain}
+.ppanel{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.5rem,1rem + 2vw,2.5rem);align-items:center;
+  background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);padding:2rem;box-shadow:var(--sh-lg)}
+.ppanel[hidden]{display:none}
+.ppanel-copy h3{font-size:1.5rem;color:var(--navy);margin-bottom:.5rem}
+.ppanel-copy>p{color:var(--ink)}
+.ppanel-list{list-style:none;margin:1rem 0 0;padding:0;display:grid;gap:.6rem}
+.ppanel-list li{display:flex;gap:.6rem;align-items:flex-start;color:var(--slate);font-size:.96rem}
+.ppanel-list .ic{color:var(--green-dark);margin-top:.4em;transform:rotate(-90deg)}
+.ppanel-cta{margin:1.5rem 0 0}
+.ppanel-media{border-radius:var(--r);overflow:hidden;background:var(--off)}
+.ppanel-media img{display:block;width:100%;height:100%;object-fit:cover;aspect-ratio:4/3}
+@media (max-width:940px){.ptabs{grid-template-columns:1fr}.ptab-list{grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:.4rem}
+  .ptab{justify-content:center;font-size:.85rem;padding:.7rem .9rem}.ptab-l{display:none}.ptab-ic{width:34px;height:34px}
+  .ppanel{grid-template-columns:1fr}}
+
+/* Decorative rounded-outline shapes behind the band. */
+.sec-shapes{position:relative;overflow:hidden}
+.sec-shapes::before,.sec-shapes::after{content:"";position:absolute;border-radius:52px;pointer-events:none;z-index:0}
+.sec-shapes::before{width:340px;height:300px;border:12px solid rgba(9,72,121,.10);left:-90px;top:120px}
+.sec-shapes::after{width:380px;height:330px;border:12px solid rgba(166,203,57,.22);right:-110px;top:180px}

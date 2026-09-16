@@ -290,3 +290,31 @@ export function featureRow({ title, sub, body, items = [], image, cta, flip = fa
   </div>
 </section>`;
 }
+
+/**
+ * Vertical tabbed program switcher — the layout their homepage uses for
+ * "Manage Your HIPAA & OSHA Compliance Requirements".
+ * Progressive enhancement: without JS every panel is visible and readable.
+ */
+export function programTabs({ tabs }) {
+  const list = tabs.map((t, i) => `<li role="presentation">
+    <button role="tab" id="tab-${t.id}" aria-controls="panel-${t.id}" aria-selected="${i === 0}" tabindex="${i === 0 ? 0 : -1}" class="ptab">
+      <span class="ptab-ic">${img({ src: t.icon, alt: '', title: esc(t.label) })}</span>
+      <span class="ptab-l">${esc(t.label)}</span>
+    </button></li>`).join('');
+
+  const panels = tabs.map((t, i) => `<div role="tabpanel" id="panel-${t.id}" aria-labelledby="tab-${t.id}" class="ppanel"${i === 0 ? '' : ' hidden'}>
+    <div class="ppanel-copy">
+      <h3>${esc(t.heading)}</h3>
+      <p>${t.text}</p>
+      <ul class="ppanel-list">${t.items.map((x) => `<li>${icon('chevron', 'ic ic-xs')}<span>${x}</span></li>`).join('')}</ul>
+      <p class="ppanel-cta"><a class="btn btn-primary" href="${t.href}">${esc(t.cta)}</a></p>
+    </div>
+    <div class="ppanel-media">${img({ src: t.image.src, alt: t.image.alt, title: t.image.title, width: t.image.width, height: t.image.height })}</div>
+  </div>`).join('');
+
+  return `<div class="ptabs">
+  <ul class="ptab-list" role="tablist" aria-label="Compliance programs">${list}</ul>
+  <div class="ppanels">${panels}</div>
+</div>`;
+}
