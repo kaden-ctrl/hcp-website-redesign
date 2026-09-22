@@ -54,18 +54,35 @@
       var el = e.target;
       nio.unobserve(el);
       var target = parseFloat(el.getAttribute('data-count'));
+      /* The markup already carries the real figure, so treat it as the
+         source of truth and restore it verbatim rather than rebuilding it
+         from prefix/suffix and risking a formatting mismatch. */
+      var finalText = el.textContent;
+      var done = false;
+      function finish() { if (done) return; done = true; el.textContent = finalText; }
+
+      /* Counting 0 -> 2 spends most of its frames displaying "0", which
+         reads as a broken stat rather than an animation. Small figures are
+         simply shown. */
+      if (!(target > 4)) return;
+
       var pre = el.getAttribute('data-pre') || '';
       var post = el.getAttribute('data-post') || '';
       var dec = (String(target).split('.')[1] || '').length;
       var start = null, dur = 1100;
       function tick(ts) {
+        if (done) return;
         if (start === null) start = ts;
         var p = Math.min(1, (ts - start) / dur);
         var eased = 1 - Math.pow(1 - p, 3);
         el.textContent = pre + (target * eased).toFixed(dec) + post;
-        if (p < 1) requestAnimationFrame(tick);
+        if (p < 1) requestAnimationFrame(tick); else finish();
       }
       requestAnimationFrame(tick);
+      /* requestAnimationFrame is paused while the tab is in the background,
+         which strands the counter on a part-way value for as long as the
+         page stays open. Guarantee the true number regardless. */
+      setTimeout(finish, dur + 600);
     });
   }, { threshold: 0.5 });
   nums.forEach(function (el) { nio.observe(el); });

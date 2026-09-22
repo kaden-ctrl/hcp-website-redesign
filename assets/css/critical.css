@@ -13,6 +13,13 @@
 --head:'Plus Jakarta Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
 --body:Lato,system-ui,-apple-system,'Segoe UI',sans-serif;
 --wrap:1180px;--r:14px;--r-lg:20px;
+/* Vertical rhythm. Three weights, applied deliberately: pivotal
+   sections get air, supporting ones get less, so the page has a
+   cadence instead of one repeated interval. */
+--sec-y:clamp(4.5rem,3rem + 5vw,7.5rem);
+--sec-y-tight:clamp(3rem,2.2rem + 2.5vw,4.5rem);
+--sec-y-loose:clamp(5.5rem,3.5rem + 7vw,10rem);
+--head-gap:clamp(2.75rem,2rem + 2.5vw,4.25rem);
 --sh:0 2px 8px rgba(0,0,0,.28);
 --sh-lg:0 18px 50px rgba(0,0,0,.45);
 --ring:0 0 0 1px var(--line);

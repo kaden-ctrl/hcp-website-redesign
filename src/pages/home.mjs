@@ -67,7 +67,7 @@ const body = `
   </div>
 </section>
 
-<section class="sec">
+<section class="sec sec-loose">
   <div class="wrap">
     <div class="sec-head rv">
       <p class="eyebrow">01 &mdash; The problem</p>
@@ -86,7 +86,7 @@ const body = `
 
 <section class="sec sec-alt" id="who-we-serve">
   <div class="wrap">
-    <div class="sec-head rv">
+    <div class="sec-head left rv">
       <p class="eyebrow">02 &mdash; Who this affects</p>
       <h2>Built for the organisations that carry the obligation</h2>
       <p class="sec-lead">From solo practices to multi-site groups, billing companies and private-equity-backed platforms.</p>
@@ -100,9 +100,9 @@ const body = `
   </div>
 </section>
 
-<section class="sec" id="what-you-get">
+<section class="sec sec-loose" id="what-you-get">
   <div class="wrap">
-    <div class="sec-head rv">
+    <div class="sec-head split rv">
       <p class="eyebrow">03 &mdash; The solution</p>
       <h2>One platform. Every obligation you carry.</h2>
       <p class="sec-lead">Four connected programs, one staff login, one dashboard showing exactly where each requirement stands.</p>
@@ -135,7 +135,7 @@ const body = `
         <a class="card-link" href="#get-started">Get started${icon('arrow','ic ic-xs')}</a>
       </li>
       <li class="card">
-        <div class="card-media">${img({ src: '/assets/img/site/prog-corporate.webp', style: 'object-position:center 45%', alt: 'Billing and corporate compliance review', title: 'Billing and corporate compliance review', width: 900, height: 600, sizes: '(max-width: 900px) 100vw, 280px' })}</div>
+        <div class="card-media">${img({ src: '/assets/img/site/about-2.webp', style: 'object-position:center 35%', alt: 'Clinical staff in a compliance training session', title: 'Corporate compliance training and board oversight', width: 900, height: 600, sizes: '(max-width: 900px) 100vw, 280px' })}</div>
         <span class="card-ic">${icon('scale')}</span>
         <h3>Corporate Compliance</h3>
         <p>A documented program built on the seven elements CMS and the OIG expect.</p>
@@ -183,7 +183,7 @@ const body = `
 
 <section class="sec" id="how-it-works">
   <div class="wrap">
-    <div class="sec-head rv">
+    <div class="sec-head split rv">
       <p class="eyebrow">05 &mdash; Getting started</p>
       <h2>Audit-ready in about three weeks</h2>
       <p class="sec-lead">Your advisor runs the build. Your team&rsquo;s involvement is measured in hours, not weeks.</p>
@@ -202,7 +202,7 @@ const body = `
   </div>
 </section>
 
-<section class="sec sec-alt" id="results">
+<section class="sec sec-alt sec-loose" id="results">
   <div class="wrap">
     <div class="sec-head rv">
       <p class="eyebrow">06 &mdash; The proof</p>
@@ -260,7 +260,7 @@ const body = `
 
 <section class="sec" id="why-hcp">
   <div class="wrap">
-    <div class="sec-head rv">
+    <div class="sec-head split rv">
       <p class="eyebrow">07 &mdash; Why us</p>
       <h2>Most vendors sell software or consulting. The gap between them is where programs fail.</h2>
       <p class="sec-lead">We refuse to sell one without the other &mdash; which is why the comparison below looks the way it does.</p>
@@ -284,7 +284,7 @@ const body = `
 
 <section class="sec sec-alt" id="faq">
   <div class="narrow">
-    <div class="sec-head rv">
+    <div class="sec-head left rv">
       <p class="eyebrow">08 &mdash; Your questions</p>
       <h2>The questions everyone asks first</h2>
     </div>
