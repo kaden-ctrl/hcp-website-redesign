@@ -231,111 +231,63 @@ function head(page, criticalCss, cssHash) {
 // The official HCP logo, taken from the live site (1440x576 source, 2.5:1).
 // Displayed at 230x92; serve a 2x asset rather than the 1440px original,
 // which is kept only as the Organization schema logo.
-const logoMark = (cls) =>
-  `<img src="/assets/img/logo-230.png" srcset="/assets/img/logo-230.png 230w, /assets/img/logo-460.png 460w" sizes="230px" alt="Healthcare Compliance Pros" title="Healthcare Compliance Pros home" width="230" height="92" class="${cls}" decoding="async" fetchpriority="high">`;
+const logoMark = () =>
+  `<img src="/assets/img/logo-230.png" srcset="/assets/img/logo-230.png 230w, /assets/img/logo-460.png 460w" sizes="196px" alt="Healthcare Compliance Pros" title="Healthcare Compliance Pros" width="230" height="92" decoding="async" fetchpriority="high">`;
 
-function navMarkup(currentPath) {
-  return nav.map((item, i) => {
-    const active = currentPath === item.href || (item.href !== '/' && currentPath.startsWith(item.href));
-    if (!item.items && !item.columns) {
-      return `<li><a href="${item.href}"${active ? ' aria-current="page"' : ''}>${esc(item.label)}</a></li>`;
-    }
-    const id = `dd-${i}`;
-    const panel = item.columns
-      ? `<div class="dd-cols">${item.columns.map((c) =>
-          `<div class="dd-col"><p class="dd-h">${c.heading}</p><ul>` +
-          c.links.map((l) => `<li><a href="${l.href}">${esc(l.label)}</a></li>`).join('') +
-          `</ul></div>`).join('')}</div>`
-      : `<ul>${item.items.map((l) => `<li><a href="${l.href}">${esc(l.label)}</a></li>`).join('')}</ul>`;
-    return `<li class="has-menu">
-<button type="button" class="nav-trigger" aria-expanded="false" aria-controls="${id}"${active ? ' data-active="true"' : ''}>${esc(item.label)}${icon('chevron', 'ic ic-xs')}</button>
-<div class="dd${item.columns ? ' dd-wide' : ''}" id="${id}" hidden>${panel}</div>
-</li>`;
-  }).join('');
-}
-
-function header(page) {
+function header() {
   return `<a class="skip" href="#main">Skip to main content</a>
 <header class="site-head">
   <div class="wrap head-in">
-    <a class="brand" href="/">${logoMark('brand-img')}</a>
-    <div class="head-right">
-      <div class="head-top">
-        <a class="head-phone" href="tel:${site.phoneE164}">${icon('phone', 'ic ic-sm')}<span>${site.phone.replace(/-/g, '.')}</span></a>
-        <a class="head-login" href="${site.loginUrl}" rel="nofollow">Login</a>
-        <a class="btn btn-primary head-quote" href="/contact/">Schedule a Free Consultation</a>
-      </div>
-      <nav class="primary" aria-label="Primary">
-        <ul class="nav-list">${navMarkup(page.path)}</ul>
-        <a class="nav-search" href="/search/" aria-label="Search this site" title="Search">${icon('search', 'ic ic-sm')}</a>
-      </nav>
+    <a class="brand" href="/">${logoMark()}</a>
+    <nav class="head-nav" aria-label="Primary">
+      <a href="#what-you-get">What you get</a>
+      <a href="#how-it-works">How it works</a>
+      <a href="#results">Results</a>
+      <a href="#why-hcp">Why HCP</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div class="head-cta">
+      <a class="head-phone" href="tel:${site.phoneE164}">${site.phoneDisplay}</a>
+      <a class="btn btn-lime" href="#get-started">Get a free assessment</a>
     </div>
-    <button type="button" class="burger" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu">
+    <button type="button" class="burger" aria-expanded="false" aria-controls="m-nav" aria-label="Open menu">
       <span></span><span></span><span></span>
     </button>
   </div>
-  <div class="mobile-nav" id="mobile-nav" hidden>
-    <nav aria-label="Mobile">
+  <div class="mobile-nav" id="m-nav" hidden>
+    <nav class="wrap" aria-label="Mobile">
       <ul class="mnav">
-        ${nav.map((item, i) => (item.items || item.columns)
-          ? `<li><button type="button" class="macc" aria-expanded="false" aria-controls="macc-${i}">${esc(item.label)}${icon('chevron', 'ic ic-xs')}</button>
-<div class="macc-panel" id="macc-${i}" hidden>${
-              item.columns
-                ? item.columns.map((c) => `${c.heading.trim() ? `<p class="dd-h">${c.heading}</p>` : ''}<ul>${c.links.map((l) => `<li><a href="${l.href}">${esc(l.label)}</a></li>`).join('')}</ul>`).join('')
-                : `<ul>${item.items.map((l) => `<li><a href="${l.href}">${esc(l.label)}</a></li>`).join('')}</ul>`
-            }</div></li>`
-          : `<li><a href="${item.href}">${esc(item.label)}</a></li>`).join('')}
-        <li><a href="${site.loginUrl}" rel="nofollow">Login</a></li>
+        <li><a href="#what-you-get">What you get</a></li>
+        <li><a href="#how-it-works">How it works</a></li>
+        <li><a href="#results">Results</a></li>
+        <li><a href="#why-hcp">Why HCP</a></li>
+        <li><a href="#faq">FAQ</a></li>
       </ul>
-      <div class="mnav-cta">
-        <a class="btn btn-primary btn-block" href="/contact/">Schedule a Free Consultation</a>
+      <p class="mnav-cta">
+        <a class="btn btn-lime btn-block" href="#get-started">Get a free assessment</a>
         <a class="btn btn-ghost btn-block" href="tel:${site.phoneE164}">Call ${site.phoneDisplay}</a>
-      </div>
+      </p>
     </nav>
   </div>
 </header>`;
 }
 
-/** Visible breadcrumb trail, mirroring the BreadcrumbList schema. */
-function breadcrumbNav(page) {
-  if (page.path === '/') return '';
-  const trail = [{ label: 'Home', href: '/' }, ...(page.breadcrumbs || [])];
-  return `<nav class="crumbs" aria-label="Breadcrumb"><div class="wrap"><ol>` +
-    trail.map((c, i) =>
-      i === trail.length - 1
-        ? `<li><span aria-current="page">${esc(c.label)}</span></li>`
-        : `<li><a href="${c.href}">${esc(c.label)}</a></li>`
-    ).join('') +
-    `</ol></div></nav>`;
-}
-
-/* ------------------------------------------------------------------ *
- * Footer
- * ------------------------------------------------------------------ */
+function breadcrumbNav() { return ''; }
 
 const socialLabels = { facebook: 'Facebook', x: 'X (Twitter)', youtube: 'YouTube', linkedin: 'LinkedIn' };
 
 function footer() {
-  const year = 2026;
-  const socialLinks = site.social.map((url) => {
-    const key = url.includes('facebook') ? 'facebook'
-      : url.includes('x.com') ? 'x'
-      : url.includes('youtube') ? 'youtube' : 'linkedin';
-    return `<li><a href="${url}" rel="noopener me" target="_blank" aria-label="${socialLabels[key]}" title="${socialLabels[key]}">${icon(key, 'ic')}</a></li>`;
-  }).join('');
-
-  // The live site uses a single minimal footer bar rather than a sitemap
-  // footer. Crawlability is carried by the primary nav, breadcrumbs and the
-  // per-page "keep exploring" links.
   return `<footer class="site-foot" id="footer">
-  <div class="wrap foot-bar">
-    <p class="foot-copy">Copyright &copy; ${year} All Rights Reserved.</p>
-    <ul class="foot-legal">
-      <li><a href="/privacypolicy/">Privacy Policy</a></li>
-      <li><a href="/fulfillment-policy/">Fulfillment Policy</a></li>
-      <li><a href="tel:${site.phoneE164}">${site.phone}</a></li>
+  <div class="wrap foot-in">
+    <p>&copy; 2026 ${esc(site.legalName)}. All rights reserved.</p>
+    <ul class="foot-links">
+      <li><a href="tel:${site.phoneE164}">${site.phoneDisplay}</a></li>
+      <li><a href="mailto:${site.email}">${site.email}</a></li>
+      ${site.social.map((u) => {
+        const k = u.includes('facebook') ? 'facebook' : u.includes('x.com') ? 'x' : u.includes('youtube') ? 'youtube' : 'linkedin';
+        return `<li><a href="${u}" rel="noopener me" target="_blank">${socialLabels[k]}</a></li>`;
+      }).join('')}
     </ul>
-    <ul class="social">${socialLinks}</ul>
   </div>
 </footer>`;
 }
