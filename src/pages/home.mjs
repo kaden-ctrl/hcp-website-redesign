@@ -62,16 +62,16 @@ const body = `
 
 <section class="sec">
   <div class="wrap">
-    <div class="sec-head">
+    <div class="sec-head rv">
       <p class="eyebrow">The risk you&rsquo;re carrying</p>
       <h2>Compliance fails in the gap between knowing and proving</h2>
       <p class="sec-lead">Almost every practice knows what the rules require. What breaks down is the evidence &mdash; and evidence is the only thing an investigator will accept.</p>
     </div>
-    <ul class="stakes">
-      <li><b>$16M</b><p>Largest single HIPAA settlement on record, resolving one breach.</p></li>
-      <li><b>~2/day</b><p>Healthcare breaches of 500+ records reported to federal regulators.</p></li>
-      <li><b>60 days</b><p>Maximum window to notify individuals after discovering a breach.</p></li>
-      <li><b>$2B+</b><p>Recovered through CMS and OIG audits in a single reporting year.</p></li>
+    <ul class="stakes rv">
+      <li><b><span data-count="16" data-pre="$" data-post="M">$16M</span></b><p>Largest single HIPAA settlement on record, resolving one breach.</p></li>
+      <li><b><span data-count="2" data-pre="~" data-post="/day">~2/day</span></b><p>Healthcare breaches of 500+ records reported to federal regulators.</p></li>
+      <li><b><span data-count="60" data-post=" days">60 days</span></b><p>Maximum window to notify individuals after discovering a breach.</p></li>
+      <li><b><span data-count="2" data-pre="$" data-post="B+">$2B+</span></b><p>Recovered through CMS and OIG audits in a single reporting year.</p></li>
     </ul>
     <p class="center" style="margin-top:2.5rem;max-width:52rem;margin-inline:auto">The organisations that get hurt are rarely the ones that ignored compliance. They are the ones whose program quietly drifted &mdash; a risk analysis from three systems ago, training nobody logged, a vendor with access and no agreement on file. It looks fine right up until someone asks for proof on a 30-day deadline.</p>
   </div>
@@ -79,13 +79,14 @@ const body = `
 
 <section class="sec sec-alt" id="what-you-get">
   <div class="wrap">
-    <div class="sec-head">
+    <div class="sec-head rv">
       <p class="eyebrow">What you get</p>
       <h2>One platform. Every obligation you carry.</h2>
       <p class="sec-lead">Four connected programs, one staff login, one dashboard showing exactly where each requirement stands.</p>
     </div>
-    <ul class="cards">
+    <ul class="cards rv">
       <li class="card">
+        <div class="card-media">${img({ src: '/assets/img/site/prog-hipaa.webp', alt: 'Clinician working with HIPAA compliance tools', title: 'Clinician working with HIPAA compliance tools', width: 900, height: 600, sizes: '(max-width: 900px) 100vw, 280px' })}</div>
         <span class="card-ic">${icon('lock')}</span>
         <h3>HIPAA Compliance</h3>
         <p>Privacy and Security coverage from documentation through incident response.</p>
@@ -98,6 +99,7 @@ const body = `
         <a class="card-link" href="#get-started">Get started${icon('arrow','ic ic-xs')}</a>
       </li>
       <li class="card">
+        <div class="card-media">${img({ src: '/assets/img/site/prog-osha.webp', alt: 'Clinical staff member in personal protective equipment', title: 'Clinical staff member in personal protective equipment', width: 900, height: 600, sizes: '(max-width: 900px) 100vw, 280px' })}</div>
         <span class="card-ic">${icon('alert')}</span>
         <h3>OSHA Compliance</h3>
         <p>Workplace safety built for clinical environments, not generic templates.</p>
@@ -110,6 +112,7 @@ const body = `
         <a class="card-link" href="#get-started">Get started${icon('arrow','ic ic-xs')}</a>
       </li>
       <li class="card">
+        <div class="card-media">${img({ src: '/assets/img/site/prog-corporate.webp', alt: 'Billing and corporate compliance review', title: 'Billing and corporate compliance review', width: 900, height: 600, sizes: '(max-width: 900px) 100vw, 280px' })}</div>
         <span class="card-ic">${icon('scale')}</span>
         <h3>Corporate Compliance</h3>
         <p>A documented program built on the seven elements CMS and the OIG expect.</p>
@@ -122,6 +125,7 @@ const body = `
         <a class="card-link" href="#get-started">Get started${icon('arrow','ic ic-xs')}</a>
       </li>
       <li class="card">
+        <div class="card-media">${img({ src: '/assets/img/site/prog-lms.webp', alt: 'Clinician completing online compliance training', title: 'Clinician completing online compliance training', width: 900, height: 600, sizes: '(max-width: 900px) 100vw, 280px' })}</div>
         <span class="card-ic">${icon('grad')}</span>
         <h3>Staff Training</h3>
         <p>130+ courses assigned by role, with reminders that stop you chasing people.</p>
@@ -139,12 +143,12 @@ const body = `
 
 <section class="sec" id="how-it-works">
   <div class="wrap">
-    <div class="sec-head">
+    <div class="sec-head rv">
       <p class="eyebrow">How it works</p>
       <h2>Audit-ready in about three weeks</h2>
       <p class="sec-lead">Your advisor runs the build. Your team&rsquo;s involvement is measured in hours, not weeks.</p>
     </div>
-    <ol class="steps">
+    <ol class="steps rv">
       <li><span class="n" aria-hidden="true">1</span>
         <h3>Free risk assessment</h3>
         <p>Twenty minutes with an advisor. You get a written gap analysis ranked by regulatory exposure &mdash; yours to keep either way.</p></li>
@@ -160,12 +164,12 @@ const body = `
 
 <section class="sec sec-alt" id="results">
   <div class="wrap">
-    <div class="sec-head">
+    <div class="sec-head rv">
       <p class="eyebrow">Real outcomes</p>
       <h2>What happens when the program actually works</h2>
       <p class="sec-lead">Representative engagements across the settings we work in most.</p>
     </div>
-    <ul class="proof" id="use-cases">
+    <ul class="proof rv" id="use-cases">
       <li>
         <span class="tag">Family medicine</span>
         <h3>Federal inquiry closed with no corrective action</h3>
@@ -188,7 +192,7 @@ const body = `
         <p class="res"><strong>Result:</strong> security questionnaires answered from existing documentation instead of stalling deals.</p>
       </li>
     </ul>
-    <ul class="quotes" style="margin-top:1.4rem">
+    <ul class="quotes rv" style="margin-top:1.4rem">
       <li><figure class="quote">
         <blockquote>&ldquo;We went from a binder nobody opened to a system that tells me exactly who is behind. When our advisor says she&rsquo;ll call back, she calls back.&rdquo;</blockquote>
         <figcaption>Practice Administrator<span>Multi-provider family medicine group</span></figcaption>
@@ -207,12 +211,12 @@ const body = `
 
 <section class="sec" id="why-hcp">
   <div class="wrap">
-    <div class="sec-head">
+    <div class="sec-head rv">
       <p class="eyebrow">Why HCP</p>
       <h2>Most vendors sell software or consulting. The gap between them is where programs fail.</h2>
       <p class="sec-lead">We refuse to sell one without the other &mdash; which is why the comparison below looks the way it does.</p>
     </div>
-    <div class="table-scroll">
+    <div class="table-scroll rv">
       <table class="compare">
         <caption>HCP compared with a typical healthcare compliance vendor</caption>
         <thead><tr><th scope="col">What matters</th><th scope="col">Healthcare Compliance Pros</th><th scope="col">Typical vendor</th></tr></thead>
@@ -231,11 +235,11 @@ const body = `
 
 <section class="sec sec-alt" id="faq">
   <div class="narrow">
-    <div class="sec-head">
+    <div class="sec-head rv">
       <p class="eyebrow">Straight answers</p>
       <h2>The questions everyone asks first</h2>
     </div>
-    <div class="faqs">
+    <div class="faqs rv">
       ${faqs.map((f, i) => `<details class="faq"${i === 0 ? ' open' : ''}>
         <summary><span>${esc(f.q)}</span>${icon('plus','ic ic-sm')}</summary>
         <div class="faq-a"><p>${f.a}</p></div>
@@ -245,7 +249,7 @@ const body = `
 </section>
 
 <section class="close" id="get-started">
-  <div class="narrow close-in">
+  <div class="narrow close-in rv">
     <p class="eyebrow">No cost, no obligation</p>
     <h2>Find out what an auditor would find</h2>
     <p>Twenty minutes with a compliance advisor produces a written gap analysis against HIPAA, OSHA and corporate compliance requirements &mdash; ranked by what would actually hurt you first. The findings are yours to keep, whether you hire us or not.</p>

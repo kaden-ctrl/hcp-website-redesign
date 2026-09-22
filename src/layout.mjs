@@ -220,7 +220,7 @@ function head(page, criticalCss, cssHash) {
 <link rel="manifest" href="/site.webmanifest">
 <link rel="sitemap" type="application/xml" href="/sitemap.xml">
 <style>${criticalCss}</style>
-<noscript><link rel="stylesheet" href="/assets/css/main.css?v=${cssHash}"></noscript>
+<noscript><link rel="stylesheet" href="/assets/css/main.css?v=${cssHash}"><style>.rv{opacity:1!important;transform:none!important;animation:none!important}</style></noscript>
 <script type="application/ld+json">${buildGraph(page)}</script>`;
 }
 
