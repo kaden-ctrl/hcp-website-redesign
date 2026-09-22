@@ -277,17 +277,46 @@ function breadcrumbNav() { return ''; }
 const socialLabels = { facebook: 'Facebook', x: 'X (Twitter)', youtube: 'YouTube', linkedin: 'LinkedIn' };
 
 function footer() {
+  const socialLinks = site.social.map((u) => {
+    const k = u.includes('facebook') ? 'facebook' : u.includes('x.com') ? 'x' : u.includes('youtube') ? 'youtube' : 'linkedin';
+    return `<li><a href="${u}" rel="noopener me" target="_blank">${socialLabels[k]}</a></li>`;
+  }).join('');
+
   return `<footer class="site-foot" id="footer">
-  <div class="wrap foot-in">
-    <p>&copy; 2026 ${esc(site.legalName)}. All rights reserved.</p>
-    <ul class="foot-links">
-      <li><a href="tel:${site.phoneE164}">${site.phoneDisplay}</a></li>
-      <li><a href="mailto:${site.email}">${site.email}</a></li>
-      ${site.social.map((u) => {
-        const k = u.includes('facebook') ? 'facebook' : u.includes('x.com') ? 'x' : u.includes('youtube') ? 'youtube' : 'linkedin';
-        return `<li><a href="${u}" rel="noopener me" target="_blank">${socialLabels[k]}</a></li>`;
-      }).join('')}
-    </ul>
+  <div class="wrap">
+    <div class="foot-top">
+      <div>
+        ${logoMark()}
+        <p>HIPAA, OSHA and corporate compliance in one platform, backed by a named team of
+        advisors. Serving healthcare organisations nationwide since ${site.founded}.</p>
+      </div>
+      <nav class="foot-col" aria-label="Explore">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="#what-you-get">What you get</a></li>
+          <li><a href="#how-it-works">How it works</a></li>
+          <li><a href="#results">Results</a></li>
+          <li><a href="#why-hcp">Why HCP</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </nav>
+      <nav class="foot-col" aria-label="Contact">
+        <h4>Get in touch</h4>
+        <ul>
+          <li><a href="tel:${site.phoneE164}">${site.phoneDisplay}</a></li>
+          <li><a href="mailto:${site.email}">${site.email}</a></li>
+          <li><a href="${site.loginUrl}" rel="nofollow">Client login</a></li>
+          ${socialLinks}
+        </ul>
+      </nav>
+    </div>
+    <div class="foot-in" style="padding-top:1.6rem">
+      <p>&copy; 2026 ${esc(site.legalName)}. All rights reserved.</p>
+      <ul class="foot-links">
+        <li><a href="/privacypolicy/">Privacy policy</a></li>
+        <li><a href="/fulfillment-policy/">Fulfillment policy</a></li>
+      </ul>
+    </div>
   </div>
 </footer>`;
 }

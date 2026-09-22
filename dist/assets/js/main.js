@@ -70,3 +70,29 @@
   }, { threshold: 0.5 });
   nums.forEach(function (el) { nio.observe(el); });
 })();
+
+/* Lead form. No backend is wired up yet, so a valid submission falls back to
+   the visitor's mail client. Set an `action` on the form once an endpoint
+   exists and this handler steps aside automatically. */
+(function () {
+  var form = document.querySelector('form[data-lead]');
+  if (!form) return;
+  form.addEventListener('submit', function (e) {
+    if (!form.checkValidity()) { form.reportValidity(); e.preventDefault(); return; }
+    if (form.getAttribute('action')) return;           // real endpoint takes over
+    e.preventDefault();
+    var v = function (n) { var f = form.elements[n]; return f ? String(f.value || '').trim() : ''; };
+    var body = [
+      'Name: ' + v('name'),
+      'Organisation: ' + v('organization'),
+      'Email: ' + v('email'),
+      'Phone: ' + v('phone'),
+      'Staff size: ' + v('size'),
+      'Most urgent need: ' + v('need'),
+      '', v('message')
+    ].join('\n');
+    window.location.href = 'mailto:info@healthcarecompliancepros.com'
+      + '?subject=' + encodeURIComponent('Free assessment request — ' + (v('organization') || v('name')))
+      + '&body=' + encodeURIComponent(body);
+  });
+})();

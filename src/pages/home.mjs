@@ -141,6 +141,23 @@ const body = `
   </div>
 </section>
 
+<section class="sec">
+  <div class="wrap showcase rv">
+    <div>
+      <p class="eyebrow">One dashboard, one login</p>
+      <h2>Everyone sees exactly what they need to</h2>
+      <p>Your compliance officer sees completion status by person, department and location. Your staff see the handful of things assigned to them. Nobody has to chase a spreadsheet or wonder whether the training actually happened.</p>
+      <ul>
+        <li>${icon('check','ic ic-sm')}<span>Live completion status across every location</span></li>
+        <li>${icon('check','ic ic-sm')}<span>Certificates stored automatically against each person</span></li>
+        <li>${icon('check','ic ic-sm')}<span>Exportable evidence for auditors, payers and boards</span></li>
+        <li>${icon('check','ic ic-sm')}<span>Policy revisions pushed with acknowledgement tracking</span></li>
+      </ul>
+    </div>
+    <div class="showcase-media">${img({ src: '/assets/img/site/feature-map.webp', alt: 'Two healthcare professionals reviewing compliance documentation together', title: 'Healthcare teams working with the HCP platform', width: 1400, height: 812, sizes: '(max-width: 880px) 100vw, 540px' })}</div>
+  </div>
+</section>
+
 <section class="sec" id="how-it-works">
   <div class="wrap">
     <div class="sec-head rv">
@@ -194,17 +211,42 @@ const body = `
     </ul>
     <ul class="quotes rv" style="margin-top:1.4rem">
       <li><figure class="quote">
+        <div class="quote-top">
+          <span class="quote-pic">${img({ src: '/assets/img/site/person-1.webp', alt: 'Practice Administrator', title: 'Practice Administrator', width: 425, height: 700, sizes: '56px' })}</span>
+          <span class="quote-who">Practice Administrator<span>Multi-provider family medicine group</span></span>
+        </div>
         <blockquote>&ldquo;We went from a binder nobody opened to a system that tells me exactly who is behind. When our advisor says she&rsquo;ll call back, she calls back.&rdquo;</blockquote>
-        <figcaption>Practice Administrator<span>Multi-provider family medicine group</span></figcaption>
       </figure></li>
       <li><figure class="quote">
+        <div class="quote-top">
+          <span class="quote-pic">${img({ src: '/assets/img/site/person-2.webp', alt: 'Compliance Officer', title: 'Compliance Officer', width: 425, height: 700, sizes: '56px' })}</span>
+          <span class="quote-who">Compliance Officer<span>Regional specialty network</span></span>
+        </div>
         <blockquote>&ldquo;The audit support alone justified the subscription. Having someone who had done this before on the phone within the hour changed the whole experience.&rdquo;</blockquote>
-        <figcaption>Compliance Officer<span>Regional specialty network</span></figcaption>
       </figure></li>
       <li><figure class="quote">
+        <div class="quote-top">
+          <span class="quote-pic">${img({ src: '/assets/img/site/person-3.webp', alt: 'Office Manager', title: 'Office Manager', width: 425, height: 700, sizes: '56px' })}</span>
+          <span class="quote-who">Office Manager<span>Independent dermatology practice</span></span>
+        </div>
         <blockquote>&ldquo;Our staff finishes their training now, which was never true before. The assignments show up, the reminders go out, and I stop chasing people.&rdquo;</blockquote>
-        <figcaption>Office Manager<span>Independent dermatology practice</span></figcaption>
       </figure></li>
+    </ul>
+  </div>
+</section>
+
+<section class="sec sec-alt">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="eyebrow">Who we serve</p>
+      <h2>Built for the organisations that carry the obligation</h2>
+      <p class="sec-lead">From solo practices to multi-site groups, billing companies and private-equity-backed platforms.</p>
+    </div>
+    <ul class="serve rv">
+      <li>${img({ src: '/assets/img/site/feature-comprehensive.webp', alt: 'Medical practice team', title: 'Medical practices', width: 1000, height: 563, sizes: '(max-width: 900px) 50vw, 260px' })}<span>Medical practices</span></li>
+      <li>${img({ src: '/assets/img/site/aud-business-associates.webp', alt: 'Business associates and healthcare vendors', title: 'Business associates', width: 900, height: 589, sizes: '(max-width: 900px) 50vw, 260px' })}<span>Business associates</span></li>
+      <li>${img({ src: '/assets/img/site/svc-coding.webp', alt: 'Medical billing and coding team', title: 'Medical billing companies', width: 900, height: 385, sizes: '(max-width: 900px) 50vw, 260px' })}<span>Billing companies</span></li>
+      <li>${img({ src: '/assets/img/site/aud-private-equity.webp', alt: 'Private equity healthcare platform', title: 'Private equity platforms', width: 900, height: 395, sizes: '(max-width: 900px) 50vw, 260px' })}<span>PE-backed platforms</span></li>
     </ul>
   </div>
 </section>
@@ -249,15 +291,61 @@ const body = `
 </section>
 
 <section class="close" id="get-started">
-  <div class="narrow close-in rv">
-    <p class="eyebrow">No cost, no obligation</p>
-    <h2>Find out what an auditor would find</h2>
-    <p>Twenty minutes with a compliance advisor produces a written gap analysis against HIPAA, OSHA and corporate compliance requirements &mdash; ranked by what would actually hurt you first. The findings are yours to keep, whether you hire us or not.</p>
-    <p class="close-cta">
-      <a class="btn btn-lime btn-lg" href="tel:${site.phoneE164}">Call ${site.phoneDisplay}</a>
-      <a class="btn btn-ghost btn-lg" href="mailto:${site.email}?subject=Free%20compliance%20risk%20assessment">Request by email</a>
-    </p>
-    <p class="close-note">Prefer to think about it? <a href="mailto:${site.email}">Email us</a> and we&rsquo;ll send the assessment checklist so you can run it yourself.</p>
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="eyebrow">No cost, no obligation</p>
+      <h2>Find out what an auditor would find</h2>
+      <p class="sec-lead">Twenty minutes with a compliance advisor produces a written gap analysis &mdash; ranked by what would actually hurt you first. The findings are yours to keep, whether you hire us or not.</p>
+    </div>
+    <div class="lead-grid rv">
+      <div class="lead-form">
+        <h3>Request your free assessment</h3>
+        <p>An advisor familiar with your setting will follow up, usually within one business day.</p>
+        <form data-lead novalidate>
+          <div class="f-row f-row-2">
+            <div class="f"><label for="name">Your name <span class="req">*</span></label>
+              <input type="text" id="name" name="name" autocomplete="name" placeholder="Jane Whitfield" required></div>
+            <div class="f"><label for="org">Organisation <span class="req">*</span></label>
+              <input type="text" id="org" name="organization" autocomplete="organization" placeholder="Riverside Family Medicine" required></div>
+          </div>
+          <div class="f-row f-row-2">
+            <div class="f"><label for="email">Work email <span class="req">*</span></label>
+              <input type="email" id="email" name="email" autocomplete="email" placeholder="jane@practice.com" required></div>
+            <div class="f"><label for="phone">Phone</label>
+              <input type="tel" id="phone" name="phone" autocomplete="tel" placeholder="(555) 123-4567"></div>
+          </div>
+          <div class="f-row f-row-2">
+            <div class="f"><label for="size">Staff size</label>
+              <select id="size" name="size">
+                <option value="">Select&hellip;</option><option>1&ndash;10</option><option>11&ndash;25</option>
+                <option>26&ndash;50</option><option>51&ndash;200</option><option>201+</option>
+              </select></div>
+            <div class="f"><label for="need">Most urgent need</label>
+              <select id="need" name="need">
+                <option value="">Select&hellip;</option>
+                <option>Free risk assessment</option><option>HIPAA compliance</option>
+                <option>OSHA compliance</option><option>Corporate compliance</option>
+                <option>Staff training</option><option>Active audit or incident</option>
+              </select></div>
+          </div>
+          <div class="f-row">
+            <div class="f"><label for="msg">Anything we should know?</label>
+              <textarea id="msg" name="message" placeholder="Specialty, number of locations, any deadline you&rsquo;re working against&hellip;"></textarea></div>
+          </div>
+          <p style="margin:0"><button type="submit" class="btn btn-lime btn-block btn-lg">Get my free assessment</button></p>
+          <p class="f-note">We use your details only to respond to this request &mdash; see our <a href="/privacypolicy/">privacy policy</a>. Please don&rsquo;t include patient information.</p>
+        </form>
+      </div>
+      <div>
+        <ul class="lead-why">
+          <li>${icon('shield','ic')}<div><b>Genuinely free</b><p>No cost, no obligation, and the written findings are yours whether or not you become a client.</p></div></li>
+          <li>${icon('users','ic')}<div><b>An advisor, not a sales script</b><p>Your first conversation is with someone who can actually answer compliance questions.</p></div></li>
+          <li>${icon('clock','ic')}<div><b>About twenty minutes</b><p>Scoped to respect your time. Deeper review only if the first pass suggests it&rsquo;s warranted.</p></div></li>
+          <li>${icon('doc','ic')}<div><b>Straight answers</b><p>If your program is in good shape, we&rsquo;ll tell you that. If a gap is serious, we&rsquo;ll say so plainly.</p></div></li>
+          <li>${icon('phone','ic')}<div><b>Prefer to talk now?</b><p>Call <a href="tel:${site.phoneE164}">${site.phoneDisplay}</a> and ask for a compliance advisor.</p></div></li>
+        </ul>
+      </div>
+    </div>
   </div>
 </section>`;
 
