@@ -16,3 +16,7 @@ npm-debug.log*
 # Local scratch
 *.log
 tmp/
+
+# Video masters — transcoded derivatives live in assets/video/
+*.mov
+assets/**/*_6K.mp4

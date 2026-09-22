@@ -22,6 +22,13 @@ const faqs = [
 
 const body = `
 <section class="hero">
+  <div class="hero-bg" aria-hidden="true">
+    ${img({ src: '/assets/video/hero-poster.webp', alt: '', title: 'Healthcare professional reviewing compliance records', width: 1920, height: 1012, loading: 'eager', fetchpriority: 'high' })}
+    <video id="heroVid" muted loop playsinline preload="none" poster="/assets/video/hero-poster.webp" tabindex="-1">
+      <source src="/assets/video/hero.webm" type="video/webm">
+      <source src="/assets/video/hero.mp4" type="video/mp4">
+    </video>
+  </div>
   <div class="wrap hero-in">
     <div class="hero-grid">
       <div>
