@@ -3,14 +3,14 @@
 @font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:500 800;font-display:swap;src:url(/assets/fonts/jakarta-var.woff2) format('woff2')}
 :root{
 /* Dark brand system, matched to the HCP slide deck */
---bg:#050f18;--surface:#0a2036;--surface-2:#0d2a45;
---navy:#104977;--navy-deep:#0a2f4d;--navy-mid:#0e3c62;--navy-soft:#155b93;
+--bg:#041e33;--surface:#094879;--surface-2:#0c5c9b;
+--navy:#094879;--navy-deep:#041e33;--navy-mid:#0a5187;--navy-soft:#0c5c9b;
 --green:#a2c739;--green-dark:#8fb32f;--green-text:#a2c739;--green-tint:rgba(162,199,57,.15);
---blue:#629dcb;--blue-tint:rgba(98,157,203,.12);
+--blue:#8cbde0;--blue-tint:rgba(140,189,224,.14);
 --accent-purple:#b45c9c;--green-light:#b8d95a;
---ink:#e6edf3;--slate:#c3d1dd;--muted:#9fb2c2;
---line:rgba(255,255,255,.16);--line-soft:rgba(255,255,255,.10);
---off:#0a2036;--white:#fff;
+--ink:#e8eff5;--slate:#c8d6e2;--muted:#a7b9c9;
+--line:rgba(255,255,255,.20);--line-soft:rgba(255,255,255,.12);
+--off:#094879;--white:#fff;
 --head:'Plus Jakarta Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
 --body:Lato,system-ui,-apple-system,'Segoe UI',sans-serif;
 --wrap:1170px;--r:12px;--r-lg:18px;--sec-pad:64px;
@@ -43,16 +43,16 @@ h1 em,h2 em{display:block;font-style:normal;font-weight:400}
 .ic-sm{width:16px;height:16px}.ic-xs{width:12px;height:12px}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;font-family:var(--head);font-weight:700;font-size:.97rem;line-height:1;padding:.85rem 1.5rem;border-radius:6px;border:2px solid transparent;text-decoration:none;cursor:pointer;transition:background .18s,color .18s,border-color .18s,transform .18s}
 .btn:hover{transform:translateY(-1px)}
-.btn-primary{background:var(--navy);color:#fff;border-color:var(--navy)}
-.btn-primary:hover{background:var(--navy-mid);color:#fff}
-.btn-accent{background:var(--green);color:#071019;border-color:var(--green)}
+.btn-primary{background:var(--navy-soft);color:#fff;border-color:rgba(255,255,255,.28)}
+.btn-primary:hover{background:var(--blue);color:#041e33;border-color:var(--blue)}
+.btn-accent{background:var(--green);color:#04202f;border-color:var(--green)}
 .btn-accent:hover{background:var(--green-light);color:#071019}
 .btn-ghost{background:transparent;color:var(--ink);border-color:var(--line)}
 .btn-ghost:hover{border-color:var(--green);color:var(--green)}
 .btn-outline{background:transparent;color:#fff;border-color:rgba(255,255,255,.55)}
 .btn-outline:hover{background:rgba(255,255,255,.12);color:#fff;border-color:#fff}
 .btn-block{width:100%}
-.site-head{position:sticky;top:0;z-index:100;background:rgba(5,15,24,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.site-head{position:sticky;top:0;z-index:100;background:rgba(4,30,51,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 .head-in{display:flex;align-items:center;gap:2rem;padding:.65rem 0}
 .brand{flex:none;display:block;line-height:0}
 .brand-img{width:230px;height:92px;object-fit:contain;object-position:left center;filter:brightness(0) invert(1)}
@@ -127,7 +127,7 @@ h1 em,h2 em{display:block;font-style:normal;font-weight:400}
 /* Interior page hero: full-bleed photo under a white wash, centred copy. */
 .hero-photo{position:relative;background:var(--surface);overflow:hidden;text-align:center}
 .hero-photo .hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
-.hero-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(5,15,24,.82),rgba(5,15,24,.92));z-index:1}
+.hero-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(4,30,51,.80),rgba(4,30,51,.92));z-index:1}
 .hero-photo::before{display:none}
 .hero-photo .hero-in{position:relative;z-index:2;padding:clamp(3rem,2rem + 4vw,6rem) 0;display:block}
 .hero-photo .hero-copy{max-width:56rem;margin:0 auto;text-align:center}
