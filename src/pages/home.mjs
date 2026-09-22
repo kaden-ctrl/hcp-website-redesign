@@ -24,7 +24,7 @@ const body = `
 <section class="hero">
   <div class="hero-bg" aria-hidden="true">
     ${img({ src: '/assets/video/hero-poster.webp', alt: '', title: 'Healthcare professional reviewing compliance records', width: 1920, height: 1012, loading: 'eager', fetchpriority: 'high' })}
-    <video id="heroVid" muted loop playsinline preload="none" poster="/assets/video/hero-poster.webp" tabindex="-1">
+    <video id="heroVid" autoplay muted loop playsinline preload="metadata" poster="/assets/video/hero-poster.webp" tabindex="-1">
       <source src="/assets/video/hero.webm" type="video/webm">
       <source src="/assets/video/hero.mp4" type="video/mp4">
     </video>
@@ -70,7 +70,7 @@ const body = `
 <section class="sec">
   <div class="wrap">
     <div class="sec-head rv">
-      <p class="eyebrow">The risk you&rsquo;re carrying</p>
+      <p class="eyebrow">01 &mdash; The problem</p>
       <h2>Compliance fails in the gap between knowing and proving</h2>
       <p class="sec-lead">Almost every practice knows what the rules require. What breaks down is the evidence &mdash; and evidence is the only thing an investigator will accept.</p>
     </div>
@@ -84,10 +84,26 @@ const body = `
   </div>
 </section>
 
-<section class="sec sec-alt" id="what-you-get">
+<section class="sec sec-alt">
   <div class="wrap">
     <div class="sec-head rv">
-      <p class="eyebrow">What you get</p>
+      <p class="eyebrow">02 &mdash; Who this affects</p>
+      <h2>Built for the organisations that carry the obligation</h2>
+      <p class="sec-lead">From solo practices to multi-site groups, billing companies and private-equity-backed platforms.</p>
+    </div>
+    <ul class="serve rv">
+      <li>${img({ src: '/assets/img/site/feature-comprehensive.webp', alt: 'Medical practice team', title: 'Medical practices', width: 1000, height: 563, sizes: '(max-width: 900px) 50vw, 260px' })}<span>Medical practices</span></li>
+      <li>${img({ src: '/assets/img/site/aud-business-associates.webp', alt: 'Business associates and healthcare vendors', title: 'Business associates', width: 900, height: 589, sizes: '(max-width: 900px) 50vw, 260px' })}<span>Business associates</span></li>
+      <li>${img({ src: '/assets/img/site/svc-coding.webp', alt: 'Medical billing and coding team', title: 'Medical billing companies', width: 900, height: 385, sizes: '(max-width: 900px) 50vw, 260px' })}<span>Billing companies</span></li>
+      <li>${img({ src: '/assets/img/site/aud-private-equity.webp', alt: 'Private equity healthcare platform', title: 'Private equity platforms', width: 900, height: 395, sizes: '(max-width: 900px) 50vw, 260px' })}<span>PE-backed platforms</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="sec" id="what-you-get">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="eyebrow">03 &mdash; The solution</p>
       <h2>One platform. Every obligation you carry.</h2>
       <p class="sec-lead">Four connected programs, one staff login, one dashboard showing exactly where each requirement stands.</p>
     </div>
@@ -148,10 +164,10 @@ const body = `
   </div>
 </section>
 
-<section class="sec">
+<section class="sec sec-alt">
   <div class="wrap showcase rv">
     <div>
-      <p class="eyebrow">One dashboard, one login</p>
+      <p class="eyebrow">04 &mdash; See it working</p>
       <h2>Everyone sees exactly what they need to</h2>
       <p>Your compliance officer sees completion status by person, department and location. Your staff see the handful of things assigned to them. Nobody has to chase a spreadsheet or wonder whether the training actually happened.</p>
       <ul>
@@ -168,7 +184,7 @@ const body = `
 <section class="sec" id="how-it-works">
   <div class="wrap">
     <div class="sec-head rv">
-      <p class="eyebrow">How it works</p>
+      <p class="eyebrow">05 &mdash; Getting started</p>
       <h2>Audit-ready in about three weeks</h2>
       <p class="sec-lead">Your advisor runs the build. Your team&rsquo;s involvement is measured in hours, not weeks.</p>
     </div>
@@ -189,7 +205,7 @@ const body = `
 <section class="sec sec-alt" id="results">
   <div class="wrap">
     <div class="sec-head rv">
-      <p class="eyebrow">Real outcomes</p>
+      <p class="eyebrow">06 &mdash; The proof</p>
       <h2>What happens when the program actually works</h2>
       <p class="sec-lead">Representative engagements across the settings we work in most.</p>
     </div>
@@ -242,26 +258,10 @@ const body = `
   </div>
 </section>
 
-<section class="sec sec-alt">
-  <div class="wrap">
-    <div class="sec-head rv">
-      <p class="eyebrow">Who we serve</p>
-      <h2>Built for the organisations that carry the obligation</h2>
-      <p class="sec-lead">From solo practices to multi-site groups, billing companies and private-equity-backed platforms.</p>
-    </div>
-    <ul class="serve rv">
-      <li>${img({ src: '/assets/img/site/feature-comprehensive.webp', alt: 'Medical practice team', title: 'Medical practices', width: 1000, height: 563, sizes: '(max-width: 900px) 50vw, 260px' })}<span>Medical practices</span></li>
-      <li>${img({ src: '/assets/img/site/aud-business-associates.webp', alt: 'Business associates and healthcare vendors', title: 'Business associates', width: 900, height: 589, sizes: '(max-width: 900px) 50vw, 260px' })}<span>Business associates</span></li>
-      <li>${img({ src: '/assets/img/site/svc-coding.webp', alt: 'Medical billing and coding team', title: 'Medical billing companies', width: 900, height: 385, sizes: '(max-width: 900px) 50vw, 260px' })}<span>Billing companies</span></li>
-      <li>${img({ src: '/assets/img/site/aud-private-equity.webp', alt: 'Private equity healthcare platform', title: 'Private equity platforms', width: 900, height: 395, sizes: '(max-width: 900px) 50vw, 260px' })}<span>PE-backed platforms</span></li>
-    </ul>
-  </div>
-</section>
-
 <section class="sec" id="why-hcp">
   <div class="wrap">
     <div class="sec-head rv">
-      <p class="eyebrow">Why HCP</p>
+      <p class="eyebrow">07 &mdash; Why us</p>
       <h2>Most vendors sell software or consulting. The gap between them is where programs fail.</h2>
       <p class="sec-lead">We refuse to sell one without the other &mdash; which is why the comparison below looks the way it does.</p>
     </div>
@@ -285,7 +285,7 @@ const body = `
 <section class="sec sec-alt" id="faq">
   <div class="narrow">
     <div class="sec-head rv">
-      <p class="eyebrow">Straight answers</p>
+      <p class="eyebrow">08 &mdash; Your questions</p>
       <h2>The questions everyone asks first</h2>
     </div>
     <div class="faqs rv">

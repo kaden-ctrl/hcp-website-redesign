@@ -107,7 +107,10 @@ function checkPage(page, html) {
   // and the content-section findings do not apply.
   const text = textOf(html);
   const ratio = Buffer.byteLength(text) / Buffer.byteLength(html);
-  if (!page.noindex && !page.archive) {
+  // Findings 10/11/12 are sales-page requirements. Legal and archive pages
+  // are exempt — a privacy policy carrying a comparison table and case
+  // studies would be absurd. Every other check still applies to them.
+  if (!page.noindex && !page.archive && !page.legal) {
     if (!/id="why-hcp"/.test(html)) add(10, 'no competitive differentiators section');
     if (!/id="faq"/.test(html) || !/<details class="faq"/.test(html)) add(11, 'no FAQ / objection-handling section');
     if (!/id="use-cases"/.test(html)) add(12, 'no use cases / case studies section');
@@ -115,7 +118,7 @@ function checkPage(page, html) {
     // 5 — content-to-code ratio
     if (ratio < MIN_RATIO) add(5, `content-to-code ratio ${(ratio * 100).toFixed(1)}% (min ${MIN_RATIO * 100}%)`);
   }
-  if (page.archive && !page.noindex && ratio < MIN_RATIO) {
+  if ((page.archive || page.legal) && !page.noindex && ratio < MIN_RATIO) {
     add(5, `content-to-code ratio ${(ratio * 100).toFixed(1)}% (min ${MIN_RATIO * 100}%)`);
   }
 

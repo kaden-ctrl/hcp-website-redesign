@@ -97,39 +97,49 @@
   });
 })();
 
-/* Hero video. Deliberately conservative: the poster alone is shown unless the
-   visitor is on a wide screen, hasn't asked for reduced motion, and isn't on a
-   metered or slow connection. Failure to play is silent — the poster stands in. */
+/* Hero video. The element autoplays natively (muted + playsinline), which
+   browsers implement reliably. This script only *removes* playback when it
+   would be unwelcome — reduced motion, metered/slow connections, or small
+   screens — and pauses it off-screen to save battery. */
 (function () {
   var v = document.getElementById('heroVid');
   if (!v) return;
-  var mqMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  var mq = window.matchMedia('(prefers-reduced-motion: reduce)');
   var conn = navigator.connection || {};
-  var slow = conn.saveData === true || /^(slow-)?2g$/.test(conn.effectiveType || '');
 
-  function allowed() {
-    return !mqMotion.matches && !slow && window.innerWidth >= 900;
+  function unwanted() {
+    return mq.matches
+      || conn.saveData === true
+      || /^(slow-)?2g$/.test(conn.effectiveType || '')
+      || window.innerWidth < 900;
   }
-  function start() {
-    if (!allowed() || v.dataset.on) return;
-    v.dataset.on = '1';
-    v.preload = 'auto';
-    var p = v.play();
-    if (p && p.catch) p.catch(function () { /* autoplay blocked — poster stays */ });
-    v.addEventListener('playing', function () { v.classList.add('on'); }, { once: true });
-  }
-  function stop() {
+  function disable() {
+    v.autoplay = false;
     v.pause();
+    v.removeAttribute('autoplay');
     v.classList.remove('on');
-    delete v.dataset.on;
+  }
+  function enable() {
+    if (unwanted()) return;
+    var p = v.play();
+    if (p && p.catch) p.catch(function () { /* blocked — poster stands in */ });
   }
 
-  if (allowed()) {
-    if (document.readyState === 'complete') start();
-    else window.addEventListener('load', start, { once: true });
-  }
-  mqMotion.addEventListener('change', function (e) { e.matches ? stop() : start(); });
+  if (unwanted()) disable();
+  v.addEventListener('playing', function () { v.classList.add('on'); });
+  mq.addEventListener('change', function (e) { e.matches ? disable() : enable(); });
+
   document.addEventListener('visibilitychange', function () {
-    if (document.hidden) v.pause(); else if (v.dataset.on) v.play().catch(function () {});
+    if (document.hidden) v.pause();
+    else if (!unwanted()) enable();
   });
+
+  // Stop decoding once the hero scrolls away.
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        if (e.isIntersecting) { if (!unwanted()) enable(); } else { v.pause(); }
+      });
+    }, { threshold: 0.05 }).observe(v);
+  }
 })();
