@@ -117,7 +117,7 @@
     v.autoplay = false;
     v.pause();
     v.removeAttribute('autoplay');
-    v.classList.remove('on');
+    v.classList.add('off');   // fade out; poster shows through
   }
   function enable() {
     if (unwanted()) return;
@@ -126,7 +126,7 @@
   }
 
   if (unwanted()) disable();
-  v.addEventListener('playing', function () { v.classList.add('on'); });
+  v.addEventListener('playing', function () { v.classList.remove('off'); });
   mq.addEventListener('change', function (e) { e.matches ? disable() : enable(); });
 
   document.addEventListener('visibilitychange', function () {
@@ -142,4 +142,45 @@
       });
     }, { threshold: 0.05 }).observe(v);
   }
+})();
+
+/* Header dropdowns. Click to toggle, hover on pointer devices, Escape to
+   close. Without JS every panel simply stays closed and the top-level link
+   still navigates, so nothing becomes unreachable. */
+(function () {
+  var triggers = [].slice.call(document.querySelectorAll('.nav-top[aria-controls]'));
+  if (!triggers.length) return;
+
+  function closeAll(except) {
+    triggers.forEach(function (t) {
+      if (t === except) return;
+      t.setAttribute('aria-expanded', 'false');
+      var p = document.getElementById(t.getAttribute('aria-controls'));
+      if (p) p.hidden = true;
+    });
+  }
+
+  triggers.forEach(function (t) {
+    var panel = document.getElementById(t.getAttribute('aria-controls'));
+    if (!panel) return;
+    function open() { closeAll(t); t.setAttribute('aria-expanded', 'true'); panel.hidden = false; }
+    function shut() { t.setAttribute('aria-expanded', 'false'); panel.hidden = true; }
+
+    t.addEventListener('click', function (e) {
+      e.preventDefault();
+      t.getAttribute('aria-expanded') === 'true' ? shut() : open();
+    });
+
+    var li = t.closest('li'), timer;
+    if (li && window.matchMedia('(hover:hover) and (min-width:981px)').matches) {
+      li.addEventListener('mouseenter', function () { clearTimeout(timer); open(); });
+      li.addEventListener('mouseleave', function () { timer = setTimeout(shut, 160); });
+    }
+    panel.addEventListener('click', function (e) { if (e.target.tagName === 'A') shut(); });
+  });
+
+  document.addEventListener('click', function (e) {
+    if (!e.target.closest('.head-nav')) closeAll(null);
+  });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeAll(null); });
 })();

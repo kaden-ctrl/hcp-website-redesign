@@ -84,7 +84,7 @@ const body = `
   </div>
 </section>
 
-<section class="sec sec-alt">
+<section class="sec sec-alt" id="who-we-serve">
   <div class="wrap">
     <div class="sec-head rv">
       <p class="eyebrow">02 &mdash; Who this affects</p>
@@ -92,10 +92,10 @@ const body = `
       <p class="sec-lead">From solo practices to multi-site groups, billing companies and private-equity-backed platforms.</p>
     </div>
     <ul class="serve rv">
-      <li>${img({ src: '/assets/img/site/feature-comprehensive.webp', alt: 'Medical practice team', title: 'Medical practices', width: 1000, height: 563, sizes: '(max-width: 900px) 50vw, 260px' })}<span>Medical practices</span></li>
-      <li>${img({ src: '/assets/img/site/aud-business-associates.webp', alt: 'Business associates and healthcare vendors', title: 'Business associates', width: 900, height: 589, sizes: '(max-width: 900px) 50vw, 260px' })}<span>Business associates</span></li>
-      <li>${img({ src: '/assets/img/site/svc-coding.webp', alt: 'Medical billing and coding team', title: 'Medical billing companies', width: 900, height: 385, sizes: '(max-width: 900px) 50vw, 260px' })}<span>Billing companies</span></li>
-      <li>${img({ src: '/assets/img/site/aud-private-equity.webp', alt: 'Private equity healthcare platform', title: 'Private equity platforms', width: 900, height: 395, sizes: '(max-width: 900px) 50vw, 260px' })}<span>PE-backed platforms</span></li>
+      <li>${img({ src: '/assets/img/site/feature-comprehensive.webp', style: 'object-position:center 22%', alt: 'Medical practice team', title: 'Medical practices', width: 1000, height: 563, sizes: '(max-width: 900px) 50vw, 260px' })}<span>Medical practices</span></li>
+      <li>${img({ src: '/assets/img/site/aud-business-associates.webp', style: 'object-position:center 40%', alt: 'Business associates and healthcare vendors', title: 'Business associates', width: 900, height: 589, sizes: '(max-width: 900px) 50vw, 260px' })}<span>Business associates</span></li>
+      <li>${img({ src: '/assets/img/site/svc-coding.webp', style: 'object-position:center 42%', alt: 'Medical billing and coding team', title: 'Medical billing companies', width: 900, height: 385, sizes: '(max-width: 900px) 50vw, 260px' })}<span>Billing companies</span></li>
+      <li>${img({ src: '/assets/img/site/aud-private-equity.webp', style: 'object-position:center 45%', alt: 'Private equity healthcare platform', title: 'Private equity platforms', width: 900, height: 395, sizes: '(max-width: 900px) 50vw, 260px' })}<span>PE-backed platforms</span></li>
     </ul>
   </div>
 </section>
@@ -109,7 +109,7 @@ const body = `
     </div>
     <ul class="cards rv">
       <li class="card">
-        <div class="card-media">${img({ src: '/assets/img/site/prog-hipaa.webp', alt: 'Clinician working with HIPAA compliance tools', title: 'Clinician working with HIPAA compliance tools', width: 900, height: 600, sizes: '(max-width: 900px) 100vw, 280px' })}</div>
+        <div class="card-media">${img({ src: '/assets/img/site/prog-hipaa.webp', style: 'object-position:center 38%', alt: 'Clinician working with HIPAA compliance tools', title: 'Clinician working with HIPAA compliance tools', width: 900, height: 600, sizes: '(max-width: 900px) 100vw, 280px' })}</div>
         <span class="card-ic">${icon('lock')}</span>
         <h3>HIPAA Compliance</h3>
         <p>Privacy and Security coverage from documentation through incident response.</p>
@@ -122,7 +122,7 @@ const body = `
         <a class="card-link" href="#get-started">Get started${icon('arrow','ic ic-xs')}</a>
       </li>
       <li class="card">
-        <div class="card-media">${img({ src: '/assets/img/site/prog-osha.webp', alt: 'Clinical staff member in personal protective equipment', title: 'Clinical staff member in personal protective equipment', width: 900, height: 600, sizes: '(max-width: 900px) 100vw, 280px' })}</div>
+        <div class="card-media">${img({ src: '/assets/img/site/prog-osha.webp', style: 'object-position:center 30%', alt: 'Clinical staff member in personal protective equipment', title: 'Clinical staff member in personal protective equipment', width: 900, height: 600, sizes: '(max-width: 900px) 100vw, 280px' })}</div>
         <span class="card-ic">${icon('alert')}</span>
         <h3>OSHA Compliance</h3>
         <p>Workplace safety built for clinical environments, not generic templates.</p>
@@ -135,7 +135,7 @@ const body = `
         <a class="card-link" href="#get-started">Get started${icon('arrow','ic ic-xs')}</a>
       </li>
       <li class="card">
-        <div class="card-media">${img({ src: '/assets/img/site/prog-corporate.webp', alt: 'Billing and corporate compliance review', title: 'Billing and corporate compliance review', width: 900, height: 600, sizes: '(max-width: 900px) 100vw, 280px' })}</div>
+        <div class="card-media">${img({ src: '/assets/img/site/prog-corporate.webp', style: 'object-position:center 45%', alt: 'Billing and corporate compliance review', title: 'Billing and corporate compliance review', width: 900, height: 600, sizes: '(max-width: 900px) 100vw, 280px' })}</div>
         <span class="card-ic">${icon('scale')}</span>
         <h3>Corporate Compliance</h3>
         <p>A documented program built on the seven elements CMS and the OIG expect.</p>
@@ -148,7 +148,7 @@ const body = `
         <a class="card-link" href="#get-started">Get started${icon('arrow','ic ic-xs')}</a>
       </li>
       <li class="card">
-        <div class="card-media">${img({ src: '/assets/img/site/prog-lms.webp', alt: 'Clinician completing online compliance training', title: 'Clinician completing online compliance training', width: 900, height: 600, sizes: '(max-width: 900px) 100vw, 280px' })}</div>
+        <div class="card-media">${img({ src: '/assets/img/site/prog-lms.webp', style: 'object-position:center 35%', alt: 'Clinician completing online compliance training', title: 'Clinician completing online compliance training', width: 900, height: 600, sizes: '(max-width: 900px) 100vw, 280px' })}</div>
         <span class="card-ic">${icon('grad')}</span>
         <h3>Staff Training</h3>
         <p>130+ courses assigned by role, with reminders that stop you chasing people.</p>
@@ -177,7 +177,7 @@ const body = `
         <li>${icon('check','ic ic-sm')}<span>Policy revisions pushed with acknowledgement tracking</span></li>
       </ul>
     </div>
-    <div class="showcase-media">${img({ src: '/assets/img/site/feature-map.webp', alt: 'Two healthcare professionals reviewing compliance documentation together', title: 'Healthcare teams working with the HCP platform', width: 1400, height: 812, sizes: '(max-width: 880px) 100vw, 540px' })}</div>
+    <div class="showcase-media">${img({ src: '/assets/img/site/feature-map.webp', style: 'object-position:center 30%', alt: 'Two healthcare professionals reviewing compliance documentation together', title: 'Healthcare teams working with the HCP platform', width: 1400, height: 812, sizes: '(max-width: 880px) 100vw, 540px' })}</div>
   </div>
 </section>
 

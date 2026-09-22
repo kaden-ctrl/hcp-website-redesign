@@ -22,7 +22,7 @@ export const abs = (path) => site.origin + path;
  * the audit's "image title attributes not found" issue can never regress:
  * alt AND title are both required arguments.
  */
-export function img({ src, alt, title, width, height, cls = '', loading = 'lazy', fetchpriority, sizes }) {
+export function img({ src, alt, title, width, height, cls = '', loading = 'lazy', fetchpriority, sizes, style }) {
   // `title` is always required (audit finding #9). `alt` must always be present,
   // but may be deliberately empty for decorative images that sit beside a
   // visible text label — an empty alt is the correct accessibility choice there.
@@ -45,6 +45,7 @@ export function img({ src, alt, title, width, height, cls = '', loading = 'lazy'
 
   return `<img src="${src}"${srcset} alt="${esc(alt)}" title="${esc(title)}" width="${width}" height="${height}"` +
     (cls ? ` class="${cls}"` : '') +
+    (style ? ` style="${style}"` : '') +
     ` loading="${loading}" decoding="async"` +
     (fetchpriority ? ` fetchpriority="${fetchpriority}"` : '') + '>';
 }
@@ -234,21 +235,73 @@ function head(page, criticalCss, cssHash) {
 const logoMark = () =>
   `<img src="/assets/img/logo-230.png" srcset="/assets/img/logo-230.png 230w, /assets/img/logo-460.png 460w" sizes="196px" alt="Healthcare Compliance Pros" title="Healthcare Compliance Pros" width="230" height="92" decoding="async" fetchpriority="high">`;
 
+/* Mirrors the menu structure on their existing site. Until the secondary
+   pages are built, each item resolves to the matching section on this page
+   rather than a dead link. */
+const MENU = [
+  { label: 'Solutions', href: '#what-you-get', items: [
+    ['SHIELD Compliance Solution', '#what-you-get'],
+    ['HIPAA Compliance', '#what-you-get'],
+    ['OSHA Compliance', '#what-you-get'],
+    ['Corporate Compliance', '#what-you-get'],
+    ['SENTRY Coding Intelligence', '#what-you-get'],
+    ['Learning Management System', '#what-you-get'],
+    ['Fractional Compliance Officer', '#what-you-get']
+  ]},
+  { label: 'Specialties', href: '#who-we-serve', wide: true, cols: [
+    ['Organizations', [
+      ['Medical Practices', '#who-we-serve'],
+      ['Hospitals & Health Systems', '#who-we-serve'],
+      ['Business Associates', '#who-we-serve'],
+      ['Medical Billing', '#who-we-serve'],
+      ['Private Equity', '#who-we-serve']
+    ]],
+    ['Specialties', [
+      ['Orthopedics', '#who-we-serve'],
+      ['Dermatology', '#who-we-serve'],
+      ['Behavioral Health', '#who-we-serve'],
+      ['Physical Therapy', '#who-we-serve'],
+      ['MedSpa & Aesthetics', '#who-we-serve']
+    ]]
+  ]},
+  { label: 'News & Events', href: '#results', items: [
+    ['Client Results', '#results'],
+    ['Testimonials', '#results'],
+    ['Blog', '#results'],
+    ['Webinars', '#results']
+  ]},
+  { label: 'About', href: '#why-hcp', items: [
+    ['Why HCP', '#why-hcp'],
+    ['How It Works', '#how-it-works'],
+    ['FAQ', '#faq']
+  ]},
+  { label: 'Contact', href: '#get-started' }
+];
+
 function header() {
+  const menu = MENU.map((m, i) => {
+    if (!m.items && !m.cols) {
+      return `<li><a class="nav-top" href="${m.href}">${esc(m.label)}</a></li>`;
+    }
+    const id = `nd-${i}`;
+    const panel = m.cols
+      ? `<div class="nav-dd-cols">${m.cols.map(([h, links]) =>
+          `<div><h5>${esc(h)}</h5><ul>${links.map(([t, u]) => `<li><a href="${u}">${esc(t)}</a></li>`).join('')}</ul></div>`).join('')}</div>`
+      : `<ul>${m.items.map(([t, u]) => `<li><a href="${u}">${esc(t)}</a></li>`).join('')}</ul>`;
+    return `<li>
+      <button type="button" class="nav-top" aria-expanded="false" aria-controls="${id}">${esc(m.label)}${icon('chevron','ic ic-xs')}</button>
+      <div class="nav-dd${m.cols ? ' nav-dd-wide' : ''}" id="${id}" hidden>${panel}</div>
+    </li>`;
+  }).join('');
+
   return `<a class="skip" href="#main">Skip to main content</a>
 <header class="site-head">
   <div class="wrap head-in">
     <a class="brand" href="/">${logoMark()}</a>
-    <nav class="head-nav" aria-label="Primary">
-      <a href="#what-you-get">What you get</a>
-      <a href="#how-it-works">How it works</a>
-      <a href="#results">Results</a>
-      <a href="#why-hcp">Why HCP</a>
-      <a href="#faq">FAQ</a>
-    </nav>
+    <nav class="head-nav" aria-label="Primary"><ul>${menu}</ul></nav>
     <div class="head-cta">
       <a class="head-phone" href="tel:${site.phoneE164}">${site.phoneDisplay}</a>
-      <a class="btn btn-lime" href="#get-started">Get a free assessment</a>
+      <a class="btn btn-lime" href="#get-started">Free assessment</a>
     </div>
     <button type="button" class="burger" aria-expanded="false" aria-controls="m-nav" aria-label="Open menu">
       <span></span><span></span><span></span>
@@ -257,14 +310,10 @@ function header() {
   <div class="mobile-nav" id="m-nav" hidden>
     <nav class="wrap" aria-label="Mobile">
       <ul class="mnav">
-        <li><a href="#what-you-get">What you get</a></li>
-        <li><a href="#how-it-works">How it works</a></li>
-        <li><a href="#results">Results</a></li>
-        <li><a href="#why-hcp">Why HCP</a></li>
-        <li><a href="#faq">FAQ</a></li>
+        ${MENU.map((m) => `<li><a href="${m.href}">${esc(m.label)}</a></li>`).join('')}
       </ul>
       <p class="mnav-cta">
-        <a class="btn btn-lime btn-block" href="#get-started">Get a free assessment</a>
+        <a class="btn btn-lime btn-block" href="#get-started">Free assessment</a>
         <a class="btn btn-ghost btn-block" href="tel:${site.phoneE164}">Call ${site.phoneDisplay}</a>
       </p>
     </nav>
@@ -286,7 +335,7 @@ function footer() {
   <div class="wrap">
     <div class="foot-top">
       <div>
-        ${logoMark()}
+        <a class="brand" href="/" style="margin-bottom:1rem">${logoMark()}</a>
         <p>HIPAA, OSHA and corporate compliance in one platform, backed by a named team of
         advisors. Serving healthcare organisations nationwide since ${site.founded}.</p>
       </div>
