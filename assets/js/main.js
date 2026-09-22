@@ -107,11 +107,14 @@
   var mq = window.matchMedia('(prefers-reduced-motion: reduce)');
   var conn = navigator.connection || {};
 
+  // Only skip playback for reasons that genuinely matter: an explicit
+  // reduced-motion preference, or a connection the visitor is paying for.
+  // The previous 900px width gate silently disabled the hero on any browser
+  // window that was not maximised, which is most of them.
   function unwanted() {
     return mq.matches
       || conn.saveData === true
-      || /^(slow-)?2g$/.test(conn.effectiveType || '')
-      || window.innerWidth < 900;
+      || /^(slow-)?2g$/.test(conn.effectiveType || '');
   }
   function disable() {
     v.autoplay = false;
@@ -125,7 +128,14 @@
     if (p && p.catch) p.catch(function () { /* blocked — poster stands in */ });
   }
 
-  if (unwanted()) disable();
+  if (unwanted()) {
+    disable();
+    document.documentElement.setAttribute('data-hero-video',
+      mq.matches ? 'off-reduced-motion'
+      : conn.saveData ? 'off-save-data' : 'off-slow-connection');
+  } else {
+    document.documentElement.setAttribute('data-hero-video', 'on');
+  }
   v.addEventListener('playing', function () { v.classList.remove('off'); });
   mq.addEventListener('change', function (e) { e.matches ? disable() : enable(); });
 

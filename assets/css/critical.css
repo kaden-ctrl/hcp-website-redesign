@@ -81,14 +81,15 @@ strong{font-weight:700;color:#fff}
    conditions below are met, and a fixed overlay keeps text contrast
    deterministic regardless of which frame is showing. */
 .hero-bg{position:absolute;inset:0;z-index:0;overflow:hidden}
-.hero-bg img,.hero-bg video{width:100%;height:100%;object-fit:cover;display:block}
+.hero-bg img,.hero-bg video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 28%;display:block}
 .hero-bg video{opacity:1;transition:opacity .6s ease}
 .hero-bg video.off{opacity:0}
 .hero-bg::after{content:"";position:absolute;inset:0;
-  background:linear-gradient(100deg,rgba(4,30,51,.88) 0%,rgba(4,30,51,.62) 38%,rgba(4,30,51,.30) 68%,rgba(4,30,51,.22) 100%)}
-/* Scrim only behind the copy column, so the footage stays legible elsewhere */
-.hero-in::before{content:"";position:absolute;inset:0 auto 0 -12vw;width:70vw;z-index:-1;
-  background:linear-gradient(90deg,rgba(4,30,51,.92) 0%,rgba(4,30,51,.72) 55%,transparent 100%);pointer-events:none}
+  background:linear-gradient(180deg,rgba(4,30,51,.30) 0%,rgba(4,30,51,.22) 55%,rgba(4,30,51,.42) 100%)}
+/* Scrim weighted to the copy side, anchored to the full-bleed background so
+   there is no seam where a centred container would have ended. */
+.hero-bg::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:linear-gradient(90deg,rgba(4,30,51,.90) 0%,rgba(4,30,51,.66) 34%,rgba(4,30,51,.18) 62%,rgba(4,30,51,.06) 100%)}
 .hero-in{position:relative;z-index:1;padding:clamp(3.5rem,2.5rem + 5vw,7rem) 0 clamp(3rem,2rem + 4vw,5.5rem)}
 .hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:clamp(2rem,1rem + 4vw,4.5rem);align-items:center}
 .hero h1{margin-bottom:.42em}
