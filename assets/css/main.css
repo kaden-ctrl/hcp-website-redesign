@@ -1,4 +1,4 @@
-/* Healthcare Compliance Pros — sales homepage. Loaded by the deferred script,
+/* Healthcare Compliance Pros sales homepage. Loaded by the deferred script,
    so there is no render-blocking stylesheet request. */
 
 /* ---- Layout primitives ---- */
@@ -21,7 +21,7 @@
   grid-template-rows:auto auto;
   column-gap:clamp(1.5rem,1rem + 3vw,4rem);row-gap:.85rem;align-items:end}
 /* Placed explicitly. Left to flow, the three children fill col 1, col 2,
-   then wrap — which strands the heading beside its own eyebrow. */
+   then wrap, which strands the heading beside its own eyebrow. */
 .sec-head.split .eyebrow{grid-column:1;grid-row:1;margin-bottom:0}
 .sec-head.split h2{grid-column:1;grid-row:2;margin-bottom:0;align-self:end}
 .sec-head.split .sec-lead{grid-column:2;grid-row:2;align-self:end;
@@ -31,7 +31,7 @@
   .sec-head.split .eyebrow,.sec-head.split h2,.sec-head.split .sec-lead{grid-column:1;grid-row:auto}
   .sec-head.split .sec-lead{padding-left:0;border-left:0}
 }
-.sec-lead{font-size:1.14rem;line-height:1.6;color:var(--slate);margin:0}
+.sec-lead{font-size:1.14rem;line-height:1.6;color:var(--slate);margin:0;text-wrap:pretty}
 .center{text-align:center}
 
 /* ---- Trust bar ---- */

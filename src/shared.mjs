@@ -23,7 +23,7 @@ export const coreDifferentiators = [
   { icon: 'users', title: 'A named advisor team, not a ticket queue', text: 'Every client is assigned 3–5 experienced compliance professionals who learn your organization and answer when you call.' },
   { icon: 'shield', title: 'Audit support is included', text: 'HIPAA, OSHA and payer audit response is covered by your subscription rather than billed as emergency consulting.' },
   { icon: 'doc', title: 'Customized, maintained documentation', text: 'Policies reflect your specialty, size and state, and are revised when regulations change instead of quietly aging.' },
-  { icon: 'gauge', title: 'Three programs, one dashboard', text: 'HIPAA, OSHA and corporate compliance share one login and one completion view — no stitching vendors together.' },
+  { icon: 'gauge', title: 'Three programs, one dashboard', text: 'HIPAA, OSHA and corporate compliance share one login and one completion view. No stitching vendors together.' },
   { icon: 'grad', title: 'Training people actually finish', text: '130+ role-based courses with automated assignment and reminders, so completion stops being a chase.' },
   { icon: 'scale', title: 'Priced for real practices', text: 'Plans scale with headcount. Small practices get the same advisors and audit support as multi-site groups.' }
 ];
@@ -73,7 +73,7 @@ export function buildPage(cfg) {
     // shared additional-services band.
     cta(cfg.cta || {
       h2: '<em>Compliance Made Simple</em><strong>Comprehensive Solutions for a Secure Organization</strong>',
-      text: 'Simplify compliance with expert-led services including training, credentialing, risk assessments and incident management &mdash; backed by advisors who know your organization.',
+      text: 'Simplify compliance with expert-led services including training, credentialing, risk assessments and incident management, backed by advisors who know your organization.',
       primary: { label: 'Contact us today to get started', href: '/contact/' },
       secondary: { label: 'Check your compliance risk', href: '/compliance-assessment/' }
     }),

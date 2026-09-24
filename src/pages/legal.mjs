@@ -26,7 +26,7 @@ const privacy = page({
 <p>Healthcare Compliance Pros (&ldquo;HCP&rdquo;, &ldquo;we&rdquo;) provides compliance software and advisory services to healthcare organizations. This policy describes how we handle information collected through <strong>${site.origin}</strong> and through the services we provide to clients.</p>
 
 <h2>Information we collect</h2>
-<p><strong>Information you give us.</strong> When you request an assessment or consultation we collect what you submit &mdash; typically your name, organization, work email, phone number, staff size and what you would like help with. When you become a client we collect the information needed to operate your compliance program, including workforce rosters and role assignments.</p>
+<p><strong>Information you give us.</strong> When you request an assessment or consultation we collect what you submit: typically your name, organization, work email, phone number, staff size and what you would like help with. When you become a client we collect the information needed to operate your compliance program, including workforce rosters and role assignments.</p>
 <p><strong>Information collected automatically.</strong> Standard technical information such as IP address, browser and device type, pages viewed and timestamps, used to operate and improve the site.</p>
 <p><strong>Information we do not want.</strong> Please do not submit protected health information through this website or by ordinary email. If a matter requires discussing specifics, your advisor will arrange a secure channel.</p>
 
@@ -42,11 +42,11 @@ const privacy = page({
 
 <h2>Client data and our role as a business associate</h2>
 <p>Where we handle protected health information on behalf of a client we do so as a business associate under HIPAA, governed by an executed business associate agreement. In that role we use and disclose PHI only as that agreement and the law permit, maintain the safeguards the Security Rule requires, bind our subcontractors to equivalent protections, and report security incidents and breaches as required.</p>
-<p>Client program content &mdash; policies, training records, acknowledgements and logs &mdash; belongs to the client. We do not use client compliance data to train models, and we do not disclose it to other clients or third parties except as the client directs, as our agreement requires, or as law requires.</p>
+<p>Client program content (policies, training records, acknowledgements and logs) belongs to the client. We do not use client compliance data to train models, and we do not disclose it to other clients or third parties except as the client directs, as our agreement requires, or as law requires.</p>
 
 <h2>How we share information</h2>
 <ul>
-<li><strong>Service providers</strong> who help us operate &mdash; hosting, email delivery, analytics, payment processing &mdash; under contractual restrictions on their use of the information</li>
+<li><strong>Service providers</strong> who help us operate (hosting, email delivery, analytics, payment processing) under contractual restrictions on their use of the information</li>
 <li><strong>At your direction</strong>, including with a partner who referred you</li>
 <li><strong>Legal requirements</strong>, where required by law or legal process, or to protect rights and safety</li>
 <li><strong>Business transfers</strong>, subject to this policy continuing to apply</li>
@@ -56,7 +56,7 @@ const privacy = page({
 <p>This site uses cookies necessary for it to function and to understand aggregate usage. You can control cookies through your browser; blocking them may affect some functionality. We honour Global Privacy Control signals where applicable.</p>
 
 <h2>Retention</h2>
-<p>We retain information for as long as necessary to provide our services and to meet legal and contractual obligations. Client compliance records are retained in line with the applicable agreement and regulatory retention periods &mdash; HIPAA documentation, for example, generally requires six years from creation or from when it was last in effect, whichever is later.</p>
+<p>We retain information for as long as necessary to provide our services and to meet legal and contractual obligations. Client compliance records are retained in line with the applicable agreement and regulatory retention periods. HIPAA documentation, for example, generally requires six years from creation or from when it was last in effect, whichever is later.</p>
 
 <h2>Security</h2>
 <p>We maintain administrative, physical and technical safeguards designed to protect the information we hold, including access controls, encryption in transit and at rest, workforce training and incident response procedures. No method of transmission or storage is completely secure, and we cannot guarantee absolute security.</p>
@@ -94,7 +94,7 @@ const fulfillment = page({
 <h2>Delivery and implementation</h2>
 <ul>
 <li>Platform access is provisioned after your agreement is executed, typically within one to two business days.</li>
-<li>Implementation &mdash; discovery, policy customisation, roster configuration and training assignment &mdash; typically completes within two to three weeks of your discovery session.</li>
+<li>Implementation (discovery, policy customisation, roster configuration and training assignment) typically completes within two to three weeks of your discovery session.</li>
 <li>Advisory support begins at provisioning and continues throughout your subscription term.</li>
 <li>On-site services and other scheduled work are delivered on dates agreed in advance.</li>
 </ul>
@@ -116,7 +116,7 @@ const fulfillment = page({
 <li>Fees for a term already in progress are generally non-refundable, because implementation and advisory capacity are committed at the start of the term.</li>
 <li>Where implementation has not begun, we will work with you in good faith on a prorated resolution.</li>
 <li>Scheduled services cancelled with reasonable notice are not charged; cancellations inside the notice window, or travel already booked, may be.</li>
-<li>If we fail to deliver a service described in your agreement, contact us &mdash; we will make it right, including a credit or refund where appropriate.</li>
+<li>If we fail to deliver a service described in your agreement, contact us and we will make it right, including a credit or refund where appropriate.</li>
 </ul>
 
 <h2>Your data on cancellation</h2>

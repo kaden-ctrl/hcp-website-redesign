@@ -108,7 +108,7 @@ function checkPage(page, html) {
   const text = textOf(html);
   const ratio = Buffer.byteLength(text) / Buffer.byteLength(html);
   // Findings 10/11/12 are sales-page requirements. Legal and archive pages
-  // are exempt — a privacy policy carrying a comparison table and case
+  // are exempt: a privacy policy carrying a comparison table and case
   // studies would be absurd. Every other check still applies to them.
   if (!page.noindex && !page.archive && !page.legal) {
     if (!/id="why-hcp"/.test(html)) add(10, 'no competitive differentiators section');
@@ -127,6 +127,19 @@ function checkPage(page, html) {
   const h1s = (html.match(/<h1[\s>]/g) || []).length;
   if (h1s !== 1) errs.push(`expected exactly 1 <h1>, found ${h1s}`);
   if (!/<link rel="canonical"/.test(html)) errs.push('canonical missing');
+
+  // House style: no em dashes in rendered copy. En dashes are left alone --
+  // they are correct in numeric ranges (2-3 weeks, 8:00am-6:00pm) and are
+  // not the punctuation habit this rule exists to catch. Two spellings have to
+  // be checked separately -- textOf does not decode entities, so a literal
+  // dash only shows up in the visible text while &mdash; only shows up in
+  // the raw HTML. Checking one alone silently misses the other.
+  const dashHits = [...text.matchAll(/.{0,45}\u2014.{0,45}/g)].map((m) => m[0].trim());
+  const entHits = [...html.matchAll(/.{0,30}&(?:mdash|#8212|#x2014);.{0,30}/gi)].map((m) => m[0].trim());
+  const allDash = [...dashHits, ...entHits];
+  if (allDash.length) {
+    errs.push(`em dash in copy (${allDash.length}): ${allDash.slice(0, 3).join(' || ')}`);
+  }
 
   return { errs, ratio, words: text.split(' ').length };
 }
@@ -355,7 +368,7 @@ async function build() {
   console.log(`  css ${(Buffer.byteLength(mainCss) / 1024).toFixed(1)} KB (async)  |  js ${(Buffer.byteLength(mainJs) / 1024).toFixed(1)} KB (deferred)  |  critical inline ${(Buffer.byteLength(criticalCss) / 1024).toFixed(1)} KB`);
 
   if (failures) {
-    console.error(`\n  BUILD FAILED — ${failures} audit violation(s)\n`);
+    console.error(`\n  BUILD FAILED: ${failures} audit violation(s)\n`);
     process.exit(1);
   }
   console.log('  All 12 audit checks passed on every page.\n');

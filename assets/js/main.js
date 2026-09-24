@@ -1,4 +1,4 @@
-/* Progressive enhancement only — the page is fully usable without it. */
+/* Progressive enhancement only. The page is fully usable without it. */
 (function () {
   'use strict';
   var burger = document.querySelector('.burger');
@@ -109,15 +109,15 @@
       '', v('message')
     ].join('\n');
     window.location.href = 'mailto:info@healthcarecompliancepros.com'
-      + '?subject=' + encodeURIComponent('Free assessment request — ' + (v('organization') || v('name')))
+      + '?subject=' + encodeURIComponent('Free assessment request: ' + (v('organization') || v('name')))
       + '&body=' + encodeURIComponent(body);
   });
 })();
 
 /* Hero video. The element autoplays natively (muted + playsinline), which
    browsers implement reliably. This script only *removes* playback when it
-   would be unwelcome — reduced motion, metered/slow connections, or small
-   screens — and pauses it off-screen to save battery. */
+   would be unwelcome (reduced motion, metered or slow connections, or small
+   screens) and pauses it off-screen to save battery. */
 (function () {
   var v = document.getElementById('heroVid');
   if (!v) return;
@@ -142,7 +142,7 @@
   function enable() {
     if (unwanted()) return;
     var p = v.play();
-    if (p && p.catch) p.catch(function () { /* blocked — poster stands in */ });
+    if (p && p.catch) p.catch(function () { /* blocked, poster stands in */ });
   }
 
   if (unwanted()) {

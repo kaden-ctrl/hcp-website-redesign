@@ -3,13 +3,13 @@ import { site } from '../site.mjs';
 
 const faqs = [
   { q: 'How fast can we actually be compliant?',
-    a: 'Most practices are fully live in two to three weeks. Your advisor does the heavy lifting — policy customisation, staff roster, training assignments. Your team spends about three hours total.' },
+    a: 'Most practices are fully live in two to three weeks. Your advisor does the heavy lifting: policy customisation, staff roster, training assignments. Your team spends about three hours total.' },
   { q: 'We already have policies. Why would we need you?',
     a: 'Policies prove you wrote something. They do not prove your staff read them, that training happened on time, or that your risk analysis reflects your current systems. Investigators ask for dated evidence, and that is what most practices cannot produce.' },
   { q: 'What does it cost?',
     a: `Pricing scales with headcount, so a five-person practice pays a fraction of what a multi-site group pays. Every plan includes the same advisor team, policy customisation, training library and audit support. Call ${site.phoneDisplay} for a number against your actual size.` },
   { q: 'What happens if we get audited?',
-    a: 'Your advisor team works it with you — pulling the documentation requested, preparing your written response, walking you through the process. Audit support is included, not billed as emergency consulting at the worst possible moment.' },
+    a: 'Your advisor team works it with you, pulling the documentation requested, preparing your written response, walking you through the process. Audit support is included, not billed as emergency consulting at the worst possible moment.' },
   { q: 'Is this just software, or do we get real help?',
     a: 'Both, and we do not sell them separately. Every client gets three to five named compliance professionals who learn your organisation. You call them directly. There is no premium tier that unlocks the ability to ask a question.' },
   { q: 'What if we are already with another vendor?',
@@ -34,12 +34,12 @@ const body = `
       <div>
         <p class="eyebrow">HIPAA · OSHA · Corporate Compliance</p>
         <h1>Stop guessing whether you&rsquo;d <span class="hl">survive an audit</span>.</h1>
-        <p class="hero-lead">Healthcare Compliance Pros gives you a complete compliance program &mdash; policies, training, risk analysis and audit-ready evidence &mdash; run by a named team of advisors who answer when you call.</p>
+        <p class="hero-lead">Healthcare Compliance Pros gives you a complete compliance program: policies, training, risk analysis and audit-ready evidence, all run by a named team of advisors who answer when you call.</p>
         <p class="hero-cta">
           <a class="btn btn-lime btn-lg" href="#get-started">Get your free risk assessment</a>
           <a class="btn btn-ghost btn-lg" href="tel:${site.phoneE164}">Call ${site.phoneDisplay}</a>
         </p>
-        <p class="hero-note">${icon('shield','ic ic-sm')}<span>Free, no obligation &mdash; the written findings are yours either way.</span></p>
+        <p class="hero-note">${icon('shield','ic ic-sm')}<span>Free, no obligation. The written findings are yours either way.</span></p>
       </div>
       <div class="hero-panel">
         <p class="hero-panel-h"><span>Compliance status</span><span class="dot" aria-hidden="true"></span></p>
@@ -70,9 +70,9 @@ const body = `
 <section class="sec sec-loose">
   <div class="wrap">
     <div class="sec-head rv">
-      <p class="eyebrow">01 &mdash; The problem</p>
+      <p class="eyebrow">01 / The problem</p>
       <h2>Compliance fails in the gap between knowing and proving</h2>
-      <p class="sec-lead">Almost every practice knows what the rules require. What breaks down is the evidence &mdash; and evidence is the only thing an investigator will accept.</p>
+      <p class="sec-lead">Almost every practice knows what the rules require. What breaks down is the evidence, and evidence is the only thing an investigator will accept.</p>
     </div>
     <ul class="stakes rv">
       <li><b><span data-count="16" data-pre="$" data-post="M">$16M</span></b><p>Largest single HIPAA settlement on record, resolving one breach.</p></li>
@@ -80,14 +80,14 @@ const body = `
       <li><b><span data-count="60" data-post=" days">60 days</span></b><p>Maximum window to notify individuals after discovering a breach.</p></li>
       <li><b><span data-count="2" data-pre="$" data-post="B+">$2B+</span></b><p>Recovered through CMS and OIG audits in a single reporting year.</p></li>
     </ul>
-    <p class="center" style="margin-top:2.5rem;max-width:52rem;margin-inline:auto">The organisations that get hurt are rarely the ones that ignored compliance. They are the ones whose program quietly drifted &mdash; a risk analysis from three systems ago, training nobody logged, a vendor with access and no agreement on file. It looks fine right up until someone asks for proof on a 30-day deadline.</p>
+    <p class="center" style="margin-top:2.5rem;max-width:52rem;margin-inline:auto">The organisations that get hurt are rarely the ones that ignored compliance. They are the ones whose program quietly drifted: a risk analysis from three systems ago, training nobody logged, a vendor with access and no agreement on file. It looks fine right up until someone asks for proof on a 30-day deadline.</p>
   </div>
 </section>
 
 <section class="sec sec-alt" id="who-we-serve">
   <div class="wrap">
     <div class="sec-head left rv">
-      <p class="eyebrow">02 &mdash; Who this affects</p>
+      <p class="eyebrow">02 / Who this affects</p>
       <h2>Built for the organisations that carry the obligation</h2>
       <p class="sec-lead">From solo practices to multi-site groups, billing companies and private-equity-backed platforms.</p>
     </div>
@@ -103,7 +103,7 @@ const body = `
 <section class="sec sec-loose" id="what-you-get">
   <div class="wrap">
     <div class="sec-head split rv">
-      <p class="eyebrow">03 &mdash; The solution</p>
+      <p class="eyebrow">03 / The solution</p>
       <h2>One platform. Every obligation you carry.</h2>
       <p class="sec-lead">Four connected programs, one staff login, one dashboard showing exactly where each requirement stands.</p>
     </div>
@@ -167,7 +167,7 @@ const body = `
 <section class="sec sec-alt">
   <div class="wrap showcase rv">
     <div>
-      <p class="eyebrow">04 &mdash; See it working</p>
+      <p class="eyebrow">04 / See it working</p>
       <h2>Everyone sees exactly what they need to</h2>
       <p>Your compliance officer sees completion status by person, department and location. Your staff see the handful of things assigned to them. Nobody has to chase a spreadsheet or wonder whether the training actually happened.</p>
       <ul>
@@ -184,14 +184,14 @@ const body = `
 <section class="sec" id="how-it-works">
   <div class="wrap">
     <div class="sec-head split rv">
-      <p class="eyebrow">05 &mdash; Getting started</p>
+      <p class="eyebrow">05 / Getting started</p>
       <h2>Audit-ready in about three weeks</h2>
       <p class="sec-lead">Your advisor runs the build. Your team&rsquo;s involvement is measured in hours, not weeks.</p>
     </div>
     <ol class="steps rv">
       <li><span class="n" aria-hidden="true">1</span>
         <h3>Free risk assessment</h3>
-        <p>Twenty minutes with an advisor. You get a written gap analysis ranked by regulatory exposure &mdash; yours to keep either way.</p></li>
+        <p>Twenty minutes with an advisor. You get a written gap analysis ranked by regulatory exposure, yours to keep either way.</p></li>
       <li><span class="n" aria-hidden="true">2</span>
         <h3>We build your program</h3>
         <p>Policies customised to your specialty, size and state. Staff loaded, roles mapped to the right training. You review; we do the work.</p></li>
@@ -205,7 +205,7 @@ const body = `
 <section class="sec sec-alt sec-loose" id="results">
   <div class="wrap">
     <div class="sec-head rv">
-      <p class="eyebrow">06 &mdash; The proof</p>
+      <p class="eyebrow">06 / The proof</p>
       <h2>What happens when the program actually works</h2>
       <p class="sec-lead">Representative engagements across the settings we work in most.</p>
     </div>
@@ -261,9 +261,9 @@ const body = `
 <section class="sec" id="why-hcp">
   <div class="wrap">
     <div class="sec-head split rv">
-      <p class="eyebrow">07 &mdash; Why us</p>
+      <p class="eyebrow">07 / Why us</p>
       <h2>Most vendors sell software or consulting. The gap between them is where programs fail.</h2>
-      <p class="sec-lead">We refuse to sell one without the other &mdash; which is why the comparison below looks the way it does.</p>
+      <p class="sec-lead">We refuse to sell one without the other, which is why the comparison below looks the way it does.</p>
     </div>
     <div class="table-scroll rv">
       <table class="compare">
@@ -275,7 +275,7 @@ const body = `
           <tr><th scope="row">Your policies</th><td class="yes">${icon('check','ic ic-sm')}<span>Customised to specialty and state, revised as rules change</span></td><td class="no">Templates you download and maintain yourself</td></tr>
           <tr><th scope="row">Coverage</th><td class="yes">${icon('check','ic ic-sm')}<span>HIPAA, OSHA and corporate compliance in one platform</span></td><td class="no">One domain, or separate products to license</td></tr>
           <tr><th scope="row">Risk analysis</th><td class="yes">${icon('check','ic ic-sm')}<span>Conducted against your real systems, with tracked remediation</span></td><td class="no">A self-service questionnaire producing a PDF</td></tr>
-          <tr><th scope="row">Pricing</th><td class="yes">${icon('check','ic ic-sm')}<span>Scales with headcount &mdash; small practices get the same team</span></td><td class="no">Enterprise pricing, or a stripped-down small-business tier</td></tr>
+          <tr><th scope="row">Pricing</th><td class="yes">${icon('check','ic ic-sm')}<span>Scales with headcount, so small practices get the same team</span></td><td class="no">Enterprise pricing, or a stripped-down small-business tier</td></tr>
         </tbody>
       </table>
     </div>
@@ -285,7 +285,7 @@ const body = `
 <section class="sec sec-alt" id="faq">
   <div class="narrow">
     <div class="sec-head left rv">
-      <p class="eyebrow">08 &mdash; Your questions</p>
+      <p class="eyebrow">08 / Your questions</p>
       <h2>The questions everyone asks first</h2>
     </div>
     <div class="faqs rv">
@@ -302,7 +302,7 @@ const body = `
     <div class="sec-head rv">
       <p class="eyebrow">No cost, no obligation</p>
       <h2>Find out what an auditor would find</h2>
-      <p class="sec-lead">Twenty minutes with a compliance advisor produces a written gap analysis &mdash; ranked by what would actually hurt you first. The findings are yours to keep, whether you hire us or not.</p>
+      <p class="sec-lead">Twenty minutes with a compliance advisor produces a written gap analysis, ranked by what would actually hurt you first. The findings are yours to keep, whether you hire us or not.</p>
     </div>
     <div class="lead-grid rv">
       <div class="lead-form">
@@ -340,7 +340,7 @@ const body = `
               <textarea id="msg" name="message" placeholder="Specialty, number of locations, any deadline you&rsquo;re working against&hellip;"></textarea></div>
           </div>
           <p style="margin:0"><button type="submit" class="btn btn-lime btn-block btn-lg">Get my free assessment</button></p>
-          <p class="f-note">We use your details only to respond to this request &mdash; see our <a href="/privacypolicy/">privacy policy</a>. Please don&rsquo;t include patient information.</p>
+          <p class="f-note">We use your details only to respond to this request. See our <a href="/privacypolicy/">privacy policy</a>. Please don&rsquo;t include patient information.</p>
         </form>
       </div>
       <div>
@@ -359,7 +359,7 @@ const body = `
 export default {
   path: '/',
   title: 'Healthcare Compliance Software | HIPAA, OSHA & Corporate',
-  description: `HIPAA, OSHA and corporate compliance software backed by named advisors. Audit support included. Free risk assessment — call ${site.phoneDisplay}.`,
+  description: `HIPAA, OSHA and corporate compliance software backed by named advisors. Audit support included. Free risk assessment. Call ${site.phoneDisplay}.`,
   ogTitle: 'Stop guessing whether you’d survive an audit',
   breadcrumbs: [],
   faqs,
