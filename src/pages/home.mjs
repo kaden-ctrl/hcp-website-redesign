@@ -1,6 +1,20 @@
 import { icon, img, abs, esc } from '../layout.mjs';
 import { site } from '../site.mjs';
 
+/* The hero panel is an illustrative account, not a real client's data. Dates
+   are derived from the build date so the panel always reads as a live,
+   recently-maintained program instead of decaying into obviously stale
+   fixtures a few months after a deploy. */
+const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+const ago = (days) => {
+  const d = new Date();
+  d.setDate(d.getDate() - days);
+  // Built by hand rather than toLocaleDateString: en-GB renders September as
+  // "Sept", one character wider than every other month, which knocks the
+  // right-aligned column out of true for a third of the year.
+  return `${String(d.getDate()).padStart(2, '0')} ${MONTHS[d.getMonth()]} ${d.getFullYear()}`;
+};
+
 const faqs = [
   { q: 'How fast can we actually be compliant?',
     a: 'Most practices are fully live in two to three weeks. Your advisor does the heavy lifting: policy customisation, staff roster, training assignments. Your team spends about three hours total.' },
@@ -42,17 +56,17 @@ const body = `
         <p class="hero-note">${icon('shield','ic ic-sm')}<span>Free, no obligation. The written findings are yours either way.</span></p>
       </div>
       <div class="hero-panel">
-        <p class="hero-panel-h"><span>Compliance status</span><span class="dot" aria-hidden="true"></span></p>
+        <p class="hero-panel-h"><span>Compliance status</span><span class="hp-eg">Example</span><span class="dot" aria-hidden="true"></span></p>
         <ul class="hero-stats">
           <li><b>2&ndash;3 wks</b><span>From first call to fully live</span></li>
           <li><b>3&ndash;5</b><span>Named advisors on your account</span></li>
         </ul>
         <ul class="hero-rows">
-          <li>${icon('check','ic ic-sm')}<span>Security Risk Analysis</span><span class="pill">Current</span></li>
-          <li>${icon('check','ic ic-sm')}<span>Staff training</span><span class="pill">Tracked</span></li>
-          <li>${icon('check','ic ic-sm')}<span>Business associate agreements</span><span class="pill">On file</span></li>
-          <li>${icon('check','ic ic-sm')}<span>OSHA exposure control</span><span class="pill">Documented</span></li>
-          <li>${icon('check','ic ic-sm')}<span>Audit support</span><span class="pill">Included</span></li>
+          <li>${icon('check','ic ic-sm')}<span>Security Risk Analysis</span><span class="val">${ago(12)}</span></li>
+          <li>${icon('check','ic ic-sm')}<span>Staff training</span><span class="val">${ago(26)}</span></li>
+          <li>${icon('check','ic ic-sm')}<span>Business associate agreements</span><span class="val">${ago(81)}</span></li>
+          <li>${icon('check','ic ic-sm')}<span>OSHA exposure control</span><span class="val">${ago(5)}</span></li>
+          <li>${icon('check','ic ic-sm')}<span>Audit support</span><span class="val">Ongoing</span></li>
         </ul>
       </div>
     </div>

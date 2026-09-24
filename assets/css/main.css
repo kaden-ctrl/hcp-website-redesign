@@ -52,7 +52,11 @@
 .hero-rows{list-style:none;margin:0;padding:0;display:grid;gap:.55rem}
 .hero-rows li{display:flex;align-items:center;gap:.7rem;font-size:.93rem;color:var(--ink)}
 .hero-rows .ic{color:var(--lime)}
-.hero-rows .pill{margin-left:auto;font-family:var(--head);font-weight:800;font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--lime);background:var(--lime-tint);padding:.28rem .6rem;border-radius:999px}
+.hero-rows .val{margin-left:auto;font-family:var(--head);font-weight:600;font-size:.84rem;color:var(--sky-soft);
+  font-variant-numeric:tabular-nums;white-space:nowrap;padding-left:1rem}
+.hero-panel-h .hp-eg{margin-left:auto;margin-right:.7rem;font-family:var(--body);font-weight:600;font-size:.68rem;
+  letter-spacing:.06em;text-transform:uppercase;color:var(--muted);border:1px solid var(--line-soft);
+  border-radius:3px;padding:.12rem .4rem}
 
 /* ---- Stakes / problem ---- */
 .stakes{list-style:none;margin:0;padding:0;display:grid;gap:0;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));
