@@ -338,11 +338,10 @@
 .finder-empty{margin:2rem 0 0;padding:1.5rem 1.7rem;border-left:2px solid var(--lime);
   background:rgba(255,255,255,.04);color:var(--on-dark-soft);max-width:46rem}
 .finder-empty p{margin:0 0 1.1rem}
-/* The catch-all card reads as a route, not as one more specialty. */
-.dir-other a{background:transparent;border:1px dashed var(--line);box-shadow:none;color:var(--on-dark)}
-.dir-other a:hover{border-color:var(--lime);border-style:solid;background:rgba(163,199,57,.06)}
-.dir-other span{color:var(--on-dark-mute)}
-.finder-empty a{color:var(--lime);font-weight:700}
+/* .finder-empty a is one class more specific than .btn-primary, so it was
+   repainting the button's label lime on a lime fill: invisible. Scope the
+   link colour to links that are not buttons. */
+.finder-empty a:not(.btn){color:var(--lime);font-weight:700}
 
 .group-h{font-size:clamp(1.3rem,1.1rem + .8vw,1.7rem);margin-bottom:.35rem}
 .group-lead{color:var(--on-dark-mute);font-size:1rem;margin:0 0 1.4rem;max-width:none}
@@ -389,3 +388,14 @@
 
 /* The fallback route out of an empty search. */
 .finder-empty .btn{margin-top:.9rem}
+
+/* The catch-all card reads as a route out, not as one more specialty.
+   Declared after .dir and scoped through the li, because .dir-other a and
+   .dir a carry equal specificity and .dir a is written later in this file:
+   the card kept the light surface and only its border changed. */
+.dir li.dir-other > a{background:transparent;border:1px dashed rgba(255,255,255,.34);
+  border-left-width:1px;box-shadow:none;color:var(--on-dark)}
+.dir li.dir-other > a:hover{border-style:solid;border-color:var(--lime);
+  background:rgba(163,199,57,.08);transform:translateY(-3px)}
+.dir li.dir-other > a b{color:var(--on-dark)}
+.dir li.dir-other > a span{color:var(--on-dark-mute)}
