@@ -54,13 +54,6 @@ const body = `
       <a class="btn btn-primary" href="#start">Get your free compliance review</a>
       <a class="btn btn-ghost" href="tel:${site.phoneE164}">Call ${site.phoneDisplay}</a>
     </p>
-    <p class="hero-note">No obligation. The written findings are yours either way.</p>
-  </div>
-</section>
-
-<section class="band">
-  <div class="wrap band-in">
-    <p>A decade of trust. Over a thousand organizations protected.</p>
   </div>
 </section>
 
@@ -75,6 +68,12 @@ const body = `
         <span>${esc(p.kind)}</span>
       </a></li>`).join('')}
     </ul>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap band-in">
+    <p>A decade of trust. Over a thousand organizations protected.</p>
   </div>
 </section>
 

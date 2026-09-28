@@ -137,11 +137,6 @@ img,svg,video{max-width:100%;display:block}
 .hero-lead{font-size:clamp(1.1rem,1rem + .55vw,1.32rem);line-height:1.55;
   color:var(--on-dark-soft);max-width:36rem;margin-bottom:2rem;text-wrap:pretty}
 .hero-cta{display:flex;flex-wrap:wrap;gap:.85rem;margin:0 0 1.5rem}
-/* Sits low in the hero where the scrim is lightest, so --on-dark-mute at
-   .92rem was genuinely hard to read against the photograph. Brighter, a
-   step larger, and given its own rule so it reads as a deliberate note. */
-.hero-note{margin:0;font-size:1rem;color:var(--on-dark-soft);
-  padding-left:.9rem;border-left:2px solid var(--lime)}
 
 /* ---- Reveals. Visible without JS; the failsafe fires if it never runs. ---- */
 .rv{opacity:0;transform:translateY(20px);
