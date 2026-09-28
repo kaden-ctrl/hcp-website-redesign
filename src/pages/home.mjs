@@ -80,7 +80,7 @@ const body = `
 <section class="sec sec-loose field" id="what-it-is">
   <div class="wrap">
     <div class="sec-head rv">
-      <p class="mark"><span>01 / What is it</span></p>
+      <p class="mvt" aria-hidden="true">01</p>
       <h2>One platform that runs your compliance program and watches your billing.</h2>
       <p class="sec-lead">Healthcare Compliance Pros is a compliance and revenue integrity partner for
       healthcare providers. <strong>SHIELD</strong> runs the compliance program: policies, training, risk
@@ -117,7 +117,7 @@ const body = `
 <section class="sec sec-soft sec-loose field" id="who-its-for">
   <div class="wrap">
     <div class="sec-head rv">
-      <p class="mark"><span>02 / Who it is for</span></p>
+      <p class="mvt" aria-hidden="true">02</p>
       <h2>Three distinct markets. One unified platform.</h2>
       <p class="sec-lead">From a four-provider practice through to a private equity sponsor mid-transaction,
       the same platform underneath, scoped and priced to the organization using it.</p>
@@ -156,7 +156,7 @@ const body = `
 <section class="sec sec-loose field" id="what-we-offer">
   <div class="wrap">
     <div class="sec-head rv">
-      <p class="mark"><span>03 / What is offered</span></p>
+      <p class="mvt" aria-hidden="true">03</p>
       <h2>Defense and offense. Compliance and revenue.</h2>
       <p class="sec-lead">Four products that work as one relationship. Take the whole suite or the single
       piece you are missing.</p>
@@ -196,7 +196,6 @@ const body = `
 <section class="sec sec-soft field" id="why-hcp">
   <div class="wrap">
     <div class="sec-head rv">
-      <p class="mark"><span>What makes HCP different</span></p>
       <h2>Software alone does not make you compliant.</h2>
       <p class="sec-lead">Anyone can sell you a login. When protected health information goes to the wrong
       patient, a login does not help. Your team does.</p>
@@ -210,7 +209,6 @@ const body = `
 <section class="sec field" id="use-cases">
   <div class="wrap">
     <div class="sec-head rv">
-      <p class="mark"><span>Case studies</span></p>
       <h2>A decade of trust. Over a thousand providers protected.</h2>
       <p class="sec-lead">How organizations across practice groups, private equity and behavioral health
       put the platform to work.</p>
@@ -229,7 +227,6 @@ const body = `
 <section class="sec sec-soft field" id="leadership">
   <div class="wrap">
     <div class="sec-head rv">
-      <p class="mark"><span>Leadership</span></p>
       <h2>The people behind the program</h2>
     </div>
     <ul class="team rv">
@@ -246,7 +243,6 @@ const body = `
 <section class="sec field" id="faq">
   <div class="narrow">
     <div class="sec-head rv">
-      <p class="mark"><span>Questions</span></p>
       <h2>The questions everyone asks first</h2>
     </div>
     <div class="faqs rv">
@@ -262,7 +258,6 @@ const body = `
   <div class="wrap sec">
     <div class="lead-grid">
       <div class="rv">
-        <p class="mark"><span>Get started</span></p>
         <h2>Let us talk compliance.</h2>
         <p class="sec-lead">Whether you are an independent practice looking to get compliant, a private
         equity sponsor evaluating a healthcare acquisition, or a law firm looking for a compliance partner

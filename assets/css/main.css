@@ -18,13 +18,11 @@
 .sec-head h2{margin-bottom:.35em}
 .sec-lead{font-size:1.12rem;line-height:1.6;color:var(--on-dark-soft);margin:0;text-wrap:pretty}
 
-/* Section label. Was a lime tick-in-a-box glyph before each one; replaced
-   with a short rule, which marks the section without putting a check mark
-   against a heading that is not a completed task. */
-.mark{display:flex;align-items:center;gap:.7rem;margin:0 0 .9rem}
-.mark::before{content:"";width:26px;height:2px;flex:none;background:var(--lime)}
-.mark span{font-family:var(--head);font-weight:800;font-size:.84rem;letter-spacing:.02em;color:var(--lime)}
-.sec-head.center .mark{justify-content:center}
+/* The three movements are numbered with a plain lime numeral. The previous
+   treatment was a tinted rule plus a small-caps label above every heading,
+   which is the standard template eyebrow and read as generated. */
+.mvt{font-family:var(--head);font-weight:800;font-size:clamp(2.2rem,1.7rem + 1.8vw,3.2rem);
+  color:var(--lime);line-height:1;letter-spacing:-.03em;margin:0 0 .5rem;opacity:.85}
 
 /* ---- Lime band. The deck uses this as a full-width punctuation rule. ---- */
 .band{background:var(--lime);color:#13230a}
@@ -261,9 +259,12 @@
 .foot-base a{color:var(--on-dark-mute);text-decoration:none}
 .foot-base a:hover{color:var(--lime)}
 .foot-social{display:flex;gap:.8rem;list-style:none;margin:0;padding:0}
-.foot-social a{display:inline-flex;width:34px;height:34px;align-items:center;justify-content:center;
-  border:1px solid var(--line);border-radius:7px}
-.foot-social a:hover{border-color:var(--lime);color:var(--lime)}
+/* The border was rgba(255,255,255,.14), which resolves to 1.49:1 on the
+   footer ground: not a visible boundary. .36 gives 3.2:1, the minimum for
+   a UI edge, and the glyph itself is lifted off the muted body colour. */
+.foot-social a{display:inline-flex;width:38px;height:38px;align-items:center;justify-content:center;
+  border:1px solid rgba(255,255,255,.36);border-radius:7px;color:#a8bac9;transition:border-color .2s,color .2s,background .2s}
+.foot-social a:hover{border-color:var(--lime);color:var(--lime);background:rgba(163,199,57,.1)}
 
 /* ---- Mobile nav ---- */
 .mobile-nav{background:#fff;border-top:1px solid rgba(5,31,51,.1);padding:1.1rem 0 1.6rem}

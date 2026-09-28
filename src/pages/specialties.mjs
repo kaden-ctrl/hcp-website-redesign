@@ -30,7 +30,6 @@ const body = `
             width: 1600, height: 720, loading: 'eager', fetchpriority: 'high', sizes: '100vw' })}
   </div>
   <div class="wrap hero-in">
-    <p class="mark"><span>Specialties and organizations</span></p>
     <h1>Find the program built for <em>your</em> setting.</h1>
     <p class="hero-lead">Compliance exposure is not the same for a dermatology practice, a billing company
     and a private equity platform. Tell us which one you are and we will take you to the right place.</p>
@@ -99,7 +98,6 @@ const body = `
 <section class="sec field" id="what-we-offer">
   <div class="wrap">
     <div class="sec-head rv">
-      <p class="mark"><span>What you get, whichever route you take</span></p>
       <h2>The same four products underneath.</h2>
       <p class="sec-lead">Your setting changes the configuration, not the platform. Take the whole suite or
       the single piece you are missing.</p>
@@ -121,7 +119,6 @@ const body = `
 <section class="sec sec-soft field" id="why-hcp">
   <div class="wrap">
     <div class="sec-head rv">
-      <p class="mark"><span>What makes HCP different</span></p>
       <h2>Software alone does not make you compliant.</h2>
       <p class="sec-lead">Anyone can sell you a login. When protected health information goes to the wrong
       patient, a login does not help. Your team does.</p>
@@ -135,7 +132,6 @@ const body = `
 <section class="sec field" id="use-cases">
   <div class="wrap">
     <div class="sec-head rv">
-      <p class="mark"><span>Case studies</span></p>
       <h2>What this looks like in practice</h2>
       <p class="sec-lead">Organizations across orthopedics, behavioral health, cardiology and private
       equity, each configured for their own setting.</p>
@@ -154,7 +150,6 @@ const body = `
 <section class="sec sec-soft field" id="faq">
   <div class="narrow">
     <div class="sec-head rv">
-      <p class="mark"><span>Questions</span></p>
       <h2>Choosing the right route</h2>
     </div>
     <div class="faqs rv">
@@ -170,7 +165,6 @@ const body = `
   <div class="wrap sec">
     <div class="lead-grid">
       <div class="rv">
-        <p class="mark"><span>Get started</span></p>
         <h2>Not sure which one you are?</h2>
         <p class="sec-lead">Plenty of organizations sit across more than one of these. Twenty minutes with
         an advisor settles it, and you leave with a written gap analysis for your actual setting.</p>
