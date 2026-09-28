@@ -240,11 +240,17 @@ export const specialties = [
 // Three distinct markets, one platform.
 export const markets = [
   { n: '01', title: 'Independent and group practices',
-    body: 'Independent and group practices through to business associates, 1 to 100+ physicians across all major specialties.' },
+    body: 'Independent and group practices through to business associates, 1 to 100+ physicians across all major specialties.',
+    img: '/assets/img/site/about-1.webp',
+    alt: 'A clinician reviewing records on a tablet in a practice corridor' },
   { n: '02', title: 'PE-backed portfolio companies',
-    body: 'Healthcare platform builds, add-on acquisitions, and portfolio ops teams requiring pre- and post-close compliance infrastructure.' },
+    body: 'Healthcare platform builds, add-on acquisitions, and portfolio ops teams requiring pre- and post-close compliance infrastructure.',
+    img: '/assets/img/site/aud-private-equity.webp',
+    alt: 'Two people shaking hands after closing a healthcare transaction' },
   { n: '03', title: 'Channel and referral partners',
-    body: 'Healthcare law firms, malpractice carriers, RCM companies and M&A advisory firms refer HCP to their provider clients.' }
+    body: 'Healthcare law firms, malpractice carriers, RCM companies and M&A advisory firms refer HCP to their provider clients.',
+    img: '/assets/img/site/svc-fractional.webp',
+    alt: 'Two advisors reviewing a client compliance program together' }
 ];
 
 export const differentiators = [

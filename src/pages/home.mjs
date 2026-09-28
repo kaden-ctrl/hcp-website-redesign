@@ -113,6 +113,7 @@ const body = `
 
     <ul class="markets rv">
       ${markets.map((m) => `<li class="market">
+        <div class="market-pic">${img({ src: m.img, alt: m.alt, title: m.title, width: 900, height: 506, sizes: '(max-width: 900px) 100vw, 380px' })}</div>
         <div class="market-h"><b>${esc(m.n)}</b><span>${esc(m.title)}</span></div>
         <div class="market-b"><span class="lbl">Ideal profile</span><p>${esc(m.body)}</p></div>
       </li>`).join('')}
@@ -126,6 +127,16 @@ const body = `
         ${specialties.map((s) => `<li>${esc(s)}</li>`).join('')}
       </ul>
     </div>
+  </div>
+</section>
+
+<section class="photoband">
+  ${img({ src: '/assets/img/site/about-2.webp', alt: '', title: 'Clinical staff in a compliance training session',
+          width: 1600, height: 700, sizes: '100vw' })}
+  <div class="wrap photoband-in">
+    <p>We do not just check boxes. We build a culture of compliance and give you a plan to keep improving.</p>
+    <p class="sub">Automation handles the tasks. Your team handles the questions, and ours is on the other
+    end of the phone when the question is hard.</p>
   </div>
 </section>
 
@@ -152,12 +163,20 @@ const body = `
     </ul>
 
     <div class="seven-block rv">
-      <h3>The seven elements. Covered.</h3>
-      <p class="sec-lead" style="font-size:1rem;margin-bottom:1.5rem">The Office of Inspector General
-      defines what an effective compliance program requires. SHIELD delivers all seven.</p>
-      <ol class="seven">
-        ${sevenElements.map((e) => `<li><span>${esc(e)}</span></li>`).join('')}
-      </ol>
+      <div class="showcase">
+        <div>
+          <h3>The seven elements. Covered.</h3>
+          <p class="sec-lead" style="font-size:1rem;margin-bottom:1.5rem">The Office of Inspector General
+          defines what an effective compliance program requires. SHIELD delivers all seven.</p>
+          <ol class="seven">
+            ${sevenElements.map((e) => `<li><span>${esc(e)}</span></li>`).join('')}
+          </ol>
+        </div>
+        <div class="showcase-media">
+          ${img({ src: '/assets/img/site/feature-map.webp', alt: 'Two colleagues reviewing compliance status together on a laptop',
+                  title: 'Reviewing a live compliance program', width: 1400, height: 1050, sizes: '(max-width: 880px) 100vw, 520px' })}
+        </div>
+      </div>
     </div>
   </div>
 </section>
