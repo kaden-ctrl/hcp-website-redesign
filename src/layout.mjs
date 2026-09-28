@@ -203,7 +203,7 @@ function head(page, criticalCss, cssHash) {
 <meta name="description" content="${esc(page.description)}">
 <link rel="canonical" href="${canonical}">
 <meta name="robots" content="${page.noindex ? 'noindex,follow' : 'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1'}">
-<meta name="theme-color" content="#094879">
+<meta name="theme-color" content="#051f33">
 <meta property="og:type" content="${page.ogType || 'website'}">
 <meta property="og:site_name" content="${esc(site.name)}">
 <meta property="og:locale" content="en_US">
@@ -238,85 +238,41 @@ const logoMark = () =>
 /* Mirrors the menu structure on their existing site. Until the secondary
    pages are built, each item resolves to the matching section on this page
    rather than a dead link. */
-const MENU = [
-  { label: 'Solutions', href: '#what-you-get', items: [
-    ['SHIELD Compliance Solution', '#what-you-get'],
-    ['HIPAA Compliance', '#what-you-get'],
-    ['OSHA Compliance', '#what-you-get'],
-    ['Corporate Compliance', '#what-you-get'],
-    ['SENTRY Coding Intelligence', '#what-you-get'],
-    ['Learning Management System', '#what-you-get'],
-    ['Fractional Compliance Officer', '#what-you-get']
-  ]},
-  { label: 'Specialties', href: '#who-we-serve', wide: true, cols: [
-    ['Organizations', [
-      ['Medical Practices', '#who-we-serve'],
-      ['Hospitals & Health Systems', '#who-we-serve'],
-      ['Business Associates', '#who-we-serve'],
-      ['Medical Billing', '#who-we-serve'],
-      ['Private Equity', '#who-we-serve']
-    ]],
-    ['Specialties', [
-      ['Orthopedics', '#who-we-serve'],
-      ['Dermatology', '#who-we-serve'],
-      ['Behavioral Health', '#who-we-serve'],
-      ['Physical Therapy', '#who-we-serve'],
-      ['MedSpa & Aesthetics', '#who-we-serve']
-    ]]
-  ]},
-  { label: 'News & Events', href: '#results', items: [
-    ['Client Results', '#results'],
-    ['Testimonials', '#results'],
-    ['Blog', '#results'],
-    ['Webinars', '#results']
-  ]},
-  { label: 'About', href: '#why-hcp', items: [
-    ['Why HCP', '#why-hcp'],
-    ['How It Works', '#how-it-works'],
-    ['FAQ', '#faq']
-  ]},
-  { label: 'Contact', href: '#get-started' }
-];
-
 function header() {
-  const menu = MENU.map((m, i) => {
-    if (!m.items && !m.cols) {
-      return `<li><a class="nav-top" href="${m.href}">${esc(m.label)}</a></li>`;
-    }
-    const id = `nd-${i}`;
-    const panel = m.cols
-      ? `<div class="nav-dd-cols">${m.cols.map(([h, links]) =>
-          `<div><h5>${esc(h)}</h5><ul>${links.map(([t, u]) => `<li><a href="${u}">${esc(t)}</a></li>`).join('')}</ul></div>`).join('')}</div>`
-      : `<ul>${m.items.map(([t, u]) => `<li><a href="${u}">${esc(t)}</a></li>`).join('')}</ul>`;
-    return `<li>
-      <button type="button" class="nav-top" aria-expanded="false" aria-controls="${id}">${esc(m.label)}${icon('chevron','ic ic-xs')}</button>
-      <div class="nav-dd${m.cols ? ' nav-dd-wide' : ''}" id="${id}" hidden>${panel}</div>
-    </li>`;
+  const top = nav.map((m) => {
+    if (!m.items && !m.columns) return `<li><a href="${m.href}">${esc(m.label)}</a></li>`;
+    const panel = m.columns
+      ? `<ul class="menu menu-wide">${m.columns.map((c) =>
+          `<li><h5>${esc(c.heading)}</h5><ul>${c.links.map((l) =>
+            `<li><a href="${l.href}">${esc(l.label)}</a></li>`).join('')}</ul></li>`).join('')}</ul>`
+      : `<ul class="menu">${m.items.map((l) =>
+          `<li><a href="${l.href}">${esc(l.label)}</a></li>`).join('')}</ul>`;
+    return `<li><a href="${m.href}">${esc(m.label)}${icon('chevron', 'ic caret')}</a>${panel}</li>`;
   }).join('');
 
-  return `<a class="skip" href="#main">Skip to main content</a>
+  return `<a class="visually-hidden" href="#main">Skip to main content</a>
 <header class="site-head">
   <div class="wrap head-in">
     <a class="brand" href="/">${logoMark()}</a>
-    <nav class="head-nav" aria-label="Primary"><ul>${menu}</ul></nav>
+    <nav aria-label="Primary"><ul class="nav">${top}</ul></nav>
     <div class="head-cta">
-      <a class="head-phone" href="tel:${site.phoneE164}">${site.phoneDisplay}</a>
-      <a class="btn btn-lime" href="#get-started">Free assessment</a>
+      <a class="head-tel" href="tel:${site.phoneE164}">${site.phoneDisplay}</a>
+      <a class="btn btn-primary" href="#start">Free review</a>
     </div>
-    <button type="button" class="burger" aria-expanded="false" aria-controls="m-nav" aria-label="Open menu">
+    <button type="button" class="burger" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu">
       <span></span><span></span><span></span>
     </button>
   </div>
-  <div class="mobile-nav" id="m-nav" hidden>
-    <nav class="wrap" aria-label="Mobile">
-      <ul class="mnav">
-        ${MENU.map((m) => `<li><a href="${m.href}">${esc(m.label)}</a></li>`).join('')}
-      </ul>
+  <div class="mobile-nav" id="mobile-nav" hidden>
+    <div class="wrap">
+      <nav aria-label="Mobile"><ul class="mnav">
+        ${nav.map((m) => `<li><a href="${m.href}">${esc(m.label)}</a></li>`).join('')}
+      </ul></nav>
       <p class="mnav-cta">
-        <a class="btn btn-lime btn-block" href="#get-started">Free assessment</a>
-        <a class="btn btn-ghost btn-block" href="tel:${site.phoneE164}">Call ${site.phoneDisplay}</a>
+        <a class="btn btn-primary" href="#start">Free compliance review</a>
+        <a class="btn btn-ghost" style="color:var(--ink);border-color:rgba(5,31,51,.25)" href="tel:${site.phoneE164}">Call ${site.phoneDisplay}</a>
       </p>
-    </nav>
+    </div>
   </div>
 </header>`;
 }
@@ -326,45 +282,28 @@ function breadcrumbNav() { return ''; }
 const socialLabels = { facebook: 'Facebook', x: 'X (Twitter)', youtube: 'YouTube', linkedin: 'LinkedIn' };
 
 function footer() {
-  const socialLinks = site.social.map((u) => {
-    const k = u.includes('facebook') ? 'facebook' : u.includes('x.com') ? 'x' : u.includes('youtube') ? 'youtube' : 'linkedin';
-    return `<li><a href="${u}" rel="noopener me" target="_blank">${socialLabels[k]}</a></li>`;
+  const cols = footerNav.map((c) => `<nav aria-label="${esc(c.heading)}">
+      <h4>${esc(c.heading)}</h4>
+      <ul>${c.links.map((l) => `<li><a href="${l.href}">${esc(l.label)}</a></li>`).join('')}</ul>
+    </nav>`).join('');
+
+  const social = site.social.map((u) => {
+    const k = u.includes('facebook') ? 'facebook' : u.includes('x.com') ? 'x'
+      : u.includes('youtube') ? 'youtube' : 'linkedin';
+    return `<li><a href="${u}" rel="noopener me" target="_blank" aria-label="${socialLabels[k]}" title="${socialLabels[k]}">${icon(k, 'ic ic-sm')}</a></li>`;
   }).join('');
 
   return `<footer class="site-foot" id="footer">
   <div class="wrap">
-    <div class="foot-top">
-      <div>
-        <a class="brand" href="/" style="margin-bottom:1rem">${logoMark()}</a>
-        <p>HIPAA, OSHA and corporate compliance in one platform, backed by a named team of
-        advisors. Serving healthcare organisations nationwide since ${site.founded}.</p>
-      </div>
-      <nav class="foot-col" aria-label="Explore">
-        <h4>Explore</h4>
-        <ul>
-          <li><a href="#what-you-get">What you get</a></li>
-          <li><a href="#how-it-works">How it works</a></li>
-          <li><a href="#results">Results</a></li>
-          <li><a href="#why-hcp">Why HCP</a></li>
-          <li><a href="#faq">FAQ</a></li>
-        </ul>
-      </nav>
-      <nav class="foot-col" aria-label="Contact">
-        <h4>Get in touch</h4>
-        <ul>
-          <li><a href="tel:${site.phoneE164}">${site.phoneDisplay}</a></li>
-          <li><a href="mailto:${site.email}">${site.email}</a></li>
-          <li><a href="${site.loginUrl}" rel="nofollow">Client login</a></li>
-          ${socialLinks}
-        </ul>
-      </nav>
-    </div>
-    <div class="foot-in" style="padding-top:1.6rem">
-      <p>&copy; 2026 ${esc(site.legalName)}. All rights reserved.</p>
-      <ul class="foot-links">
-        <li><a href="/privacypolicy/">Privacy policy</a></li>
-        <li><a href="/fulfillment-policy/">Fulfillment policy</a></li>
-      </ul>
+    <div class="foot-cols">${cols}</div>
+    <div class="foot-base">
+      <p style="margin:0">&copy; ${new Date().getFullYear()} ${esc(site.legalName)}. All rights reserved.</p>
+      <ul class="foot-social">${social}</ul>
+      <p style="margin:0">
+        <a href="/privacypolicy/">Privacy policy</a> &nbsp;&middot;&nbsp;
+        <a href="/fulfillment-policy/">Fulfillment policy</a> &nbsp;&middot;&nbsp;
+        <a href="${site.loginUrl}" rel="nofollow">Client login</a>
+      </p>
     </div>
   </div>
 </footer>`;
@@ -382,7 +321,7 @@ ${page.body}
 </main>
 ${footer()}`;
   return `<!doctype html>
-<html lang="en-US">
+<html lang="en-US" data-css="/assets/css/main.css?v=${cssHash}">
 <head>
 ${head(page, criticalCss, cssHash)}
 </head>
