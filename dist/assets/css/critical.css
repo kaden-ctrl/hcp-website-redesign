@@ -61,7 +61,11 @@ p{margin:0 0 1.05em}
 a{color:inherit}
 img,svg,video{max-width:100%;display:block}
 .wrap{width:100%;max-width:var(--wrap);margin-inline:auto;padding-inline:clamp(1.1rem,.6rem + 2vw,2rem)}
-.narrow{width:100%;max-width:860px;margin-inline:auto;padding-inline:clamp(1.1rem,.6rem + 2vw,2rem)}
+/* Shares the .wrap left edge rather than centring its own narrower column,
+   so the FAQ starts in line with every other block on the page. The reading
+   measure is kept by capping the children instead of the container. */
+.narrow{width:100%;max-width:var(--wrap);margin-inline:auto;padding-inline:clamp(1.1rem,.6rem + 2vw,2rem)}
+.narrow>*{max-width:860px}
 .ic{width:20px;height:20px;flex:none;stroke-width:2.2}
 .ic-sm{width:16px;height:16px}
 .visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
@@ -124,7 +128,10 @@ img,svg,video{max-width:100%;display:block}
   object-fit:cover;object-position:center 30%}
 .hero-media::after{content:"";position:absolute;inset:0;
   background:linear-gradient(92deg,rgba(5,31,51,.96) 0%,rgba(5,31,51,.88) 38%,rgba(5,31,51,.62) 66%,rgba(5,31,51,.46) 100%)}
-.hero-in{position:relative;z-index:1;padding:clamp(4.5rem,3rem + 6vw,8rem) 0 clamp(4rem,2.8rem + 5vw,6.5rem)}
+/* padding-block, not the padding shorthand. These elements also carry
+   .wrap, and a shorthand resets its padding-inline to 0, which pulled the
+   whole hero 32px left of every section below it. */
+.hero-in{position:relative;z-index:1;padding-block:clamp(4.5rem,3rem + 6vw,8rem) clamp(4rem,2.8rem + 5vw,6.5rem)}
 .hero h1{margin-bottom:.4em}
 .hero h1 em{font-style:normal;color:var(--lime)}
 .hero-lead{font-size:clamp(1.1rem,1rem + .55vw,1.32rem);line-height:1.55;

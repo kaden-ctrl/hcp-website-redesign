@@ -9,9 +9,9 @@
    script, so nothing here blocks the first render. */
 
 /* ---- Section rhythm ---- */
-.sec{padding:var(--sec-y) 0;position:relative}
-.sec-tight{padding:var(--sec-y-tight) 0}
-.sec-loose{padding:var(--sec-y-loose) 0}
+.sec{padding-block:var(--sec-y);position:relative}
+.sec-tight{padding-block:var(--sec-y-tight)}
+.sec-loose{padding-block:var(--sec-y-loose)}
 .sec-soft{background:var(--navy-soft)}
 .sec-head{margin:0 0 var(--head-gap);max-width:54rem}
 .sec-head.center{margin-inline:auto;text-align:center}
@@ -26,7 +26,7 @@
 
 /* ---- Lime band. The deck uses this as a full-width punctuation rule. ---- */
 .band{background:var(--lime);color:#13230a}
-.band-in{display:flex;flex-wrap:wrap;align-items:center;gap:.75rem 1.2rem;padding:1.35rem 0}
+.band-in{display:flex;flex-wrap:wrap;align-items:center;gap:.75rem 1.2rem;padding-block:1.35rem}
 .band p{margin:0;font-family:var(--head);font-weight:800;font-size:clamp(1.02rem,.9rem + .5vw,1.35rem);letter-spacing:-.01em}
 
 /* ---- Product strip -------------------------------------------------
@@ -138,7 +138,11 @@
 .photoband img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
 .photoband::after{content:"";position:absolute;inset:0;z-index:1;
   background:linear-gradient(90deg,rgba(3,21,31,.94) 0%,rgba(3,21,31,.82) 42%,rgba(3,21,31,.55) 100%)}
-.photoband-in{position:relative;z-index:2;padding:clamp(3.2rem,2.4rem + 3vw,5.5rem) 0;max-width:46rem}
+/* The measure constraint belongs on the paragraphs, not the .wrap. On the
+   wrap it fought margin-inline:auto and centred the whole block, putting
+   this text 242px right of every other left edge on the page. */
+.photoband-in{position:relative;z-index:2;padding-block:clamp(3.2rem,2.4rem + 3vw,5.5rem)}
+.photoband-in>*{max-width:46rem}
 .photoband p{margin:0;font-family:var(--head);font-weight:800;color:#fff;
   font-size:clamp(1.35rem,1.05rem + 1.4vw,2.1rem);line-height:1.22;letter-spacing:-.02em;text-wrap:balance}
 .photoband .sub{margin:1rem 0 0;font-family:var(--body);font-weight:400;font-size:1.02rem;
