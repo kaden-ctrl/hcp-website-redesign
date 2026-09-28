@@ -54,13 +54,12 @@ const body = `
       <a class="btn btn-primary" href="#start">Get your free compliance review</a>
       <a class="btn btn-ghost" href="tel:${site.phoneE164}">Call ${site.phoneDisplay}</a>
     </p>
-    <p class="hero-note">${icon('shield', 'ic ic-sm')}<span>No obligation. The written findings are yours either way.</span></p>
+    <p class="hero-note">No obligation. The written findings are yours either way.</p>
   </div>
 </section>
 
 <section class="band">
   <div class="wrap band-in">
-    ${icon('check', 'ic')}
     <p>A decade of trust. Over a thousand organizations protected.</p>
   </div>
 </section>
@@ -87,7 +86,6 @@ const body = `
         </ul>
       </div>
       <div class="split-b">
-        <span class="split-badge">${icon('check', 'ic')}</span>
         <h3>Your whole program, documented in one place</h3>
         <p>One platform, one login, one completion view across every location, with dated records
         generated as your team works rather than assembled after the request arrives.</p>
@@ -96,7 +94,7 @@ const body = `
     </div>
 
     <ul class="stats rv" style="margin-top:clamp(2.5rem,2rem + 2vw,3.5rem)">
-      ${stats.map((s) => `<li class="stat">${icon('check', 'ic ic-sm')}<b>${esc(s.figure)}</b><span>${esc(s.label)}</span></li>`).join('')}
+      ${stats.map((s) => `<li class="stat"><b>${esc(s.figure)}</b><span>${esc(s.label)}</span></li>`).join('')}
     </ul>
   </div>
 </section>
@@ -153,12 +151,12 @@ const body = `
     <ul class="suite rv">
       ${suite.map((p) => `<li class="prod">
         <div class="prod-h">
-          <span class="prod-ic">${icon(p.icon, 'ic')}</span>
-          <span><span class="prod-name">${esc(p.name)}</span><span class="prod-kind">${esc(p.kind)}</span></span>
+          <span class="prod-name">${esc(p.name)}</span>
+          <span class="prod-kind">${esc(p.kind)}</span>
         </div>
         <p class="prod-blurb">${esc(p.blurb)}</p>
-        <ul>${p.items.map((i) => `<li>${icon('check', 'ic ic-sm')}<span>${esc(i)}</span></li>`).join('')}</ul>
-        <a class="prod-link" href="${p.href}">Explore ${esc(p.name)}${icon('arrow', 'ic ic-sm')}</a>
+        <ul>${p.items.map((i) => `<li>${esc(i)}</li>`).join('')}</ul>
+        <a class="prod-link" href="${p.href}">Explore ${esc(p.name)}</a>
       </li>`).join('')}
     </ul>
 
@@ -256,10 +254,10 @@ const body = `
         equity sponsor evaluating a healthcare acquisition, or a law firm looking for a compliance partner
         for your clients, HCP is made for you.</p>
         <ul class="why">
-          <li>${icon('check', 'ic ic-sm')}<div><b>Genuinely free</b><p>No cost, no obligation, and the written findings are yours whether or not you become a client.</p></div></li>
-          <li>${icon('users', 'ic ic-sm')}<div><b>An advisor, not a sales script</b><p>Your first conversation is with someone who can actually answer compliance questions.</p></div></li>
-          <li>${icon('clock', 'ic ic-sm')}<div><b>About twenty minutes</b><p>Scoped to respect your time. A deeper review happens only if the first pass suggests it is warranted.</p></div></li>
-          <li>${icon('phone', 'ic ic-sm')}<div><b>Prefer to talk now?</b><p>Call <a href="tel:${site.phoneE164}" style="color:var(--lime)">${site.phoneDisplay}</a> and ask for a compliance advisor.</p></div></li>
+          <li><div><b>Genuinely free</b><p>No cost, no obligation, and the written findings are yours whether or not you become a client.</p></div></li>
+          <li><div><b>An advisor, not a sales script</b><p>Your first conversation is with someone who can actually answer compliance questions.</p></div></li>
+          <li><div><b>About twenty minutes</b><p>Scoped to respect your time. A deeper review happens only if the first pass suggests it is warranted.</p></div></li>
+          <li><div><b>Prefer to talk now?</b><p>Call <a href="tel:${site.phoneE164}" style="color:var(--lime)">${site.phoneDisplay}</a> and ask for a compliance advisor.</p></div></li>
         </ul>
       </div>
       <form class="lead-form f rv" data-lead="${site.email}" novalidate>
