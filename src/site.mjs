@@ -160,25 +160,25 @@ export const footerNav = [
 
 // The four products. Defence and offence, which is how the deck frames it.
 export const suite = [
-  { side: 'defense', key: 'shield', name: 'SHIELD', kind: 'Compliance software', icon: 'shield',
+  { side: 'defense', key: 'shield', posture: 'DEFENSIVE', tagline: 'The audit that never surprises you, because it never stopped running.', name: 'SHIELD', kind: 'Compliance software', icon: 'shield',
     href: '/compliance-solution/',
     blurb: 'Your whole compliance program in one system. HIPAA, OSHA and corporate compliance, with a real team behind every element.',
     items: ['Real-time compliance dashboard', 'Policy and documentation management',
             'Security Risk Analysis (SRA)', 'Learning management system',
             'Exclusion monitoring and incident management'] },
-  { side: 'defense', key: 'fco', name: 'FCO', kind: 'Fractional compliance officer', icon: 'users',
+  { side: 'defense', key: 'fco', posture: 'STRATEGIC', tagline: 'Compliance expertise on call, without a headcount line.', name: 'FCO', kind: 'Fractional compliance officer', icon: 'users',
     href: '/fractional-compliance-officer/',
     blurb: 'A dedicated compliance expert on call, without carrying the role as a full-time hire.',
     items: ['Dedicated compliance expert', 'On-call regulatory guidance',
             'OIG and CMS policy interpretation', 'Staff education and culture building',
             'Scalable engagement model'] },
-  { side: 'offense', key: 'sentry', name: 'SENTRY', kind: 'Billing intelligence software', icon: 'chart',
+  { side: 'offense', key: 'sentry', posture: 'OFFENSIVE', tagline: 'Revenue leakage does not hide from software that never blinks.', name: 'SENTRY', kind: 'Billing intelligence software', icon: 'chart',
     href: '/coding-compliance/',
     blurb: 'Payers downcode automatically and send no notice. SENTRY finds the pattern in the quarter it starts.',
     items: ['Continuous claims monitoring', 'Specialty benchmark comparison',
             'Revenue optimisation alerts', 'Denial pattern detection',
             'Compliance risk scoring'] },
-  { side: 'offense', key: 'diligence', name: 'DILIGENCE', kind: 'Billing and coding audit', icon: 'doc',
+  { side: 'offense', key: 'diligence', posture: 'TRANSACTIONAL', tagline: 'Every claim gets read before the deal does.', name: 'DILIGENCE', kind: 'Billing and coding audit', icon: 'doc',
     href: '/diligence/',
     blurb: 'Transaction-grade review for buyers and sellers, written for the deal room.',
     items: ['12 to 24 months of claims data reviewed', 'CPC-certified coding specialists',
@@ -305,4 +305,28 @@ export const directory = [
   { kind: 'specialty', name: 'Urgent care', href: '/specialties/urgent-care/' },
   { kind: 'specialty', name: 'Urology', href: '/specialties/urology/' },
   { kind: 'specialty', name: 'Wound care', href: '/specialties/wound-care/' }
+];
+
+
+/* ---------------------------------------------------------------
+   Specialty and organization page content, from the HCP slide deck
+   (hcp-slidedeck.netlify.app). These figures and risk framings are
+   generic to healthcare rather than specific to any one specialty,
+   which is how the deck uses them too: the setting name is
+   substituted, the underlying argument does not change.
+   --------------------------------------------------------------- */
+
+export const challengeStats = [
+  { figure: '$935B', label: 'in estimated annual healthcare billing errors across the US' },
+  { figure: '83%',   label: 'of provider groups lack a structured compliance program' },
+  { figure: '6 to 8x', label: 'the cost to remediate a billing violation versus preventing it' }
+];
+
+export const risks = [
+  { tag: 'Compliance risk',
+    body: 'OIG enforcement activity reached a ten-year high in 2024. Physician groups face False Claims Act exposure, CMS clawbacks and Corporate Integrity Agreements, many of them stemming from billing errors that were preventable with the right monitoring in place.' },
+  { tag: 'Revenue leakage',
+    body: 'The same providers leaving money on the table through undercoding, conservative code selection, missed add-ons and undocumented complexity often do not know it until an outside auditor tells them. Most groups recover only 60 to 80 cents on the dollar they legitimately earned.' },
+  { tag: 'Transaction risk',
+    body: 'For private equity sponsors, pre-existing billing liability survives acquisition. The DOJ has held buyers liable for compliance failures they inherited but failed to identify in diligence, a gap that can derail a close or invalidate representations and warranties insurance.' }
 ];

@@ -75,13 +75,19 @@ const body = `
         ${specs.map((d) => `<li data-kind="specialty" data-name="${esc(d.name.toLowerCase())}">
           <a href="${d.href}"><b>${esc(d.name)}</b></a>
         </li>`).join('')}
+        <li class="dir-other" data-kind="specialty" data-name="other not listed something else">
+          <a href="/specialties/other/"><b>Something else</b><span>Not listed, or spanning several settings.</span></a>
+        </li>
       </ul>
     </div>
 
-    <p class="finder-empty" data-finder-empty hidden>
-      Nothing matches that. The list covers where we work most often rather than the limit of what we
-      support, so <a href="#start">talk to an advisor</a> and we will scope it with you.
-    </p>
+    <div class="finder-empty" data-finder-empty hidden>
+      <p>Nothing matches that. The list covers where we work most often rather than the limit of what we
+      support, so an unlisted setting is a scoping conversation rather than a no.</p>
+      <p style="margin:0">
+        <a class="btn btn-primary" href="/specialties/other/">See the program for any setting</a>
+      </p>
+    </div>
   </div>
 </section>
 

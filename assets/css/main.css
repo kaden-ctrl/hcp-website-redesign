@@ -335,8 +335,13 @@
 .ft:hover{border-color:var(--lime);color:var(--lime)}
 .ft.is-on{background:var(--lime);border-color:var(--lime);color:#13230a}
 .finder-count{margin:.9rem 0 0;font-size:.9rem;color:var(--on-dark-mute)}
-.finder-empty{margin:2rem 0 0;padding:1.4rem 1.6rem;border-left:2px solid var(--lime);
-  background:rgba(255,255,255,.04);color:var(--on-dark-soft)}
+.finder-empty{margin:2rem 0 0;padding:1.5rem 1.7rem;border-left:2px solid var(--lime);
+  background:rgba(255,255,255,.04);color:var(--on-dark-soft);max-width:46rem}
+.finder-empty p{margin:0 0 1.1rem}
+/* The catch-all card reads as a route, not as one more specialty. */
+.dir-other a{background:transparent;border:1px dashed var(--line);box-shadow:none;color:var(--on-dark)}
+.dir-other a:hover{border-color:var(--lime);border-style:solid;background:rgba(163,199,57,.06)}
+.dir-other span{color:var(--on-dark-mute)}
 .finder-empty a{color:var(--lime);font-weight:700}
 
 .group-h{font-size:clamp(1.3rem,1.1rem + .8vw,1.7rem);margin-bottom:.35rem}
@@ -361,3 +366,26 @@
 .dir span{font-size:.9rem;color:var(--ink-soft);line-height:1.4;
   display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
 @media (max-width:560px){.finder-tabs{width:100%}.ft{flex:1}}
+
+/* ---- Specialty and organization pages ------------------------------- */
+/* The three risk framings. Rule-led rather than boxed, so they sit beside
+   the stat tiles above without competing with them. */
+.risks{list-style:none;margin:clamp(2.2rem,1.8rem + 1.6vw,3.2rem) 0 0;padding:0;display:grid;
+  gap:1.8rem 2.2rem;grid-template-columns:repeat(auto-fit,minmax(285px,1fr))}
+.risks li{border-top:2px solid var(--lime);padding-top:1.1rem}
+.risks .lbl{display:block;font-family:var(--head);font-weight:800;font-size:.76rem;
+  letter-spacing:.11em;text-transform:uppercase;color:var(--lime);margin-bottom:.6rem}
+.risks p{margin:0;font-size:.97rem;color:var(--on-dark-soft);line-height:1.6}
+.risk-note{margin:clamp(2rem,1.6rem + 1.2vw,2.8rem) 0 0;padding-left:1.1rem;
+  border-left:2px solid var(--lime);font-family:var(--head);font-weight:700;
+  font-size:1.05rem;color:var(--on-dark);max-width:58rem}
+
+/* Posture sits above the product name on these pages: defensive, strategic,
+   transactional, offensive. */
+.prod-posture{display:block;font-family:var(--head);font-weight:800;font-size:.68rem;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--green-ink);margin-bottom:.45rem}
+.prod-tagline{color:var(--ink);font-family:var(--head);font-weight:700;font-size:1rem;
+  line-height:1.4;margin:0 0 1.1rem}
+
+/* The fallback route out of an empty search. */
+.finder-empty .btn{margin-top:.9rem}
