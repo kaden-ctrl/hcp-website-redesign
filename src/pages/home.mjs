@@ -4,6 +4,14 @@ import {
   differentiators, leadership, testimonials, sevenElements
 } from '../site.mjs';
 
+/* The page answers three questions in order, and the numbered marks make
+   that sequence legible rather than implied:
+     01  What is it?
+     02  Who is it for?
+     03  What is offered?
+   Everything after those three is supporting evidence: why us, proof,
+   the people, objections, and the ask. */
+
 const faqs = [
   { q: 'What does HCP actually do?',
     a: 'Two things most vendors split apart. SHIELD runs your compliance program: HIPAA, OSHA and corporate compliance, policies, training, risk analysis and the documentation an investigator asks for. SENTRY watches the revenue side, benchmarking your claims every quarter against your specialty. Both are backed by people, not a ticket queue.' },
@@ -21,6 +29,15 @@ const faqs = [
     a: 'More than 30 clinical specialties nationwide, from behavioral health and cardiology through to urgent care and wound care. Benchmarks and policy sets are calibrated to the specialty rather than issued generically.' },
   { q: 'What does it cost?',
     a: 'Pricing scales with the size of your organization and the products you use, so a four-provider practice is not quoted an enterprise number. The compliance review that starts the conversation is free, and the written findings are yours whether or not you become a client.' }
+];
+
+// The fragmented stack HCP replaces. Used by the "what is it" section.
+const scattered = [
+  'A separate learning system',
+  'A policy tool',
+  'An incident tracker',
+  'A hotline vendor',
+  'A spreadsheet nobody owns'
 ];
 
 const body = `
@@ -48,28 +65,80 @@ const body = `
   </div>
 </section>
 
-<section class="sec field" id="by-the-numbers">
+<!-- ============ 01. What is it? ============ -->
+<section class="sec sec-loose field" id="what-it-is">
   <div class="wrap">
     <div class="sec-head rv">
-      <p class="mark"><span>HCP by the numbers</span></p>
-      <h2>A trusted compliance and revenue integrity partner</h2>
-      <p class="sec-lead">Working with more than a thousand healthcare provider groups across the
-      United States, in every state, for over fifteen years.</p>
+      <p class="mark"><span>01 / What is it</span></p>
+      <h2>One platform that runs your compliance program and watches your billing.</h2>
+      <p class="sec-lead">Healthcare Compliance Pros is a compliance and revenue integrity partner for
+      healthcare providers. Software carries the day-to-day work: policies, training, risk analysis,
+      documentation and claims monitoring. Named advisors carry everything software cannot, which is the
+      judgment call at 4pm on a Friday.</p>
     </div>
-    <ul class="stats rv">
+
+    <div class="split rv">
+      <div class="split-a">
+        <h3>One system. Not five.</h3>
+        <p>Most organizations run compliance across a stack of disconnected tools, with the evidence
+        scattered across all of them. That is fine until somebody asks for proof on a deadline.</p>
+        <ul class="strike">
+          ${scattered.map((x) => `<li>${esc(x)}</li>`).join('')}
+        </ul>
+      </div>
+      <div class="split-b">
+        <span class="split-badge">${icon('check', 'ic')}</span>
+        <h3>Your whole program, documented in one place</h3>
+        <p>One platform, one login, one completion view across every location, with dated records
+        generated as your team works rather than assembled after the request arrives.</p>
+        <p class="split-note">Software that runs it, people who stand behind it.</p>
+      </div>
+    </div>
+
+    <ul class="stats rv" style="margin-top:clamp(2.5rem,2rem + 2vw,3.5rem)">
       ${stats.map((s) => `<li class="stat">${icon('check', 'ic ic-sm')}<b>${esc(s.figure)}</b><span>${esc(s.label)}</span></li>`).join('')}
     </ul>
   </div>
 </section>
 
-<section class="sec sec-soft sec-loose field" id="solutions">
+<!-- ============ 02. Who is it for? ============ -->
+<section class="sec sec-soft sec-loose field" id="who-its-for">
   <div class="wrap">
     <div class="sec-head rv">
-      <p class="mark"><span>The HCP solution suite</span></p>
-      <h2>Defense and offense. Compliance and revenue. One integrated partner.</h2>
-      <p class="sec-lead">Most organizations run compliance across a separate learning system, a policy
-      tool, an incident tracker, a hotline vendor and a spreadsheet nobody owns. HCP replaces all of it.</p>
+      <p class="mark"><span>02 / Who it is for</span></p>
+      <h2>Three distinct markets. One unified platform.</h2>
+      <p class="sec-lead">From a four-provider practice through to a private equity sponsor mid-transaction,
+      the same platform underneath, scoped and priced to the organization using it.</p>
     </div>
+
+    <ul class="markets rv">
+      ${markets.map((m) => `<li class="market">
+        <div class="market-h"><b>${esc(m.n)}</b><span>${esc(m.title)}</span></div>
+        <div class="market-b"><span class="lbl">Ideal profile</span><p>${esc(m.body)}</p></div>
+      </li>`).join('')}
+    </ul>
+
+    <div class="spec-block rv">
+      <p class="spec-lead"><b>30+</b><span>Clinical specialties served nationwide</span></p>
+      <p class="sec-lead" style="margin-bottom:1.6rem">Benchmarks, policy sets and training are calibrated
+      to the specialty rather than issued generically, which is what makes the findings usable.</p>
+      <ul class="chips">
+        ${specialties.map((s) => `<li>${esc(s)}</li>`).join('')}
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 03. What is offered? ============ -->
+<section class="sec sec-loose field" id="what-we-offer">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="mark"><span>03 / What is offered</span></p>
+      <h2>Defense and offense. Compliance and revenue.</h2>
+      <p class="sec-lead">Four products that work as one relationship. Take the whole suite or the single
+      piece you are missing.</p>
+    </div>
+
     <ul class="suite rv">
       ${suite.map((p) => `<li class="prod">
         <div class="prod-h">
@@ -81,58 +150,19 @@ const body = `
         <a class="prod-link" href="${p.href}">Explore ${esc(p.name)}${icon('arrow', 'ic ic-sm')}</a>
       </li>`).join('')}
     </ul>
+
+    <div class="seven-block rv">
+      <h3>The seven elements. Covered.</h3>
+      <p class="sec-lead" style="font-size:1rem;margin-bottom:1.5rem">The Office of Inspector General
+      defines what an effective compliance program requires. SHIELD delivers all seven.</p>
+      <ol class="seven">
+        ${sevenElements.map((e) => `<li><span>${esc(e)}</span></li>`).join('')}
+      </ol>
+    </div>
   </div>
 </section>
 
-<section class="sec field" id="the-problem">
-  <div class="wrap">
-    <div class="sec-head rv">
-      <p class="mark"><span>The problem</span></p>
-      <h2>You do not do your own taxes.</h2>
-      <p class="sec-lead">Nobody knows every rule, every year, on top of a full-time job. You provide the
-      clinical care. We build the program, keep the records, and stand in front of you when someone comes
-      asking. That is why it is called SHIELD.</p>
-    </div>
-    <div class="sec-head rv" style="margin-bottom:1.6rem">
-      <h3 style="font-size:1.35rem">The seven elements. Covered.</h3>
-      <p class="sec-lead" style="font-size:1rem">The Office of Inspector General defines what an effective
-      compliance program requires. SHIELD delivers all seven.</p>
-    </div>
-    <ol class="seven rv">
-      ${sevenElements.map((e) => `<li><span>${esc(e)}</span></li>`).join('')}
-    </ol>
-  </div>
-</section>
-
-<section class="sec sec-soft field" id="markets">
-  <div class="wrap">
-    <div class="sec-head rv">
-      <p class="mark"><span>Who we serve</span></p>
-      <h2>Three distinct markets. One unified platform.</h2>
-    </div>
-    <ul class="markets rv">
-      ${markets.map((m) => `<li class="market">
-        <div class="market-h"><b>${esc(m.n)}</b><span>${esc(m.title)}</span></div>
-        <div class="market-b"><span class="lbl">Ideal profile</span><p>${esc(m.body)}</p></div>
-      </li>`).join('')}
-    </ul>
-  </div>
-</section>
-
-<section class="sec field" id="specialties">
-  <div class="wrap">
-    <div class="sec-head rv">
-      <p class="spec-lead"><b>30+</b><span>Clinical specialties served nationwide</span></p>
-      <p class="sec-lead">Benchmarks, policy sets and training are calibrated to the specialty rather than
-      issued generically, which is what makes the findings usable.</p>
-    </div>
-    <ul class="chips rv">
-      ${specialties.map((s) => `<li>${esc(s)}</li>`).join('')}
-    </ul>
-  </div>
-</section>
-
-<section class="sec sec-soft sec-loose field" id="why-hcp">
+<section class="sec sec-soft field" id="why-hcp">
   <div class="wrap">
     <div class="sec-head rv">
       <p class="mark"><span>What makes HCP different</span></p>
