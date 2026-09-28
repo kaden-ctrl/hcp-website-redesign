@@ -64,23 +64,17 @@ const body = `
   </div>
 </section>
 
-<!-- The four products, named high on the page. Grouped by the deck's own
-     defense-and-offense split rather than laid out as four equal tiles,
-     because SHIELD and FCO protect the program while SENTRY and DILIGENCE
-     protect the revenue. That is a real distinction and the layout should
-     carry it. -->
+<!-- The four products, named high on the page, each on its own surface.
+     Text on the same ground never fully separates from the page no matter
+     how large it is set; a filled tile does it immediately. -->
 <section class="prodstrip field">
-  <div class="wrap duo rv">
-    ${[['defense', 'Defense', 'Protecting the program'],
-       ['offense', 'Offense', 'Protecting the revenue']].map(([side, label, sub]) => `
-    <div class="duo-side duo-${side}">
-      <p class="duo-label"><span>${label}</span><em>${sub}</em></p>
-      <ul class="duo-list">
-        ${suite.filter((p) => p.side === side).map((p) => `<li><a href="#what-we-offer">
-          <b>${esc(p.name)}</b><span>${esc(p.kind)}</span>
-        </a></li>`).join('')}
-      </ul>
-    </div>`).join('')}
+  <div class="wrap">
+    <ul class="ps rv">
+      ${suite.map((p) => `<li><a href="#what-we-offer">
+        <b>${esc(p.name)}</b>
+        <span>${esc(p.kind)}</span>
+      </a></li>`).join('')}
+    </ul>
   </div>
 </section>
 
