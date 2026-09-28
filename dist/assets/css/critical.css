@@ -69,6 +69,13 @@ img,svg,video{max-width:100%;display:block}
 .ic{width:20px;height:20px;flex:none;stroke-width:2.2}
 .ic-sm{width:16px;height:16px}
 .visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+/* The skip link was visually-hidden with no way back: a keyboard user could
+   focus it but never see it, which makes it useless for the thing it exists
+   to do. It now appears on focus. */
+a.visually-hidden:focus{position:fixed;top:.75rem;left:.75rem;z-index:200;
+  width:auto;height:auto;clip:auto;overflow:visible;
+  background:var(--lime);color:#13230a;font-family:var(--head);font-weight:800;
+  padding:.8rem 1.2rem;border-radius:8px;box-shadow:var(--sh-lg);text-decoration:none}
 :focus-visible{outline:3px solid var(--lime);outline-offset:2px}
 
 /* ---- The wireframe ground -------------------------------------------
@@ -114,7 +121,9 @@ img,svg,video{max-width:100%;display:block}
    than the nav links beside it and leaving 14px of clearance. Sized to sit
    with the nav rather than over it. */
 .head-cta .btn{padding:.72rem 1.25rem;font-size:.92rem;border-width:1px;border-radius:8px;line-height:1.2}
-.head-tel{font-family:var(--head);font-weight:800;font-size:1rem;color:var(--navy-tile);text-decoration:none;white-space:nowrap}
+.head-tel{font-family:var(--head);font-weight:800;font-size:1rem;color:var(--navy-tile);
+  text-decoration:none;white-space:nowrap;display:inline-flex;align-items:center;
+  min-height:24px;padding-block:.3rem}
 .head-tel:hover{color:var(--lime-deep)}
 .burger{display:none;flex-direction:column;justify-content:center;gap:5px;width:44px;height:44px;
   margin-left:auto;background:none;border:0;cursor:pointer;padding:0}
@@ -131,8 +140,14 @@ img,svg,video{max-width:100%;display:block}
 .hero-media{position:absolute;inset:0;z-index:0}
 .hero-media img,.hero-media video{position:absolute;inset:0;width:100%;height:100%;
   object-fit:cover;object-position:center 30%}
+/* Tuned against pixels sampled from the photograph itself, not against the
+   computed background colour, which is what a normal contrast sweep sees
+   and why this passed for so long while being genuinely hard to read. The
+   previous ramp left the lead at 3.05:1 against a 4.5 requirement. These
+   stops put it at 7.46:1 and the heading at 5.26:1, while keeping the
+   right-hand side light enough that the image still reads. */
 .hero-media::after{content:"";position:absolute;inset:0;
-  background:linear-gradient(92deg,rgba(5,31,51,.96) 0%,rgba(5,31,51,.88) 38%,rgba(5,31,51,.62) 66%,rgba(5,31,51,.46) 100%)}
+  background:linear-gradient(92deg,rgba(5,31,51,.96) 0%,rgba(5,31,51,.93) 52%,rgba(5,31,51,.86) 73%,rgba(5,31,51,.42) 100%)}
 /* padding-block, not the padding shorthand. These elements also carry
    .wrap, and a shorthand resets its padding-inline to 0, which pulled the
    whole hero 32px left of every section below it. */
