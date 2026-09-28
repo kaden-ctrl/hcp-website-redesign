@@ -66,7 +66,13 @@ img,svg,video{max-width:100%;display:block}
    measure is kept by capping the children instead of the container. */
 .narrow{width:100%;max-width:var(--wrap);margin-inline:auto;padding-inline:clamp(1.1rem,.6rem + 2vw,2rem)}
 .narrow>*{max-width:none}
-.ic{width:20px;height:20px;flex:none;stroke-width:2.2}
+/* Every symbol in the set is a solid path, and an SVG's fill defaults to
+   black, not to currentColor. Without this the icons painted black
+   everywhere: 1.13:1 in the footer, 1.25:1 against the navy ground. The
+   only ones that ever looked right were the nav carets, which happen to
+   sit on a white header. Setting `color` on an icon does nothing on its
+   own, which is why this survived several contrast passes. */
+.ic{width:20px;height:20px;flex:none;fill:currentColor;stroke:none}
 .ic-sm{width:16px;height:16px}
 .visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 /* The skip link was visually-hidden with no way back: a keyboard user could
