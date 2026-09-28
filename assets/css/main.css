@@ -35,9 +35,10 @@
    however large the type gets; a tile does it at any size. One type size
    per field across all four, so nothing clashes the way the 1.75/0.92rem
    pairing did. ---- */
-/* The lime band now sits directly beneath, so the hairline it used to need
-   would land against a solid colour block and do nothing. */
-.prodstrip{background:var(--navy-soft);padding-block:clamp(1.8rem,1.4rem + 1.4vw,2.6rem)}
+/* The band sits above again, so the strip needs its own lower edge against
+   the section that follows. */
+.prodstrip{background:var(--navy-soft);border-bottom:1px solid var(--line);
+  padding-block:clamp(1.8rem,1.4rem + 1.4vw,2.6rem)}
 .ps{list-style:none;margin:0;padding:0;display:grid;gap:1rem;grid-template-columns:repeat(4,1fr)}
 .ps a{display:block;height:100%;background:var(--navy-tile);border-radius:var(--r);
   padding:1.5rem 1.4rem;text-decoration:none;border-top:3px solid var(--lime);

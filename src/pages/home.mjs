@@ -57,6 +57,12 @@ const body = `
   </div>
 </section>
 
+<section class="band">
+  <div class="wrap band-in">
+    <p>A decade of trust. Over a thousand organizations protected.</p>
+  </div>
+</section>
+
 <!-- The four products, named high on the page, each on its own surface.
      Text on the same ground never fully separates from the page no matter
      how large it is set; a filled tile does it immediately. -->
@@ -68,12 +74,6 @@ const body = `
         <span>${esc(p.kind)}</span>
       </a></li>`).join('')}
     </ul>
-  </div>
-</section>
-
-<section class="band">
-  <div class="wrap band-in">
-    <p>A decade of trust. Over a thousand organizations protected.</p>
   </div>
 </section>
 

@@ -108,7 +108,12 @@ img,svg,video{max-width:100%;display:block}
 .nav>li.open .caret{transform:rotate(180deg)}
 .nav a:hover{color:var(--navy-tile);background:rgba(31,78,121,.07)}
 .nav .caret{width:11px;height:11px;stroke-width:2.8;opacity:.5;transition:transform .18s}
-.head-cta{display:flex;align-items:center;gap:.75rem;flex:none;margin-left:.6rem}
+.head-cta{display:flex;align-items:center;gap:1rem;flex:none;margin-left:.75rem}
+/* The header button was inheriting the hero CTA's scale: 14.7px of padding
+   and a 2px border gave it a 59px height inside an 88px bar, 13px taller
+   than the nav links beside it and leaving 14px of clearance. Sized to sit
+   with the nav rather than over it. */
+.head-cta .btn{padding:.72rem 1.25rem;font-size:.92rem;border-width:1px;border-radius:8px;line-height:1.2}
 .head-tel{font-family:var(--head);font-weight:800;font-size:1rem;color:var(--navy-tile);text-decoration:none;white-space:nowrap}
 .head-tel:hover{color:var(--lime-deep)}
 .burger{display:none;flex-direction:column;justify-content:center;gap:5px;width:44px;height:44px;
