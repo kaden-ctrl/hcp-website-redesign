@@ -314,7 +314,11 @@
 .sec-lead strong{color:var(--lime);font-weight:800;font-family:var(--head)}
 
 /* ---- Specialty / organization finder -------------------------------- */
-.hero-short .hero-in{padding:clamp(3.5rem,2.6rem + 4vw,6rem) 0 clamp(3rem,2.2rem + 3.5vw,4.5rem)}
+/* padding-block again. This selector is more specific than .hero-in, so
+   the shorthand here was re-zeroing the wrap's inline padding and putting
+   the specialties hero 32px left of the finder below it, even though the
+   base rule had already been fixed. */
+.hero-short .hero-in{padding-block:clamp(3.5rem,2.6rem + 4vw,6rem) clamp(3rem,2.2rem + 3.5vw,4.5rem)}
 .hero-short h1 em{font-style:normal;color:var(--lime)}
 .hero-short .mark span{color:var(--lime)}
 

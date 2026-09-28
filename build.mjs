@@ -50,7 +50,7 @@ function textOf(html) {
     .trim();
 }
 
-function checkPage(page, html) {
+function checkPage(page, html, allCss = '') {
   const errs = [];
   const add = (n, msg) => errs.push(`#${n} ${msg}`);
 
@@ -127,6 +127,23 @@ function checkPage(page, html) {
   const h1s = (html.match(/<h1[\s>]/g) || []).length;
   if (h1s !== 1) errs.push(`expected exactly 1 <h1>, found ${h1s}`);
   if (!/<link rel="canonical"/.test(html)) errs.push('canonical missing');
+
+  // Layout: classes that are combined with .wrap in the markup must not set
+  // a `padding` shorthand, because the shorthand writes all four sides and
+  // silently resets .wrap's padding-inline to zero. That has now knocked the
+  // hero, the lime band, the photoband and the closing block out of the page's
+  // left edge on separate occasions, each time invisibly.
+  if (page.path === '/') {
+    const wrapPartners = [...html.matchAll(/class="wrap ([a-z0-9 -]+)"/g)]
+      .flatMap((m) => m[1].split(/\s+/)).filter(Boolean);
+    const offenders = [...new Set(wrapPartners)].filter((cls) => {
+      const rule = new RegExp('(^|[,}])\\s*[^{}]*\\.' + cls + '\\s*\\{([^}]*)\\}', 'g');
+      return [...allCss.matchAll(rule)].some((m) => /(^|;)\s*padding\s*:/.test(m[2]));
+    });
+    if (offenders.length) {
+      errs.push(`padding shorthand on wrap-partner class(es): ${offenders.join(', ')} (use padding-block)`);
+    }
+  }
 
   // House style: no em dashes in rendered copy. En dashes are left alone --
   // they are correct in numeric ranges (2-3 weeks, 8:00am-6:00pm) and are
@@ -343,7 +360,7 @@ async function build() {
     await mkdir(path.dirname(out), { recursive: true });
     await writeFile(out, html);
 
-    const { errs, ratio, words } = checkPage(page, html);
+    const { errs, ratio, words } = checkPage(page, html, criticalCss + '\n' + mainCss);
     report.push({ path: page.path, kb: (Buffer.byteLength(html) / 1024).toFixed(1), words, ratio, errs });
     if (errs.length) {
       failures += errs.length;
