@@ -64,15 +64,23 @@ const body = `
   </div>
 </section>
 
-<!-- The four products, named high on the page. Detail lives in 03; this is
-     so a visitor knows what SHIELD and SENTRY are before scrolling. -->
+<!-- The four products, named high on the page. Grouped by the deck's own
+     defense-and-offense split rather than laid out as four equal tiles,
+     because SHIELD and FCO protect the program while SENTRY and DILIGENCE
+     protect the revenue. That is a real distinction and the layout should
+     carry it. -->
 <section class="prodstrip field">
-  <div class="wrap">
-    <ul class="ps-list rv">
-      ${suite.map((p) => `<li><a href="#what-we-offer">
-        <b>${esc(p.name)}</b><span>${esc(p.kind)}</span>
-      </a></li>`).join('')}
-    </ul>
+  <div class="wrap duo rv">
+    ${[['defense', 'Defense', 'Protecting the program'],
+       ['offense', 'Offense', 'Protecting the revenue']].map(([side, label, sub]) => `
+    <div class="duo-side duo-${side}">
+      <p class="duo-label"><span>${label}</span><em>${sub}</em></p>
+      <ul class="duo-list">
+        ${suite.filter((p) => p.side === side).map((p) => `<li><a href="#what-we-offer">
+          <b>${esc(p.name)}</b><span>${esc(p.kind)}</span>
+        </a></li>`).join('')}
+      </ul>
+    </div>`).join('')}
   </div>
 </section>
 

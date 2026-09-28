@@ -29,24 +29,38 @@
 .band-in{display:flex;flex-wrap:wrap;align-items:center;gap:.75rem 1.2rem;padding:1.35rem 0}
 .band p{margin:0;font-family:var(--head);font-weight:800;font-size:clamp(1.02rem,.9rem + .5vw,1.35rem);letter-spacing:-.01em}
 
-/* ---- Product strip. The four names, on screen before any scrolling. ---- */
+/* ---- Product strip -------------------------------------------------
+   Two halves, not four tiles. Four evenly divided columns presented the
+   products as interchangeable and read as a stock feature grid; the deck's
+   own defense-and-offense split is a real distinction, so the layout
+   carries it. Products are rows with the name and its descriptor on one
+   baseline, which reads as a list rather than a card. ---- */
 .prodstrip{background:var(--navy-soft);border-bottom:1px solid var(--line)}
-.ps-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr)}
-.ps-list li+li{border-left:1px solid var(--line)}
-.ps-list a{display:block;padding:1.5rem 1.4rem;text-decoration:none;
-  transition:background .2s,transform .2s}
-.ps-list a:hover{background:rgba(163,199,57,.07)}
-.ps-list b{display:block;font-family:var(--head);font-weight:800;font-size:clamp(1.15rem,.95rem + .7vw,1.6rem);
-  color:var(--lime);letter-spacing:-.01em;line-height:1.05}
-.ps-list span{display:block;margin-top:.3rem;font-size:.85rem;color:var(--on-dark-mute)}
-@media (max-width:860px){
-  .ps-list{grid-template-columns:repeat(2,1fr)}
-  .ps-list li:nth-child(n+3){border-top:1px solid var(--line)}
-  .ps-list li:nth-child(odd){border-left:0}
-}
-@media (max-width:460px){
-  .ps-list{grid-template-columns:1fr}
-  .ps-list li+li{border-left:0;border-top:1px solid var(--line)}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:0}
+.duo-side{padding:clamp(1.8rem,1.4rem + 1.4vw,2.6rem) 0}
+.duo-offense{padding-left:clamp(1.8rem,1.2rem + 2.4vw,3.4rem);border-left:1px solid var(--line)}
+.duo-defense{padding-right:clamp(1.8rem,1.2rem + 2.4vw,3.4rem)}
+
+.duo-label{display:flex;align-items:baseline;gap:.7rem;margin:0 0 1.15rem;
+  padding-bottom:.8rem;border-bottom:1px solid var(--line)}
+.duo-label span{font-family:var(--head);font-weight:800;font-size:.82rem;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--lime)}
+.duo-label em{font-style:normal;font-size:.9rem;color:var(--on-dark-mute)}
+
+.duo-list{list-style:none;margin:0;padding:0;display:grid;gap:.15rem}
+.duo-list a{display:flex;align-items:baseline;gap:.85rem;flex-wrap:wrap;
+  padding:.62rem .7rem .62rem 0;text-decoration:none;border-radius:6px;
+  transition:padding-left .2s,background .2s}
+.duo-list a:hover{background:rgba(163,199,57,.08);padding-left:.7rem}
+.duo-list b{font-family:var(--head);font-weight:800;
+  font-size:clamp(1.3rem,1.05rem + .8vw,1.75rem);color:var(--lime);
+  letter-spacing:-.015em;line-height:1.05}
+.duo-list span{font-size:.92rem;color:var(--on-dark-soft)}
+
+@media (max-width:820px){
+  .duo{grid-template-columns:1fr}
+  .duo-defense{padding-right:0;padding-bottom:1.6rem}
+  .duo-offense{padding-left:0;border-left:0;border-top:1px solid var(--line);padding-top:1.6rem}
 }
 
 /* ---- "One system, not five": the scattered stack against the platform.
