@@ -13,16 +13,13 @@
 .sec-tight{padding-block:var(--sec-y-tight)}
 .sec-loose{padding-block:var(--sec-y-loose)}
 .sec-soft{background:var(--navy-soft)}
-.sec-head{margin:0 0 var(--head-gap);max-width:54rem}
+/* Headings and their leads run the full column rather than stopping
+   short of it. */
+.sec-head{margin:0 0 var(--head-gap);max-width:none}
 .sec-head.center{margin-inline:auto;text-align:center}
 .sec-head h2{margin-bottom:.35em}
 .sec-lead{font-size:1.12rem;line-height:1.6;color:var(--on-dark-soft);margin:0;text-wrap:pretty}
 
-/* The three movements are numbered with a plain lime numeral. The previous
-   treatment was a tinted rule plus a small-caps label above every heading,
-   which is the standard template eyebrow and read as generated. */
-.mvt{font-family:var(--head);font-weight:800;font-size:clamp(2.2rem,1.7rem + 1.8vw,3.2rem);
-  color:var(--lime);line-height:1;letter-spacing:-.03em;margin:0 0 .5rem;opacity:.85}
 
 /* ---- Lime band. The deck uses this as a full-width punctuation rule. ---- */
 .band{background:var(--lime);color:#13230a}
@@ -144,7 +141,7 @@
    wrap it fought margin-inline:auto and centred the whole block, putting
    this text 242px right of every other left edge on the page. */
 .photoband-in{position:relative;z-index:2;padding-block:clamp(3.2rem,2.4rem + 3vw,5.5rem)}
-.photoband-in>*{max-width:46rem}
+.photoband-in>*{max-width:62rem}
 .photoband p{margin:0;font-family:var(--head);font-weight:800;color:#fff;
   font-size:clamp(1.35rem,1.05rem + 1.4vw,2.1rem);line-height:1.22;letter-spacing:-.02em;text-wrap:balance}
 .photoband .sub{margin:1rem 0 0;font-family:var(--body);font-weight:400;font-size:1.02rem;
@@ -343,17 +340,24 @@
 .finder-empty a{color:var(--lime);font-weight:700}
 
 .group-h{font-size:clamp(1.3rem,1.1rem + .8vw,1.7rem);margin-bottom:.35rem}
-.group-lead{color:var(--on-dark-mute);font-size:1rem;margin:0 0 1.4rem;max-width:52rem}
+.group-lead{color:var(--on-dark-mute);font-size:1rem;margin:0 0 1.4rem;max-width:none}
 
-.dir{list-style:none;margin:0;padding:0;display:grid;gap:.9rem}
-.dir-org{grid-template-columns:repeat(auto-fit,minmax(275px,1fr))}
-.dir-spec{grid-template-columns:repeat(auto-fill,minmax(215px,1fr))}
+/* One card size across both lists. The two grids previously ran at
+   different column widths (278 vs 220) and different heights (123/103 vs
+   71/51), which is four sizes on one page. Same track width, same minimum
+   height, and the same padding, so the only difference between an
+   organization and a specialty is what the card says. */
+.dir{list-style:none;margin:0;padding:0;display:grid;gap:.9rem;
+  grid-template-columns:repeat(auto-fill,minmax(248px,1fr))}
 .dir li[hidden]{display:none}
-.dir a{display:block;height:100%;background:var(--card);color:var(--ink);text-decoration:none;
+.dir a{display:flex;flex-direction:column;justify-content:center;gap:.35rem;
+  min-height:124px;height:100%;background:var(--card);color:var(--ink);text-decoration:none;
   border-radius:var(--r);padding:1.1rem 1.25rem;box-shadow:var(--sh);
   border-left:3px solid transparent;transition:transform .2s,border-color .2s,box-shadow .2s}
 .dir a:hover{transform:translateY(-3px);border-left-color:var(--lime);box-shadow:var(--sh-card)}
-.dir b{display:block;font-family:var(--head);font-weight:800;font-size:1.02rem;line-height:1.25}
-.dir span{display:block;margin-top:.35rem;font-size:.9rem;color:var(--ink-soft);line-height:1.45}
-.dir-spec a{padding:.95rem 1.1rem}
+.dir a:focus-visible{outline:3px solid var(--lime);outline-offset:3px}
+.dir b{font-family:var(--head);font-weight:800;font-size:1.02rem;line-height:1.25}
+/* Clamped so a long blurb cannot push one card taller than its neighbours. */
+.dir span{font-size:.9rem;color:var(--ink-soft);line-height:1.4;
+  display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
 @media (max-width:560px){.finder-tabs{width:100%}.ft{flex:1}}

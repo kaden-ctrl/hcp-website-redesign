@@ -65,7 +65,7 @@ img,svg,video{max-width:100%;display:block}
    so the FAQ starts in line with every other block on the page. The reading
    measure is kept by capping the children instead of the container. */
 .narrow{width:100%;max-width:var(--wrap);margin-inline:auto;padding-inline:clamp(1.1rem,.6rem + 2vw,2rem)}
-.narrow>*{max-width:860px}
+.narrow>*{max-width:none}
 .ic{width:20px;height:20px;flex:none;stroke-width:2.2}
 .ic-sm{width:16px;height:16px}
 .visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
@@ -139,8 +139,9 @@ img,svg,video{max-width:100%;display:block}
 .hero-in{position:relative;z-index:1;padding-block:clamp(4.5rem,3rem + 6vw,8rem) clamp(4rem,2.8rem + 5vw,6.5rem)}
 .hero h1{margin-bottom:.4em}
 .hero h1 em{font-style:normal;color:var(--lime)}
+/* Was 36rem, about half the 1220px wrap, so every line broke mid-page. */
 .hero-lead{font-size:clamp(1.1rem,1rem + .55vw,1.32rem);line-height:1.55;
-  color:var(--on-dark-soft);max-width:36rem;margin-bottom:2rem;text-wrap:pretty}
+  color:var(--on-dark-soft);max-width:54rem;margin-bottom:2rem;text-wrap:pretty}
 .hero-cta{display:flex;flex-wrap:wrap;gap:.85rem;margin:0 0 1.5rem}
 
 /* ---- Reveals. Visible without JS; the failsafe fires if it never runs. ---- */

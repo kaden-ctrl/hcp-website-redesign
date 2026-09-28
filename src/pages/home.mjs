@@ -4,13 +4,11 @@ import {
   differentiators, leadership, testimonials, sevenElements
 } from '../site.mjs';
 
-/* The page answers three questions in order, and the numbered marks make
-   that sequence legible rather than implied:
-     01  What is it?
-     02  Who is it for?
-     03  What is offered?
-   Everything after those three is supporting evidence: why us, proof,
-   the people, objections, and the ask. */
+/* The page answers three questions in order: what is it, who is it for,
+   what is offered. The order carries that on its own; it was numbered
+   01/02/03, which read as a sequence of steps to follow rather than a
+   structure to read. Everything after those three is supporting evidence:
+   why us, proof, the people, objections, and the ask. */
 
 const faqs = [
   { q: 'What does HCP actually do?',
@@ -81,7 +79,6 @@ const body = `
 <section class="sec sec-loose field" id="what-it-is">
   <div class="wrap">
     <div class="sec-head rv">
-      <p class="mvt" aria-hidden="true">01</p>
       <h2>One platform that runs your compliance program and watches your billing.</h2>
       <p class="sec-lead">Healthcare Compliance Pros is a compliance and revenue integrity partner for
       healthcare providers. <strong>SHIELD</strong> runs the compliance program: policies, training, risk
@@ -118,7 +115,6 @@ const body = `
 <section class="sec sec-soft sec-loose field" id="who-its-for">
   <div class="wrap">
     <div class="sec-head rv">
-      <p class="mvt" aria-hidden="true">02</p>
       <h2>Three distinct markets. One unified platform.</h2>
       <p class="sec-lead">From a four-provider practice through to a private equity sponsor mid-transaction,
       the same platform underneath, scoped and priced to the organization using it.</p>
@@ -157,7 +153,6 @@ const body = `
 <section class="sec sec-loose field" id="what-we-offer">
   <div class="wrap">
     <div class="sec-head rv">
-      <p class="mvt" aria-hidden="true">03</p>
       <h2>Defense and offense. Compliance and revenue.</h2>
       <p class="sec-lead">Four products that work as one relationship. Take the whole suite or the single
       piece you are missing.</p>
