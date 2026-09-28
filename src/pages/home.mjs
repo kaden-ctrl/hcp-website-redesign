@@ -220,19 +220,49 @@ const body = `
   </div>
 </section>
 
-<section class="sec sec-soft field" id="leadership">
+<section class="sec sec-soft field" id="about">
   <div class="wrap">
     <div class="sec-head rv">
-      <h2>The people behind the program</h2>
+      <h2>About Healthcare Compliance Pros</h2>
+      <p class="sec-lead">We have spent more than fifteen years on one problem: making compliance
+      something a healthcare organization can prove rather than assert. The work started with policy and
+      training, and grew into the things practices kept asking for next, which were risk analysis,
+      incident response and exclusion monitoring, and then billing intelligence once it was clear that
+      compliance exposure and revenue leakage come from the same blind spot.</p>
     </div>
-    <ul class="team rv">
-      ${leadership.map((m) => `<li>
-        ${m.img
-          ? img({ src: m.img, alt: `${m.name}, ${m.role}`, title: `${m.name}, ${m.role}`, width: 124, height: 124, sizes: '62px' })
-          : `<span class="team-initials" aria-hidden="true">${esc(m.name.split(' ').map((w) => w[0]).join(''))}</span>`}
-        <span><b>${esc(m.name)}</b><span>${esc(m.role)}</span></span>
-      </li>`).join('')}
-    </ul>
+
+    <div class="about-grid rv">
+      <div class="about-copy">
+        <p>Today that is one platform and a named team, working with more than a thousand provider
+        groups across all fifty states and over thirty clinical specialties. The advisor who scopes your
+        program is the advisor who stays on it, which is the part software on its own cannot do.</p>
+        <p>We are not a self-serve tool with a support inbox. Every engagement includes people who
+        interpret the rule, prepare the response, and stand in front of you when someone comes asking.</p>
+        <ul class="about-facts">
+          <li><b>1,000+</b><span>Provider groups protected</span></li>
+          <li><b>50</b><span>States with active clients</span></li>
+          <li><b>30+</b><span>Clinical specialties served</span></li>
+          <li><b>15+</b><span>Years in healthcare compliance</span></li>
+        </ul>
+      </div>
+      <div class="about-media">
+        ${img({ src: '/assets/img/site/about-2.webp', alt: 'The Healthcare Compliance Pros team at work',
+                title: 'Healthcare Compliance Pros', width: 1400, height: 1050,
+                sizes: '(max-width: 880px) 100vw, 520px' })}
+      </div>
+    </div>
+
+    <div class="about-team rv">
+      <h3>Leadership</h3>
+      <ul class="team">
+        ${leadership.map((m) => `<li>
+          ${m.img
+            ? img({ src: m.img, alt: `${m.name}, ${m.role}`, title: `${m.name}, ${m.role}`, width: 124, height: 124, sizes: '62px' })
+            : `<span class="team-initials" aria-hidden="true">${esc(m.name.split(' ').map((w) => w[0]).join(''))}</span>`}
+          <span><b>${esc(m.name)}</b><span>${esc(m.role)}</span></span>
+        </li>`).join('')}
+      </ul>
+    </div>
   </div>
 </section>
 
