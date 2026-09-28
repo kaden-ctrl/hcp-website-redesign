@@ -179,6 +179,61 @@
   }
 })();
 
+/* Specialty and organization finder.
+   Filters entries that are already in the document, so with no script every
+   route is still listed and every link still works. Search matches the
+   entry name; the tabs narrow by kind. Group headings hide themselves when
+   their list empties, which otherwise leaves a heading over nothing. */
+(function () {
+  var root = document.querySelector('[data-finder]');
+  if (!root) return;
+  var input = root.querySelector('[data-finder-input]');
+  var tabs = [].slice.call(root.querySelectorAll('.ft'));
+  var count = root.querySelector('[data-finder-count]');
+  var empty = document.querySelector('[data-finder-empty]');
+  var items = [].slice.call(document.querySelectorAll('[data-list] > li'));
+  if (!items.length) return;
+  var kind = 'all';
+
+  function apply() {
+    var q = (input.value || '').trim().toLowerCase();
+    var shown = 0;
+    items.forEach(function (li) {
+      var okKind = kind === 'all' || li.getAttribute('data-kind') === kind;
+      var okText = !q || li.getAttribute('data-name').indexOf(q) !== -1;
+      var on = okKind && okText;
+      li.hidden = !on;
+      if (on) shown++;
+    });
+    // A heading with nothing under it reads as a broken list.
+    ['organization', 'specialty'].forEach(function (k) {
+      var any = items.some(function (li) { return li.getAttribute('data-kind') === k && !li.hidden; });
+      document.querySelectorAll('[data-group="' + k + '"]').forEach(function (el) { el.hidden = !any; });
+      var list = document.querySelector(k === 'organization' ? '.dir-org' : '.dir-spec');
+      if (list) list.hidden = !any;
+    });
+    if (empty) empty.hidden = shown !== 0;
+    count.textContent = (q || kind !== 'all')
+      ? shown + (shown === 1 ? ' match' : ' matches')
+      : '';
+  }
+
+  input.addEventListener('input', apply);
+  input.addEventListener('search', apply);
+  tabs.forEach(function (b) {
+    b.addEventListener('click', function () {
+      kind = b.getAttribute('data-filter');
+      tabs.forEach(function (o) {
+        var on = o === b;
+        o.classList.toggle('is-on', on);
+        o.setAttribute('aria-pressed', String(on));
+      });
+      apply();
+    });
+  });
+  apply();
+})();
+
 /* Lead form. No backend is wired up yet, so a valid submission falls back
    to the visitor's mail client. Set an `action` on the form once a real
    endpoint exists and this handler steps aside on its own. */

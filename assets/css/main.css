@@ -18,13 +18,11 @@
 .sec-head h2{margin-bottom:.35em}
 .sec-lead{font-size:1.12rem;line-height:1.6;color:var(--on-dark-soft);margin:0;text-wrap:pretty}
 
-/* The deck marks its headings with a small lime check rather than an
-   eyebrow label. Rendered as a mask so it inherits colour and needs no
-   extra markup in every section. */
-.mark{display:flex;align-items:center;gap:.7rem;margin:0 0 .85rem}
-.mark::before{content:"";width:22px;height:22px;flex:none;background:var(--lime);
-  -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M3 3h13l5 5v13H3z' fill='none' stroke='%23000' stroke-width='2.4'/%3E%3Cpath d='M7 12l3.4 3.4L17.5 8' fill='none' stroke='%23000' stroke-width='2.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat;
-  mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M3 3h13l5 5v13H3z' fill='none' stroke='%23000' stroke-width='2.4'/%3E%3Cpath d='M7 12l3.4 3.4L17.5 8' fill='none' stroke='%23000' stroke-width='2.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat}
+/* Section label. Was a lime tick-in-a-box glyph before each one; replaced
+   with a short rule, which marks the section without putting a check mark
+   against a heading that is not a completed task. */
+.mark{display:flex;align-items:center;gap:.7rem;margin:0 0 .9rem}
+.mark::before{content:"";width:26px;height:2px;flex:none;background:var(--lime)}
 .mark span{font-family:var(--head);font-weight:800;font-size:.84rem;letter-spacing:.02em;color:var(--lime)}
 .sec-head.center .mark{justify-content:center}
 
@@ -32,6 +30,26 @@
 .band{background:var(--lime);color:#13230a}
 .band-in{display:flex;flex-wrap:wrap;align-items:center;gap:.75rem 1.2rem;padding:1.35rem 0}
 .band p{margin:0;font-family:var(--head);font-weight:800;font-size:clamp(1.02rem,.9rem + .5vw,1.35rem);letter-spacing:-.01em}
+
+/* ---- Product strip. The four names, on screen before any scrolling. ---- */
+.prodstrip{background:var(--navy-soft);border-bottom:1px solid var(--line)}
+.ps-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr)}
+.ps-list li+li{border-left:1px solid var(--line)}
+.ps-list a{display:block;padding:1.5rem 1.4rem;text-decoration:none;
+  transition:background .2s,transform .2s}
+.ps-list a:hover{background:rgba(163,199,57,.07)}
+.ps-list b{display:block;font-family:var(--head);font-weight:800;font-size:clamp(1.15rem,.95rem + .7vw,1.6rem);
+  color:var(--lime);letter-spacing:-.01em;line-height:1.05}
+.ps-list span{display:block;margin-top:.3rem;font-size:.85rem;color:var(--on-dark-mute)}
+@media (max-width:860px){
+  .ps-list{grid-template-columns:repeat(2,1fr)}
+  .ps-list li:nth-child(n+3){border-top:1px solid var(--line)}
+  .ps-list li:nth-child(odd){border-left:0}
+}
+@media (max-width:460px){
+  .ps-list{grid-template-columns:1fr}
+  .ps-list li+li{border-left:0;border-top:1px solid var(--line)}
+}
 
 /* ---- "One system, not five": the scattered stack against the platform.
    Two panels of deliberately unequal weight, because the argument is that
@@ -70,8 +88,8 @@
   border-top:4px solid var(--lime);transition:transform .25s,box-shadow .25s}
 .prod:hover{transform:translateY(-4px);box-shadow:var(--sh-lift)}
 .prod-h{margin-bottom:1rem;padding-bottom:.85rem;border-bottom:1px solid var(--line-ink)}
-.prod-name{display:block;font-family:var(--head);font-weight:800;font-size:1.5rem;color:var(--ink);
-  line-height:1.05;letter-spacing:-.015em}
+.prod-name{display:block;font-family:var(--head);font-weight:800;font-size:1.75rem;color:var(--ink);
+  line-height:1.02;letter-spacing:-.02em}
 .prod-kind{display:block;font-family:var(--body);font-weight:700;font-size:.8rem;color:var(--ink-mute);margin-top:.15rem}
 .prod-blurb{color:var(--ink-soft);font-size:.95rem;margin:0 0 1.1rem}
 .prod ul{list-style:none;margin:0 0 1.3rem;padding:0 0 0 1.1rem;display:grid;gap:.5rem;
@@ -284,3 +302,46 @@
 
 @media (max-width:880px){.lead-grid{grid-template-columns:1fr}}
 @media (max-width:560px){.f-row-2{grid-template-columns:1fr}.diffs .bar{width:56px}}
+
+/* Product names called out in running copy read as names, not emphasis. */
+.sec-lead strong{color:var(--lime);font-weight:800;font-family:var(--head)}
+
+/* ---- Specialty / organization finder -------------------------------- */
+.hero-short .hero-in{padding:clamp(3.5rem,2.6rem + 4vw,6rem) 0 clamp(3rem,2.2rem + 3.5vw,4.5rem)}
+.hero-short h1 em{font-style:normal;color:var(--lime)}
+.hero-short .mark span{color:var(--lime)}
+
+.finder{margin-bottom:clamp(2rem,1.5rem + 2vw,3rem)}
+.finder-bar{display:flex;flex-wrap:wrap;gap:.9rem;align-items:center}
+.finder-search{flex:1 1 300px;display:block}
+.finder-search input{width:100%;font-family:var(--body);font-size:1.02rem;color:var(--ink);
+  padding:.9rem 1.1rem;border:1px solid transparent;border-radius:var(--r);background:var(--card);
+  transition:box-shadow .2s,border-color .2s}
+.finder-search input::placeholder{color:var(--ink-mute)}
+.finder-search input:focus{outline:none;border-color:var(--lime);box-shadow:0 0 0 3px var(--lime-tint)}
+.finder-tabs{display:flex;gap:.4rem;flex-wrap:wrap}
+.ft{font-family:var(--head);font-weight:700;font-size:.9rem;color:var(--on-dark-soft);
+  background:transparent;border:1px solid var(--line);border-radius:var(--r);
+  padding:.8rem 1.1rem;cursor:pointer;transition:background .2s,color .2s,border-color .2s}
+.ft:hover{border-color:var(--lime);color:var(--lime)}
+.ft.is-on{background:var(--lime);border-color:var(--lime);color:#13230a}
+.finder-count{margin:.9rem 0 0;font-size:.9rem;color:var(--on-dark-mute)}
+.finder-empty{margin:2rem 0 0;padding:1.4rem 1.6rem;border-left:2px solid var(--lime);
+  background:rgba(255,255,255,.04);color:var(--on-dark-soft)}
+.finder-empty a{color:var(--lime);font-weight:700}
+
+.group-h{font-size:clamp(1.3rem,1.1rem + .8vw,1.7rem);margin-bottom:.35rem}
+.group-lead{color:var(--on-dark-mute);font-size:1rem;margin:0 0 1.4rem;max-width:52rem}
+
+.dir{list-style:none;margin:0;padding:0;display:grid;gap:.9rem}
+.dir-org{grid-template-columns:repeat(auto-fit,minmax(275px,1fr))}
+.dir-spec{grid-template-columns:repeat(auto-fill,minmax(215px,1fr))}
+.dir li[hidden]{display:none}
+.dir a{display:block;height:100%;background:var(--card);color:var(--ink);text-decoration:none;
+  border-radius:var(--r);padding:1.1rem 1.25rem;box-shadow:var(--sh);
+  border-left:3px solid transparent;transition:transform .2s,border-color .2s,box-shadow .2s}
+.dir a:hover{transform:translateY(-3px);border-left-color:var(--lime);box-shadow:var(--sh-card)}
+.dir b{display:block;font-family:var(--head);font-weight:800;font-size:1.02rem;line-height:1.25}
+.dir span{display:block;margin-top:.35rem;font-size:.9rem;color:var(--ink-soft);line-height:1.45}
+.dir-spec a{padding:.95rem 1.1rem}
+@media (max-width:560px){.finder-tabs{width:100%}.ft{flex:1}}

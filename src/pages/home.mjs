@@ -64,6 +64,18 @@ const body = `
   </div>
 </section>
 
+<!-- The four products, named high on the page. Detail lives in 03; this is
+     so a visitor knows what SHIELD and SENTRY are before scrolling. -->
+<section class="prodstrip field">
+  <div class="wrap">
+    <ul class="ps-list rv">
+      ${suite.map((p) => `<li><a href="#what-we-offer">
+        <b>${esc(p.name)}</b><span>${esc(p.kind)}</span>
+      </a></li>`).join('')}
+    </ul>
+  </div>
+</section>
+
 <!-- ============ 01. What is it? ============ -->
 <section class="sec sec-loose field" id="what-it-is">
   <div class="wrap">
@@ -71,9 +83,11 @@ const body = `
       <p class="mark"><span>01 / What is it</span></p>
       <h2>One platform that runs your compliance program and watches your billing.</h2>
       <p class="sec-lead">Healthcare Compliance Pros is a compliance and revenue integrity partner for
-      healthcare providers. Software carries the day-to-day work: policies, training, risk analysis,
-      documentation and claims monitoring. Named advisors carry everything software cannot, which is the
-      judgment call at 4pm on a Friday.</p>
+      healthcare providers. <strong>SHIELD</strong> runs the compliance program: policies, training, risk
+      analysis and the documentation an investigator asks for. <strong>SENTRY</strong> watches the revenue
+      side, benchmarking your claims every quarter against your specialty. Behind both sit named advisors
+      and, when you need one, a <strong>fractional compliance officer</strong> or a transaction-grade
+      <strong>diligence</strong> review.</p>
     </div>
 
     <div class="split rv">
@@ -89,7 +103,7 @@ const body = `
         <h3>Your whole program, documented in one place</h3>
         <p>One platform, one login, one completion view across every location, with dated records
         generated as your team works rather than assembled after the request arrives.</p>
-        <p class="split-note">Software that runs it, people who stand behind it.</p>
+        <p class="split-note">SHIELD runs it. SENTRY watches the revenue. People stand behind both.</p>
       </div>
     </div>
 

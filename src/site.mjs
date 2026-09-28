@@ -69,44 +69,7 @@ export const nav = [
       { label: 'Fractional Compliance Officer', href: '/fractional-compliance-officer/' }
     ]
   },
-  {
-    label: 'Specialties',
-    href: '/specialties/',
-    wide: true,
-    columns: [
-      {
-        heading: 'Organizations',
-        links: [
-          { label: 'Business Associates', href: '/business-associates/' },
-          { label: 'Medical Practices', href: '/medical-practices/' },
-          { label: 'Hospitals and Health Systems', href: '/hospitals-health-systems/' },
-          { label: 'Medical Billing', href: '/medical-billing/' },
-          { label: 'Private Equity', href: '/privateequity/' }
-        ]
-      },
-      {
-        heading: 'Specialties',
-        links: [
-          { label: 'Orthopedics', href: '/specialties/orthopedics/' },
-          { label: 'Dermatology', href: '/dermatology-compliance-program/' },
-          { label: 'Radiology', href: '/specialties/radiology/' },
-          { label: 'ENT', href: '/specialties/ent/' },
-          { label: 'Family Medicine', href: '/specialties/family-medicine/' },
-          { label: 'Audiology', href: '/audiology-compliance-program/' }
-        ]
-      },
-      {
-        heading: '\u00a0',
-        links: [
-          { label: 'Behavioral Health', href: '/behavioral-health-compliance/' },
-          { label: 'MedSpa/Aesthetics/Wellness', href: '/medspa/' },
-          { label: 'Pediatrics', href: '/specialties/pediatrics/' },
-          { label: 'Physical Therapy', href: '/physical-therapy-compliance-program/' },
-          { label: 'View All Specialties', href: '/specialties/' }
-        ]
-      }
-    ]
-  },
+  { label: 'Specialties', href: '/specialties/' },
   {
     label: 'News & Events',
     href: '/blog/',
@@ -298,4 +261,48 @@ export const sevenElements = [
   'Enforcing standards',
   'Risk assessment, auditing and monitoring',
   'Response and corrective action'
+];
+
+
+/* ---------------------------------------------------------------
+   Specialty and organization directory. One page routes to all of
+   these, rather than a twenty-item dropdown nobody can scan.
+   `kind` drives the filter on that page.
+   --------------------------------------------------------------- */
+export const directory = [
+  // Organizations: what kind of business you are.
+  { kind: 'organization', name: 'Medical practices', href: '/medical-practices/',
+    blurb: 'Independent and group practices, one location or many.' },
+  { kind: 'organization', name: 'Hospitals and health systems', href: '/hospitals-health-systems/',
+    blurb: 'Multi-site systems with departmental compliance obligations.' },
+  { kind: 'organization', name: 'Business associates', href: '/business-associates/',
+    blurb: 'Vendors handling protected health information under a BAA.' },
+  { kind: 'organization', name: 'Medical billing companies', href: '/medical-billing/',
+    blurb: 'RCM and billing firms answering to their provider clients.' },
+  { kind: 'organization', name: 'Private equity', href: '/privateequity/',
+    blurb: 'Platform builds, add-on acquisitions and portfolio operations.' },
+
+  // Specialties: what kind of care you deliver.
+  { kind: 'specialty', name: 'Behavioral health', href: '/behavioral-health-compliance/' },
+  { kind: 'specialty', name: 'Cardiology', href: '/specialties/cardiology/' },
+  { kind: 'specialty', name: 'Dermatology', href: '/dermatology-compliance-program/' },
+  { kind: 'specialty', name: 'ENT', href: '/specialties/ent/' },
+  { kind: 'specialty', name: 'Audiology', href: '/audiology-compliance-program/' },
+  { kind: 'specialty', name: 'Family medicine', href: '/specialties/family-medicine/' },
+  { kind: 'specialty', name: 'Gastroenterology', href: '/specialties/gastroenterology/' },
+  { kind: 'specialty', name: 'Medspa, aesthetics and wellness', href: '/medspa/' },
+  { kind: 'specialty', name: 'OB/GYN', href: '/specialties/obgyn/' },
+  { kind: 'specialty', name: 'Oncology', href: '/specialties/oncology/' },
+  { kind: 'specialty', name: 'Ophthalmology', href: '/specialties/ophthalmology/' },
+  { kind: 'specialty', name: 'Orthopedics', href: '/specialties/orthopedics/' },
+  { kind: 'specialty', name: 'Pain management', href: '/specialties/pain-management/' },
+  { kind: 'specialty', name: 'Pediatrics', href: '/specialties/pediatrics/' },
+  { kind: 'specialty', name: 'Physical therapy', href: '/physical-therapy-compliance-program/' },
+  { kind: 'specialty', name: 'Primary care', href: '/specialties/primary-care/' },
+  { kind: 'specialty', name: 'Psychiatry', href: '/specialties/psychiatry/' },
+  { kind: 'specialty', name: 'Radiology', href: '/specialties/radiology/' },
+  { kind: 'specialty', name: 'Rheumatology', href: '/specialties/rheumatology/' },
+  { kind: 'specialty', name: 'Urgent care', href: '/specialties/urgent-care/' },
+  { kind: 'specialty', name: 'Urology', href: '/specialties/urology/' },
+  { kind: 'specialty', name: 'Wound care', href: '/specialties/wound-care/' }
 ];
