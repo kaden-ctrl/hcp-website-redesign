@@ -1,14 +1,52 @@
 import { icon, img, esc } from '../layout.mjs';
 import {
-  site, suite, productDetail, sevenElements, stats,
-  differentiators, testimonials
+  site, suite, productDetail, sevenElements, stats, differentiators, testimonials,
+  sentryLoop, sentryQuarters, sentryDirections, sentryCompare,
+  fcoTimeline, diligenceStages
 } from '../site.mjs';
 
-/* One template, four product pages. Detail comes from the live site for
-   SHIELD, SENTRY and FCO; DILIGENCE is not published there, so its detail
-   comes from the deck. Nothing here is invented: where the live site gives
-   a number (130+ courses, 10 hours a month, $300/hour) it is used as
-   written, and where it gives none, none is claimed. */
+/* Four product pages, four different pages.
+   Each one is built around the shape of its own subject rather than from a
+   shared stack of blocks: SHIELD is a console of modules, SENTRY is a
+   quarterly cycle, FCO is a timeline of an engagement, DILIGENCE is a
+   transaction. The audit still requires differentiators, use cases and an
+   FAQ on each, so those are present, but implemented differently per page
+   rather than pasted in identically. */
+
+const FORM_FIELDS = `
+  <div class="f-row f-row-2">
+    <div><label for="name">Your name *</label><input id="name" name="name" type="text" autocomplete="name" required placeholder="Jane Whitfield"></div>
+    <div><label for="organization">Organization *</label><input id="organization" name="organization" type="text" autocomplete="organization" required placeholder="Riverside Family Medicine"></div>
+  </div>
+  <div class="f-row f-row-2">
+    <div><label for="email">Work email *</label><input id="email" name="email" type="email" autocomplete="email" required placeholder="jane@practice.com"></div>
+    <div><label for="phone">Phone</label><input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="(555) 123-4567"></div>
+  </div>
+  <div class="f-row f-row-2">
+    <div><label for="staff">Staff size</label><select id="staff" name="staff">
+      <option value="">Select...</option><option>1 to 10</option><option>11 to 50</option>
+      <option>51 to 200</option><option>201 to 500</option><option>500+</option></select></div>
+    <div><label for="need">Most urgent need</label><select id="need" name="need">
+      <option value="">Select...</option><option>HIPAA compliance</option><option>OSHA compliance</option>
+      <option>Corporate compliance</option><option>Billing and coding review</option>
+      <option>Transaction diligence</option><option>Not sure yet</option></select></div>
+  </div>
+  <div class="f-row">
+    <div><label for="notes">Anything we should know?</label>
+    <textarea id="notes" name="notes" placeholder="Number of locations, any deadline you are working against..."></textarea></div>
+  </div>
+  <button class="btn btn-ink" type="submit" style="width:100%">Request my free review</button>
+  <p class="f-note">We use your details only to respond to this request. See our
+  <a href="/privacypolicy/">privacy policy</a>. Please do not include patient information.</p>`;
+
+/* Written once, because it will be replaced wholesale by a HubSpot embed. */
+export function leadForm(heading, sub) {
+  return `<form class="lead-form f rv" data-lead="${site.email}" novalidate>
+    <h3>${esc(heading || 'Request your free compliance review')}</h3>
+    <p>${esc(sub || 'An advisor familiar with your setting will follow up, usually within one business day.')}</p>
+    ${FORM_FIELDS}
+  </form>`;
+}
 
 const faqsFor = (p) => {
   const shared = [
@@ -48,120 +86,235 @@ const faqsFor = (p) => {
   return own[p.key].concat(shared);
 };
 
+/* ---------- per-product signature sections ---------- */
+
+const signature = {
+  // SHIELD reads as a console: four modules, each a panel of its own.
+  shield: (p, d) => `
+<section class="sec sec-loose field" id="what-it-is">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <h2>Four modules, one system of record</h2>
+      <p class="sec-lead">${esc(p.blurb)}</p>
+    </div>
+    <div class="console rv">
+      ${d.groups.map((g, i) => `<article class="console-mod">
+        <header>
+          <span class="console-idx">${String(i + 1).padStart(2, '0')}</span>
+          <h3>${esc(g.name)}</h3>
+        </header>
+        <ul>${g.items.map(([t, b]) => `<li><b>${esc(t)}</b><span>${esc(b)}</span></li>`).join('')}</ul>
+      </article>`).join('')}
+    </div>
+  </div>
+</section>
+
+<section class="sec sec-soft field" id="seven-elements">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <h2>The seven elements, as a sequence</h2>
+      <p class="sec-lead">The Office of Inspector General defines what an effective compliance program
+      requires. These are not a checklist to tick once; they run as a loop.</p>
+    </div>
+    <ol class="chain rv">
+      ${sevenElements.map((e, i) => `<li><span class="chain-n">${String(i + 1).padStart(2, '0')}</span><span class="chain-t">${esc(e)}</span></li>`).join('')}
+    </ol>
+  </div>
+</section>`,
+
+  // SENTRY reads as data: a calendar, a two-way risk split, a loop, a comparison.
+  sentry: (p, d) => `
+<section class="sec sec-loose field" id="what-it-is">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <h2>Risk runs in both directions</h2>
+      <p class="sec-lead">${esc(p.blurb)}</p>
+    </div>
+    <ul class="bidir rv">
+      ${sentryDirections.map((x) => `<li><span class="bidir-tag">${esc(x.tag)}</span><p>${esc(x.body)}</p></li>`).join('')}
+    </ul>
+  </div>
+</section>
+
+<section class="sec sec-soft field" id="cycle">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <h2>Every quarter. Not every year.</h2>
+      <p class="sec-lead">Analytics run across every provider in all four quarters. Audits rotate so each
+      group is reviewed and then re-checked. Guidance starts as a baseline and then targets the providers
+      carrying the most risk.</p>
+    </div>
+    <div class="qgrid rv">
+      <div class="qrow qhead"><span></span><span>Analytics</span><span>Audit</span><span>Guidance</span></div>
+      ${sentryQuarters.map((q) => `<div class="qrow">
+        <span class="qlabel">${esc(q.q)}</span>
+        <span>${esc(q.analytics)}</span>
+        <span>${esc(q.audit)}</span>
+        <span>${esc(q.guidance)}</span>
+      </div>`).join('')}
+    </div>
+    <ul class="compare-bars rv">
+      ${sentryCompare.map((c) => `<li>
+        <span class="cb-label">${esc(c.label)}</span>
+        <span class="cb-pair"><em>Annual</em><b>${esc(c.annual)}</b></span>
+        <span class="cb-pair is-on"><em>Quarterly</em><b>${esc(c.quarterly)}</b></span>
+      </li>`).join('')}
+    </ul>
+  </div>
+</section>
+
+<section class="sec field" id="loop">
+  <div class="wrap">
+    <div class="sec-head rv"><h2>The loop</h2></div>
+    <ol class="loop rv">
+      ${sentryLoop.map((l) => `<li><span class="loop-n">${esc(l.n)}</span><b>${esc(l.name)}</b><p>${esc(l.body)}</p></li>`).join('')}
+    </ol>
+  </div>
+</section>`,
+
+  // FCO reads as an engagement: a timeline, then the role itself.
+  fco: (p, d) => `
+<section class="sec sec-loose field" id="what-it-is">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <h2>How the engagement runs</h2>
+      <p class="sec-lead">${esc(p.blurb)}</p>
+    </div>
+    <ol class="tline rv">
+      ${fcoTimeline.map((t) => `<li><span class="tline-when">${esc(t.when)}</span><p>${esc(t.what)}</p></li>`).join('')}
+    </ol>
+    <div class="hours rv">
+      <div class="hours-fig"><b>10</b><span>hours a month of dedicated support, included</span></div>
+      <div class="hours-note">
+        <p>Additional hours are available at $300 each. The committee meets monthly for the first six
+        months and quarterly after that, and your officer is the same person throughout.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec-soft field" id="the-role">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <h2>What your officer actually does</h2>
+      <p class="sec-lead">The primary compliance liaison for your staff, for third parties and for
+      government agencies.</p>
+    </div>
+    ${d.groups.map((g) => `<div class="pgroup rv">
+      <h3>${esc(g.name)}</h3>
+      <ul class="pfeat">${g.items.map(([t, b]) => `<li><b>${esc(t)}</b><span>${esc(b)}</span></li>`).join('')}</ul>
+    </div>`).join('')}
+  </div>
+</section>`,
+
+  // DILIGENCE reads as a transaction: three stages across a deal.
+  diligence: (p, d) => `
+<section class="sec sec-loose field" id="what-it-is">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <h2>Where the work sits in a deal</h2>
+      <p class="sec-lead">${esc(p.blurb)}</p>
+    </div>
+    <ol class="deal rv">
+      ${diligenceStages.map((s) => `<li>
+        <span class="deal-stage">${esc(s.stage)}</span>
+        <h3>${esc(s.title)}</h3>
+        <p>${esc(s.body)}</p>
+      </li>`).join('')}
+    </ol>
+  </div>
+</section>
+
+<section class="sec sec-soft field" id="the-review">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <h2>What the review covers</h2>
+      <p class="sec-lead">Produced as a document the other side of the table will read closely.</p>
+    </div>
+    ${d.groups.map((g) => `<div class="pgroup rv">
+      <ul class="pfeat">${g.items.map(([t, b]) => `<li><b>${esc(t)}</b><span>${esc(b)}</span></li>`).join('')}</ul>
+    </div>`).join('')}
+  </div>
+</section>`
+};
+
+/* ---------- per-product hero ---------- */
+const heroFor = (p, d) => {
+  if (p.key === 'sentry') {
+    return `<div class="wrap hero-in">
+      <p class="prod-posture" style="color:var(--lime)">${esc(p.posture)} &middot; ${esc(p.kind)}</p>
+      <h1>${esc(p.name)}</h1>
+      <p class="hero-lead">${esc(d.lede)}</p>
+      <p class="hero-cta"><a class="btn btn-primary" href="#start">See what is leaking</a>
+        <a class="btn btn-ghost" href="tel:${site.phoneE164}">Call ${site.phoneDisplay}</a></p>
+    </div>`;
+  }
+  return `<div class="wrap hero-in">
+    <p class="prod-posture" style="color:var(--lime)">${esc(p.posture)} &middot; ${esc(p.kind)}</p>
+    <h1>${esc(p.name)}</h1>
+    <p class="hero-lead">${esc(d.lede)}</p>
+    <p class="hero-cta"><a class="btn btn-primary" href="#start">Get your free compliance review</a>
+      <a class="btn btn-ghost" href="tel:${site.phoneE164}">Call ${site.phoneDisplay}</a></p>
+  </div>`;
+};
+
+const HERO_IMG = {
+  shield: '/assets/img/site/prog-hipaa.webp',
+  sentry: '/assets/img/site/svc-coding.webp',
+  fco: '/assets/img/site/svc-fractional.webp',
+  diligence: '/assets/img/site/aud-private-equity.webp'
+};
+
 function build(p) {
   const d = productDetail[p.key];
   const faqs = faqsFor(p);
   const others = suite.filter((o) => o.key !== p.key);
 
   const body = `
-<section class="hero hero-short">
+<section class="hero hero-short hero-${p.key}">
   <div class="hero-media">
-    ${img({ src: '/assets/img/site/feature-comprehensive.webp', alt: '',
-            title: `${p.name}: ${p.kind}`, width: 1600, height: 720,
-            loading: 'eager', fetchpriority: 'high', sizes: '100vw' })}
+    ${img({ src: HERO_IMG[p.key], alt: '', title: `${p.name}: ${p.kind}`,
+            width: 1600, height: 720, loading: 'eager', fetchpriority: 'high', sizes: '100vw' })}
   </div>
-  <div class="wrap hero-in">
-    <p class="prod-posture" style="color:var(--lime)">${esc(p.posture)} &middot; ${esc(p.kind)}</p>
-    <h1>${esc(p.name)}</h1>
-    <p class="hero-lead">${esc(d.lede)}</p>
-    <p class="hero-cta">
-      <a class="btn btn-primary" href="#start">Get your free compliance review</a>
-      <a class="btn btn-ghost" href="tel:${site.phoneE164}">Call ${site.phoneDisplay}</a>
-    </p>
-  </div>
+  ${heroFor(p, d)}
 </section>
 
-<section class="band">
-  <div class="wrap band-in"><p>${esc(p.tagline)}</p></div>
-</section>
+<section class="band"><div class="wrap band-in"><p>${esc(p.tagline)}</p></div></section>
 
-<section class="sec sec-loose field" id="what-it-is">
-  <div class="wrap">
-    <div class="sec-head rv">
-      <h2>What ${esc(p.name)} covers</h2>
-      <p class="sec-lead">${esc(p.blurb)}</p>
-    </div>
-    ${d.groups.map((g) => `<div class="pgroup rv">
-      <h3>${esc(g.name)}</h3>
-      <ul class="pfeat">
-        ${g.items.map(([t, b]) => `<li><b>${esc(t)}</b><span>${esc(b)}</span></li>`).join('')}
-      </ul>
-    </div>`).join('')}
-  </div>
-</section>
-
-${d.elements ? `<section class="sec sec-soft field" id="seven-elements">
-  <div class="wrap">
-    <div class="sec-head rv">
-      <h2>The seven elements. Covered.</h2>
-      <p class="sec-lead">The Office of Inspector General defines what an effective compliance program
-      requires. ${esc(p.name)} delivers all seven.</p>
-    </div>
-    <ol class="seven rv">${sevenElements.map((e) => `<li><span>${esc(e)}</span></li>`).join('')}</ol>
-  </div>
-</section>` : ''}
-
-<section class="photoband">
-  ${img({ src: '/assets/img/site/about-2.webp', alt: '', title: 'Clinical staff in a compliance session',
-          width: 1600, height: 620, sizes: '100vw' })}
-  <div class="wrap photoband-in">
-    <p>Software that runs it, people who stand behind it.</p>
-    <p class="sub">Anyone can sell you a login. Every engagement includes named advisors who interpret the
-    rule, prepare the response, and stand in front of you when someone comes asking.</p>
-  </div>
-</section>
+${signature[p.key](p, d)}
 
 <section class="sec field" id="why-hcp">
   <div class="wrap">
-    <div class="sec-head rv">
-      <h2>What makes HCP different</h2>
-      <p class="sec-lead">Most vendors are betting healthcare compliance stays a back-office function.
-      We are betting it becomes a board-level advantage.</p>
-    </div>
-    <ul class="diffs rv">
-      ${differentiators.map((x) => `<li><span class="bar" aria-hidden="true"></span><p>${esc(x)}</p></li>`).join('')}
+    <div class="sec-head rv"><h2>Why ${esc(p.name)} rather than a point tool</h2></div>
+    <ul class="whygrid rv">
+      ${differentiators.map((x, i) => `<li><span class="whygrid-n">${String(i + 1).padStart(2, '0')}</span><p>${esc(x)}</p></li>`).join('')}
     </ul>
   </div>
 </section>
 
 <section class="sec sec-soft field" id="use-cases">
   <div class="wrap">
-    <div class="sec-head rv">
-      <h2>What this looks like in practice</h2>
-      <p class="sec-lead">A decade of trust, across practice groups, private equity and behavioral health.</p>
-    </div>
-    <ul class="stats rv" style="margin-bottom:clamp(2.2rem,1.8rem + 1.6vw,3.2rem)">
+    <div class="sec-head rv"><h2>In practice</h2></div>
+    <figure class="bigquote rv">
+      <blockquote>${esc(testimonials.find((t) => t.tag === p.name) ? testimonials.find((t) => t.tag === p.name).quote : testimonials[0].quote)}</blockquote>
+      <figcaption>${esc((testimonials.find((t) => t.tag === p.name) || testimonials[0]).who)}
+        <span>${esc((testimonials.find((t) => t.tag === p.name) || testimonials[0]).org)}</span></figcaption>
+    </figure>
+    <ul class="stats rv">
       ${stats.map((s) => `<li class="stat"><b>${esc(s.figure)}</b><span>${esc(s.label)}</span></li>`).join('')}
-    </ul>
-    <ul class="quotes rv">
-      ${testimonials.map((t) => `<li><figure class="quote">
-        <span class="quote-tag">${esc(t.tag)}</span>
-        <span class="quote-mk" aria-hidden="true">&ldquo;</span>
-        <blockquote>${esc(t.quote)}</blockquote>
-        <figcaption>${esc(t.who)}<span>${esc(t.org)}</span></figcaption>
-      </figure></li>`).join('')}
     </ul>
   </div>
 </section>
 
 <section class="sec field" id="rest-of-suite">
   <div class="wrap">
-    <div class="sec-head rv">
-      <h2>The rest of the suite</h2>
-      <p class="sec-lead">Each product stands on its own. Together they are one platform rather than
-      four tools you have to join up yourself.</p>
-    </div>
-    <ul class="suite rv">
-      ${others.map((o) => `<li class="prod">
-        <div class="prod-h">
-          <span class="prod-posture">${esc(o.posture)}</span>
-          <span class="prod-name">${esc(o.name)}</span>
-          <span class="prod-kind">${esc(o.kind)}</span>
-        </div>
-        <p class="prod-tagline">${esc(o.tagline)}</p>
-        <ul>${o.items.slice(0, 4).map((i) => `<li>${esc(i)}</li>`).join('')}</ul>
-        <a class="prod-link" href="${o.href}">Explore ${esc(o.name)}</a>
-      </li>`).join('')}
+    <div class="sec-head rv"><h2>The rest of the suite</h2></div>
+    <ul class="siblings rv">
+      ${others.map((o) => `<li><a href="${o.href}">
+        <span class="sib-posture">${esc(o.posture)}</span>
+        <b>${esc(o.name)}</b>
+        <span class="sib-kind">${esc(o.kind)}</span>
+      </a></li>`).join('')}
     </ul>
   </div>
 </section>
@@ -205,39 +358,6 @@ ${d.elements ? `<section class="sec sec-soft field" id="seven-elements">
     faqs,
     parent: { name: 'Solutions', path: '/compliance-solution/' }
   };
-}
-
-/* The lead form is identical across these pages; it will be swapped for a
-   HubSpot embed, so it is written once here rather than copied four times. */
-export function leadForm() {
-  return `<form class="lead-form f rv" data-lead="${site.email}" novalidate>
-    <h3>Request your free compliance review</h3>
-    <p>An advisor familiar with your setting will follow up, usually within one business day.</p>
-    <div class="f-row f-row-2">
-      <div><label for="name">Your name *</label><input id="name" name="name" type="text" autocomplete="name" required placeholder="Jane Whitfield"></div>
-      <div><label for="organization">Organization *</label><input id="organization" name="organization" type="text" autocomplete="organization" required placeholder="Riverside Family Medicine"></div>
-    </div>
-    <div class="f-row f-row-2">
-      <div><label for="email">Work email *</label><input id="email" name="email" type="email" autocomplete="email" required placeholder="jane@practice.com"></div>
-      <div><label for="phone">Phone</label><input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="(555) 123-4567"></div>
-    </div>
-    <div class="f-row f-row-2">
-      <div><label for="staff">Staff size</label><select id="staff" name="staff">
-        <option value="">Select...</option><option>1 to 10</option><option>11 to 50</option>
-        <option>51 to 200</option><option>201 to 500</option><option>500+</option></select></div>
-      <div><label for="need">Most urgent need</label><select id="need" name="need">
-        <option value="">Select...</option><option>HIPAA compliance</option><option>OSHA compliance</option>
-        <option>Corporate compliance</option><option>Billing and coding review</option>
-        <option>Transaction diligence</option><option>Not sure yet</option></select></div>
-    </div>
-    <div class="f-row">
-      <div><label for="notes">Anything we should know?</label>
-      <textarea id="notes" name="notes" placeholder="Number of locations, any deadline you are working against..."></textarea></div>
-    </div>
-    <button class="btn btn-ink" type="submit" style="width:100%">Request my free review</button>
-    <p class="f-note">We use your details only to respond to this request. See our
-    <a href="/privacypolicy/">privacy policy</a>. Please do not include patient information.</p>
-  </form>`;
 }
 
 export default suite.map(build);

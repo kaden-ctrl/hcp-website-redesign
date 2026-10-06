@@ -423,3 +423,55 @@ export const productDetail = {
     ]
   }
 };
+
+
+/* ---------------------------------------------------------------
+   Page-specific material. Each product page is built around its own
+   structure rather than a shared set of blocks, so this is the data
+   those structures need.
+   --------------------------------------------------------------- */
+
+// SENTRY: the four-step loop and the quarterly cadence, from the deck.
+export const sentryLoop = [
+  { n: '01', name: 'Analyze',  body: 'Every claim line is processed and benchmarked against your specialty, at state and national level.' },
+  { n: '02', name: 'Audit',    body: 'Charts are selected by the data rather than at random, focused where risk and revenue opportunity are greatest.' },
+  { n: '03', name: 'Educate',  body: 'Provider-level education is built from your own audit findings, not from generic coding guidance.' },
+  { n: '04', name: 'Optimize', body: 'Coding is corrected, revenue is protected, and the full cycle is documented for your compliance program.' }
+];
+
+export const sentryQuarters = [
+  { q: 'Q1', analytics: 'All providers', audit: 'Group A', guidance: 'Baseline, all providers' },
+  { q: 'Q2', analytics: 'All providers', audit: 'Group B', guidance: 'Targeted' },
+  { q: 'Q3', analytics: 'All providers', audit: 'Group A re-check', guidance: 'Targeted' },
+  { q: 'Q4', analytics: 'All providers', audit: 'Group B re-check', guidance: 'Targeted' }
+];
+
+export const sentryDirections = [
+  { tag: 'Undercoding', body: 'Work that was performed but billed below the level it qualified for, losing reimbursement on every visit.' },
+  { tag: 'Overcoding',  body: 'Billing patterns that attract payer scrutiny and audit exposure, whether or not the documentation supports them.' }
+];
+
+export const sentryCompare = [
+  { label: 'Reviews a year',  annual: '1',  quarterly: '4' },
+  { label: 'Audits a year',   annual: '1',  quarterly: '4' },
+  { label: 'Trainings a year', annual: '0', quarterly: '3' },
+  { label: 'Blind months',    annual: '12', quarterly: '0' }
+];
+
+// FCO: how the engagement actually runs over time.
+export const fcoTimeline = [
+  { when: 'Week 1',      what: 'Your officer is assigned and the programme is scoped against what you already have.' },
+  { when: 'Months 1 to 6', what: 'Compliance committee meets monthly. Policies, reporting channels and training are brought into line.' },
+  { when: 'Month 7 on',  what: 'Committee moves to quarterly. The officer stays the same person throughout.' },
+  { when: 'As needed',   what: 'Audit and investigation response, with the corrective action that follows it.' }
+];
+
+// DILIGENCE: where the work sits relative to a transaction.
+export const diligenceStages = [
+  { stage: 'Pre-close',  title: 'Read the claims before the deal',
+    body: 'Twelve to twenty-four months of claims data reviewed by CPC-certified specialists. Not a sample, and not a model inferring from one.' },
+  { stage: 'At close',   title: 'Findings the deal room can use',
+    body: 'A report structured for the people who will negotiate against it, with documentation in the form representations and warranties underwriters expect.' },
+  { stage: 'Post-close', title: 'A roadmap, not a surprise',
+    body: 'Remediation sequenced so a finding becomes a plan. Pre-existing billing liability survives acquisition; the DOJ has held buyers liable for failures they inherited.' }
+];
