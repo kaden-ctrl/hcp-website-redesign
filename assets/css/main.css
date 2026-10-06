@@ -62,15 +62,24 @@
 .split-b p{color:var(--ink-soft);font-size:.96rem}
 .split-b .split-note{margin:1.1rem 0 0;padding-top:1.1rem;border-top:1px solid var(--line-ink);
   font-family:var(--head);font-weight:800;color:var(--ink);font-size:.98rem}
-.strike{list-style:none;margin:0;padding:0;display:grid;gap:.6rem}
-/* Real line-through rather than a positioned rule. The rule was an ::after
-   spanning to right:0, so it ran past the end of every line to the edge of
-   the panel instead of striking the words. text-decoration measures the
-   text, which is the only thing that should be struck: these are the tools
-   the platform removes, not a feature list. */
-.strike li{font-size:.95rem;line-height:1.5;color:var(--on-dark-mute);
-  text-decoration:line-through;text-decoration-color:rgba(226,112,95,.75);
-  text-decoration-thickness:1px;text-underline-offset:0}
+/* These are the tools the platform removes. Line-through was the obvious
+   device and the wrong one: a red rule across five lines of body copy reads
+   as an error state, not as an argument. Each row is now switched off
+   instead, dimmed with a small cross, which says "replaced" without
+   defacing the text. */
+.strike{list-style:none;margin:0;padding:0;display:grid;gap:.1rem}
+.strike li{display:flex;align-items:center;gap:.85rem;padding:.6rem .2rem;
+  font-size:.95rem;color:var(--on-dark-mute);border-bottom:1px solid var(--line-soft)}
+.strike li:last-child{border-bottom:0}
+.strike li::before{content:"";flex:none;width:16px;height:16px;border-radius:4px;
+  background:rgba(226,112,95,.14);border:1px solid rgba(226,112,95,.4);
+  -webkit-mask:none;position:relative}
+.strike li::after{content:"";position:absolute;width:7px;height:7px;margin-left:4.5px;
+  background:rgba(226,112,95,.9);
+  -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M18.3 5.7 13.4 12l4.9 6.3-1.6 1.2L12 13.6l-4.7 5.9-1.6-1.2 4.9-6.3-4.9-6.3 1.6-1.2L12 10.4l4.7-5.9z'/%3E%3C/svg%3E") center/contain no-repeat;
+  mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M18.3 5.7 13.4 12l4.9 6.3-1.6 1.2L12 13.6l-4.7 5.9-1.6-1.2 4.9-6.3-4.9-6.3 1.6-1.2L12 10.4l4.7-5.9z'/%3E%3C/svg%3E") center/contain no-repeat}
+.strike li{position:relative}
+
 @media (max-width:840px){.split{grid-template-columns:1fr}}
 
 /* Sub-blocks inside the three numbered movements. */
