@@ -327,6 +327,7 @@ ${head(page, criticalCss, cssHash)}
 </head>
 <body class="${page.bodyClass || ''}">
 <div class="aurora" aria-hidden="true"></div>
+<div class="scrollbar" id="scrollbar" aria-hidden="true"></div>
 ${spriteFor(shell)}
 ${shell}
 <script src="/assets/js/main.js?v=${jsHash}" defer></script>

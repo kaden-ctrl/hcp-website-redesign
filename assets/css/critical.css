@@ -157,7 +157,7 @@ a.visually-hidden:focus{position:fixed;top:.75rem;left:.75rem;z-index:200;
 /* padding-block, not the padding shorthand. These elements also carry
    .wrap, and a shorthand resets its padding-inline to 0, which pulled the
    whole hero 32px left of every section below it. */
-.hero-in{position:relative;z-index:1;padding-block:clamp(4.5rem,3rem + 6vw,8rem) clamp(4rem,2.8rem + 5vw,6.5rem)}
+.hero-in{position:relative;z-index:2;padding-block:clamp(4.5rem,3rem + 6vw,8rem) clamp(4rem,2.8rem + 5vw,6.5rem)}
 .hero h1{margin-bottom:.4em}
 .hero h1 em{font-style:normal;color:var(--lime)}
 /* Was 36rem, about half the 1220px wrap, so every line broke mid-page. */
@@ -191,6 +191,47 @@ a.visually-hidden:focus{position:fixed;top:.75rem;left:.75rem;z-index:200;
   0%{transform:translate(0,0) rotate(0) scale(1)}
   50%{transform:translate(-3%,2%) rotate(4deg) scale(1.06)}
   100%{transform:translate(2%,-3%) rotate(-3deg) scale(1.02)}}
+
+/* ---- Tech layer -------------------------------------------------------
+   Particle field, fine grid and an orbital diagram in the hero, plus a
+   scroll rail. Every piece is decorative and marked aria-hidden; all of it
+   stops under the reduced-motion rule further down. ---- */
+.hero-particles{position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none;opacity:.75}
+.hero-grid{position:absolute;inset:0;z-index:1;pointer-events:none;
+  background-image:linear-gradient(rgba(255,255,255,.055) 1px,transparent 1px),
+                   linear-gradient(90deg,rgba(255,255,255,.055) 1px,transparent 1px);
+  background-size:56px 56px;
+  -webkit-mask-image:radial-gradient(70% 60% at 65% 45%,#000,transparent 75%);
+  mask-image:radial-gradient(70% 60% at 65% 45%,#000,transparent 75%)}
+
+.hero-orbit{position:absolute;right:3vw;top:50%;transform:translateY(-50%);
+  width:440px;height:440px;z-index:1;pointer-events:none;display:none}
+@media (min-width:1180px){.hero-orbit{display:block}}
+.orbit-ring{position:absolute;inset:0;border-radius:50%;border:1px solid rgba(255,255,255,.1)}
+.orbit-ring.r2{inset:55px;border:1px dashed rgba(100,162,218,.22);animation:spin-rev 44s linear infinite}
+.orbit-ring.r3{inset:110px;border:1px solid rgba(255,255,255,.1)}
+.orbit-sweep{position:absolute;inset:0;border-radius:50%;overflow:hidden;
+  background:conic-gradient(rgba(163,199,57,.4),transparent 22%);
+  -webkit-mask-image:radial-gradient(circle,transparent 60%,#000 61%);
+  mask-image:radial-gradient(circle,transparent 60%,#000 61%);
+  animation:spin 28s linear infinite}
+.orbit-core{position:absolute;inset:198px;border-radius:50%;
+  background:radial-gradient(circle,var(--sky,#64a2da),transparent 70%);filter:blur(1px);opacity:.8}
+.orbit-node{position:absolute;inset:55px;animation:spin 13s linear infinite}
+.orbit-node .dot{position:absolute;top:-4px;left:50%;width:8px;height:8px;margin-left:-4px;
+  border-radius:50%;background:var(--lime);box-shadow:0 0 10px var(--lime)}
+.orbit-node.w2{inset:110px;animation:spin-rev 19s linear infinite}
+.orbit-node.w2 .dot{background:#64a2da;box-shadow:0 0 10px #64a2da}
+.orbit-tick{position:absolute;top:-26px;left:50%;transform:translateX(-50%);margin:0;
+  font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.62rem;letter-spacing:.1em;
+  color:rgba(255,255,255,.38);white-space:nowrap}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes spin-rev{to{transform:rotate(-360deg)}}
+
+/* Reading position. Fixed, 2px, and driven from scroll rather than animated. */
+.scrollbar{position:fixed;top:0;left:0;height:2px;width:0;z-index:250;pointer-events:none;
+  background:linear-gradient(90deg,#64a2da,var(--lime));box-shadow:0 0 12px rgba(163,199,57,.6);
+  transition:width .08s linear}
 
 /* ---- Reveals. Visible without JS; the failsafe fires if it never runs. ---- */
 .rv{opacity:0;transform:translateY(20px);

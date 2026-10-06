@@ -234,6 +234,153 @@
   apply();
 })();
 
+/* Hero particle network.
+   Decorative, so it never runs when the visitor has asked for reduced
+   motion, and it only animates while the hero is actually on screen and
+   the tab is visible. Device pixel ratio is capped because Safari drops
+   canvases past roughly 16M pixels, which would leave a blank rectangle
+   rather than a degraded one. */
+(function () {
+  var canvas = document.getElementById('particles');
+  if (!canvas || !canvas.getContext) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) { canvas.remove(); return; }
+  var ctx = canvas.getContext('2d');
+  var w, h, parts, running = false, inView = false;
+  var COUNT = 48, LINK = 130;
+
+  function resize() {
+    w = canvas.offsetWidth; h = canvas.offsetHeight;
+    if (!w || !h) return;
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    var MAX = 4000000;
+    if (w * h * dpr * dpr > MAX) dpr = Math.max(1, Math.sqrt(MAX / (w * h)));
+    canvas.width = Math.round(w * dpr);
+    canvas.height = Math.round(h * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+  function init() {
+    parts = [];
+    for (var i = 0; i < COUNT; i++) {
+      parts.push({ x: Math.random() * w, y: Math.random() * h,
+                   vx: (Math.random() - 0.5) * 0.3, vy: (Math.random() - 0.5) * 0.3,
+                   r: Math.random() * 1.6 + 0.6 });
+    }
+  }
+  function step() {
+    if (!running || !parts) return;
+    ctx.clearRect(0, 0, w, h);
+    for (var i = 0; i < parts.length; i++) {
+      var p = parts[i];
+      p.x += p.vx; p.y += p.vy;
+      if (p.x < 0 || p.x > w) p.vx *= -1;
+      if (p.y < 0 || p.y > h) p.vy *= -1;
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(163,199,57,.55)';
+      ctx.fill();
+      for (var j = i + 1; j < parts.length; j++) {
+        var q = parts[j], dx = p.x - q.x, dy = p.y - q.y;
+        var d = Math.sqrt(dx * dx + dy * dy);
+        if (d < LINK) {
+          ctx.beginPath();
+          ctx.moveTo(p.x, p.y); ctx.lineTo(q.x, q.y);
+          ctx.strokeStyle = 'rgba(100,162,218,' + (0.22 * (1 - d / LINK)).toFixed(3) + ')';
+          ctx.lineWidth = 1;
+          ctx.stroke();
+        }
+      }
+    }
+    requestAnimationFrame(step);
+  }
+  function setRunning() {
+    var should = inView && !document.hidden;
+    if (should && !running) { running = true; requestAnimationFrame(step); }
+    else if (!should) { running = false; }
+  }
+
+  /* The stylesheet is loaded asynchronously, so on the first pass the canvas
+     can still be unstyled and measure zero. Bailing there left it stuck at
+     the 300x150 default forever. Size on demand instead, and re-size if the
+     element has grown by the time it is first needed. */
+  function ensureSized() {
+    if (w === canvas.offsetWidth && h === canvas.offsetHeight && parts) return !!w;
+    resize();
+    if (!w || !h) return false;
+    init();
+    return true;
+  }
+
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (es) {
+      inView = es[0].isIntersecting;
+      if (inView && !ensureSized()) {
+        // still unstyled; try again on the next frame rather than giving up
+        requestAnimationFrame(function retry() { if (!ensureSized()) requestAnimationFrame(retry); else setRunning(); });
+        return;
+      }
+      setRunning();
+    }, { threshold: 0.02 }).observe(canvas);
+  } else { inView = ensureSized(); setRunning(); }
+  document.addEventListener('visibilitychange', setRunning);
+  var t;
+  window.addEventListener('resize', function () {
+    clearTimeout(t); t = setTimeout(function () { resize(); init(); }, 180);
+  });
+})();
+
+/* Reading-position rail. */
+(function () {
+  var bar = document.getElementById('scrollbar');
+  if (!bar) return;
+  var ticking = false;
+  function update() {
+    var max = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (max > 0 ? (window.scrollY / max) * 100 : 0) + '%';
+    ticking = false;
+  }
+  window.addEventListener('scroll', function () {
+    if (!ticking) { ticking = true; requestAnimationFrame(update); }
+  }, { passive: true });
+  update();
+})();
+
+/* Count-up on the figures.
+   The markup already carries the true value, so it is captured up front
+   and restored on a timeout guarantee: requestAnimationFrame is paused in
+   a background tab, and without this a visitor who scrolls a figure into
+   view, switches tabs and returns would be left looking at a part-way
+   number for as long as the page stays open. */
+(function () {
+  var nums = document.querySelectorAll('[data-count]');
+  if (!nums.length || !('IntersectionObserver' in window)) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      var el = e.target; io.unobserve(el);
+      var finalText = el.textContent, done = false;
+      function finish() { if (done) return; done = true; el.textContent = finalText; }
+      var target = parseFloat(el.getAttribute('data-count'));
+      // Counting 0 to 4 spends most of its frames showing zero, which reads
+      // as a broken figure rather than an animation.
+      if (!(target > 4)) return;
+      var pre = el.getAttribute('data-pre') || '', post = el.getAttribute('data-post') || '';
+      var start = null, dur = 1200;
+      function tick(ts) {
+        if (done) return;
+        if (start === null) start = ts;
+        var p = Math.min(1, (ts - start) / dur);
+        var eased = 1 - Math.pow(1 - p, 3);
+        el.textContent = pre + Math.round(target * eased).toLocaleString() + post;
+        if (p < 1) requestAnimationFrame(tick); else finish();
+      }
+      requestAnimationFrame(tick);
+      setTimeout(finish, dur + 600);
+    });
+  }, { threshold: 0.5 });
+  nums.forEach(function (el) { io.observe(el); });
+})();
+
 /* Welcome picker.
    Opens once per visitor and routes them to the page built for their
    setting. Kept honest about being a modal: focus moves in, is trapped

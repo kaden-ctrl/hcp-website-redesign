@@ -40,6 +40,21 @@ const scattered = [
 
 const body = `
 <section class="hero">
+  <!-- Tech layer: a particle field, a fine grid and an orbital diagram.
+       All decorative, so aria-hidden, and all of it stands down under
+       prefers-reduced-motion. -->
+  <canvas class="hero-particles" id="particles" aria-hidden="true"></canvas>
+  <div class="hero-grid" aria-hidden="true"></div>
+  <div class="hero-orbit" aria-hidden="true">
+    <div class="orbit-ring r1"></div>
+    <div class="orbit-ring r2"></div>
+    <div class="orbit-ring r3"></div>
+    <div class="orbit-sweep"></div>
+    <div class="orbit-core"></div>
+    <div class="orbit-node w1"><span class="dot"></span></div>
+    <div class="orbit-node w2"><span class="dot"></span></div>
+    <p class="orbit-tick">1,000+ PROVIDERS</p>
+  </div>
   <div class="hero-media">
     ${img({ src: '/assets/img/site/hero-hipaa.webp', alt: '', title: 'Healthcare professionals at work',
             width: 1600, height: 900, loading: 'eager', fetchpriority: 'high', sizes: '100vw' })}
@@ -106,7 +121,13 @@ const body = `
     </div>
 
     <ul class="stats rv" style="margin-top:clamp(2.5rem,2rem + 2vw,3.5rem)">
-      ${stats.map((s) => `<li class="stat"><b>${esc(s.figure)}</b><span>${esc(s.label)}</span></li>`).join('')}
+      ${stats.map((s) => {
+        const n = (s.figure.match(/[\d,]+/) || [''])[0];
+        const num = n.replace(/,/g, '');
+        const pre = s.figure.slice(0, s.figure.indexOf(n));
+        const post = s.figure.slice(s.figure.indexOf(n) + n.length);
+        return `<li class="stat"><b data-count="${num}" data-pre="${esc(pre)}" data-post="${esc(post)}">${esc(s.figure)}</b><span>${esc(s.label)}</span></li>`;
+      }).join('')}
     </ul>
   </div>
 </section>
