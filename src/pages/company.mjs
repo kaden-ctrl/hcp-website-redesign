@@ -38,7 +38,7 @@ const about = {
   description: 'Healthcare and legal professionals with decades of experience in healthcare administration, compliance and IT. One platform, a named team, 1,000+ groups.',
   faqs: aboutFaqs,
   body: `
-<section class="statement field">
+<section class="statement">
   <div class="wrap">
     <p class="statement-kicker rv">About Healthcare Compliance Pros</p>
     <h1 class="statement-h rv">You did not take the job to become a compliance officer.</h1>
@@ -72,7 +72,7 @@ const about = {
   </div>
 </section>
 
-<section class="numbers-band field">
+<section class="numbers-band">
   <div class="wrap">
     <ul class="numbers rv">
       ${stats.map((s) => `<li><b>${esc(s.figure)}</b><span>${esc(s.label)}</span></li>`).join('')}
@@ -80,7 +80,7 @@ const about = {
   </div>
 </section>
 
-<section class="sec field" id="leadership">
+<section class="sec solid" id="leadership">
   <div class="wrap">
     <div class="sec-head rv">
       <h2>The people behind it</h2>
@@ -107,7 +107,7 @@ const about = {
   </div>
 </section>
 
-<section class="sec field" id="use-cases">
+<section class="sec solid" id="use-cases">
   <div class="wrap">
     <div class="sec-head rv"><h2>In their words</h2></div>
     <ul class="quotes rv">
@@ -133,7 +133,7 @@ const about = {
   </div>
 </section>
 
-<section class="close field" id="start">
+<section class="close" id="start">
   <div class="wrap sec">
     <div class="lead-grid">
       <div class="rv">
@@ -162,7 +162,7 @@ const contact = {
 <!-- A contact page is a utility, not a pitch. The phone number is the
      largest element, the three routes come next, and the marketing is
      kept to almost nothing because the visitor has already decided. -->
-<section class="callout field">
+<section class="callout">
   <div class="wrap">
     <h1 class="callout-kicker rv">Talk to a compliance advisor</h1>
     <a class="callout-tel rv" href="tel:${site.phoneE164}">${site.phoneDisplay}</a>
@@ -171,7 +171,7 @@ const contact = {
   </div>
 </section>
 
-<section class="sec sec-tight field" id="ways">
+<section class="sec sec-tight solid" id="ways">
   <div class="wrap">
     <ul class="routes rv">
       <li>
@@ -204,7 +204,7 @@ const contact = {
   </div>
 </section>
 
-<section class="sec sec-soft field" id="why-hcp">
+<section class="sec sec-soft solid" id="why-hcp">
   <div class="wrap">
     <div class="sec-head rv"><h2>Why people call us</h2></div>
     <ul class="whygrid rv">
@@ -223,7 +223,7 @@ const contact = {
   </div>
 </section>
 
-<section class="sec sec-soft field" id="faq">
+<section class="sec sec-soft solid" id="faq">
   <div class="narrow">
     <div class="sec-head rv"><h2>Before you get in touch</h2></div>
     <div class="faqs rv">
@@ -235,7 +235,7 @@ const contact = {
   </div>
 </section>
 
-<section class="close field" id="start">
+<section class="close" id="start">
   <div class="wrap sec">
     <div class="lead-grid">
       <div class="rv">

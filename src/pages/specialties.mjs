@@ -101,7 +101,7 @@ const body = `
   </div>
 </section>
 
-<section class="sec field" id="what-we-offer">
+<section class="sec solid" id="what-we-offer">
   <div class="wrap">
     <div class="sec-head rv">
       <h2>The same four products underneath.</h2>
@@ -135,7 +135,7 @@ const body = `
   </div>
 </section>
 
-<section class="sec field" id="use-cases">
+<section class="sec solid" id="use-cases">
   <div class="wrap">
     <div class="sec-head rv">
       <h2>What this looks like in practice</h2>
@@ -167,7 +167,7 @@ const body = `
   </div>
 </section>
 
-<section class="close field" id="start">
+<section class="close" id="start">
   <div class="wrap sec">
     <div class="lead-grid">
       <div class="rv">

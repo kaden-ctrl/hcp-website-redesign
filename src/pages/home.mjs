@@ -79,7 +79,7 @@ const body = `
 <!-- The four products, named high on the page, each on its own surface.
      Text on the same ground never fully separates from the page no matter
      how large it is set; a filled tile does it immediately. -->
-<section class="prodstrip field">
+<section class="prodstrip">
   <div class="wrap">
     <ul class="ps rv">
       ${suite.map((p) => `<li><a href="#what-we-offer">
@@ -133,7 +133,7 @@ const body = `
 </section>
 
 <!-- ============ 02. Who is it for? ============ -->
-<section class="sec sec-soft sec-loose field" id="who-its-for">
+<section class="sec sec-soft sec-loose solid" id="who-its-for">
   <div class="wrap">
     <div class="sec-head rv">
       <h2>Three distinct markets. One unified platform.</h2>
@@ -215,7 +215,7 @@ const body = `
   </div>
 </section>
 
-<section class="sec sec-soft field" id="why-hcp">
+<section class="sec sec-soft solid" id="why-hcp">
   <div class="wrap">
     <div class="sec-head rv">
       <h2>Software alone does not make you compliant.</h2>
@@ -246,7 +246,7 @@ const body = `
   </div>
 </section>
 
-<section class="sec sec-soft field" id="about">
+<section class="sec sec-soft solid" id="about">
   <div class="wrap">
     <div class="sec-head rv">
       <h2>About Healthcare Compliance Pros</h2>
@@ -306,7 +306,7 @@ const body = `
   </div>
 </section>
 
-<section class="close field" id="start">
+<section class="close" id="start">
   <div class="wrap sec">
     <div class="lead-grid">
       <div class="rv">

@@ -121,7 +121,7 @@ function build(d) {
   </div>
 </section>
 
-<section class="sec sec-soft sec-loose field" id="what-we-offer">
+<section class="sec sec-soft sec-loose solid" id="what-we-offer">
   <div class="wrap">
     <div class="sec-head rv">
       <h2>${esc(v.suiteH)}</h2>
@@ -170,7 +170,7 @@ function build(d) {
   </div>
 </section>
 
-<section class="sec sec-soft field" id="why-hcp">
+<section class="sec sec-soft solid" id="why-hcp">
   <div class="wrap">
     <div class="sec-head rv">
       <h2>${esc(v.diffH)}</h2>
@@ -203,7 +203,7 @@ function build(d) {
   </div>
 </section>
 
-<section class="sec sec-soft field" id="faq">
+<section class="sec sec-soft solid" id="faq">
   <div class="narrow">
     <div class="sec-head rv"><h2>The questions we get asked first</h2></div>
     <div class="faqs rv">
@@ -215,7 +215,7 @@ function build(d) {
   </div>
 </section>
 
-<section class="close field" id="start">
+<section class="close" id="start">
   <div class="wrap sec">
     <div class="lead-grid">
       <div class="rv">

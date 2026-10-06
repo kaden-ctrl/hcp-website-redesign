@@ -109,7 +109,7 @@ const signature = {
   </div>
 </section>
 
-<section class="sec sec-soft field" id="seven-elements">
+<section class="sec sec-soft solid" id="seven-elements">
   <div class="wrap">
     <div class="sec-head rv">
       <h2>The seven elements, as a sequence</h2>
@@ -136,7 +136,7 @@ const signature = {
   </div>
 </section>
 
-<section class="sec sec-soft field" id="cycle">
+<section class="sec sec-soft solid" id="cycle">
   <div class="wrap">
     <div class="sec-head rv">
       <h2>Every quarter. Not every year.</h2>
@@ -174,7 +174,7 @@ const signature = {
 
   // FCO reads as an engagement: a timeline, then the role itself.
   fco: (p, d) => `
-<section class="sec sec-loose field" id="what-it-is">
+<section class="sec sec-loose solid" id="what-it-is">
   <div class="wrap">
     <div class="sec-head rv">
       <h2>How the engagement runs</h2>
@@ -209,7 +209,7 @@ const signature = {
 
   // DILIGENCE reads as a transaction: three stages across a deal.
   diligence: (p, d) => `
-<section class="sec sec-loose field" id="what-it-is">
+<section class="sec sec-loose solid" id="what-it-is">
   <div class="wrap">
     <div class="sec-head rv">
       <h2>Where the work sits in a deal</h2>
@@ -283,7 +283,7 @@ function build(p) {
 
 ${signature[p.key](p, d)}
 
-<section class="sec field" id="why-hcp">
+<section class="sec solid" id="why-hcp">
   <div class="wrap">
     <div class="sec-head rv"><h2>Why ${esc(p.name)} rather than a point tool</h2></div>
     <ul class="whygrid rv">
@@ -306,7 +306,7 @@ ${signature[p.key](p, d)}
   </div>
 </section>
 
-<section class="sec field" id="rest-of-suite">
+<section class="sec solid" id="rest-of-suite">
   <div class="wrap">
     <div class="sec-head rv"><h2>The rest of the suite</h2></div>
     <ul class="siblings rv">
@@ -331,7 +331,7 @@ ${signature[p.key](p, d)}
   </div>
 </section>
 
-<section class="close field" id="start">
+<section class="close" id="start">
   <div class="wrap sec">
     <div class="lead-grid">
       <div class="rv">

@@ -88,14 +88,29 @@ a.visually-hidden:focus{position:fixed;top:.75rem;left:.75rem;z-index:200;
   padding:.8rem 1.2rem;border-radius:8px;box-shadow:var(--sh-lg);text-decoration:none}
 :focus-visible{outline:3px solid var(--lime);outline-offset:2px}
 
-/* ---- The wireframe ground -------------------------------------------
-   The deck's dark pages carry a faint field of thin curved lines. Drawn
-   as an inline SVG so it costs no request, and kept far enough back that
-   it reads as texture rather than pattern. */
+/* ---- Surface rhythm ---------------------------------------------------
+   Two ground treatments, alternated deliberately rather than applied
+   everywhere. Texture on every section is just noise: the eye needs plain
+   stretches to rest on, and the pattern only reads as intentional when
+   something sits next to it that is plainly without it.
+
+   .field  a fine dot grid. Small enough that it reads as surface rather
+           than as pattern, and it sits behind content at z-index -1.
+   .solid  a flat, opaque panel. No dots, and opaque so the page-level
+           aurora does not bleed through either. These are the breaks. */
 .field{position:relative;isolation:isolate}
-.field::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:.5;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='560' height='560' viewBox='0 0 560 560'%3E%3Cg fill='none' stroke='%23ffffff' stroke-opacity='.06' stroke-width='1'%3E%3Cpath d='M-60 300C80 160 220 120 380 190S640 380 700 300'/%3E%3Cpath d='M-60 360C80 220 220 180 380 250S640 440 700 360'/%3E%3Cpath d='M-60 240C80 100 220 60 380 130S640 320 700 240'/%3E%3Cpath d='M-60 420C80 280 220 240 380 310S640 500 700 420'/%3E%3Cpath d='M-60 180C80 40 220 0 380 70S640 260 700 180'/%3E%3Cpath d='M120 -60C180 120 140 300 40 420S-40 620 20 700'/%3E%3Cpath d='M300 -60C360 120 320 300 220 420S140 620 200 700'/%3E%3Cpath d='M480 -60C540 120 500 300 400 420S320 620 380 700'/%3E%3C/g%3E%3C/svg%3E");
-  background-size:560px 560px}
+.field::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background-image:radial-gradient(rgba(255,255,255,.075) 1px,transparent 1px);
+  background-size:26px 26px;
+  /* Fades at the edges so a section never ends on a hard crop of the grid. */
+  -webkit-mask-image:linear-gradient(180deg,transparent,#000 12%,#000 88%,transparent);
+  mask-image:linear-gradient(180deg,transparent,#000 12%,#000 88%,transparent)}
+
+.solid{position:relative;background:var(--navy);isolation:isolate}
+.solid.sec-soft{background:var(--navy-soft)}
+/* A hairline where a solid section meets a textured one, so the change of
+   ground reads as a deliberate edge rather than as a loading artefact. */
+.solid + .field,.field + .solid{border-top:1px solid var(--line-soft)}
 
 /* ---- Buttons ---- */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;
@@ -228,7 +243,9 @@ a.visually-hidden:focus{position:fixed;top:.75rem;left:.75rem;z-index:200;
 .orbit-node.w2 .dot{background:#64a2da;box-shadow:0 0 10px #64a2da}
 .orbit-tick{position:absolute;top:-26px;left:50%;transform:translateX(-50%);margin:0;
   font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.62rem;letter-spacing:.1em;
-  color:rgba(255,255,255,.38);white-space:nowrap}
+  /* Decorative and inside an aria-hidden block, so WCAG does not require it,
+   but a sighted reader still reads it: 3.49:1 was too faint. */
+  color:rgba(255,255,255,.52);white-space:nowrap}
 @keyframes spin{to{transform:rotate(360deg)}}
 @keyframes spin-rev{to{transform:rotate(-360deg)}}
 
