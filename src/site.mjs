@@ -330,3 +330,96 @@ export const risks = [
   { tag: 'Transaction risk',
     body: 'For private equity sponsors, pre-existing billing liability survives acquisition. The DOJ has held buyers liable for compliance failures they inherited but failed to identify in diligence, a gap that can derail a close or invalidate representations and warranties insurance.' }
 ];
+
+
+/* ---------------------------------------------------------------
+   Product page detail, taken from the live site:
+     SHIELD  /compliance-solution/
+     SENTRY  /coding-compliance/
+     FCO     /fractional-compliance-officer/
+   DILIGENCE is not on the live site; its detail comes from the deck.
+   --------------------------------------------------------------- */
+
+export const productDetail = {
+  shield: {
+    lede: 'Your whole compliance program in one system, so the evidence exists before anybody asks for it.',
+    groups: [
+      { name: 'HIPAA Privacy and Security', items: [
+        ['Security Risk Analysis', 'A full assessment with expert guidance and a tailored action plan, not a questionnaire that produces a PDF.'],
+        ['Business Associate Agreements', 'Agreements tracked, compliance monitored and renewals managed, so a lapsed BAA does not surface during an investigation.'],
+        ['Incident management', 'Online tools, expert support and step-by-step guidance from the moment something is reported.'],
+        ['HIPAA assessment', 'A virtual walkthrough that documents vulnerabilities in the way an investigator would look for them.']
+      ]},
+      { name: 'OSHA', items: [
+        ['Hazard risk assessment', 'Identifies the risks in your setting and specifies the protective equipment each one calls for.'],
+        ['Virtual SDS binder', 'Every Safety Data Sheet in one place, available to download and print.'],
+        ['Self-guided inspection', 'Simulates the real inspection so the gaps are found by you rather than by an inspector.']
+      ]},
+      { name: 'Corporate compliance', items: [
+        ['Compliance hotline', 'Anonymous reporting, online and toll-free.'],
+        ['Exclusion monitoring', 'Screened monthly against the LEIE, SAM and state Medicaid lists.'],
+        ['Committee meetings', 'Scheduling and documentation automated, so the minutes exist without anybody chasing them.']
+      ]},
+      { name: 'Learning management', items: [
+        ['130+ course titles', 'With CME and CEU credit available.'],
+        ['Automatic assignment', 'Roles mapped to the right training, with reminders that escalate.'],
+        ['Custom courses', 'Your own material delivered alongside the library.'],
+        ['Certificates', 'Personalised, stored against each person as they complete.']
+      ]}
+    ],
+    elements: true
+  },
+  sentry: {
+    lede: 'Claims data turned into intelligence, every quarter, so a downcoding pattern is found in the quarter it begins.',
+    groups: [
+      { name: 'What the analytics look for', items: [
+        ['Provider outliers', 'Billing profiles that sit outside expected utilisation for the specialty.'],
+        ['Revenue at risk', 'The estimated exposure tied to coding or billing activity outside expected patterns.'],
+        ['Revenue leakage', 'Work performed but billed below the level it qualified for.'],
+        ['Denial and downcoding patterns', 'Where payer behaviour suggests reimbursement is being quietly suppressed.']
+      ]},
+      { name: 'The quarterly cycle', items: [
+        ['Analytics, every quarter', 'Run across every provider in all four quarters, not once a year.'],
+        ['Audits on rotation', 'Providers grouped and audited in turn, with re-checks in the third and fourth quarters.'],
+        ['Guidance', 'Baseline guidance in the first quarter, then targeted at the highest-risk providers.'],
+        ['Benchmarks', 'Compared against national benchmarks for your specialty.']
+      ]},
+      { name: 'What you receive', items: [
+        ['Summary dashboard', 'Overall risk scoring across the organisation.'],
+        ['Quarterly analytics report', 'The full picture, broken down by provider.'],
+        ['Targeted audit findings', 'Charts selected by the data rather than at random.'],
+        ['Provider-specific guidance', 'Education built from your own findings, not generic coding advice.']
+      ]}
+    ]
+  },
+  fco: {
+    lede: 'A dedicated team of compliance professionals on call, without carrying the role as a full-time hire.',
+    groups: [
+      { name: 'What your officer does', items: [
+        ['Primary compliance liaison', 'For your staff, for third parties and for government agencies.'],
+        ['Audit and investigation response', 'Including the corrective action that follows.'],
+        ['Reporting channels', 'Retaliation-free, including hotline submissions.'],
+        ['HR coordination', 'On the state-specific regulations that differ from the federal baseline.'],
+        ['Billing and coding review', 'Procedures reviewed, with recommendations.'],
+        ['Programme alignment', 'HIPAA, OSHA and corporate compliance kept in step with each other.']
+      ]},
+      { name: 'How the engagement runs', items: [
+        ['Committee cadence', 'Monthly for the first six months, quarterly after that.'],
+        ['Up to ten hours a month', 'Of dedicated support, with additional hours available at $300 per hour.'],
+        ['Scalable', 'Sized to the organisation, for a long-term partnership or interim cover.']
+      ]}
+    ]
+  },
+  diligence: {
+    lede: 'Transaction-grade review of the billing, written for the deal room rather than for the file.',
+    groups: [
+      { name: 'What the review covers', items: [
+        ['12 to 24 months of claims data', 'Reviewed rather than sampled.'],
+        ['CPC-certified coding specialists', 'Reading the charts, not a model inferring from them.'],
+        ['Deal-room ready findings report', 'Structured for the people who will negotiate against it.'],
+        ['RWI underwriter documentation', 'In the form representations and warranties insurers expect.'],
+        ['Post-close remediation roadmap', 'So a finding becomes a plan rather than a surprise.']
+      ]}
+    ]
+  }
+};
