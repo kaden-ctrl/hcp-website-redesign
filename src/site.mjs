@@ -55,46 +55,6 @@ export const palette = {
 };
 
 // Primary navigation. `mega` renders a multi-column dropdown.
-export const nav = [
-  {
-    label: 'Solutions',
-    href: '/compliance-solution/',
-    items: [
-      { label: 'SHIELD Compliance Solution', href: '/compliance-solution/' },
-      { label: 'HIPAA Compliance', href: '/compliance-solution/hipaa/' },
-      { label: 'OSHA Compliance', href: '/compliance-solution/osha/' },
-      { label: 'Corporate Compliance', href: '/compliance-solution/corporate-compliance/' },
-      { label: 'SENTRY Coding Intelligence', href: '/coding-compliance/' },
-      { label: 'Learning Management System', href: '/compliance-solution/lms/' },
-      { label: 'Fractional Compliance Officer', href: '/fractional-compliance-officer/' }
-    ]
-  },
-  { label: 'Specialties', href: '/specialties/' },
-  {
-    label: 'News & Events',
-    href: '/blog/',
-    items: [
-      { label: 'Blog', href: '/blog/' },
-      { label: 'Events', href: '/events/' },
-      { label: 'Podcasts', href: '/podcasts/' },
-      { label: 'Webinars', href: '/webinars/' },
-      { label: 'FAQ', href: '/tips-faqs/' }
-    ]
-  },
-  {
-    label: 'About',
-    href: '/about/',
-    items: [
-      { label: 'Our Team', href: '/our-team/' },
-      { label: 'About Us', href: '/about/' },
-      { label: 'Partners', href: '/partners/' },
-      { label: 'Testimonials', href: '/testimonials/' },
-      { label: 'Careers', href: '/careers/' }
-    ]
-  },
-  { label: 'Contact', href: '/contact/' }
-];
-
 export const footerNav = [
   {
     heading: 'Compliance Solutions',
@@ -533,4 +493,51 @@ export const modules = [
     ],
     why: 'Training nobody logged is indistinguishable, to an investigator, from training that never happened.'
   }
+];
+
+/* Nav labels are read off the same records that title the pages they open,
+   because the hand-typed copies had already drifted: the menu said
+   "HIPAA Compliance" while the page behind it was headed "HIPAA compliance".
+   Products carry their kind the way their <title> does; modules are already
+   whole phrases. checkNav in build.mjs fails the build if a label and its
+   page part ways on case again. */
+const prod = (k) => { const p = suite.find((x) => x.key === k);
+  return { label: `${p.name}: ${p.kind}`, href: p.href }; };
+const mod = (k) => { const m = modules.find((x) => x.key === k);
+  return { label: m.name, href: m.href }; };
+
+export const nav = [
+  {
+    label: 'Solutions',
+    href: '/compliance-solution/',
+    items: [
+      prod('shield'),
+      mod('hipaa'), mod('osha'), mod('corporate'), mod('lms'),
+      prod('sentry'), prod('fco'), prod('diligence')
+    ]
+  },
+  { label: 'Specialties', href: '/specialties/' },
+  {
+    label: 'News & Events',
+    href: '/blog/',
+    items: [
+      { label: 'Blog', href: '/blog/' },
+      { label: 'Events', href: '/events/' },
+      { label: 'Podcasts', href: '/podcasts/' },
+      { label: 'Webinars', href: '/webinars/' },
+      { label: 'FAQ', href: '/tips-faqs/' }
+    ]
+  },
+  {
+    label: 'About',
+    href: '/about/',
+    items: [
+      { label: 'Our Team', href: '/our-team/' },
+      { label: 'About Us', href: '/about/' },
+      { label: 'Partners', href: '/partners/' },
+      { label: 'Testimonials', href: '/testimonials/' },
+      { label: 'Careers', href: '/careers/' }
+    ]
+  },
+  { label: 'Contact', href: '/contact/' }
 ];

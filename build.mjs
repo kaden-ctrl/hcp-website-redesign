@@ -13,7 +13,7 @@ import { createHash } from 'node:crypto';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { renderPage, esc } from './src/layout.mjs';
-import { site } from './src/site.mjs';
+import { site, nav } from './src/site.mjs';
 
 const root = path.dirname(fileURLToPath(import.meta.url));
 const dist = path.join(root, 'dist');
@@ -48,6 +48,31 @@ function textOf(html) {
     .replace(/&[a-z#0-9]+;/gi, ' ')
     .replace(/\s+/g, ' ')
     .trim();
+}
+
+/* Nav labels against the pages they actually open. Only case drift fails:
+   the menu read "HIPAA Compliance" over a page headed "HIPAA compliance",
+   which is invisible in review and obvious to a visitor. Labels that differ
+   in wording are deliberate -- "Blog" opens "Compliance Insider" -- so
+   matching on words would fail honest entries and get switched off, which
+   is how a guard stops being worth having. */
+function checkNav(pages) {
+  const byPath = new Map(pages.map((p) => [p.path, p]));
+  const leaves = nav.flatMap((m) => [
+    ...(m.items || []),
+    ...(m.columns || []).flatMap((c) => c.links || [])
+  ]);
+  const errs = [];
+  for (const { label, href } of leaves) {
+    const page = byPath.get(href);
+    if (!page) continue;                 // dead routes are a separate gap
+    const h1 = (page.body.match(/<h1[^>]*>([\s\S]*?)<\/h1>/) || [])[1];
+    const names = [h1 && h1.replace(/<[^>]+>/g, '').trim(),
+                   page.title.split('|')[0].trim()].filter(Boolean);
+    const drift = names.find((n) => n.toLowerCase() === label.toLowerCase() && n !== label);
+    if (drift) errs.push(`nav "${label}" vs page "${drift}"  ${href}`);
+  }
+  return errs;
 }
 
 function checkPage(page, html, allCss = '') {
@@ -369,6 +394,13 @@ async function build() {
     }
   }
 
+  const navErrs = checkNav(pages);
+  if (navErrs.length) {
+    failures += navErrs.length;
+    console.error('\n  FAIL nav labels drifted from their pages');
+    navErrs.forEach((e) => console.error(`       ${e}`));
+  }
+
   // root-level files
   await writeFile(path.join(dist, 'sitemap.xml'), sitemapXml(pages));
   await writeFile(path.join(dist, 'robots.txt'), robotsTxt());
@@ -388,7 +420,7 @@ async function build() {
     console.error(`\n  BUILD FAILED: ${failures} audit violation(s)\n`);
     process.exit(1);
   }
-  console.log('  All 12 audit checks passed on every page.\n');
+  console.log('  All 13 audit checks passed on every page.\n');
   return report;
 }
 

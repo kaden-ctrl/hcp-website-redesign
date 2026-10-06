@@ -266,7 +266,18 @@ function header() {
   <div class="mobile-nav" id="mobile-nav" hidden>
     <div class="wrap">
       <nav aria-label="Mobile"><ul class="mnav">
-        ${nav.map((m) => `<li><a href="${m.href}">${esc(m.label)}</a></li>`).join('')}
+        ${nav.map((m) => {
+          /* The sub-items have to come down to mobile too. Rendering top level
+             only left the four SHIELD modules, SENTRY, FCO and DILIGENCE with
+             no route in from a phone: eight pages that existed and could not
+             be reached. */
+          const subs = [...(m.items || []),
+                        ...(m.columns || []).flatMap((c) => c.links || [])];
+          return `<li><a href="${m.href}">${esc(m.label)}</a>${subs.length
+            ? `<ul class="mnav-sub">${subs.map((l) =>
+                `<li><a href="${l.href}">${esc(l.label)}</a></li>`).join('')}</ul>`
+            : ''}</li>`;
+        }).join('')}
       </ul></nav>
       <p class="mnav-cta">
         <a class="btn btn-primary" href="#start">Free compliance review</a>

@@ -297,13 +297,16 @@
 .mnav{list-style:none;margin:0 0 1.1rem;padding:0}
 .mnav li{border-bottom:1px solid rgba(5,31,51,.09)}
 .mnav a{display:block;padding:.9rem .2rem;font-family:var(--head);font-weight:700;color:var(--ink);text-decoration:none}
+.mnav-sub{list-style:none;margin:0 0 .55rem;padding:0 0 0 .9rem}
+.mnav-sub li{border:0}
+.mnav-sub a{padding:.5rem .2rem;font-family:var(--body);font-weight:500;font-size:.92rem;color:var(--ink-soft)}
 .mnav-cta{display:grid;gap:.6rem;margin:0}
 .burger[aria-expanded=true] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
 .burger[aria-expanded=true] span:nth-child(2){opacity:0}
 .burger[aria-expanded=true] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 
 /* ---- Desktop dropdowns ---- */
-.nav .menu{position:absolute;top:calc(100% + 2px);left:0;min-width:268px;background:#fff;
+.nav .menu{position:absolute;top:calc(100% + 2px);left:0;min-width:306px;background:#fff;
   border:1px solid rgba(5,31,51,.1);border-radius:var(--r);box-shadow:0 20px 48px rgba(5,31,51,.2);
   padding:.55rem;margin:0;list-style:none;
   opacity:0;visibility:hidden;transform:translateY(6px);
@@ -317,7 +320,7 @@
    not cross dead space and trip the close. */
 .nav li.open>.menu::before{content:"";position:absolute;left:0;right:0;top:-8px;height:8px}
 .nav .menu li{list-style:none}
-.nav .menu a{display:block;padding:.58rem .75rem;font-weight:600;font-size:.9rem;
+.nav .menu a{display:block;padding:.58rem .75rem;font-weight:600;font-size:.9rem;white-space:nowrap;
   white-space:nowrap;border-radius:7px;color:var(--ink);text-decoration:none}
 .nav .menu a:hover{background:rgba(31,78,121,.08);color:var(--navy-tile)}
 .nav .menu-wide{display:grid;grid-template-columns:repeat(3,minmax(184px,1fr));gap:.2rem 1rem;
