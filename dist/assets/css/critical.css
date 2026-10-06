@@ -14,19 +14,23 @@
 --lime:#a3c739;--lime-bright:#b8d95a;--lime-deep:#8aac2b;
 --lime-tint:rgba(163,199,57,.14);
 /* Light surfaces */
---card:#f4f4f4;--card-pure:#fff;
---ink:#10202c;--ink-soft:#48586a;
+/* Option C: a light panel carrying the brand navy, so cards belong to the
+   page rather than sitting on top of it as flat near-white. */
+--card:#e8eef4;--card-pure:#eff4f8;
+--ink:#0f1f2b;--ink-soft:#44566a;
 /* #6b7c8d measured 3.90:1 on the #f4f4f4 cards, under the 4.5 needed for
    body text. #5d6b7c is 4.95:1 and still reads as muted. */
---ink-mute:#5d6b7c;
+--ink-mute:#59697b;
 /* The brand lime is 2.38:1 on a light card, so it cannot carry small text
    there. This is the darkened version for labels on light surfaces: 4.77:1.
    --lime itself stays untouched for the dark ground, where it is 8.63:1. */
---green-ink:#5f741b;
+/* 4.49:1 on the cool-tint surface, a hair under the 4.5 needed. Darkened
+   one step to 4.81. */
+--green-ink:#586b17;
 /* Type on the dark ground */
 --on-dark:#fff;--on-dark-soft:#c3d2de;--on-dark-mute:#93a7b8;
 /* Rules */
---line:rgba(255,255,255,.14);--line-soft:rgba(255,255,255,.08);--line-ink:#e0e5ea;
+--line:rgba(255,255,255,.14);--line-soft:rgba(255,255,255,.08);--line-ink:#d4dde6;
 /* Type */
 --head:'Plus Jakarta Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
 --body:Lato,system-ui,-apple-system,'Segoe UI',sans-serif;
