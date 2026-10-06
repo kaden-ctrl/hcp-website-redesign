@@ -475,3 +475,62 @@ export const diligenceStages = [
   { stage: 'Post-close', title: 'A roadmap, not a surprise',
     body: 'Remediation sequenced so a finding becomes a plan. Pre-existing billing liability survives acquisition; the DOJ has held buyers liable for failures they inherited.' }
 ];
+
+
+/* ---------------------------------------------------------------
+   SHIELD's four modules as pages of their own. Detail is from the
+   live site's own compliance-solution page; nothing is invented.
+   --------------------------------------------------------------- */
+export const modules = [
+  {
+    key: 'hipaa', name: 'HIPAA compliance', href: '/compliance-solution/hipaa/',
+    tag: 'Privacy and Security',
+    lede: 'Privacy and Security coverage from the risk analysis through to incident response, with the dated evidence an investigator asks for.',
+    img: '/assets/img/site/prog-hipaa.webp',
+    features: [
+      ['Security Risk Analysis', 'A comprehensive assessment with expert guidance and a tailored action plan. The SRA is the first thing requested in an investigation and the most common thing missing.'],
+      ['Business Associate Agreements', 'Agreements tracked, compliance monitored and renewals managed, so a lapsed BAA is not discovered by somebody else.'],
+      ['Incident management', 'Online tools, expert support and detailed guidance from the moment something is reported, aligned to the Breach Notification Rule.'],
+      ['HIPAA assessment', 'A virtual walkthrough that documents vulnerabilities the way an investigator would look for them.']
+    ],
+    why: 'Policies prove you wrote something. They do not prove your risk analysis reflects the systems you run today.'
+  },
+  {
+    key: 'osha', name: 'OSHA compliance', href: '/compliance-solution/osha/',
+    tag: 'Workplace safety',
+    lede: 'Workplace safety built for clinical environments rather than issued as a generic template.',
+    img: '/assets/img/site/prog-osha.webp',
+    features: [
+      ['Hazard risk assessment', 'Identifies the risks present in your setting and specifies the protective equipment each one calls for.'],
+      ['Virtual SDS binder', 'Centralised access to every Safety Data Sheet, available to download and to print.'],
+      ['Self-guided inspection', 'Simulates the official inspection, so the gaps are found by you rather than by an inspector.']
+    ],
+    why: 'A binder nobody can find during an inspection is the same as no binder at all.'
+  },
+  {
+    key: 'corporate', name: 'Corporate compliance', href: '/compliance-solution/corporate-compliance/',
+    tag: 'The seven elements',
+    lede: 'The seven elements of an effective compliance program, maintained rather than written once and filed.',
+    img: '/assets/img/site/about-2.webp',
+    features: [
+      ['Compliance hotline', 'Anonymous reporting, available online and on a toll-free number, so a concern has somewhere to go that is not a manager.'],
+      ['Exclusion monitoring', 'Screened monthly against the LEIE, SAM and state Medicaid lists. Employing an excluded individual is a per-claim liability.'],
+      ['Compliance committee meetings', 'Scheduling and documentation automated, so the minutes exist without anybody chasing them.']
+    ],
+    why: 'The OIG does not ask whether you intended to run a program. It asks for the records the program produced.'
+  },
+  {
+    key: 'lms', name: 'Learning management', href: '/compliance-solution/lms/',
+    tag: 'Training and education',
+    lede: 'More than 130 course titles, assigned by role, with completion tracked for every employee.',
+    img: '/assets/img/site/prog-lms.webp',
+    features: [
+      ['130+ course titles', 'With CME and CEU credit available, covering HIPAA, OSHA, corporate compliance and the specialty material around them.'],
+      ['Automatic assignment', 'Roles mapped to the right training, with reminders that escalate rather than arriving once and expiring.'],
+      ['Custom course creation', 'Your own material delivered through the same system, so staff have one place to go.'],
+      ['Interactive assessments', 'Completion that means something, rather than a page somebody scrolled past.'],
+      ['Personalised certificates', 'Issued and stored against each person as they complete, so the evidence assembles itself.']
+    ],
+    why: 'Training nobody logged is indistinguishable, to an investigator, from training that never happened.'
+  }
+];

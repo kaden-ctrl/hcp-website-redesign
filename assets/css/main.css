@@ -752,3 +752,76 @@
 .steps-line span{font-family:var(--head);font-weight:800;font-size:1rem;color:var(--lime)}
 .steps-line p{margin:0;color:var(--on-dark-soft);line-height:1.6}
 @media (max-width:720px){.steps-line li{grid-template-columns:1fr;gap:.4rem}}
+
+/* ===== SHIELD module pages ============================================ */
+.modfeat{list-style:none;margin:0;padding:0;display:grid;gap:0;border-top:1px solid var(--line)}
+.modfeat li{display:grid;grid-template-columns:3.5rem 1fr;gap:1.4rem;padding:1.6rem 0;
+  border-bottom:1px solid var(--line);align-items:start}
+.modfeat-n{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.8rem;color:var(--lime);padding-top:.3rem}
+.modfeat b{display:block;font-family:var(--head);font-weight:800;font-size:1.2rem;color:var(--on-dark);margin-bottom:.4rem}
+.modfeat p{margin:0;color:var(--on-dark-soft);line-height:1.6;max-width:62ch}
+@media (max-width:620px){.modfeat li{grid-template-columns:1fr;gap:.5rem}}
+
+.modsibs{list-style:none;margin:0;padding:0;display:grid;gap:1rem;grid-template-columns:repeat(3,1fr)}
+.modsibs a{display:block;padding:1.3rem 1.4rem;border:1px solid var(--line);border-radius:var(--r-lg);
+  text-decoration:none;transition:border-color .2s,background .2s,transform .2s}
+.modsibs a:hover{border-color:var(--lime);background:rgba(163,199,57,.06);transform:translateY(-3px)}
+.modsibs b{display:block;font-family:var(--head);font-weight:800;font-size:1.1rem;color:var(--on-dark)}
+.modsibs span{display:block;font-size:.88rem;color:var(--on-dark-mute);margin-top:.25rem}
+@media (max-width:820px){.modsibs{grid-template-columns:1fr}}
+
+/* ===== Blog ============================================================ */
+.postyear{margin-bottom:clamp(2.4rem,2rem + 1.6vw,3.4rem)}
+.postyear h2{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.86rem;font-weight:400;
+  letter-spacing:.14em;color:var(--lime);margin-bottom:1rem;padding-bottom:.7rem;
+  border-bottom:1px solid var(--line)}
+.postlist{list-style:none;margin:0;padding:0;display:grid;gap:0}
+.postlist a{display:grid;grid-template-columns:7.5rem 1fr;gap:1.4rem;align-items:baseline;
+  padding:1.15rem .6rem 1.15rem 0;border-bottom:1px solid var(--line-soft);text-decoration:none;
+  transition:background .2s,padding-left .2s}
+.postlist a:hover{background:rgba(163,199,57,.06);padding-left:.6rem}
+.postlist time{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.78rem;
+  color:var(--on-dark-mute);white-space:nowrap}
+.postlist b{display:block;font-family:var(--head);font-weight:700;font-size:1.06rem;color:var(--on-dark);
+  line-height:1.35}
+.postlist span{display:block;margin-top:.3rem;font-size:.93rem;color:var(--on-dark-mute);line-height:1.5}
+@media (max-width:640px){.postlist a{grid-template-columns:1fr;gap:.3rem}}
+
+.posthead{padding:clamp(3rem,2.4rem + 3vw,5rem) 0 clamp(1.6rem,1.2rem + 1.6vw,2.4rem)}
+.post-kicker{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.78rem;
+  letter-spacing:.1em;color:var(--on-dark-mute);margin:0 0 1.2rem}
+.post-kicker a{color:var(--lime);text-decoration:none}
+.posthead h1{font-size:clamp(1.9rem,1.4rem + 2.4vw,3.1rem);line-height:1.1;margin-bottom:.6rem}
+.post-standfirst{font-size:clamp(1.05rem,1rem + .5vw,1.3rem);color:var(--on-dark-soft);
+  line-height:1.55;margin:0;max-width:60ch}
+
+/* Migrated CMS body. Deliberately plain: the markup varies across fifteen
+   years of posts, so this styles the tags rather than assuming a shape. */
+.prose{color:var(--on-dark-soft);font-size:1.05rem;line-height:1.75}
+.prose>*{max-width:68ch}
+.prose h2,.prose h3,.prose h4{color:var(--on-dark);margin:2.2rem 0 .7rem}
+.prose h2{font-size:clamp(1.3rem,1.15rem + .8vw,1.7rem)}
+.prose h3{font-size:1.18rem}
+.prose h4{font-size:1.05rem}
+.prose p{margin:0 0 1.2rem}
+.prose a{color:var(--lime);text-decoration:underline;text-underline-offset:3px}
+.prose ul,.prose ol{margin:0 0 1.4rem;padding-left:1.3rem;display:grid;gap:.5rem}
+.prose li{line-height:1.65}
+.prose strong,.prose b{color:var(--on-dark);font-weight:700}
+.prose blockquote{margin:1.6rem 0;padding-left:1.2rem;border-left:3px solid var(--lime);
+  color:var(--on-dark);font-style:normal}
+.prose hr{border:0;border-top:1px solid var(--line);margin:2.2rem 0}
+.prose table{width:100%;border-collapse:collapse;margin:0 0 1.6rem;font-size:.95rem;max-width:none}
+.prose th,.prose td{text-align:left;padding:.7rem .9rem;border-bottom:1px solid var(--line);vertical-align:top}
+.prose th{font-family:var(--head);font-weight:800;color:var(--on-dark);font-size:.8rem;
+  letter-spacing:.06em;text-transform:uppercase}
+
+.postnav{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem}
+.postnav a{display:block;padding:1.2rem 1.3rem;border:1px solid var(--line);border-radius:var(--r-lg);
+  text-decoration:none;transition:border-color .2s,background .2s}
+.postnav a:hover{border-color:var(--lime);background:rgba(163,199,57,.06)}
+.postnav-next{text-align:right}
+.postnav span{display:block;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.72rem;
+  letter-spacing:.1em;color:var(--lime);margin-bottom:.4rem}
+.postnav b{display:block;font-family:var(--head);font-weight:700;font-size:.99rem;color:var(--on-dark);line-height:1.35}
+@media (max-width:700px){.postnav{grid-template-columns:1fr}.postnav-next{text-align:left}}
