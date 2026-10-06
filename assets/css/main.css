@@ -431,3 +431,72 @@
 .about-team h3{font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--lime);
   margin-bottom:1.3rem}
 @media (max-width:880px){.about-grid{grid-template-columns:1fr}}
+
+/* ---- Welcome picker --------------------------------------------------
+   Dark panel on a dimmed ground, matching the deck's surface treatment:
+   a lifted navy card, hairline border, lime accents used sparingly. ---- */
+.picker[hidden]{display:none}
+.picker{position:fixed;inset:0;z-index:300;display:grid;place-items:center;padding:clamp(1rem,.6rem + 2vw,2.5rem)}
+.picker-dim{position:absolute;inset:0;background:rgba(2,10,17,.78);backdrop-filter:blur(3px)}
+.picker-panel{position:relative;width:min(960px,100%);max-height:calc(100dvh - 3rem);overflow:auto;
+  background:linear-gradient(165deg,#0d2b44,#071f33);border:1px solid rgba(255,255,255,.14);
+  border-radius:22px;padding:clamp(1.6rem,1.2rem + 2.4vw,3rem);box-shadow:0 40px 100px rgba(0,0,0,.6);
+  animation:picker-in .34s cubic-bezier(.16,.84,.44,1) both}
+@keyframes picker-in{from{opacity:0;transform:translateY(16px) scale(.985)}to{opacity:1;transform:none}}
+
+.picker-eyebrow{font-family:var(--head);font-weight:800;font-size:.78rem;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--lime);margin:0 0 .9rem}
+.picker-panel h2{font-size:clamp(1.8rem,1.3rem + 2.2vw,2.9rem);margin:0 0 .5rem}
+.picker-sub{color:var(--on-dark-soft);font-size:1.05rem;margin:0 0 1.9rem}
+
+.picker-grid{list-style:none;margin:0 0 1.9rem;padding:0;display:grid;gap:.75rem;
+  grid-template-columns:repeat(3,1fr)}
+.picker-grid a{display:flex;align-items:center;min-height:52px;padding:.8rem 1.1rem;
+  background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.14);border-radius:11px;
+  color:var(--on-dark);font-family:var(--head);font-weight:700;font-size:1rem;text-decoration:none;
+  transition:background .2s,border-color .2s,transform .2s}
+.picker-grid a:hover{background:rgba(163,199,57,.1);border-color:var(--lime);transform:translateY(-2px)}
+
+.picker-skip{display:inline-block;color:var(--on-dark-soft);font-size:1rem;
+  text-decoration:underline;text-underline-offset:4px;padding:.3rem 0}
+.picker-skip:hover{color:var(--lime)}
+
+.picker-x{position:absolute;top:clamp(1.1rem,.8rem + 1vw,1.8rem);right:clamp(1.1rem,.8rem + 1vw,1.8rem);
+  width:42px;height:42px;display:inline-flex;align-items:center;justify-content:center;
+  background:transparent;border:1px solid rgba(255,255,255,.22);border-radius:50%;cursor:pointer;
+  color:var(--on-dark);transition:border-color .2s,background .2s}
+.picker-x:hover{border-color:var(--lime);color:var(--lime);background:rgba(163,199,57,.08)}
+.picker-x svg{width:15px;height:15px;fill:currentColor}
+/* The deck's small live indicator. Decorative, so it stops under reduced motion. */
+.picker-pulse{position:absolute;top:calc(clamp(1.1rem,.8rem + 1vw,1.8rem) + 11px);
+  right:calc(clamp(1.1rem,.8rem + 1vw,1.8rem) + 62px);width:9px;height:9px;border-radius:50%;
+  background:var(--lime);box-shadow:0 0 0 6px rgba(163,199,57,.14);animation:pulse 2.4s ease-in-out infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 5px rgba(163,199,57,.12)}50%{box-shadow:0 0 0 10px rgba(163,199,57,.05)}}
+
+@media (max-width:820px){.picker-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:520px){.picker-grid{grid-template-columns:1fr}.picker-panel h2{font-size:1.6rem}}
+@media (prefers-reduced-motion:reduce){
+  .picker-panel{animation:none}
+  .picker-pulse{animation:none}
+}
+
+/* ---- Specialty marquee ----------------------------------------------
+   The deck scrolls this list rather than gridding it. The track holds the
+   list twice and translates exactly -50%, so the seam never shows. Pauses
+   on hover and on focus within, and stops entirely under reduced motion,
+   where it falls back to a normal wrapped list. ---- */
+.marquee{position:relative;overflow:hidden;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);
+  mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+.marquee-track{list-style:none;margin:0;padding:0;display:flex;gap:.7rem;width:max-content;
+  animation:scroll-x 58s linear infinite}
+.marquee:hover .marquee-track,.marquee:focus-within .marquee-track{animation-play-state:paused}
+.marquee-track li{flex:none;background:var(--card);color:var(--ink);border-radius:7px;
+  padding:.65rem 1.1rem;font-size:.9rem;font-weight:700;font-family:var(--head);white-space:nowrap;
+  box-shadow:0 1px 3px rgba(0,0,0,.2)}
+@keyframes scroll-x{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){
+  .marquee{mask-image:none;-webkit-mask-image:none}
+  .marquee-track{animation:none;flex-wrap:wrap;width:auto}
+  .marquee-track li[aria-hidden="true"]{display:none}
+}

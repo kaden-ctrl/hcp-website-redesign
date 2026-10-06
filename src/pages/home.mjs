@@ -1,7 +1,7 @@
 import { icon, img, esc } from '../layout.mjs';
 import {
   site, suite, stats, specialties, markets,
-  differentiators, leadership, testimonials, sevenElements
+  differentiators, leadership, testimonials, sevenElements, directory
 } from '../site.mjs';
 
 /* The page answers three questions in order: what is it, who is it for,
@@ -132,9 +132,14 @@ const body = `
       <p class="spec-lead"><b>30+</b><span>Clinical specialties served nationwide</span></p>
       <p class="sec-lead" style="margin-bottom:1.6rem">Benchmarks, policy sets and training are calibrated
       to the specialty rather than issued generically, which is what makes the findings usable.</p>
-      <ul class="chips">
-        ${specialties.map((s) => `<li>${esc(s)}</li>`).join('')}
-      </ul>
+      <!-- Marquee, as the deck runs it. The list is duplicated so the loop is
+           seamless; the copy is aria-hidden so it is announced once. -->
+      <div class="marquee" aria-label="Clinical specialties served">
+        <ul class="marquee-track">
+          ${specialties.map((s) => `<li>${esc(s)}</li>`).join('')}
+          ${specialties.map((s) => `<li aria-hidden="true">${esc(s)}</li>`).join('')}
+        </ul>
+      </div>
     </div>
   </div>
 </section>
@@ -326,6 +331,29 @@ const body = `
     </div>
   </div>
 </section>
+<!-- Welcome picker. Shown once per visitor, routes them straight to the page
+     built for their setting. Dialog semantics rather than a styled div: it
+     traps focus, closes on Escape and on backdrop click, and restores focus
+     to where the visitor was. Hidden entirely without script, so nothing is
+     blocked behind it. -->
+<div class="picker" id="picker" hidden data-picker>
+  <div class="picker-dim" data-picker-dim></div>
+  <div class="picker-panel" role="dialog" aria-modal="true" aria-labelledby="picker-h" aria-describedby="picker-d">
+    <span class="picker-pulse" aria-hidden="true"></span>
+    <button type="button" class="picker-x" data-picker-close aria-label="Close">
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M18.3 5.7 13.4 12l4.9 6.3-1.6 1.2L12 13.6l-4.7 5.9-1.6-1.2 4.9-6.3-4.9-6.3 1.6-1.2L12 10.4l4.7-5.9z"/></svg>
+    </button>
+    <p class="picker-eyebrow">Welcome to HCP</p>
+    <h2 id="picker-h">What kind of practice are you?</h2>
+    <p class="picker-sub" id="picker-d">Pick your specialty and we will take you straight to the program built for it.</p>
+    <ul class="picker-grid">
+      ${directory.filter((d) => d.kind === 'specialty').map((d) =>
+        `<li><a href="${d.href}">${esc(d.name)}</a></li>`).join('')}
+    </ul>
+    <a class="picker-skip" href="#what-it-is" data-picker-close>I am just exploring. Show me the full overview &rarr;</a>
+  </div>
+</div>
+
 `;
 
 export default {
