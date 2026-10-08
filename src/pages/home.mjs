@@ -184,17 +184,31 @@ const body = `
       piece you are missing.</p>
     </div>
 
-    <ul class="suite rv">
-      ${suite.map((p) => `<li class="prod">
-        <div class="prod-h">
-          <span class="prod-name">${esc(p.name)}</span>
-          <span class="prod-kind">${esc(p.kind)}</span>
+    ${[['defense', 'Defense', 'Protect the program'],
+       ['offense', 'Offense', 'Protect the revenue']].map(([key, label, line]) => {
+      /* The two rows were already the two sides the heading promises; they
+         just never said so. Naming them and inverting offense to the navy
+         tile makes the split land before the reader works it out. */
+      const on = key === 'offense';
+      return `<div class="side rv">
+        <div class="side-head">
+          <span class="side-label${on ? ' side-label-on' : ''}">${label}</span>
+          <span class="side-rule"></span>
+          <span class="side-line">${line}</span>
         </div>
-        <p class="prod-blurb">${esc(p.blurb)}</p>
-        <ul>${p.items.map((i) => `<li>${esc(i)}</li>`).join('')}</ul>
-        <a class="prod-link" href="${p.href}">Explore ${esc(p.name)}</a>
-      </li>`).join('')}
-    </ul>
+        <ul class="suite">
+          ${suite.filter((p) => p.side === key).map((p) => `<li class="prod${on ? ' prod-dark' : ''}">
+            <div class="prod-h">
+              <span class="prod-name">${esc(p.name)}</span>
+              <span class="prod-kind">${esc(p.kind)}</span>
+            </div>
+            <p class="prod-blurb">${esc(p.blurb)}</p>
+            <ul>${p.items.map((i) => `<li>${esc(i)}</li>`).join('')}</ul>
+            <a class="prod-link" href="${p.href}">Explore ${esc(p.name)}</a>
+          </li>`).join('')}
+        </ul>
+      </div>`;
+    }).join('')}
 
     <div class="seven-block rv">
       <div class="showcase">
