@@ -5,7 +5,7 @@
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: geolocation=(), microphone=(), camera=(), interest-cohort=()
   Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
-  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; form-action 'self' mailto:; frame-ancestors 'self'; base-uri 'self'
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'sha256-f8LQrUXP7N+o+UOs8CriT409gc/HJB6NFFzgN37WXbI=' https://analytics.duogroup.com; connect-src 'self' https://analytics.duogroup.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; form-action 'self' mailto:; frame-ancestors 'self'; base-uri 'self'
 
 # Fingerprinted assets are safe to cache forever.
 /assets/css/*
