@@ -56,6 +56,29 @@ function textOf(html) {
    in wording are deliberate -- "Blog" opens "Compliance Insider" -- so
    matching on words would fail honest entries and get switched off, which
    is how a guard stops being worth having. */
+/* Stylesheet structure. A line-based edit to a multi-line rule decapitates
+   it: the declarations survive at top level, the browser hits them during
+   error recovery and silently drops whole rules after them. That shipped
+   once and was invisible in review, because the build was happy and the
+   page still rendered, just wrong. Cheap to check, so check it. */
+function checkCss(name, css) {
+  const errs = [];
+  let depth = 0, line = 0, wentNegative = 0;
+  for (const raw of css.split('\n')) {
+    line++;
+    const t = raw.trim();
+    if (depth === 0 && t && !t.startsWith('/*') && !t.startsWith('*') && !t.startsWith('@')
+        && !t.startsWith('}') && !t.includes('{') && /^[a-z-]+\s*:/i.test(t)) {
+      errs.push(`${name}:${line} declaration at top level (orphaned rule body): ${t.slice(0, 60)}`);
+    }
+    depth += (raw.match(/\{/g) || []).length - (raw.match(/\}/g) || []).length;
+    if (depth < 0 && !wentNegative) { wentNegative = line; depth = 0; }
+  }
+  if (wentNegative) errs.push(`${name}:${wentNegative} unbalanced closing brace`);
+  if (depth !== 0) errs.push(`${name} brace balance ${depth > 0 ? '+' : ''}${depth} (unclosed rule)`);
+  return errs;
+}
+
 function checkNav(pages) {
   const byPath = new Map(pages.map((p) => [p.path, p]));
   const leaves = nav.flatMap((m) => [
@@ -394,6 +417,13 @@ async function build() {
     }
   }
 
+  const cssErrs = [...checkCss('critical.css', criticalCss), ...checkCss('main.css', mainCss)];
+  if (cssErrs.length) {
+    failures += cssErrs.length;
+    console.error('\n  FAIL stylesheet structure');
+    cssErrs.forEach((e) => console.error(`       ${e}`));
+  }
+
   const navErrs = checkNav(pages);
   if (navErrs.length) {
     failures += navErrs.length;
@@ -420,7 +450,7 @@ async function build() {
     console.error(`\n  BUILD FAILED: ${failures} audit violation(s)\n`);
     process.exit(1);
   }
-  console.log('  All 13 audit checks passed on every page.\n');
+  console.log('  All 14 audit checks passed on every page.\n');
   return report;
 }
 

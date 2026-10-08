@@ -157,7 +157,6 @@ const body = `
           <span class="mk-n" aria-hidden="true">${String(i + 1).padStart(2, '0')}</span>
         </div>
         <h3>${esc(m.title)}</h3>
-        <p class="mk-size">${esc(m.n)}</p>
         <p>${esc(m.body)}</p>
       </li>`).join('')}
     </ol>

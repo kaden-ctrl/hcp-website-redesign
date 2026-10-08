@@ -48,27 +48,7 @@
 
 @media (max-width:980px){.ps{grid-template-columns:repeat(2,1fr)}}
 @media (max-width:520px){.ps{grid-template-columns:1fr}}
-
-/* ---- "One system, not five": the scattered stack against the platform.
-   Two panels of deliberately unequal weight, because the argument is that
-   one side replaces the other rather than that they are alternatives. ---- */
-  font-family:var(--head);font-weight:800;color:var(--ink);font-size:.98rem}
-/* These are the tools the platform removes. Line-through was the obvious
-   device and the wrong one: a red rule across five lines of body copy reads
-   as an error state, not as an argument. Each row is now switched off
-   instead, dimmed with a small cross, which says "replaced" without
-   defacing the text. */
-  font-size:.95rem;color:var(--on-dark-mute);border-bottom:1px solid var(--line-soft)}
-  background:rgba(226,112,95,.14);border:1px solid rgba(226,112,95,.4);
-  -webkit-mask:none;position:relative}
-  background:rgba(226,112,95,.9);
-  -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M18.3 5.7 13.4 12l4.9 6.3-1.6 1.2L12 13.6l-4.7 5.9-1.6-1.2 4.9-6.3-4.9-6.3 1.6-1.2L12 10.4l4.7-5.9z'/%3E%3C/svg%3E") center/contain no-repeat;
-  mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M18.3 5.7 13.4 12l4.9 6.3-1.6 1.2L12 13.6l-4.7 5.9-1.6-1.2 4.9-6.3-4.9-6.3 1.6-1.2L12 10.4l4.7-5.9z'/%3E%3C/svg%3E") center/contain no-repeat}
-
-@media (max-width:840px){.split{grid-template-columns:1fr}}
-
 /* Sub-blocks inside the three numbered movements. */
-  border-top:1px solid var(--line)}
 .seven-block{margin-top:clamp(2.8rem,2rem + 2.5vw,4rem);padding-top:clamp(2.2rem,1.6rem + 2vw,3rem);
   border-top:1px solid var(--line)}
 
@@ -129,10 +109,6 @@
 .chips li{background:var(--card);color:var(--ink);border-radius:7px;
   padding:.62rem .85rem;font-size:.88rem;font-weight:700;font-family:var(--head);text-align:center;
   box-shadow:0 1px 3px rgba(0,0,0,.2)}
-/* Centred, not baseline-aligned. Sitting a 1.18rem two-line label on the
-   baseline of a 4.2rem numeral drops it to the numeral's foot, which reads
-   as the label having slipped rather than as a pair. */
-  color:var(--lime);line-height:1;letter-spacing:-.03em}
 
 /* ---- Markets ---- */
 .markets{list-style:none;margin:0;padding:0;display:grid;gap:1.5rem;
@@ -795,8 +771,9 @@
 .recko-lbl-on{color:var(--lime)}
 .strike{list-style:none;margin:0 0 1.1rem;padding:0}
 .strike li{font-family:var(--head);font-weight:700;font-size:clamp(1rem,.95rem + .35vw,1.18rem);
-  color:var(--on-dark-soft);padding:.62rem 0;border-bottom:1px solid var(--line-soft);
-  text-decoration:line-through;text-decoration-color:rgba(163,199,57,.75);text-decoration-thickness:2px;
+  color:var(--on-dark-soft);padding:.5rem 0;border-bottom:1px solid var(--line-soft);
+  line-height:1.25;
+  text-decoration:line-through;text-decoration-color:rgba(163,199,57,.7);text-decoration-thickness:2px;
   /* each one further down the stack is a little harder to find, which is
      the whole complaint the list is making */
   /* The fade stops at .68: a .11 step put the fifth item at 4.29:1, under
@@ -814,26 +791,29 @@
 /* 01 -- figures as a ruled band, not four tiles */
 .figs{list-style:none;margin:clamp(2.6rem,2rem + 2vw,3.6rem) 0 0;padding:0;
   display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line)}
-.figs li{padding:1.5rem 1.4rem 0 0;border-right:1px solid var(--line)}
-.figs li:last-child{border-right:0}
+.figs li{padding:1.5rem 1.6rem 0;border-right:1px solid var(--line)}
+.figs li:first-child{padding-left:0}
+.figs li:last-child{border-right:0;padding-right:0}
 .figs b{display:block;font-family:var(--head);font-weight:800;letter-spacing:-.03em;color:var(--lime);
   font-size:clamp(2.1rem,1.5rem + 2.4vw,3.2rem);line-height:1}
 .figs span{display:block;font-size:.88rem;color:var(--on-dark-soft);margin-top:.45rem;max-width:15rem}
 
 /* 02 -- markets. The numeral sits across the photo edge so three of them
    stop reading as a row of cards. */
-.mk{list-style:none;margin:0;padding:0;display:grid;gap:clamp(1.6rem,1rem + 2.4vw,2.8rem);
-  grid-template-columns:repeat(3,1fr);counter-reset:mk}
-.mk > li{counter-increment:mk;min-width:0}
+.mk{list-style:none;margin:0;padding:0;display:grid;
+  column-gap:clamp(1.6rem,1rem + 2.4vw,2.8rem);row-gap:0;
+  grid-template-columns:repeat(3,1fr);grid-template-rows:auto auto auto}
+/* subgrid, so a title that wraps to two lines in one column does not push
+   that column's body copy out of line with the other two */
+.mk > li{min-width:0;display:grid;grid-row:span 3;grid-template-rows:subgrid;row-gap:0}
 .mk-pic{position:relative;border-radius:var(--r);overflow:visible;margin-bottom:1.5rem}
 .mk-pic img{width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;border-radius:var(--r);display:block}
 .mk-n{position:absolute;left:-.2rem;bottom:-1.05rem;font-family:var(--head);font-weight:800;
   font-size:clamp(2.6rem,2rem + 2.4vw,3.9rem);line-height:.8;letter-spacing:-.04em;
   color:var(--lime);text-shadow:0 3px 14px rgba(3,21,31,.75)}
-.mk h3{margin:0 0 .25rem;font-size:clamp(1.15rem,1.05rem + .5vw,1.4rem);padding-left:2.6rem}
-.mk-size{margin:0 0 .8rem;padding-left:2.6rem;font-family:var(--head);font-weight:800;font-size:.76rem;
-  letter-spacing:.11em;text-transform:uppercase;color:var(--lime)}
-.mk > li > p:last-child{margin:0;font-size:.95rem;line-height:1.62;color:var(--on-dark-soft)}
+.mk h3{margin:0;padding:0 0 .7rem 3rem;align-self:start;
+  font-size:clamp(1.15rem,1.05rem + .5vw,1.4rem);line-height:1.25}
+.mk > li > p{margin:0;padding-left:3rem;font-size:.95rem;line-height:1.62;color:var(--on-dark-soft)}
 
 /* 02 -- one number anchors the specialty run */
 .spec{margin-top:clamp(3rem,2.2rem + 2.6vw,4.4rem);padding-top:clamp(2rem,1.5rem + 2vw,3rem);
@@ -872,20 +852,26 @@
 /* Seven elements -- the numerals were decoration; now they set the rhythm */
 .seven{grid-template-columns:repeat(2,1fr);column-gap:clamp(1.4rem,1rem + 2vw,2.6rem)}
 .seven li{padding:.85rem 0;border-bottom:1px solid var(--line-soft)}
+.seven li:last-child{border-bottom:0}
 .seven li::before{font-size:1.5rem;color:var(--lime);opacity:.9;min-width:2.1rem}
 
 @media (max-width:900px){
   .recko{grid-template-columns:1fr}
   .recko-is{border-left:0;border-top:2px solid var(--lime);padding-left:0;padding-top:1.6rem}
-  .mk,.sub-q{grid-template-columns:1fr}
+  .mk{grid-template-columns:1fr;grid-template-rows:none;row-gap:clamp(1.6rem,1rem + 2.4vw,2.8rem)}
+  .mk > li{grid-row:auto;grid-template-rows:none}
+  .sub-q{grid-template-columns:1fr}
   .figs{grid-template-columns:repeat(2,1fr)}
-  .figs li:nth-child(2n){border-right:0}
+  .figs li:nth-child(2n){border-right:0;padding-right:0}
+  /* whichever cell leads a row loses its left padding, or the column no
+     longer starts on the same edge as everything else on the page */
+  .figs li:nth-child(2n+1){padding-left:0}
   .figs li:nth-child(n+3){border-top:1px solid var(--line);margin-top:1rem}
   .seven{grid-template-columns:1fr}
 }
 @media (max-width:560px){
   .figs{grid-template-columns:1fr}
-  .figs li{border-right:0;border-top:1px solid var(--line);margin-top:0}
+  .figs li{border-right:0;border-top:1px solid var(--line);margin-top:0;padding-left:0;padding-right:0}
   .figs li:first-child{border-top:0}
   .spec-head{flex-direction:column;gap:.4rem}
 }
