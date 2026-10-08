@@ -12,7 +12,7 @@ import { readFile, writeFile, mkdir, rm, cp, readdir } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { renderPage, esc } from './src/layout.mjs';
+import { renderPage, esc, ANALYTICS_INLINE } from './src/layout.mjs';
 import { site, nav } from './src/site.mjs';
 
 const root = path.dirname(fileURLToPath(import.meta.url));
@@ -138,9 +138,21 @@ function checkPage(page, html, allCss = '') {
   if (/onload=/.test(html)) add(6, 'inline onload handler present — blocked by our CSP');
   const headNoNoscript = html.split('</head>')[0].replace(/<noscript>[\s\S]*?<\/noscript>/g, '');
   if (/<link[^>]+stylesheet/.test(headNoNoscript)) add(6, 'render-blocking stylesheet outside <noscript>');
-  const headScripts = (html.split('</head>')[0].match(/<script(?![^>]*type="application\/ld\+json")[^>]*>/g) || [])
-    .filter((s) => !/defer|async/.test(s));
-  if (headScripts.length) add(6, 'render-blocking script in <head>');
+  /* What this is guarding against is a blocking *request*, plus enough
+     synchronous work to delay first paint. A src without defer/async is
+     always both. An inline block makes no request, so it is judged on
+     size alone: the analytics queue stub is 62 bytes and costs nothing,
+     while a real inline bundle in the head would still be caught. */
+  const INLINE_HEAD_BUDGET = 256;
+  const headHtml = html.split('</head>')[0];
+  const tags = [...headHtml.matchAll(/<script(?![^>]*type="application\/ld\+json")([^>]*)>([\s\S]*?)<\/script>/g)];
+  for (const [, attrs, inner] of tags) {
+    if (/\bsrc=/.test(attrs)) {
+      if (!/defer|async/.test(attrs)) add(6, 'render-blocking script request in <head>');
+    } else if (inner.trim().length > INLINE_HEAD_BUDGET) {
+      add(6, `inline script in <head> is ${inner.trim().length} bytes (max ${INLINE_HEAD_BUDGET})`);
+    }
+  }
   if (/<script(?![^>]*(defer|async|application\/ld\+json))[^>]*src=/.test(html))
     add(6, 'external script without defer/async');
 
@@ -436,8 +448,16 @@ async function build() {
   await writeFile(path.join(dist, 'robots.txt'), robotsTxt());
   await writeFile(path.join(dist, 'site.webmanifest'), webmanifest());
   await writeFile(path.join(dist, 'llms.txt'), llmsTxt(pages));
-  const headers = await readFile(path.join(root, 'src/_headers'), 'utf8').catch(() => null);
-  if (headers) await writeFile(path.join(dist, '_headers'), headers);
+  /* The inline analytics stub is allowed by hash rather than by
+     'unsafe-inline', so the hash is computed from the same constant the
+     page renders. Stamp it here and the two cannot drift. */
+  let headers = await readFile(path.join(root, 'src/_headers'), 'utf8').catch(() => null);
+  if (headers) {
+    const saHash = createHash('sha256').update(ANALYTICS_INLINE).digest('base64');
+    headers = headers.replace('__SA_HASH__', `'sha256-${saHash}'`);
+    if (headers.includes('__SA_HASH__')) throw new Error('CSP hash placeholder not substituted');
+    await writeFile(path.join(dist, '_headers'), headers);
+  }
 
   /* summary */
   const avgRatio = report.reduce((a, r) => a + r.ratio, 0) / report.length;

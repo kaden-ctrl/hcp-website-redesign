@@ -222,7 +222,12 @@ function head(page, criticalCss, cssHash) {
 <link rel="sitemap" type="application/xml" href="/sitemap.xml">
 <style>${criticalCss}</style>
 <noscript><link rel="stylesheet" href="/assets/css/main.css?v=${cssHash}"><style>.rv{opacity:1!important;transform:none!important;animation:none!important}</style></noscript>
-<script type="application/ld+json">${buildGraph(page)}</script>`;
+<script type="application/ld+json">${buildGraph(page)}</script>
+<script>${ANALYTICS_INLINE}</script>
+<script defer src="https://analytics.duogroup.com/s.js"
+  data-domain="healthcarecompliancepros.com"
+  data-site-token="pst_86f8358e7bf696cf3e41c449"
+  data-api="https://analytics.duogroup.com/v1/beacons"></script>`;
 }
 
 /* ------------------------------------------------------------------ *
@@ -238,6 +243,13 @@ const logoMark = () =>
 /* Mirrors the menu structure on their existing site. Until the secondary
    pages are built, each item resolves to the matching section on this page
    rather than a dead link. */
+/* Analytics. The stub has to exist before the deferred beacon script runs,
+   or calls made during page load are dropped instead of queued. Exported as
+   one constant because build.mjs hashes exactly these bytes for the CSP:
+   a second copy of the string would drift from the hash and the browser
+   would silently refuse to run it. */
+export const ANALYTICS_INLINE = `window.sa=window.sa||function(){(sa.q=sa.q||[]).push(arguments)}`;
+
 function header() {
   const top = nav.map((m) => {
     if (!m.items && !m.columns) return `<li><a href="${m.href}">${esc(m.label)}</a></li>`;
