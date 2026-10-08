@@ -103,30 +103,36 @@ const body = `
       <strong>diligence</strong> review.</p>
     </div>
 
-    <div class="split rv">
-      <div class="split-a">
-        <h3>One system. Not five.</h3>
-        <p>Most organizations run compliance across a stack of disconnected tools, with the evidence
-        scattered across all of them. That is fine until somebody asks for proof on a deadline.</p>
+    <!-- No cards here. The argument is five things crossed out against one
+         thing that is not, so the strikethrough carries it and a box would
+         only get in the way. The ramp in opacity is the point: the further
+         down the stack, the less anyone can find it. -->
+    <div class="recko rv">
+      <div class="recko-was">
+        <span class="recko-lbl">What most organizations run</span>
         <ul class="strike">
-          ${scattered.map((x) => `<li>${esc(x)}</li>`).join('')}
+          ${scattered.map((x, i) => `<li style="--i:${i}">${esc(x)}</li>`).join('')}
         </ul>
+        <p class="recko-note">Fine until somebody asks for proof on a deadline.</p>
       </div>
-      <div class="split-b">
-        <h3>Your whole program, documented in one place</h3>
-        <p>One platform, one login, one completion view across every location, with dated records
-        generated as your team works rather than assembled after the request arrives.</p>
-        <p class="split-note">SHIELD runs it. SENTRY watches the revenue. People stand behind both.</p>
+      <div class="recko-is">
+        <span class="recko-lbl recko-lbl-on">What you run instead</span>
+        <p class="recko-big">Your whole program, documented in one place.</p>
+        <p>One platform, one login, one completion view across every location, with dated
+        records generated as your team works rather than assembled after the request arrives.</p>
+        <p class="recko-sig">SHIELD runs it. SENTRY watches the revenue. People stand behind both.</p>
       </div>
     </div>
 
-    <ul class="stats rv" style="margin-top:clamp(2.5rem,2rem + 2vw,3.5rem)">
+    <!-- Stats as a ruled band rather than four tiles. Hairlines between the
+         cells, nothing around them. -->
+    <ul class="figs rv">
       ${stats.map((s) => {
         const n = (s.figure.match(/[\d,]+/) || [''])[0];
         const num = n.replace(/,/g, '');
         const pre = s.figure.slice(0, s.figure.indexOf(n));
         const post = s.figure.slice(s.figure.indexOf(n) + n.length);
-        return `<li class="stat"><b data-count="${num}" data-pre="${esc(pre)}" data-post="${esc(post)}">${esc(s.figure)}</b><span>${esc(s.label)}</span></li>`;
+        return `<li><b data-count="${num}" data-pre="${esc(pre)}" data-post="${esc(post)}">${esc(s.figure)}</b><span>${esc(s.label)}</span></li>`;
       }).join('')}
     </ul>
   </div>
@@ -141,24 +147,34 @@ const body = `
       the same platform underneath, scoped and priced to the organization using it.</p>
     </div>
 
-    <ul class="markets rv">
-      ${markets.map((m) => `<li class="market">
-        <div class="market-pic">${img({ src: m.img, alt: m.alt, title: m.title, width: 900, height: 506, sizes: '(max-width: 900px) 100vw, 380px' })}</div>
-        <div class="market-h"><b>${esc(m.n)}</b><span>${esc(m.title)}</span></div>
-        <div class="market-b"><span class="lbl">Ideal profile</span><p>${esc(m.body)}</p></div>
+    <!-- The cards are gone. Each market is a photo with its numeral sitting
+         across the lower edge and the text on the open field underneath.
+         The overlap is what stops three of anything reading as a grid. -->
+    <ol class="mk rv">
+      ${markets.map((m, i) => `<li>
+        <div class="mk-pic">
+          ${img({ src: m.img, alt: m.alt, title: m.title, width: 900, height: 506, sizes: '(max-width: 900px) 100vw, 380px' })}
+          <span class="mk-n" aria-hidden="true">${String(i + 1).padStart(2, '0')}</span>
+        </div>
+        <h3>${esc(m.title)}</h3>
+        <p class="mk-size">${esc(m.n)}</p>
+        <p>${esc(m.body)}</p>
       </li>`).join('')}
-    </ul>
+    </ol>
 
-    <div class="spec-block rv">
-      <p class="spec-lead"><b>30+</b><span>Clinical specialties served nationwide</span></p>
-      <p class="sec-lead" style="margin-bottom:1.6rem">Benchmarks, policy sets and training are calibrated
-      to the specialty rather than issued generically, which is what makes the findings usable.</p>
-      <!-- Marquee, as the deck runs it. The list is duplicated so the loop is
-           seamless; the copy is aria-hidden so it is announced once. -->
+    <!-- 30+ set at display size so one number anchors the section, with the
+         specialties running past it. -->
+    <div class="spec rv">
+      <div class="spec-head">
+        <span class="spec-fig">30<i>+</i></span>
+        <p>Clinical specialties served nationwide. Benchmarks, policy sets and training are
+        calibrated to the specialty rather than issued generically, which is what makes
+        the findings usable.</p>
+      </div>
       <div class="marquee" aria-label="Clinical specialties served">
         <ul class="marquee-track">
-          ${specialties.map((s) => `<li>${esc(s)}</li>`).join('')}
-          ${specialties.map((s) => `<li aria-hidden="true">${esc(s)}</li>`).join('')}
+          ${specialties.map((x) => `<li>${esc(x)}</li>`).join('')}
+          ${specialties.map((x) => `<li aria-hidden="true">${esc(x)}</li>`).join('')}
         </ul>
       </div>
     </div>
@@ -249,13 +265,23 @@ const body = `
       <p class="sec-lead">How organizations across practice groups, private equity and behavioral health
       put the platform to work.</p>
     </div>
-    <ul class="quotes rv">
-      ${testimonials.map((t) => `<li><figure class="quote">
-        <span class="quote-tag">${esc(t.tag)}</span>
-        <span class="quote-mk" aria-hidden="true">&ldquo;</span>
+    <!-- Four equal cards made four equal claims and none of them landed.
+         The first quote carries the section at display size on the open
+         field; the rest sit under it as a ruled row. -->
+    <figure class="lede-q rv">
+      <blockquote>${esc(testimonials[0].quote)}</blockquote>
+      <figcaption>
+        <b>${esc(testimonials[0].who)}</b>
+        <span>${esc(testimonials[0].org)}</span>
+        <em>${esc(testimonials[0].tag)}</em>
+      </figcaption>
+    </figure>
+    <ul class="sub-q rv">
+      ${testimonials.slice(1).map((t) => `<li>
+        <span class="sub-q-tag">${esc(t.tag)}</span>
         <blockquote>${esc(t.quote)}</blockquote>
-        <figcaption>${esc(t.who)}<span>${esc(t.org)}</span></figcaption>
-      </figure></li>`).join('')}
+        <figcaption><b>${esc(t.who)}</b><span>${esc(t.org)}</span></figcaption>
+      </li>`).join('')}
     </ul>
   </div>
 </section>
@@ -293,7 +319,7 @@ const body = `
     </div>
 
     <div class="about-team rv">
-      <h3>Leadership</h3>
+      <span class="about-team-lbl">The people you would actually be working with</span>
       <ul class="team">
         ${leadership.map((m) => `<li>
           ${m.img
