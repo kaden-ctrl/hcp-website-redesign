@@ -875,3 +875,88 @@
   .figs li:first-child{border-top:0}
   .spec-head{flex-direction:column;gap:.4rem}
 }
+
+/* ---- Review page: replacements for the struck list -------------------
+   Scoped under .opt-* and .x[a-d]. Delete with src/pages/options.mjs once
+   a direction is picked. */
+.opt-head{display:flex;gap:1.25rem;align-items:flex-start;margin-bottom:2.25rem;max-width:64rem}
+.opt-k{flex:none;font-family:var(--head);font-weight:800;font-size:.72rem;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--lime);border:1px solid var(--lime);border-radius:999px;
+  padding:.42rem .8rem;margin-top:.3rem}
+.opt-head h2{margin:0 0 .5rem;font-size:clamp(1.5rem,1.2rem + 1.2vw,2.1rem)}
+.opt-head p{margin:0;color:var(--on-dark-soft);font-size:1rem;line-height:1.6}
+
+/* A -- the brace */
+.xa{display:grid;grid-template-columns:1fr 46px .9fr;gap:0;align-items:center}
+.xa-lbl{display:block;font-family:var(--head);font-weight:800;font-size:.72rem;letter-spacing:.17em;
+  text-transform:uppercase;color:var(--on-dark-mute);margin-bottom:1rem}
+.xa-lbl-on{color:var(--lime)}
+.xa-list ul{list-style:none;margin:0;padding:0}
+.xa-list li{font-family:var(--head);font-weight:700;font-size:clamp(.98rem,.93rem + .3vw,1.12rem);
+  color:var(--on-dark-soft);padding:.52rem 0;line-height:1.3}
+.xa-brace{align-self:stretch;margin:1.9rem 0 0;border:2px solid var(--lime);border-left:0;
+  border-radius:0 16px 16px 0;position:relative}
+.xa-brace::after{content:"";position:absolute;right:-2px;top:50%;width:22px;height:2px;
+  background:var(--lime)}
+.xa-one{padding-left:1.9rem}
+.xa-one b{display:block;font-family:var(--head);font-weight:800;letter-spacing:-.02em;color:#fff;
+  font-size:clamp(2rem,1.5rem + 2.2vw,3.1rem);line-height:1}
+.xa-one p{margin:.8rem 0 0;font-size:.95rem;line-height:1.6;color:var(--on-dark-soft);font-style:italic}
+
+/* B -- the tally */
+.xb-head{display:flex;align-items:flex-start;gap:clamp(1rem,.6rem + 1.8vw,2rem);margin-bottom:1.8rem}
+.xb-fig{flex:none;font-family:var(--head);font-weight:800;letter-spacing:-.05em;color:var(--lime);
+  font-size:clamp(3.6rem,2.6rem + 5vw,7rem);line-height:.8}
+.xb-head b{display:block;font-family:var(--head);font-weight:800;color:#fff;
+  font-size:clamp(1.2rem,1rem + .9vw,1.7rem);line-height:1.2;margin-top:.3rem}
+.xb-head p{margin:.6rem 0 0;font-size:.95rem;color:var(--on-dark-soft);font-style:italic}
+.xb-rows{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.xb-rows li{display:grid;grid-template-columns:3rem 1fr auto;align-items:baseline;gap:1rem;
+  padding:.8rem 0;border-bottom:1px solid var(--line-soft)}
+.xb-rows li:last-child{border-bottom:0}
+.xb-n{font-family:var(--head);font-weight:800;font-size:.86rem;color:var(--lime);
+  font-variant-numeric:tabular-nums}
+.xb-t{font-family:var(--head);font-weight:700;font-size:1.02rem;color:#fff}
+.xb-c{font-size:.84rem;color:var(--on-dark-mute);text-align:right}
+
+/* C -- the pile */
+.xc{display:grid;grid-template-columns:1fr .85fr;gap:clamp(1.5rem,1rem + 3vw,3.5rem);align-items:center}
+.xc-lbl{display:block;font-family:var(--head);font-weight:800;font-size:.72rem;letter-spacing:.17em;
+  text-transform:uppercase;color:var(--on-dark-mute);margin-bottom:1.2rem}
+.xc-heap ul{list-style:none;margin:0;padding:0;display:grid;gap:.5rem}
+.xc-heap li{justify-self:start;background:rgba(255,255,255,.055);border:1px solid var(--line);
+  border-radius:8px;padding:.62rem 1rem;font-family:var(--head);font-weight:700;font-size:.98rem;
+  color:var(--on-dark-soft);
+  /* each sits a little further off the edge than the last: the stack never
+     squares up, which is the thing being complained about */
+  margin-left:calc(var(--o) * 1.5rem)}
+.xc-block{background:var(--card);color:var(--ink);border-radius:var(--r-lg);padding:1.9rem 1.8rem;
+  border-top:4px solid var(--lime);box-shadow:var(--sh-card)}
+.xc-block b{display:block;font-family:var(--head);font-weight:800;font-size:clamp(1.5rem,1.2rem + 1.2vw,2.1rem);
+  letter-spacing:-.02em;margin-bottom:.6rem}
+.xc-block p{margin:0 0 1rem;font-size:.96rem;line-height:1.6;color:var(--ink-soft)}
+.xc-note{display:block;padding-top:.9rem;border-top:1px solid var(--line-ink);font-size:.9rem;
+  color:var(--ink-mute);font-style:italic}
+
+/* D -- quiet inventory */
+.xd{max-width:56rem}
+.xd-say{margin:0 0 1.6rem;font-family:var(--head);font-weight:700;color:#fff;letter-spacing:-.015em;
+  font-size:clamp(1.35rem,1.05rem + 1.5vw,2.1rem);line-height:1.3}
+.xd-say b{color:var(--lime);font-weight:800}
+.xd-list{list-style:none;margin:0 0 1.4rem;padding:0;display:flex;flex-wrap:wrap;gap:.5rem 0}
+.xd-list li{font-size:.95rem;color:var(--on-dark-mute);padding-right:.9rem;margin-right:.9rem;
+  border-right:1px solid var(--line)}
+.xd-list li:last-child{border-right:0;padding-right:0;margin-right:0}
+.xd-note{margin:0;padding-top:1.1rem;border-top:1px solid var(--line);font-size:.98rem;
+  color:var(--on-dark-soft);font-style:italic}
+
+@media (max-width:880px){
+  .xa{grid-template-columns:1fr}
+  .xa-brace{display:none}
+  .xa-one{padding-left:0;margin-top:1.6rem;padding-top:1.4rem;border-top:2px solid var(--lime)}
+  .xc{grid-template-columns:1fr}
+  .xc-heap li{margin-left:calc(var(--o) * .7rem)}
+  .xb-rows li{grid-template-columns:2.4rem 1fr;row-gap:.2rem}
+  .xb-c{grid-column:2;text-align:left}
+  .opt-head{flex-direction:column;gap:.75rem}
+}
