@@ -40,9 +40,9 @@
 --sh-card:0 10px 30px rgba(0,0,0,.28);
 --sh-lift:0 18px 46px rgba(0,0,0,.36);
 /* Rhythm. Three weights, spent deliberately. */
---sec-y:clamp(4.5rem,3rem + 5vw,7.5rem);
---sec-y-tight:clamp(3rem,2.2rem + 2.5vw,4.5rem);
---sec-y-loose:clamp(5.5rem,3.5rem + 7vw,10rem);
+--sec-y:clamp(3rem,2.2rem + 2.6vw,4.6rem);
+--sec-y-tight:clamp(2.25rem,1.8rem + 1.6vw,3.25rem);
+--sec-y-loose:clamp(3.75rem,2.6rem + 3.4vw,5.75rem);
 --head-gap:clamp(2.5rem,1.9rem + 2.4vw,4rem);
 }
 
