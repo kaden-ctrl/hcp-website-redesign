@@ -12,7 +12,7 @@
 .sec{padding-block:var(--sec-y);position:relative}
 .sec-tight{padding-block:var(--sec-y-tight)}
 .sec-loose{padding-block:var(--sec-y-loose)}
-.sec-soft{background:var(--bg-elev)}
+.sec-soft{background:transparent}
 /* Headings and their leads run the full column rather than stopping
    short of it. */
 .sec-head{margin:0 0 var(--head-gap);max-width:none}
@@ -34,7 +34,7 @@
    pairing did. ---- */
 /* The band sits above again, so the strip needs its own lower edge against
    the section that follows. */
-.prodstrip{background:var(--bg-elev);border-bottom:1px solid var(--line);
+.prodstrip{background:transparent;border-bottom:1px solid var(--line);
   padding-block:clamp(1.8rem,1.4rem + 1.4vw,2.6rem)}
 .ps{list-style:none;margin:0;padding:0;display:grid;gap:1rem;grid-template-columns:repeat(4,1fr)}
 .ps a{display:block;height:100%;background:var(--navy-tile);border-radius:var(--r);
@@ -217,7 +217,7 @@
 .faq-a p:last-child{margin-bottom:0}
 
 /* ---- Closing block and form ---- */
-.close{background:var(--bg-elev-2);border-top:1px solid var(--line)}
+.close{background:transparent;border-top:1px solid var(--line)}
 .lead-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:clamp(2rem,1rem + 4vw,4rem);align-items:start}
 .lead-form{background:var(--card);border-radius:var(--r-lg);padding:clamp(1.5rem,1rem + 2vw,2.3rem);
   box-shadow:var(--sh-card);color:var(--ink)}
@@ -610,7 +610,7 @@
 @media (max-width:880px){.essay{grid-template-columns:1fr}.essay-pull{position:static}}
 
 /* A full-width band of figures, rather than four tiles. */
-.numbers-band{background:var(--bg-elev);border-block:1px solid var(--line)}
+.numbers-band{background:transparent;border-block:1px solid var(--line)}
 .numbers{list-style:none;margin:0;padding:clamp(2.2rem,1.8rem + 1.6vw,3.2rem) 0;display:grid;
   grid-template-columns:repeat(4,1fr);gap:1.5rem}
 .numbers li+li{border-left:1px solid var(--line);padding-left:1.5rem}
@@ -903,3 +903,23 @@
 .tilt{transition:transform .3s cubic-bezier(.16,.84,.44,1),box-shadow .3s}
 .magnetic{transition:transform .25s cubic-bezier(.16,.84,.44,1)}
 @media (prefers-reduced-motion:reduce){.tilt,.magnetic{transition:none}}
+
+/* ---- Section rail ----------------------------------------------------
+   Dots down the right edge, the current section lit and named. Hidden
+   under 1100px, where the gutter it lives in no longer exists. */
+.rail{position:fixed;right:28px;top:50%;transform:translateY(-50%);z-index:90;
+  display:none;flex-direction:column;gap:16px}
+@media (min-width:1100px){.rail{display:flex}}
+.rail a{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.16);
+  display:block;position:relative;transition:background .3s ease,transform .3s ease,box-shadow .3s ease}
+.rail a::before{content:attr(data-label);position:absolute;right:18px;top:50%;
+  transform:translateY(-50%);font-family:var(--body);font-weight:600;font-size:.68rem;
+  letter-spacing:.08em;text-transform:uppercase;white-space:nowrap;color:#fff;
+  background:rgba(10,32,54,.92);padding:4px 10px;border-radius:6px;
+  border:1px solid rgba(255,255,255,.14);opacity:0;transition:opacity .25s ease;
+  pointer-events:none}
+.rail a:hover::before,.rail a:focus-visible::before,.rail a.active::before{opacity:1}
+.rail a:hover{background:rgba(255,255,255,.4)}
+.rail a.active{background:var(--lime);box-shadow:0 0 10px var(--lime);transform:scale(1.3)}
+.rail a:focus-visible{outline:2px solid var(--lime);outline-offset:4px}
+@media (prefers-reduced-motion:reduce){.rail a{transition:none}}

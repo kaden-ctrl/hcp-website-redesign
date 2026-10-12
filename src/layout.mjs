@@ -237,6 +237,15 @@ function head(page, criticalCss, cssHash) {
 // The official HCP logo, taken from the live site (1440x576 source, 2.5:1).
 // Displayed at 230x92; serve a 2x asset rather than the 1440px original,
 // which is kept only as the Organization schema logo.
+/* The deck's section rail: a column of dots down the right edge, the current
+   one lit, its name shown on a chip beside it. Driven by page.rail so a page
+   without one simply renders nothing. Pure navigation, so it is a real <nav>
+   with real anchors rather than decorative dots. */
+const railNav = (page) => !page.rail ? '' : `
+<nav class="rail" aria-label="Sections">
+  ${page.rail.map((r) => `<a href="#${r.id}" data-label="${esc(r.label)}"><span class="visually-hidden">${esc(r.label)}</span></a>`).join('')}
+</nav>`;
+
 const logoMark = () =>
   `<img src="/assets/img/logo-230.png" srcset="/assets/img/logo-230.png 230w, /assets/img/logo-460.png 460w" sizes="196px" alt="Healthcare Compliance Pros" title="Healthcare Compliance Pros" width="230" height="92" decoding="async" fetchpriority="high">`;
 
@@ -355,6 +364,7 @@ ${head(page, criticalCss, cssHash)}
 <div class="cur-ring" aria-hidden="true"></div>
 <div class="cur-dot" aria-hidden="true"></div>
 <div class="scrollbar" id="scrollbar" aria-hidden="true"></div>
+${railNav(page)}
 ${spriteFor(shell)}
 ${shell}
 <script src="/assets/js/main.js?v=${jsHash}" defer></script>

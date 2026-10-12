@@ -123,19 +123,12 @@ a.visually-hidden:focus{position:fixed;top:.75rem;left:.75rem;z-index:200;
            than as pattern, and it sits behind content at z-index -1.
    .solid  a flat, opaque panel. No dots, and opaque so the page-level
            aurora does not bleed through either. These are the breaks. */
-.field{position:relative;isolation:isolate}
-.field::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
-  background-image:radial-gradient(rgba(255,255,255,.075) 1px,transparent 1px);
-  background-size:26px 26px;
-  /* Fades at the edges so a section never ends on a hard crop of the grid. */
-  -webkit-mask-image:linear-gradient(180deg,transparent,#000 12%,#000 88%,transparent);
-  mask-image:linear-gradient(180deg,transparent,#000 12%,#000 88%,transparent)}
-
-.solid{position:relative;background:var(--bg-elev);isolation:isolate}
-.solid.sec-soft{background:var(--bg-elev-2)}
-/* A hairline where a solid section meets a textured one, so the change of
-   ground reads as a deliberate edge rather than as a loading artefact. */
-.solid + .field,.field + .solid{border-top:1px solid var(--line-soft)}
+/* One continuous dark ground. .field and .solid stay in the markup as
+   hooks, but they no longer paint competing surfaces: the page is a single
+   surface and the depth comes from the grid, the aurora and the cursor
+   light sitting behind it. */
+.field,.solid{position:relative;background:transparent}
+.sec-soft{background:transparent}
 
 /* ---- Buttons ---- */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;
@@ -151,30 +144,35 @@ a.visually-hidden:focus{position:fixed;top:.75rem;left:.75rem;z-index:200;
 .btn-ink:hover{background:var(--navy-tile-lift);border-color:var(--navy-tile-lift)}
 
 /* ---- Header ---- */
-.site-head{position:sticky;top:0;z-index:100;background:#fff;
-  border-bottom:1px solid rgba(5,31,51,.12);box-shadow:0 1px 0 rgba(0,0,0,.04)}
-.head-in{display:flex;align-items:center;gap:1.5rem;min-height:88px}
-.brand{display:inline-flex;align-items:center;line-height:0;flex:none}
-.brand img{width:164px;height:66px;object-fit:contain;object-position:left center;display:block}
-.nav{margin-left:auto;display:flex;align-items:center;gap:.2rem}
+.site-head{position:sticky;top:0;z-index:100;background:transparent;
+  border-bottom:1px solid transparent;transition:background .4s ease,border-color .4s ease}
+.site-head.stuck{background:rgba(10,32,54,.78);border-bottom-color:var(--line);
+  backdrop-filter:blur(16px) saturate(140%);-webkit-backdrop-filter:blur(16px) saturate(140%)}
+.head-in{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;min-height:84px}
+.brand{display:inline-flex;align-items:center;justify-content:center;line-height:0;flex:none;
+  background:#fff;border-radius:10px;padding:7px 13px;
+  box-shadow:0 0 0 1px rgba(255,255,255,.10),0 6px 20px rgba(98,157,203,.14)}
+.brand img{width:132px;height:53px;object-fit:contain;object-position:center;display:block}
+.nav{flex:1 1 auto;min-width:0;display:flex;align-items:center;justify-content:center;
+  gap:clamp(.15rem,.6vw,1.1rem);margin:0 1.2rem}
 .nav>li{position:relative;list-style:none}
-.nav>li>a{display:inline-flex;align-items:center;gap:.34rem;padding:.65rem .8rem;
-  font-family:var(--head);font-weight:700;font-size:.94rem;color:var(--ink);text-decoration:none;
-  border-radius:8px;white-space:nowrap}
-.nav>li.open>a{color:var(--navy-tile);background:rgba(31,78,121,.08)}
+.nav>li>a{display:inline-flex;align-items:center;gap:.34rem;padding:.6rem .7rem;
+  font-family:var(--body);font-weight:500;font-size:.88rem;color:rgba(255,255,255,.62);
+  text-decoration:none;border-radius:8px;white-space:nowrap;transition:color .25s ease}
+.nav>li.open>a{color:#fff;background:rgba(255,255,255,.07)}
 .nav>li.open .caret{transform:rotate(180deg)}
-.nav a:hover{color:var(--navy-tile);background:rgba(31,78,121,.07)}
+.nav a:hover{color:#fff;background:rgba(255,255,255,.06)}
 .nav .caret{width:11px;height:11px;stroke-width:2.8;opacity:.5;transition:transform .18s}
-.head-cta{display:flex;align-items:center;gap:1rem;flex:none;margin-left:.75rem}
+.head-cta{display:flex;align-items:center;gap:1.1rem;flex:none}
 /* The header button was inheriting the hero CTA's scale: 14.7px of padding
    and a 2px border gave it a 59px height inside an 88px bar, 13px taller
    than the nav links beside it and leaving 14px of clearance. Sized to sit
    with the nav rather than over it. */
 .head-cta .btn{padding:.72rem 1.25rem;font-size:.92rem;border-width:1px;border-radius:8px;line-height:1.2}
-.head-tel{font-family:var(--head);font-weight:700;font-size:1rem;color:var(--navy-tile);
+.head-tel{font-family:var(--head);font-weight:700;font-size:.95rem;color:#fff;
   text-decoration:none;white-space:nowrap;display:inline-flex;align-items:center;
   min-height:24px;padding-block:.3rem}
-.head-tel:hover{color:var(--lime-deep)}
+.head-tel:hover{color:var(--lime)}
 .burger{display:none;flex-direction:column;justify-content:center;gap:5px;width:44px;height:44px;
   margin-left:auto;background:none;border:0;cursor:pointer;padding:0}
 .burger span{display:block;height:2px;width:24px;background:var(--ink);margin-inline:auto;transition:transform .2s,opacity .2s}

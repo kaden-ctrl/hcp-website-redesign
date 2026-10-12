@@ -399,6 +399,19 @@ const body = `
 
 export default {
   path: '/',
+  /* Labels are short on purpose: the chip sits in a 28px gutter and a long
+     one would run off the edge of the viewport. */
+  rail: [
+    { id: 'dashboard', label: 'Platform' },
+    { id: 'what-it-is', label: 'What it is' },
+    { id: 'who-its-for', label: 'Markets' },
+    { id: 'what-we-offer', label: 'Solutions' },
+    { id: 'why-hcp', label: 'Difference' },
+    { id: 'use-cases', label: 'Proof' },
+    { id: 'about', label: 'About' },
+    { id: 'faq', label: 'Questions' },
+    { id: 'start', label: 'Start' }
+  ],
   title: 'Healthcare Compliance Software and Billing Intelligence | HCP',
   description: 'HIPAA, OSHA and corporate compliance plus quarterly billing intelligence, backed by named advisors. Trusted by 1,000+ provider groups. Free review.',
   body,

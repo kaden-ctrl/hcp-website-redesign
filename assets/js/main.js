@@ -468,3 +468,64 @@
     });
   });
 })();
+
+/* The header is transparent over the hero and fogs once you leave it, the
+   way the deck does. Thresholded rather than toggled at 0 so it does not
+   flicker on and off at the very top of the page. */
+(function () {
+  var head = document.querySelector('.site-head');
+  if (!head) return;
+  var on = false;
+  function sync() {
+    var should = window.scrollY > 24;
+    if (should !== on) { on = should; head.classList.toggle('stuck', should); }
+  }
+  addEventListener('scroll', sync, { passive: true });
+  sync();
+})();
+
+/* Section rail. An observer rather than a scroll handler, and the section
+   nearest the middle of the viewport wins, so a short section between two
+   tall ones still gets its turn rather than being skipped. */
+(function () {
+  var rail = document.querySelector('.rail');
+  if (!rail) return;
+  var links = [].slice.call(rail.querySelectorAll('a'));
+  var targets = links.map(function (a) {
+    return document.getElementById(a.getAttribute('href').slice(1));
+  });
+  if (!targets.filter(Boolean).length) { rail.remove(); return; }
+
+  function sync() {
+    var mid = innerHeight / 2, best = -1, bestDist = Infinity;
+    targets.forEach(function (el, i) {
+      if (!el) return;
+      var r = el.getBoundingClientRect();
+      if (r.bottom < 0 || r.top > innerHeight) return;
+      var d = Math.abs(r.top + r.height / 2 - mid);
+      if (d < bestDist) { bestDist = d; best = i; }
+    });
+    links.forEach(function (a, i) { a.classList.toggle('active', i === best); });
+  }
+
+  /* requestAnimationFrame does not run in a background tab. Latching a
+     `ticking` flag before calling it means that if the tab is hidden at the
+     moment of a scroll, the callback never fires, the flag never clears and
+     the rail is dead for the rest of the session even after you come back.
+     The flag is cleared on a timer as well, so the worst case is one
+     dropped frame rather than a permanently stuck rail. */
+  var ticking = false;
+  function schedule() {
+    if (ticking) return;
+    ticking = true;
+    var done = function () { ticking = false; };
+    requestAnimationFrame(function () { sync(); done(); });
+    setTimeout(done, 250);
+  }
+  addEventListener('scroll', schedule, { passive: true });
+  document.addEventListener('visibilitychange', function () {
+    if (!document.hidden) { ticking = false; sync(); }
+  });
+  addEventListener('resize', sync, { passive: true });
+  sync();
+})();
