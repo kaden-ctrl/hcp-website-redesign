@@ -151,10 +151,11 @@ a.visually-hidden:focus{position:fixed;top:.75rem;left:.75rem;z-index:200;
    content passing underneath is covered cleanly rather than showing through. */
 .site-head{position:sticky;top:0;z-index:100;background:var(--bg);border-bottom:0}
 .head-in{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;min-height:84px}
-.brand{display:inline-flex;align-items:center;justify-content:center;line-height:0;flex:none;
-  background:#fff;border-radius:10px;padding:7px 13px;
-  box-shadow:0 0 0 1px rgba(255,255,255,.10),0 6px 20px rgba(98,157,203,.14)}
-.brand img{width:132px;height:53px;object-fit:contain;object-position:center;display:block}
+/* The chip is gone: with a reversed lockup the mark sits on the bar itself,
+   which is what the rest of the page does and one less box on a page that
+   had too many. */
+.brand{display:inline-flex;align-items:center;line-height:0;flex:none}
+.brand img{width:158px;height:70px;object-fit:contain;object-position:left center;display:block}
 .nav{flex:1 1 auto;min-width:0;display:flex;align-items:center;justify-content:center;
   gap:clamp(.15rem,.6vw,1.1rem);margin:0 1.2rem}
 .nav>li{position:relative;list-style:none}

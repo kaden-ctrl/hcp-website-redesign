@@ -246,8 +246,11 @@ const railNav = (page) => !page.rail ? '' : `
   ${page.rail.map((r) => `<a href="#${r.id}" data-label="${esc(r.label)}"><span class="visually-hidden">${esc(r.label)}</span></a>`).join('')}
 </nav>`;
 
+/* The reversed lockup from the brand set, so the mark sits straight on the
+   dark bar. The colour PNG was 89.5% dark pixels and needed a white chip
+   behind it to survive; this one does not, and keeps its green checkmark. */
 const logoMark = () =>
-  `<img src="/assets/img/logo-230.png" srcset="/assets/img/logo-230.png 230w, /assets/img/logo-460.png 460w" sizes="196px" alt="Healthcare Compliance Pros" title="Healthcare Compliance Pros" width="230" height="92" decoding="async" fetchpriority="high">`;
+  `<img src="/assets/img/hcp-logo-white.svg" alt="Healthcare Compliance Pros" title="Healthcare Compliance Pros" width="592" height="263" decoding="async" fetchpriority="high">`;
 
 /* Mirrors the menu structure on their existing site. Until the secondary
    pages are built, each item resolves to the matching section on this page
