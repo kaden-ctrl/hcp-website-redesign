@@ -144,20 +144,12 @@ a.visually-hidden:focus{position:fixed;top:.75rem;left:.75rem;z-index:200;
 .btn-ink:hover{background:var(--navy-tile-lift);border-color:var(--navy-tile-lift)}
 
 /* ---- Header ---- */
-.site-head{position:relative;position:sticky;top:0;z-index:100;background:transparent;border-bottom:0}
-/* The fog sits on its own layer behind the nav so it can be faded out at the
-   bottom. A flat panel plus a 1px border drew a hard seam across the page:
-   the panel was lighter than the ground and stopped dead. This one is the
-   ground colour, reaches past the header, and is masked to nothing by its
-   own lower edge, so there is no line to see. */
-.site-head::before{content:"";position:absolute;left:0;right:0;top:0;bottom:-26px;z-index:-1;
-  pointer-events:none;opacity:0;transition:opacity .45s ease;
-  background:linear-gradient(to bottom,rgba(5,15,24,.96) 0%,rgba(5,15,24,.88) 45%,rgba(5,15,24,0) 100%);
-  backdrop-filter:blur(14px) saturate(130%);-webkit-backdrop-filter:blur(14px) saturate(130%);
-  -webkit-mask-image:linear-gradient(to bottom,#000 0%,#000 52%,transparent 100%);
-  mask-image:linear-gradient(to bottom,#000 0%,#000 52%,transparent 100%)}
-.site-head.stuck::before{opacity:1}
-@media (prefers-reduced-motion:reduce){.site-head::before{transition:none}}
+/* One solid bar, the same at the top of the page and all the way down.
+   The transparent-over-hero/fogged-on-scroll pair read as two different
+   headers, and the handover between them was the contrast split. Opaque in
+   the ground colour: no seam against the hero, no state to change, and
+   content passing underneath is covered cleanly rather than showing through. */
+.site-head{position:sticky;top:0;z-index:100;background:var(--bg);border-bottom:0}
 .head-in{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;min-height:84px}
 .brand{display:inline-flex;align-items:center;justify-content:center;line-height:0;flex:none;
   background:#fff;border-radius:10px;padding:7px 13px;

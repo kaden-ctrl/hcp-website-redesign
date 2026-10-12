@@ -469,21 +469,6 @@
   });
 })();
 
-/* The header is transparent over the hero and fogs once you leave it, the
-   way the deck does. Thresholded rather than toggled at 0 so it does not
-   flicker on and off at the very top of the page. */
-(function () {
-  var head = document.querySelector('.site-head');
-  if (!head) return;
-  var on = false;
-  function sync() {
-    var should = window.scrollY > 24;
-    if (should !== on) { on = should; head.classList.toggle('stuck', should); }
-  }
-  addEventListener('scroll', sync, { passive: true });
-  sync();
-})();
-
 /* Section rail. An observer rather than a scroll handler, and the section
    nearest the middle of the viewport wins, so a short section between two
    tall ones still gets its turn rather than being skipped. */
