@@ -200,6 +200,10 @@
 
 /* ---- FAQ ---- */
 .faqs{display:grid;gap:0;border-top:1px solid var(--line)}
+/* A measure for the answers. The container is now wide enough that
+   without this they would run to ~150 characters a line. */
+.faq-a p{max-width:72ch}
+.faq summary span{max-width:60ch}
 .faq{border-bottom:1px solid var(--line)}
 .faq[open]{border-bottom-color:var(--lime)}
 .faq summary{display:flex;align-items:center;justify-content:space-between;gap:1rem;

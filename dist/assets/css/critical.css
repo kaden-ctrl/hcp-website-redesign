@@ -57,7 +57,7 @@
 --body:Inter,system-ui,-apple-system,'Segoe UI',sans-serif;
 --mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
 /* Metrics */
---wrap:1220px;--r:10px;--r-lg:16px;
+--wrap:1440px;--r:10px;--r-lg:16px;
 --sh:0 2px 10px rgba(0,0,0,.18);
 --sh-card:0 10px 30px rgba(0,0,0,.28);
 --sh-lift:0 18px 46px rgba(0,0,0,.36);
@@ -89,11 +89,11 @@ h3{font-size:1.2rem;font-weight:700;letter-spacing:-.01em}
 p{margin:0 0 1.05em}
 a{color:inherit}
 img,svg,video{max-width:100%;display:block}
-.wrap{width:100%;max-width:var(--wrap);margin-inline:auto;padding-inline:clamp(1.1rem,.6rem + 2vw,2rem)}
+.wrap{width:100%;max-width:var(--wrap);margin-inline:auto;padding-inline:clamp(1.1rem,5vw,5.5rem)}
 /* Shares the .wrap left edge rather than centring its own narrower column,
    so the FAQ starts in line with every other block on the page. The reading
    measure is kept by capping the children instead of the container. */
-.narrow{width:100%;max-width:var(--wrap);margin-inline:auto;padding-inline:clamp(1.1rem,.6rem + 2vw,2rem)}
+.narrow{width:100%;max-width:var(--wrap);margin-inline:auto;padding-inline:clamp(1.1rem,5vw,5.5rem)}
 .narrow>*{max-width:none}
 /* Every symbol in the set is a solid path, and an SVG's fill defaults to
    black, not to currentColor. Without this the icons painted black
