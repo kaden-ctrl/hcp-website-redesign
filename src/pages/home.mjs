@@ -55,16 +55,16 @@ const body = `
     <div class="orbit-node w2"><span class="dot"></span></div>
     <p class="orbit-tick">1,000+ PROVIDERS</p>
   </div>
-  <div class="hero-media">
-    ${img({ src: '/assets/img/site/hero-hipaa.webp', alt: '', title: 'Healthcare professionals at work',
-            width: 1600, height: 900, loading: 'eager', fetchpriority: 'high', sizes: '100vw' })}
-  </div>
+  <!-- No photograph. The deck grounds its hero on glows and the orbit, and
+       a stock image underneath was the single thing most at odds with it. -->
+  <div class="hero-glow-a" aria-hidden="true"></div>
+  <div class="hero-glow-b" aria-hidden="true"></div>
   <div class="wrap hero-in">
     <h1>Compliance. Revenue.<br><em>Confidence.</em></h1>
     <p class="hero-lead">The only partner built to protect providers, optimize revenue and de-risk
     healthcare transactions, all in one platform.</p>
     <p class="hero-cta">
-      <a class="btn btn-primary" href="#start">Get your free compliance review</a>
+      <a class="btn btn-primary magnetic" href="#start">Get your free compliance review</a>
       <a class="btn btn-ghost" href="tel:${site.phoneE164}">Call ${site.phoneDisplay}</a>
     </p>
   </div>
@@ -73,6 +73,29 @@ const body = `
 <section class="band">
   <div class="wrap band-in">
     <p>A decade of trust. Over a thousand organizations protected.</p>
+  </div>
+</section>
+
+<!-- Dashboard, placed early because it is the product and the page should
+     show it before it describes it. The frame is a labelled placeholder
+     until the real screenshots arrive; it is deliberately obvious rather
+     than a mocked-up UI, so nobody mistakes an illustration for the thing. -->
+<section class="sec sec-tight dash-sec" id="dashboard">
+  <div class="wrap">
+    <div class="dash-head rv">
+      <span class="mono-label">The platform</span>
+      <h2>One screen for the whole program.</h2>
+      <p class="sec-lead">Completion, policy status, risk analysis and exclusion monitoring,
+      across every location, live rather than assembled for the request.</p>
+    </div>
+    <figure class="dash-frame rv">
+      <div class="dash-chrome" aria-hidden="true">
+        <span></span><span></span><span></span>
+      </div>
+      <div class="dash-slot">
+        <span class="dash-slot-label">Dashboard Screenshot</span>
+      </div>
+    </figure>
   </div>
 </section>
 
@@ -152,9 +175,8 @@ const body = `
          The overlap is what stops three of anything reading as a grid. -->
     <ol class="mk rv">
       ${markets.map((m, i) => `<li>
-        <div class="mk-pic">
-          ${img({ src: m.img, alt: m.alt, title: m.title, width: 900, height: 506, sizes: '(max-width: 900px) 100vw, 380px' })}
-          <span class="mk-n" aria-hidden="true">${String(i + 1).padStart(2, '0')}</span>
+        <div class="mk-pic" aria-hidden="true">
+          <span class="mk-n">${String(i + 1).padStart(2, '0')}</span>
         </div>
         <h3>${esc(m.title)}</h3>
         <p>${esc(m.body)}</p>
@@ -180,16 +202,6 @@ const body = `
   </div>
 </section>
 
-<section class="photoband">
-  ${img({ src: '/assets/img/site/about-2.webp', alt: '', title: 'Clinical staff in a compliance training session',
-          width: 1600, height: 700, sizes: '100vw' })}
-  <div class="wrap photoband-in">
-    <p>We do not just check boxes. We build a culture of compliance and give you a plan to keep improving.</p>
-    <p class="sub">Automation handles the tasks. Your team handles the questions, and ours is on the other
-    end of the phone when the question is hard.</p>
-  </div>
-</section>
-
 <!-- ============ 03. What is offered? ============ -->
 <section class="sec sec-loose field" id="what-we-offer">
   <div class="wrap">
@@ -212,7 +224,7 @@ const body = `
           <span class="side-line">${line}</span>
         </div>
         <ul class="suite">
-          ${suite.filter((p) => p.side === key).map((p) => `<li class="prod${on ? ' prod-dark' : ''}">
+          ${suite.filter((p) => p.side === key).map((p) => `<li class="prod tilt${on ? ' prod-dark' : ''}">
             <div class="prod-h">
               <span class="prod-name">${esc(p.name)}</span>
               <span class="prod-kind">${esc(p.kind)}</span>
@@ -234,10 +246,6 @@ const body = `
           <ol class="seven">
             ${sevenElements.map((e) => `<li><span>${esc(e)}</span></li>`).join('')}
           </ol>
-        </div>
-        <div class="showcase-media">
-          ${img({ src: '/assets/img/site/feature-map.webp', alt: 'Two colleagues reviewing compliance status together on a laptop',
-                  title: 'Reviewing a live compliance program', width: 1400, height: 1050, sizes: '(max-width: 880px) 100vw, 520px' })}
         </div>
       </div>
     </div>
@@ -309,11 +317,6 @@ const body = `
           <li><b>30+</b><span>Clinical specialties served</span></li>
           <li><b>15+</b><span>Years in healthcare compliance</span></li>
         </ul>
-      </div>
-      <div class="about-media">
-        ${img({ src: '/assets/img/site/about-2.webp', alt: 'The Healthcare Compliance Pros team at work',
-                title: 'Healthcare Compliance Pros', width: 1400, height: 1050,
-                sizes: '(max-width: 880px) 100vw, 520px' })}
       </div>
     </div>
 

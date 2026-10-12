@@ -349,7 +349,11 @@ ${footer()}`;
 ${head(page, criticalCss, cssHash)}
 </head>
 <body class="${page.bodyClass || ''}">
+<div class="grid-bg" aria-hidden="true"></div>
 <div class="aurora" aria-hidden="true"></div>
+<div class="cursor-glow" aria-hidden="true"></div>
+<div class="cur-ring" aria-hidden="true"></div>
+<div class="cur-dot" aria-hidden="true"></div>
 <div class="scrollbar" id="scrollbar" aria-hidden="true"></div>
 ${spriteFor(shell)}
 ${shell}

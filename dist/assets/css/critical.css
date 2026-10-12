@@ -1,3 +1,18 @@
+/* The typeface stack from the deck, actually loaded this time. Until now
+   the stylesheet named families with no @font-face behind them, so the 21
+   woff2 files in assets/fonts were never requested and every visitor got
+   system-ui. Lato carries display, Inter carries body, JetBrains Mono
+   carries the small technical labels. */
+@font-face{font-family:Lato;src:url(/assets/fonts/lato-400.woff2) format('woff2');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:Lato;src:url(/assets/fonts/lato-700.woff2) format('woff2');font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:Lato;src:url(/assets/fonts/lato-900.woff2) format('woff2');font-weight:900;font-style:normal;font-display:swap}
+@font-face{font-family:Inter;src:url(/assets/fonts/inter-300.woff2) format('woff2');font-weight:300;font-style:normal;font-display:swap}
+@font-face{font-family:Inter;src:url(/assets/fonts/inter-400.woff2) format('woff2');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:Inter;src:url(/assets/fonts/inter-500.woff2) format('woff2');font-weight:500;font-style:normal;font-display:swap}
+@font-face{font-family:Inter;src:url(/assets/fonts/inter-600.woff2) format('woff2');font-weight:600;font-style:normal;font-display:swap}
+@font-face{font-family:'JetBrains Mono';src:url(/assets/fonts/jetbrainsmono-400.woff2) format('woff2');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'JetBrains Mono';src:url(/assets/fonts/jetbrainsmono-500.woff2) format('woff2');font-weight:500;font-style:normal;font-display:swap}
+
 /* Healthcare Compliance Pros. Critical, inlined on every page.
    The system is taken from the HCP deck: a deep navy ground carrying a
    fine wireframe texture, light cards sitting on top of it, and lime used
@@ -8,10 +23,16 @@
 
 :root{
 /* Ground */
---navy:#051f33;--navy-deep:#03151f;--navy-soft:#0b2437;
---navy-tile:#1f4e79;--navy-tile-lift:#2a6296;
+--navy:#104977;--navy-deep:#0a2f4d;--navy-soft:#0a2036;
+--navy-tile:#0d2a45;--navy-tile-lift:#143a5c;
+/* The deck grounds everything on a near-black navy and lifts panels
+   from it, rather than tinting a mid navy. */
+--bg:#050f18;--bg-elev:#0a2036;--bg-elev-2:#0d2a45;
+/* Sky is the deck's second accent and the site had no equivalent. */
+--sky:#629dcb;--sky-10:rgba(98,157,203,.10);--sky-20:rgba(98,157,203,.20);
+--sky-35:rgba(98,157,203,.35);
 /* Accent */
---lime:#a3c739;--lime-bright:#b8d95a;--lime-deep:#8aac2b;
+--lime:#a2c739;--lime-bright:#b8d95a;--lime-deep:#8aac2b;
 --lime-tint:rgba(163,199,57,.14);
 /* Light surfaces */
 /* Option C: a light panel carrying the brand navy, so cards belong to the
@@ -32,8 +53,9 @@
 /* Rules */
 --line:rgba(255,255,255,.14);--line-soft:rgba(255,255,255,.08);--line-ink:#d4dde6;
 /* Type */
---head:'Plus Jakarta Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
---body:Lato,system-ui,-apple-system,'Segoe UI',sans-serif;
+--head:Lato,system-ui,-apple-system,'Segoe UI',sans-serif;
+--body:Inter,system-ui,-apple-system,'Segoe UI',sans-serif;
+--mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
 /* Metrics */
 --wrap:1220px;--r:10px;--r-lg:16px;
 --sh:0 2px 10px rgba(0,0,0,.18);
@@ -48,11 +70,14 @@
 
 *,*::before,*::after{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--navy);color:var(--on-dark-soft);
+body{margin:0;background:var(--bg);color:var(--on-dark-soft);
   font-family:var(--body);font-size:17px;line-height:1.65;
   -webkit-font-smoothing:antialiased;overflow-x:hidden}
 
-h1,h2,h3,h4{font-family:var(--head);font-weight:800;line-height:1.1;
+/* Lato ships 400/700/900 and no 800, so display weight is 900. Asking
+   for 800 got a synthesised face on every heading on the site. */
+h1,h2{font-family:var(--head);font-weight:900;line-height:1.1;letter-spacing:-.02em;margin:0 0 .6rem}
+h3,h4{font-family:var(--head);font-weight:700;line-height:1.1;
   letter-spacing:-.02em;color:var(--on-dark);margin:0 0 .5em;
   /* Distribute lines evenly rather than filling each to the edge, which
      otherwise strands single words on a line of their own. */
@@ -60,7 +85,7 @@ h1,h2,h3,h4{font-family:var(--head);font-weight:800;line-height:1.1;
 p,li,figcaption,dd,summary{text-wrap:pretty}
 h1{font-size:clamp(2.3rem,1.5rem + 3.2vw,4rem)}
 h2{font-size:clamp(1.85rem,1.3rem + 2.2vw,2.9rem)}
-h3{font-size:1.2rem;font-weight:800;letter-spacing:-.01em}
+h3{font-size:1.2rem;font-weight:700;letter-spacing:-.01em}
 p{margin:0 0 1.05em}
 a{color:inherit}
 img,svg,video{max-width:100%;display:block}
@@ -84,7 +109,7 @@ img,svg,video{max-width:100%;display:block}
    to do. It now appears on focus. */
 a.visually-hidden:focus{position:fixed;top:.75rem;left:.75rem;z-index:200;
   width:auto;height:auto;clip:auto;overflow:visible;
-  background:var(--lime);color:#13230a;font-family:var(--head);font-weight:800;
+  background:var(--lime);color:#13230a;font-family:var(--head);font-weight:700;
   padding:.8rem 1.2rem;border-radius:8px;box-shadow:var(--sh-lg);text-decoration:none}
 :focus-visible{outline:3px solid var(--lime);outline-offset:2px}
 
@@ -106,15 +131,15 @@ a.visually-hidden:focus{position:fixed;top:.75rem;left:.75rem;z-index:200;
   -webkit-mask-image:linear-gradient(180deg,transparent,#000 12%,#000 88%,transparent);
   mask-image:linear-gradient(180deg,transparent,#000 12%,#000 88%,transparent)}
 
-.solid{position:relative;background:var(--navy);isolation:isolate}
-.solid.sec-soft{background:var(--navy-soft)}
+.solid{position:relative;background:var(--bg-elev);isolation:isolate}
+.solid.sec-soft{background:var(--bg-elev-2)}
 /* A hairline where a solid section meets a textured one, so the change of
    ground reads as a deliberate edge rather than as a loading artefact. */
 .solid + .field,.field + .solid{border-top:1px solid var(--line-soft)}
 
 /* ---- Buttons ---- */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;
-  font-family:var(--head);font-weight:800;font-size:.97rem;letter-spacing:.005em;
+  font-family:var(--head);font-weight:700;font-size:.97rem;letter-spacing:.005em;
   padding:.92rem 1.6rem;border-radius:var(--r);border:2px solid transparent;
   text-decoration:none;cursor:pointer;transition:transform .18s,background .18s,border-color .18s,color .18s}
 .btn:active{transform:translateY(1px)}
@@ -146,7 +171,7 @@ a.visually-hidden:focus{position:fixed;top:.75rem;left:.75rem;z-index:200;
    than the nav links beside it and leaving 14px of clearance. Sized to sit
    with the nav rather than over it. */
 .head-cta .btn{padding:.72rem 1.25rem;font-size:.92rem;border-width:1px;border-radius:8px;line-height:1.2}
-.head-tel{font-family:var(--head);font-weight:800;font-size:1rem;color:var(--navy-tile);
+.head-tel{font-family:var(--head);font-weight:700;font-size:1rem;color:var(--navy-tile);
   text-decoration:none;white-space:nowrap;display:inline-flex;align-items:center;
   min-height:24px;padding-block:.3rem}
 .head-tel:hover{color:var(--lime-deep)}
@@ -161,7 +186,7 @@ a.visually-hidden:focus{position:fixed;top:.75rem;left:.75rem;z-index:200;
 }
 
 /* ---- Hero ---- */
-.hero{position:relative;overflow:hidden;background:var(--navy)}
+.hero{position:relative;overflow:hidden;background:var(--bg)}
 .hero-media{position:absolute;inset:0;z-index:0}
 .hero-media img,.hero-media video{position:absolute;inset:0;width:100%;height:100%;
   object-fit:cover;object-position:center 30%}
@@ -198,6 +223,38 @@ a.visually-hidden:focus{position:fixed;top:.75rem;left:.75rem;z-index:200;
   animation:drift-b 20s ease-in-out infinite alternate}
 @keyframes drift-a{0%{transform:translate(0,0) scale(1)}100%{transform:translate(-3%,2%) scale(1.06)}}
 @keyframes drift-b{0%{transform:translate(0,0) scale(1)}100%{transform:translate(2%,-3%) scale(1.05)}}
+
+/* ---- The deck's ground: a wireframe grid and a cursor light, no photographs.
+   Both are fixed and sit under the content. The grid is the thing that reads
+   as "technical" without any imagery; the cursor glow is what makes moving
+   the mouse light the page up. ---- */
+.grid-bg{position:fixed;inset:0;z-index:-3;pointer-events:none;
+  background-image:
+    linear-gradient(rgba(98,157,203,.055) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(98,157,203,.055) 1px,transparent 1px);
+  background-size:64px 64px;
+  mask-image:radial-gradient(120% 90% at 50% 10%,#000 35%,transparent 78%)}
+
+/* 840px of soft sky that follows the pointer. Parked off-screen until the
+   first move, so it never flashes in the corner on load. */
+.cursor-glow{position:fixed;left:0;top:0;width:840px;height:840px;margin:-420px 0 0 -420px;
+  border-radius:50%;pointer-events:none;z-index:-1;
+  background:radial-gradient(circle,var(--sky-10),transparent 70%);
+  transform:translate(-100vw,-100vh)}
+
+/* The custom cursor itself: a lime dot on the pointer and a ring that lags
+   behind it, widening over anything clickable. Fine pointers only, so touch
+   devices keep their native behaviour and lose nothing. */
+.cur-dot,.cur-ring{position:fixed;top:0;left:0;border-radius:50%;pointer-events:none;
+  z-index:300;transform:translate(-50%,-50%);display:none}
+.cur-dot{width:6px;height:6px;background:var(--lime);box-shadow:0 0 8px var(--lime)}
+.cur-ring{width:36px;height:36px;border:1px solid var(--sky-35);
+  transition:width .25s var(--ease,cubic-bezier(.16,.84,.44,1)),height .25s var(--ease,cubic-bezier(.16,.84,.44,1)),
+    border-color .25s ease,background .25s ease}
+.cur-ring.on{width:64px;height:64px;border-color:var(--lime);background:rgba(162,199,57,.08)}
+@media (pointer:fine){.cur-dot,.cur-ring{display:block}}
+@media (prefers-reduced-motion:reduce){.cur-dot,.cur-ring,.cursor-glow{display:none!important}}
+
 
 /* A single fixed field of glows behind the whole page, under everything. */
 .aurora{position:fixed;inset:-10%;z-index:-2;pointer-events:none;opacity:.55;
@@ -242,10 +299,10 @@ a.visually-hidden:focus{position:fixed;top:.75rem;left:.75rem;z-index:200;
 .orbit-node.w2{inset:110px;animation:spin-rev 19s linear infinite}
 .orbit-node.w2 .dot{background:#64a2da;box-shadow:0 0 10px #64a2da}
 .orbit-tick{position:absolute;top:-26px;left:50%;transform:translateX(-50%);margin:0;
-  font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.62rem;letter-spacing:.1em;
+  font-family:var(--mono);font-size:.62rem;letter-spacing:.1em;
   /* Decorative and inside an aria-hidden block, so WCAG does not require it,
    but a sighted reader still reads it: 3.49:1 was too faint. */
-  color:rgba(255,255,255,.52);white-space:nowrap}
+  color:var(--lime);white-space:nowrap}
 @keyframes spin{to{transform:rotate(360deg)}}
 @keyframes spin-rev{to{transform:rotate(-360deg)}}
 

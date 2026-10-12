@@ -406,3 +406,65 @@
       + '&body=' + encodeURIComponent(body);
   });
 })();
+
+/* Pointer light, custom cursor, magnetic buttons and card tilt.
+   All of it is gated on a fine pointer and on the visitor not having asked
+   for reduced motion, so touch devices and anyone who has turned motion off
+   get the plain page rather than a degraded version of this one. */
+(function () {
+  var fine = window.matchMedia('(pointer:fine)').matches;
+  var still = window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+  if (!fine || still) return;
+
+  var glow = document.querySelector('.cursor-glow');
+  var dot = document.querySelector('.cur-dot');
+  var ring = document.querySelector('.cur-ring');
+  if (!glow || !dot || !ring) return;
+
+  var mx = innerWidth / 2, my = innerHeight / 2, rx = mx, ry = my, moved = false;
+
+  window.addEventListener('mousemove', function (e) {
+    mx = e.clientX; my = e.clientY; moved = true;
+    glow.style.transform = 'translate(' + mx + 'px,' + my + 'px)';
+    dot.style.left = mx + 'px'; dot.style.top = my + 'px';
+  }, { passive: true });
+
+  /* The ring eases toward the pointer rather than tracking it exactly; the
+     lag is what makes it read as a physical object. */
+  (function loop() {
+    if (moved) {
+      rx += (mx - rx) * 0.5; ry += (my - ry) * 0.5;
+      ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
+    }
+    requestAnimationFrame(loop);
+  })();
+
+  document.addEventListener('mouseover', function (e) {
+    if (e.target.closest('a,button,summary,[role="button"]')) ring.classList.add('on');
+  });
+  document.addEventListener('mouseout', function (e) {
+    if (e.target.closest('a,button,summary,[role="button"]')) ring.classList.remove('on');
+  });
+
+  document.querySelectorAll('.magnetic').forEach(function (btn) {
+    btn.addEventListener('mousemove', function (e) {
+      var r = btn.getBoundingClientRect();
+      btn.style.transform = 'translate(' + (e.clientX - r.left - r.width / 2) * 0.22 + 'px,'
+        + (e.clientY - r.top - r.height / 2) * 0.3 + 'px)';
+    });
+    btn.addEventListener('mouseleave', function () { btn.style.transform = 'translate(0,0)'; });
+  });
+
+  document.querySelectorAll('.tilt').forEach(function (card) {
+    card.addEventListener('mousemove', function (e) {
+      var r = card.getBoundingClientRect();
+      var px = (e.clientX - r.left) / r.width - 0.5;
+      var py = (e.clientY - r.top) / r.height - 0.5;
+      card.style.transform = 'perspective(700px) rotateX(' + (-py * 6) + 'deg) rotateY('
+        + (px * 6) + 'deg) translateY(-4px)';
+    });
+    card.addEventListener('mouseleave', function () {
+      card.style.transform = 'perspective(700px) rotateX(0) rotateY(0) translateY(0)';
+    });
+  });
+})();
