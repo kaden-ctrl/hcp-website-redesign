@@ -214,7 +214,7 @@ a.visually-hidden:focus{position:fixed;top:.75rem;left:.75rem;z-index:200;
    The deck's signature movement: large, very slow radial glows that drift
    behind the dark sections, plus a pair in the hero. Slow enough to read as
    atmosphere rather than animation, and all of it stops under
-   prefers-reduced-motion. Deliberately no cursor-following glow. ---- */
+   prefers-reduced-motion. ---- */
 .hero::before,.hero::after{content:"";position:absolute;border-radius:50%;pointer-events:none;z-index:1}
 .hero::before{width:60vw;height:60vw;max-width:800px;max-height:800px;right:-16vw;top:-14vw;
   background:radial-gradient(circle,rgba(163,199,57,.20),transparent 65%);

@@ -344,43 +344,6 @@
   update();
 })();
 
-/* Count-up on the figures.
-   The markup already carries the true value, so it is captured up front
-   and restored on a timeout guarantee: requestAnimationFrame is paused in
-   a background tab, and without this a visitor who scrolls a figure into
-   view, switches tabs and returns would be left looking at a part-way
-   number for as long as the page stays open. */
-(function () {
-  var nums = document.querySelectorAll('[data-count]');
-  if (!nums.length || !('IntersectionObserver' in window)) return;
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  var io = new IntersectionObserver(function (entries) {
-    entries.forEach(function (e) {
-      if (!e.isIntersecting) return;
-      var el = e.target; io.unobserve(el);
-      var finalText = el.textContent, done = false;
-      function finish() { if (done) return; done = true; el.textContent = finalText; }
-      var target = parseFloat(el.getAttribute('data-count'));
-      // Counting 0 to 4 spends most of its frames showing zero, which reads
-      // as a broken figure rather than an animation.
-      if (!(target > 4)) return;
-      var pre = el.getAttribute('data-pre') || '', post = el.getAttribute('data-post') || '';
-      var start = null, dur = 1200;
-      function tick(ts) {
-        if (done) return;
-        if (start === null) start = ts;
-        var p = Math.min(1, (ts - start) / dur);
-        var eased = 1 - Math.pow(1 - p, 3);
-        el.textContent = pre + Math.round(target * eased).toLocaleString() + post;
-        if (p < 1) requestAnimationFrame(tick); else finish();
-      }
-      requestAnimationFrame(tick);
-      setTimeout(finish, dur + 600);
-    });
-  }, { threshold: 0.5 });
-  nums.forEach(function (el) { io.observe(el); });
-})();
-
 /* Lead form. No backend is wired up yet, so a valid submission falls back
    to the visitor's mail client. Set an `action` on the form once a real
    endpoint exists and this handler steps aside on its own. */

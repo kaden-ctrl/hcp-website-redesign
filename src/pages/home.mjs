@@ -149,14 +149,10 @@ const body = `
 
     <!-- Stats as a ruled band rather than four tiles. Hairlines between the
          cells, nothing around them. -->
+    <!-- Static text. These are real figures the client supplied, so they do
+         not need animating into view to be worth reading. -->
     <ul class="figs rv">
-      ${stats.map((s) => {
-        const n = (s.figure.match(/[\d,]+/) || [''])[0];
-        const num = n.replace(/,/g, '');
-        const pre = s.figure.slice(0, s.figure.indexOf(n));
-        const post = s.figure.slice(s.figure.indexOf(n) + n.length);
-        return `<li><b data-count="${num}" data-pre="${esc(pre)}" data-post="${esc(post)}">${esc(s.figure)}</b><span>${esc(s.label)}</span></li>`;
-      }).join('')}
+      ${stats.map((s) => `<li><b>${esc(s.figure)}</b><span>${esc(s.label)}</span></li>`).join('')}
     </ul>
   </div>
 </section>
