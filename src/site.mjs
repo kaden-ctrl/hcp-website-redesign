@@ -9,17 +9,20 @@ export const site = {
   legalName: 'Healthcare Compliance Pros, LLC',
   origin: 'https://www.healthcarecompliancepros.com',
   tagline: 'Healthcare compliance software, backed by compliance experts.',
-  founded: '2009',
+  /* No founding year. 2009 was a placeholder with nothing behind it, and
+     foundingDate is a factual claim served to crawlers. Restore it only
+     with a date the client confirms. */
   phone: '855-427-0427',
   phoneE164: '+1-855-427-0427',
   phoneDisplay: '(855) 427-0427',
   email: 'info@healthcarecompliancepros.com',
   hours: 'Mo-Fr 08:00-18:00',
   address: {
-    street: '1305 N Commerce Dr, Suite 240',
-    locality: 'Saratoga Springs',
+    /* From their own privacy policy, which carries the registered address. */
+    street: '90 W. 500 S. #157',
+    locality: 'Bountiful',
     region: 'UT',
-    postalCode: '84045',
+    postalCode: '84010',
     country: 'US'
   },
   social: [

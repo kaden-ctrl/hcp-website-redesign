@@ -41,7 +41,7 @@ const FORM_FIELDS = `
 
 /* Written once, because it will be replaced wholesale by a HubSpot embed. */
 export function leadForm(heading, sub) {
-  return `<form class="lead-form f rv" data-lead="${site.email}" novalidate>
+  return `<form class="lead-form f" data-lead="${site.email}" novalidate>
     <h3>${esc(heading || 'Request your free compliance review')}</h3>
     <p>${esc(sub || 'An advisor familiar with your setting will follow up, usually within one business day.')}</p>
     ${FORM_FIELDS}
@@ -93,11 +93,11 @@ const signature = {
   shield: (p, d) => `
 <section class="sec sec-loose field" id="what-it-is">
   <div class="wrap">
-    <div class="sec-head rv">
+    <div class="sec-head">
       <h2>Four modules, one system of record</h2>
       <p class="sec-lead">${esc(p.blurb)}</p>
     </div>
-    <div class="console rv">
+    <div class="console">
       ${d.groups.map((g, i) => `<article class="console-mod">
         <header>
           <span class="console-idx">${String(i + 1).padStart(2, '0')}</span>
@@ -111,12 +111,12 @@ const signature = {
 
 <section class="sec sec-soft solid" id="seven-elements">
   <div class="wrap">
-    <div class="sec-head rv">
+    <div class="sec-head">
       <h2>The seven elements, as a sequence</h2>
       <p class="sec-lead">The Office of Inspector General defines what an effective compliance program
       requires. These are not a checklist to tick once; they run as a loop.</p>
     </div>
-    <ol class="chain rv">
+    <ol class="chain">
       ${sevenElements.map((e, i) => `<li><span class="chain-n">${String(i + 1).padStart(2, '0')}</span><span class="chain-t">${esc(e)}</span></li>`).join('')}
     </ol>
   </div>
@@ -126,11 +126,11 @@ const signature = {
   sentry: (p, d) => `
 <section class="sec sec-loose field" id="what-it-is">
   <div class="wrap">
-    <div class="sec-head rv">
+    <div class="sec-head">
       <h2>Risk runs in both directions</h2>
       <p class="sec-lead">${esc(p.blurb)}</p>
     </div>
-    <ul class="bidir rv">
+    <ul class="bidir">
       ${sentryDirections.map((x) => `<li><span class="bidir-tag">${esc(x.tag)}</span><p>${esc(x.body)}</p></li>`).join('')}
     </ul>
   </div>
@@ -138,13 +138,13 @@ const signature = {
 
 <section class="sec sec-soft solid" id="cycle">
   <div class="wrap">
-    <div class="sec-head rv">
+    <div class="sec-head">
       <h2>Every quarter. Not every year.</h2>
       <p class="sec-lead">Analytics run across every provider in all four quarters. Audits rotate so each
       group is reviewed and then re-checked. Guidance starts as a baseline and then targets the providers
       carrying the most risk.</p>
     </div>
-    <div class="qgrid rv">
+    <div class="qgrid">
       <div class="qrow qhead"><span></span><span>Analytics</span><span>Audit</span><span>Guidance</span></div>
       ${sentryQuarters.map((q) => `<div class="qrow">
         <span class="qlabel">${esc(q.q)}</span>
@@ -153,7 +153,7 @@ const signature = {
         <span>${esc(q.guidance)}</span>
       </div>`).join('')}
     </div>
-    <ul class="compare-bars rv">
+    <ul class="compare-bars">
       ${sentryCompare.map((c) => `<li>
         <span class="cb-label">${esc(c.label)}</span>
         <span class="cb-pair"><em>Annual</em><b>${esc(c.annual)}</b></span>
@@ -165,8 +165,8 @@ const signature = {
 
 <section class="sec field" id="loop">
   <div class="wrap">
-    <div class="sec-head rv"><h2>The loop</h2></div>
-    <ol class="loop rv">
+    <div class="sec-head"><h2>The loop</h2></div>
+    <ol class="loop">
       ${sentryLoop.map((l) => `<li><span class="loop-n">${esc(l.n)}</span><b>${esc(l.name)}</b><p>${esc(l.body)}</p></li>`).join('')}
     </ol>
   </div>
@@ -176,14 +176,14 @@ const signature = {
   fco: (p, d) => `
 <section class="sec sec-loose solid" id="what-it-is">
   <div class="wrap">
-    <div class="sec-head rv">
+    <div class="sec-head">
       <h2>How the engagement runs</h2>
       <p class="sec-lead">${esc(p.blurb)}</p>
     </div>
-    <ol class="tline rv">
+    <ol class="tline">
       ${fcoTimeline.map((t) => `<li><span class="tline-when">${esc(t.when)}</span><p>${esc(t.what)}</p></li>`).join('')}
     </ol>
-    <div class="hours rv">
+    <div class="hours">
       <div class="hours-fig"><b>10</b><span>hours a month of dedicated support, included</span></div>
       <div class="hours-note">
         <p>Additional hours are available at $300 each. The committee meets monthly for the first six
@@ -195,12 +195,12 @@ const signature = {
 
 <section class="sec sec-soft field" id="the-role">
   <div class="wrap">
-    <div class="sec-head rv">
+    <div class="sec-head">
       <h2>What your officer actually does</h2>
       <p class="sec-lead">The primary compliance liaison for your staff, for third parties and for
       government agencies.</p>
     </div>
-    ${d.groups.map((g) => `<div class="pgroup rv">
+    ${d.groups.map((g) => `<div class="pgroup">
       <h3>${esc(g.name)}</h3>
       <ul class="pfeat">${g.items.map(([t, b]) => `<li><b>${esc(t)}</b><span>${esc(b)}</span></li>`).join('')}</ul>
     </div>`).join('')}
@@ -211,11 +211,11 @@ const signature = {
   diligence: (p, d) => `
 <section class="sec sec-loose solid" id="what-it-is">
   <div class="wrap">
-    <div class="sec-head rv">
+    <div class="sec-head">
       <h2>Where the work sits in a deal</h2>
       <p class="sec-lead">${esc(p.blurb)}</p>
     </div>
-    <ol class="deal rv">
+    <ol class="deal">
       ${diligenceStages.map((s) => `<li>
         <span class="deal-stage">${esc(s.stage)}</span>
         <h3>${esc(s.title)}</h3>
@@ -227,11 +227,11 @@ const signature = {
 
 <section class="sec sec-soft field" id="the-review">
   <div class="wrap">
-    <div class="sec-head rv">
+    <div class="sec-head">
       <h2>What the review covers</h2>
       <p class="sec-lead">Produced as a document the other side of the table will read closely.</p>
     </div>
-    ${d.groups.map((g) => `<div class="pgroup rv">
+    ${d.groups.map((g) => `<div class="pgroup">
       <ul class="pfeat">${g.items.map(([t, b]) => `<li><b>${esc(t)}</b><span>${esc(b)}</span></li>`).join('')}</ul>
     </div>`).join('')}
   </div>
@@ -285,8 +285,8 @@ ${signature[p.key](p, d)}
 
 <section class="sec solid" id="why-hcp">
   <div class="wrap">
-    <div class="sec-head rv"><h2>Why ${esc(p.name)} rather than a point tool</h2></div>
-    <ul class="whygrid rv">
+    <div class="sec-head"><h2>Why ${esc(p.name)} rather than a point tool</h2></div>
+    <ul class="whygrid">
       ${differentiators.map((x, i) => `<li><span class="whygrid-n">${String(i + 1).padStart(2, '0')}</span><p>${esc(x)}</p></li>`).join('')}
     </ul>
   </div>
@@ -294,13 +294,13 @@ ${signature[p.key](p, d)}
 
 <section class="sec sec-soft field" id="use-cases">
   <div class="wrap">
-    <div class="sec-head rv"><h2>In practice</h2></div>
-    <figure class="bigquote rv">
+    <div class="sec-head"><h2>In practice</h2></div>
+    <figure class="bigquote">
       <blockquote>${esc(testimonials.find((t) => t.tag === p.name) ? testimonials.find((t) => t.tag === p.name).quote : testimonials[0].quote)}</blockquote>
       <figcaption>${esc((testimonials.find((t) => t.tag === p.name) || testimonials[0]).who)}
         <span>${esc((testimonials.find((t) => t.tag === p.name) || testimonials[0]).org)}</span></figcaption>
     </figure>
-    <ul class="stats rv">
+    <ul class="stats">
       ${stats.map((s) => `<li class="stat"><b>${esc(s.figure)}</b><span>${esc(s.label)}</span></li>`).join('')}
     </ul>
   </div>
@@ -308,8 +308,8 @@ ${signature[p.key](p, d)}
 
 <section class="sec solid" id="rest-of-suite">
   <div class="wrap">
-    <div class="sec-head rv"><h2>The rest of the suite</h2></div>
-    <ul class="siblings rv">
+    <div class="sec-head"><h2>The rest of the suite</h2></div>
+    <ul class="siblings">
       ${others.map((o) => `<li><a href="${o.href}">
         <span class="sib-posture">${esc(o.posture)}</span>
         <b>${esc(o.name)}</b>
@@ -321,8 +321,8 @@ ${signature[p.key](p, d)}
 
 <section class="sec sec-soft field" id="faq">
   <div class="narrow">
-    <div class="sec-head rv"><h2>Questions about ${esc(p.name)}</h2></div>
-    <div class="faqs rv">
+    <div class="sec-head"><h2>Questions about ${esc(p.name)}</h2></div>
+    <div class="faqs">
       ${faqs.map((f, i) => `<details class="faq"${i === 0 ? ' open' : ''}>
         <summary><span>${esc(f.q)}</span>${icon('plus', 'ic ic-sm')}</summary>
         <div class="faq-a"><p>${esc(f.a)}</p></div>
@@ -334,7 +334,7 @@ ${signature[p.key](p, d)}
 <section class="close" id="start">
   <div class="wrap sec">
     <div class="lead-grid">
-      <div class="rv">
+      <div>
         <h2>See what ${esc(p.name)} would find.</h2>
         <p class="sec-lead">Twenty minutes with an advisor produces a written gap analysis for your own
         setting, ranked by what would actually hurt you first.</p>

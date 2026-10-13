@@ -82,13 +82,13 @@ const body = `
      than a mocked-up UI, so nobody mistakes an illustration for the thing. -->
 <section class="sec sec-tight dash-sec" id="dashboard">
   <div class="wrap">
-    <div class="dash-head rv">
+    <div class="dash-head">
       <span class="mono-label">The platform</span>
       <h2>One screen for the whole program.</h2>
       <p class="sec-lead">Completion, policy status, risk analysis and exclusion monitoring,
       across every location, live rather than assembled for the request.</p>
     </div>
-    <figure class="dash-frame rv">
+    <figure class="dash-frame">
       <div class="dash-chrome" aria-hidden="true">
         <span></span><span></span><span></span>
       </div>
@@ -104,7 +104,7 @@ const body = `
      how large it is set; a filled tile does it immediately. -->
 <section class="prodstrip">
   <div class="wrap">
-    <ul class="ps rv">
+    <ul class="ps">
       ${suite.map((p) => `<li><a href="#what-we-offer">
         <b>${esc(p.name)}</b>
         <span>${esc(p.kind)}</span>
@@ -116,7 +116,7 @@ const body = `
 <!-- ============ 01. What is it? ============ -->
 <section class="sec sec-loose field" id="what-it-is">
   <div class="wrap">
-    <div class="sec-head rv">
+    <div class="sec-head">
       <h2>One platform that runs your compliance program and watches your billing.</h2>
       <p class="sec-lead">Healthcare Compliance Pros is a compliance and revenue integrity partner for
       healthcare providers. <strong>SHIELD</strong> runs the compliance program: policies, training, risk
@@ -130,7 +130,7 @@ const body = `
          thing that is not, so the strikethrough carries it and a box would
          only get in the way. The ramp in opacity is the point: the further
          down the stack, the less anyone can find it. -->
-    <div class="recko rv">
+    <div class="recko">
       <div class="recko-was">
         <span class="recko-lbl">What most organizations run</span>
         <ul class="strike">
@@ -151,7 +151,7 @@ const body = `
          cells, nothing around them. -->
     <!-- Static text. These are real figures the client supplied, so they do
          not need animating into view to be worth reading. -->
-    <ul class="figs rv">
+    <ul class="figs">
       ${stats.map((s) => `<li><b>${esc(s.figure)}</b><span>${esc(s.label)}</span></li>`).join('')}
     </ul>
   </div>
@@ -160,7 +160,7 @@ const body = `
 <!-- ============ 02. Who is it for? ============ -->
 <section class="sec sec-soft sec-loose solid" id="who-its-for">
   <div class="wrap">
-    <div class="sec-head rv">
+    <div class="sec-head">
       <h2>Three distinct markets. One unified platform.</h2>
       <p class="sec-lead">From a four-provider practice through to a private equity sponsor mid-transaction,
       the same platform underneath, scoped and priced to the organization using it.</p>
@@ -169,7 +169,7 @@ const body = `
     <!-- The cards are gone. Each market is a photo with its numeral sitting
          across the lower edge and the text on the open field underneath.
          The overlap is what stops three of anything reading as a grid. -->
-    <ol class="mk rv">
+    <ol class="mk">
       ${markets.map((m, i) => `<li>
         <div class="mk-pic" aria-hidden="true">
           <span class="mk-n">${String(i + 1).padStart(2, '0')}</span>
@@ -181,7 +181,7 @@ const body = `
 
     <!-- 30+ set at display size so one number anchors the section, with the
          specialties running past it. -->
-    <div class="spec rv">
+    <div class="spec">
       <div class="spec-head">
         <span class="spec-fig">30<i>+</i></span>
         <p>Clinical specialties served nationwide. Benchmarks, policy sets and training are
@@ -201,7 +201,7 @@ const body = `
 <!-- ============ 03. What is offered? ============ -->
 <section class="sec sec-loose field" id="what-we-offer">
   <div class="wrap">
-    <div class="sec-head rv">
+    <div class="sec-head">
       <h2>Defense and offense. Compliance and revenue.</h2>
       <p class="sec-lead">Four products that work as one relationship. Take the whole suite or the single
       piece you are missing.</p>
@@ -213,7 +213,7 @@ const body = `
          just never said so. Naming them and inverting offense to the navy
          tile makes the split land before the reader works it out. */
       const on = key === 'offense';
-      return `<div class="side rv">
+      return `<div class="side">
         <div class="side-head">
           <span class="side-label${on ? ' side-label-on' : ''}">${label}</span>
           <span class="side-rule"></span>
@@ -233,7 +233,7 @@ const body = `
       </div>`;
     }).join('')}
 
-    <div class="seven-block rv">
+    <div class="seven-block">
       <div class="showcase">
         <div>
           <h3>The seven elements. Covered.</h3>
@@ -250,12 +250,12 @@ const body = `
 
 <section class="sec sec-soft solid" id="why-hcp">
   <div class="wrap">
-    <div class="sec-head rv">
+    <div class="sec-head">
       <h2>Software alone does not make you compliant.</h2>
       <p class="sec-lead">Anyone can sell you a login. When protected health information goes to the wrong
       patient, a login does not help. Your team does.</p>
     </div>
-    <ul class="diffs rv">
+    <ul class="diffs">
       ${differentiators.map((d) => `<li><span class="bar" aria-hidden="true"></span><p>${esc(d)}</p></li>`).join('')}
     </ul>
   </div>
@@ -263,7 +263,7 @@ const body = `
 
 <section class="sec field" id="use-cases">
   <div class="wrap">
-    <div class="sec-head rv">
+    <div class="sec-head">
       <h2>A decade of trust. Over a thousand providers protected.</h2>
       <p class="sec-lead">How organizations across practice groups, private equity and behavioral health
       put the platform to work.</p>
@@ -271,7 +271,7 @@ const body = `
     <!-- Four equal cards made four equal claims and none of them landed.
          The first quote carries the section at display size on the open
          field; the rest sit under it as a ruled row. -->
-    <figure class="lede-q rv">
+    <figure class="lede-q">
       <blockquote>${esc(testimonials[0].quote)}</blockquote>
       <figcaption>
         <b>${esc(testimonials[0].who)}</b>
@@ -279,7 +279,7 @@ const body = `
         <em>${esc(testimonials[0].tag)}</em>
       </figcaption>
     </figure>
-    <ul class="sub-q rv">
+    <ul class="sub-q">
       ${testimonials.slice(1).map((t) => `<li>
         <span class="sub-q-tag">${esc(t.tag)}</span>
         <blockquote>${esc(t.quote)}</blockquote>
@@ -291,7 +291,7 @@ const body = `
 
 <section class="sec sec-soft solid" id="about">
   <div class="wrap">
-    <div class="sec-head rv">
+    <div class="sec-head">
       <h2>About Healthcare Compliance Pros</h2>
       <p class="sec-lead">We have spent more than fifteen years on one problem: making compliance
       something a healthcare organization can prove rather than assert. The work started with policy and
@@ -300,7 +300,7 @@ const body = `
       compliance exposure and revenue leakage come from the same blind spot.</p>
     </div>
 
-    <div class="about-grid rv">
+    <div class="about-grid">
       <div class="about-copy">
         <p>Today that is one platform and a named team, working with more than a thousand provider
         groups across all fifty states and over thirty clinical specialties. The advisor who scopes your
@@ -316,7 +316,7 @@ const body = `
       </div>
     </div>
 
-    <div class="about-team rv">
+    <div class="about-team">
       <span class="about-team-lbl">The people you would actually be working with</span>
       <ul class="team">
         ${leadership.map((m) => `<li>
@@ -332,10 +332,10 @@ const body = `
 
 <section class="sec field" id="faq">
   <div class="narrow">
-    <div class="sec-head rv">
+    <div class="sec-head">
       <h2>The questions everyone asks first</h2>
     </div>
-    <div class="faqs rv">
+    <div class="faqs">
       ${faqs.map((f, i) => `<details class="faq"${i === 0 ? ' open' : ''}>
         <summary><span>${esc(f.q)}</span>${icon('plus', 'ic ic-sm')}</summary>
         <div class="faq-a"><p>${esc(f.a)}</p></div>
@@ -347,7 +347,7 @@ const body = `
 <section class="close" id="start">
   <div class="wrap sec">
     <div class="lead-grid">
-      <div class="rv">
+      <div>
         <h2>Let us talk compliance.</h2>
         <p class="sec-lead">Whether you are an independent practice looking to get compliant, a private
         equity sponsor evaluating a healthcare acquisition, or a law firm looking for a compliance partner
@@ -359,7 +359,7 @@ const body = `
           <li><div><b>Prefer to talk now?</b><p>Call <a href="tel:${site.phoneE164}" style="color:var(--lime)">${site.phoneDisplay}</a> and ask for a compliance advisor.</p></div></li>
         </ul>
       </div>
-      <form class="lead-form f rv" data-lead="${site.email}" novalidate>
+      <form class="lead-form f" data-lead="${site.email}" novalidate>
         <h3>Request your free compliance review</h3>
         <p>An advisor familiar with your setting will follow up, usually within one business day.</p>
         <div class="f-row f-row-2">

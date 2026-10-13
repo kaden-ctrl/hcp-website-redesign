@@ -105,30 +105,30 @@ function build(d) {
 
 <section class="sec sec-loose field" id="the-challenge">
   <div class="wrap">
-    <div class="sec-head rv">
+    <div class="sec-head">
       <h2>${esc(v.challengeH)}</h2>
       <p class="sec-lead">Compliance exposure and revenue leakage are not separate problems. They come
       from the same gap: no real-time system watching the data. That is the infrastructure HCP builds.</p>
     </div>
-    <ul class="stats rv">
+    <ul class="stats">
       ${challengeStats.map((s) => `<li class="stat"><b>${esc(s.figure)}</b><span>${esc(s.label)}</span></li>`).join('')}
     </ul>
-    <ul class="risks rv">
+    <ul class="risks">
       ${risks.map((r) => `<li><span class="lbl">${esc(r.tag)}</span><p>${esc(r.body)}</p></li>`).join('')}
     </ul>
-    <p class="risk-note rv">Every one of these traces back to the same root cause: nobody is watching in
+    <p class="risk-note">Every one of these traces back to the same root cause: nobody is watching in
     real time. That is the gap HCP was built to close.</p>
   </div>
 </section>
 
 <section class="sec sec-soft sec-loose solid" id="what-we-offer">
   <div class="wrap">
-    <div class="sec-head rv">
+    <div class="sec-head">
       <h2>${esc(v.suiteH)}</h2>
       <p class="sec-lead">SHIELD and FCO play defense. DILIGENCE and SENTRY play offense. Together they
       are one connected platform rather than four tools you have to join up yourself.</p>
     </div>
-    <ul class="suite rv">
+    <ul class="suite">
       ${suite.map((p) => `<li class="prod">
         <div class="prod-h">
           <span class="prod-posture">${esc(p.posture)}</span>
@@ -155,12 +155,12 @@ function build(d) {
 
 <section class="sec field" id="markets">
   <div class="wrap">
-    <div class="sec-head rv">
+    <div class="sec-head">
       <h2>${esc(v.marketH)}</h2>
       <p class="sec-lead">From a single-site clinic through to a private equity backed platform, the same
       system underneath, scoped to the complexity you actually carry.</p>
     </div>
-    <ul class="markets rv">
+    <ul class="markets">
       ${markets.map((m) => `<li class="market">
         <div class="market-pic">${img({ src: m.img, alt: m.alt, title: m.title, width: 900, height: 506, sizes: '(max-width: 900px) 100vw, 380px' })}</div>
         <div class="market-h"><b>${esc(m.n)}</b><span>${esc(m.title)}</span></div>
@@ -172,12 +172,12 @@ function build(d) {
 
 <section class="sec sec-soft solid" id="why-hcp">
   <div class="wrap">
-    <div class="sec-head rv">
+    <div class="sec-head">
       <h2>${esc(v.diffH)}</h2>
       <p class="sec-lead">Most vendors are betting healthcare compliance stays a back-office function.
       We are betting it becomes a board-level advantage.</p>
     </div>
-    <ul class="diffs rv">
+    <ul class="diffs">
       ${differentiators.map((x) => `<li><span class="bar" aria-hidden="true"></span><p>${esc(x)}</p></li>`).join('')}
     </ul>
   </div>
@@ -185,14 +185,14 @@ function build(d) {
 
 <section class="sec field" id="use-cases">
   <div class="wrap">
-    <div class="sec-head rv">
+    <div class="sec-head">
       <h2>Trusted across the deal table.</h2>
       <p class="sec-lead">${esc(v.numbersH)}</p>
     </div>
-    <ul class="stats rv" style="margin-bottom:clamp(2.2rem,1.8rem + 1.6vw,3.2rem)">
+    <ul class="stats" style="margin-bottom:clamp(2.2rem,1.8rem + 1.6vw,3.2rem)">
       ${stats.map((s) => `<li class="stat"><b>${esc(s.figure)}</b><span>${esc(s.label)}</span></li>`).join('')}
     </ul>
-    <ul class="quotes rv">
+    <ul class="quotes">
       ${testimonials.map((t) => `<li><figure class="quote">
         <span class="quote-tag">${esc(t.tag)}</span>
         <span class="quote-mk" aria-hidden="true">&ldquo;</span>
@@ -205,8 +205,8 @@ function build(d) {
 
 <section class="sec sec-soft solid" id="faq">
   <div class="narrow">
-    <div class="sec-head rv"><h2>The questions we get asked first</h2></div>
-    <div class="faqs rv">
+    <div class="sec-head"><h2>The questions we get asked first</h2></div>
+    <div class="faqs">
       ${faqs.map((f, i) => `<details class="faq"${i === 0 ? ' open' : ''}>
         <summary><span>${esc(f.q)}</span>${icon('plus', 'ic ic-sm')}</summary>
         <div class="faq-a"><p>${esc(f.a)}</p></div>
@@ -218,7 +218,7 @@ function build(d) {
 <section class="close" id="start">
   <div class="wrap sec">
     <div class="lead-grid">
-      <div class="rv">
+      <div>
         <h2>Let us talk compliance.</h2>
         <p class="sec-lead">Twenty minutes with an advisor produces a written gap analysis for your own
         setting, ranked by what would actually hurt you first.</p>
@@ -229,7 +229,7 @@ function build(d) {
           <li><div><b>Prefer to talk now?</b><p>Call <a href="tel:${site.phoneE164}" style="color:var(--lime)">${site.phoneDisplay}</a> and ask for a compliance advisor.</p></div></li>
         </ul>
       </div>
-      <form class="lead-form f rv" data-lead="${site.email}" novalidate>
+      <form class="lead-form f" data-lead="${site.email}" novalidate>
         <h3>Request your free compliance review</h3>
         <p>An advisor familiar with your setting will follow up, usually within one business day.</p>
         <div class="f-row f-row-2">

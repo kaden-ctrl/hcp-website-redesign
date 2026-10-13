@@ -79,7 +79,7 @@ function organizationSchema() {
     description:
       'Healthcare Compliance Pros provides HIPAA, OSHA and corporate compliance software, ' +
       'training and expert support for medical practices, hospitals and business associates.',
-    foundingDate: site.founded,
+
     telephone: site.phoneE164,
     email: site.email,
     address: {
@@ -221,7 +221,7 @@ function head(page, criticalCss, cssHash) {
 <link rel="manifest" href="/site.webmanifest">
 <link rel="sitemap" type="application/xml" href="/sitemap.xml">
 <style>${criticalCss}</style>
-<noscript><link rel="stylesheet" href="/assets/css/main.css?v=${cssHash}"><style>.rv{opacity:1!important;transform:none!important;animation:none!important}</style></noscript>
+<noscript><link rel="stylesheet" href="/assets/css/main.css?v=${cssHash}"></noscript>
 <script type="application/ld+json">${buildGraph(page)}</script>
 <script>${ANALYTICS_INLINE}</script>
 <script defer src="https://analytics.duogroup.com/s.js"

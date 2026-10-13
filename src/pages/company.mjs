@@ -40,9 +40,9 @@ const about = {
   body: `
 <section class="statement">
   <div class="wrap">
-    <p class="statement-kicker rv">About Healthcare Compliance Pros</p>
-    <h1 class="statement-h rv">You did not take the job to become a compliance officer.</h1>
-    <p class="statement-sub rv">We are healthcare and legal professionals with decades of experience
+    <p class="statement-kicker">About Healthcare Compliance Pros</p>
+    <h1 class="statement-h">You did not take the job to become a compliance officer.</h1>
+    <p class="statement-sub">We are healthcare and legal professionals with decades of experience
     across healthcare administration, compliance and IT. We build the program, keep the records, and
     stand in front of you when someone comes asking.</p>
   </div>
@@ -50,7 +50,7 @@ const about = {
 
 <section class="sec field" id="what-we-do">
   <div class="wrap">
-    <div class="essay rv">
+    <div class="essay">
       <div class="essay-body">
         <p class="essay-lead">Healthcare organizations are asked to manage HIPAA, OSHA, corporate
         compliance and human resources requirements at once, usually without a compliance department
@@ -74,7 +74,7 @@ const about = {
 
 <section class="numbers-band">
   <div class="wrap">
-    <ul class="numbers rv">
+    <ul class="numbers">
       ${stats.map((s) => `<li><b>${esc(s.figure)}</b><span>${esc(s.label)}</span></li>`).join('')}
     </ul>
   </div>
@@ -82,12 +82,12 @@ const about = {
 
 <section class="sec solid" id="leadership">
   <div class="wrap">
-    <div class="sec-head rv">
+    <div class="sec-head">
       <h2>The people behind it</h2>
       <p class="sec-lead">Operators from compliance, revenue integrity, healthcare M&amp;A, operations
       and technology.</p>
     </div>
-    <ul class="roster rv">
+    <ul class="roster">
       ${leadership.map((m) => `<li>
         ${m.img
           ? img({ src: m.img, alt: `${m.name}, ${m.role}`, title: `${m.name}, ${m.role}`, width: 320, height: 320, sizes: '(max-width: 760px) 50vw, 190px' })
@@ -100,8 +100,8 @@ const about = {
 
 <section class="sec sec-soft field" id="why-hcp">
   <div class="wrap">
-    <div class="sec-head rv"><h2>What we believe</h2></div>
-    <ol class="manifesto rv">
+    <div class="sec-head"><h2>What we believe</h2></div>
+    <ol class="manifesto">
       ${differentiators.map((d) => `<li>${esc(d)}</li>`).join('')}
     </ol>
   </div>
@@ -109,8 +109,8 @@ const about = {
 
 <section class="sec solid" id="use-cases">
   <div class="wrap">
-    <div class="sec-head rv"><h2>In their words</h2></div>
-    <ul class="quotes rv">
+    <div class="sec-head"><h2>In their words</h2></div>
+    <ul class="quotes">
       ${testimonials.map((t) => `<li><figure class="quote">
         <span class="quote-tag">${esc(t.tag)}</span>
         <span class="quote-mk" aria-hidden="true">&ldquo;</span>
@@ -123,8 +123,8 @@ const about = {
 
 <section class="sec sec-soft field" id="faq">
   <div class="narrow">
-    <div class="sec-head rv"><h2>Questions about working with us</h2></div>
-    <div class="faqs rv">
+    <div class="sec-head"><h2>Questions about working with us</h2></div>
+    <div class="faqs">
       ${aboutFaqs.map((f, i) => `<details class="faq"${i === 0 ? ' open' : ''}>
         <summary><span>${esc(f.q)}</span>${icon('plus', 'ic ic-sm')}</summary>
         <div class="faq-a"><p>${esc(f.a)}</p></div>
@@ -136,7 +136,7 @@ const about = {
 <section class="close" id="start">
   <div class="wrap sec">
     <div class="lead-grid">
-      <div class="rv">
+      <div>
         <h2>Let us talk compliance.</h2>
         <p class="sec-lead">Twenty minutes with an advisor produces a written gap analysis for your own
         setting, ranked by what would actually hurt you first.</p>
@@ -164,16 +164,16 @@ const contact = {
      kept to almost nothing because the visitor has already decided. -->
 <section class="callout">
   <div class="wrap">
-    <h1 class="callout-kicker rv">Talk to a compliance advisor</h1>
-    <a class="callout-tel rv" href="tel:${site.phoneE164}">${site.phoneDisplay}</a>
-    <p class="callout-sub rv">Ask for a compliance advisor, or for your account specialist if you are
+    <h1 class="callout-kicker">Talk to a compliance advisor</h1>
+    <a class="callout-tel" href="tel:${site.phoneE164}">${site.phoneDisplay}</a>
+    <p class="callout-sub">Ask for a compliance advisor, or for your account specialist if you are
     already a client. No form required first.</p>
   </div>
 </section>
 
 <section class="sec sec-tight solid" id="ways">
   <div class="wrap">
-    <ul class="routes rv">
+    <ul class="routes">
       <li>
         <span class="routes-n">01</span>
         <b>Call</b>
@@ -195,8 +195,8 @@ const contact = {
 
 <section class="sec field" id="what-happens">
   <div class="wrap">
-    <div class="sec-head rv"><h2>What happens after you get in touch</h2></div>
-    <ol class="steps-line rv">
+    <div class="sec-head"><h2>What happens after you get in touch</h2></div>
+    <ol class="steps-line">
       <li><span>Within one business day</span><p>An advisor familiar with your setting gets in touch. Not a sales development rep working from a script.</p></li>
       <li><span>About twenty minutes</span><p>A conversation about what you run and what you are exposed on, scoped to respect your time.</p></li>
       <li><span>A written gap analysis</span><p>Ranked by what would actually hurt you first, and yours to keep whether or not you become a client.</p></li>
@@ -206,8 +206,8 @@ const contact = {
 
 <section class="sec sec-soft solid" id="why-hcp">
   <div class="wrap">
-    <div class="sec-head rv"><h2>Why people call us</h2></div>
-    <ul class="whygrid rv">
+    <div class="sec-head"><h2>Why people call us</h2></div>
+    <ul class="whygrid">
       ${differentiators.map((x, i) => `<li><span class="whygrid-n">${String(i + 1).padStart(2, '0')}</span><p>${esc(x)}</p></li>`).join('')}
     </ul>
   </div>
@@ -215,8 +215,8 @@ const contact = {
 
 <section class="sec field" id="use-cases">
   <div class="wrap">
-    <div class="sec-head rv"><h2>In practice</h2></div>
-    <figure class="bigquote rv">
+    <div class="sec-head"><h2>In practice</h2></div>
+    <figure class="bigquote">
       <blockquote>${esc(testimonials[0].quote)}</blockquote>
       <figcaption>${esc(testimonials[0].who)}<span>${esc(testimonials[0].org)}</span></figcaption>
     </figure>
@@ -225,8 +225,8 @@ const contact = {
 
 <section class="sec sec-soft solid" id="faq">
   <div class="narrow">
-    <div class="sec-head rv"><h2>Before you get in touch</h2></div>
-    <div class="faqs rv">
+    <div class="sec-head"><h2>Before you get in touch</h2></div>
+    <div class="faqs">
       ${contactFaqs.map((f, i) => `<details class="faq"${i === 0 ? ' open' : ''}>
         <summary><span>${esc(f.q)}</span>${icon('plus', 'ic ic-sm')}</summary>
         <div class="faq-a"><p>${esc(f.a)}</p></div>
@@ -238,7 +238,7 @@ const contact = {
 <section class="close" id="start">
   <div class="wrap sec">
     <div class="lead-grid">
-      <div class="rv">
+      <div>
         <h2>Request your free compliance review.</h2>
         <p class="sec-lead">Tell us roughly what you are and an advisor familiar with that setting will
         follow up, usually within one business day.</p>

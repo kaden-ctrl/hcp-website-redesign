@@ -89,9 +89,9 @@ const byYear = posts.reduce((acc, p) => {
 const indexBody = `
 <section class="statement field">
   <div class="wrap">
-    <p class="statement-kicker rv">Compliance Insider</p>
-    <h1 class="statement-h rv">What changed, and what it means for your program.</h1>
-    <p class="statement-sub rv">Enforcement actions, rule changes and the practical consequences for
+    <p class="statement-kicker">Compliance Insider</p>
+    <h1 class="statement-h">What changed, and what it means for your program.</h1>
+    <p class="statement-sub">Enforcement actions, rule changes and the practical consequences for
     healthcare organizations, written by the advisors who field the questions.</p>
   </div>
 </section>
@@ -99,7 +99,7 @@ const indexBody = `
 <section class="sec solid" id="posts">
   <div class="wrap">
     ${Object.keys(byYear).sort().reverse().map((y) => `
-    <div class="postyear rv">
+    <div class="postyear">
       <h2>${esc(y)}</h2>
       <ul class="postlist">
         ${byYear[y].map((p) => `<li>
@@ -116,8 +116,8 @@ const indexBody = `
 
 <section class="sec field" id="why-hcp">
   <div class="wrap">
-    <div class="sec-head rv"><h2>Why organizations read this</h2></div>
-    <ul class="whygrid rv">
+    <div class="sec-head"><h2>Why organizations read this</h2></div>
+    <ul class="whygrid">
       <li><span class="whygrid-n">01</span><p>Written by the advisors who answer the phone, not by a content team.</p></li>
       <li><span class="whygrid-n">02</span><p>Enforcement actions explained in terms of what you would have had to produce.</p></li>
       <li><span class="whygrid-n">03</span><p>Rule changes with the practical consequence, not the press release.</p></li>
@@ -128,8 +128,8 @@ const indexBody = `
 
 <section class="sec sec-soft solid" id="use-cases">
   <div class="wrap">
-    <div class="sec-head rv"><h2>In practice</h2></div>
-    <figure class="bigquote rv">
+    <div class="sec-head"><h2>In practice</h2></div>
+    <figure class="bigquote">
       <blockquote>The HCP team does not just hand you software; they become part of your compliance
       operations. Having a Fractional Compliance Officer who actually understands cardiology billing
       made all the difference when we faced our first OIG inquiry.</blockquote>
@@ -140,8 +140,8 @@ const indexBody = `
 
 <section class="sec field" id="faq">
   <div class="narrow">
-    <div class="sec-head rv"><h2>About the Compliance Insider</h2></div>
-    <div class="faqs rv">
+    <div class="sec-head"><h2>About the Compliance Insider</h2></div>
+    <div class="faqs">
       <details class="faq" open><summary><span>How often do you publish?</span>${icon('plus','ic ic-sm')}</summary>
         <div class="faq-a"><p>Whenever something changes that affects how a healthcare organization has to operate. That means enforcement actions, rule changes and deadlines, rather than a fixed schedule filled with whatever was available.</p></div></details>
       <details class="faq"><summary><span>Who writes it?</span>${icon('plus','ic ic-sm')}</summary>
@@ -173,15 +173,15 @@ const postPages = posts.map((p, i) => {
 <article>
   <header class="posthead field">
     <div class="narrow">
-      <p class="post-kicker rv"><a href="/blog/">Compliance Insider</a> &middot;
+      <p class="post-kicker"><a href="/blog/">Compliance Insider</a> &middot;
         <time datetime="${esc(p.date)}">${esc(pretty(p.date))}</time></p>
-      <h1 class="rv">${esc(p.title)}</h1>
-      ${p.description ? `<p class="post-standfirst rv">${esc(p.description)}</p>` : ''}
+      <h1>${esc(p.title)}</h1>
+      ${p.description ? `<p class="post-standfirst">${esc(p.description)}</p>` : ''}
     </div>
   </header>
 
   <div class="sec solid">
-    <div class="narrow prose rv">
+    <div class="narrow prose">
       ${p.clean}
     </div>
   </div>
@@ -189,7 +189,7 @@ const postPages = posts.map((p, i) => {
 
 <section class="sec field" id="use-cases">
   <div class="narrow">
-    <nav class="postnav rv" aria-label="More posts">
+    <nav class="postnav" aria-label="More posts">
       ${prev ? `<a class="postnav-prev" href="/blog/${esc(prev.slug)}/"><span>Previous</span><b>${esc(prev.title)}</b></a>` : ''}
       ${next ? `<a class="postnav-next" href="/blog/${esc(next.slug)}/"><span>Next</span><b>${esc(next.title)}</b></a>` : ''}
     </nav>
@@ -198,8 +198,8 @@ const postPages = posts.map((p, i) => {
 
 <section class="sec sec-soft solid" id="why-hcp">
   <div class="wrap">
-    <div class="sec-head rv"><h2>Who writes this</h2></div>
-    <ul class="whygrid rv">
+    <div class="sec-head"><h2>Who writes this</h2></div>
+    <ul class="whygrid">
       <li><span class="whygrid-n">01</span><p>The advisors who answer the phone, not a content team.</p></li>
       <li><span class="whygrid-n">02</span><p>Enforcement explained as what you would have had to produce.</p></li>
       <li><span class="whygrid-n">03</span><p>Rule changes with the practical consequence attached.</p></li>
@@ -210,8 +210,8 @@ const postPages = posts.map((p, i) => {
 
 <section class="sec field" id="faq">
   <div class="narrow">
-    <div class="sec-head rv"><h2>Have a question about this?</h2></div>
-    <div class="faqs rv">
+    <div class="sec-head"><h2>Have a question about this?</h2></div>
+    <div class="faqs">
       <details class="faq" open><summary><span>Can we ask an advisor about this directly?</span>${icon('plus','ic ic-sm')}</summary>
         <div class="faq-a"><p>Yes. Call ${esc(site.phoneDisplay)} and ask for a compliance advisor. There is no charge for the conversation and you do not need to be a client.</p></div></details>
       <details class="faq"><summary><span>Does this apply to our specialty?</span>${icon('plus','ic ic-sm')}</summary>
@@ -223,7 +223,7 @@ const postPages = posts.map((p, i) => {
 <section class="close" id="start">
   <div class="wrap sec">
     <div class="lead-grid">
-      <div class="rv">
+      <div>
         <h2>Where would this leave you?</h2>
         <p class="sec-lead">Twenty minutes with an advisor produces a written gap analysis for your own
         setting, ranked by what would actually hurt you first.</p>
@@ -258,7 +258,7 @@ const postPages = posts.map((p, i) => {
 
 /* Imported lazily to avoid a circular import with product.mjs. */
 function leadFormLazy() {
-  return `<form class="lead-form f rv" data-lead="${site.email}" novalidate>
+  return `<form class="lead-form f" data-lead="${site.email}" novalidate>
     <h3>Request your free compliance review</h3>
     <p>An advisor familiar with your setting will follow up, usually within one business day.</p>
     <div class="f-row f-row-2">

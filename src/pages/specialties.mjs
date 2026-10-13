@@ -38,7 +38,7 @@ const body = `
 
 <section class="sec sec-tight field" id="finder">
   <div class="wrap">
-    <div class="finder rv" data-finder>
+    <div class="finder" data-finder>
       <div class="finder-bar">
         <label class="finder-search">
           <span class="visually-hidden">Search specialties and organizations</span>
@@ -53,7 +53,7 @@ const body = `
       <p class="finder-count" data-finder-count aria-live="polite"></p>
     </div>
 
-    <div class="rv">
+    <div>
       <h2 class="group-h" data-group="organization">What kind of organization are you?</h2>
       <p class="group-lead" data-group="organization">Start here if your obligations come from what your
       business does rather than the care it delivers.</p>
@@ -67,7 +67,7 @@ const body = `
       </ul>
     </div>
 
-    <div class="rv" style="margin-top:clamp(2.5rem,2rem + 2vw,3.5rem)">
+    <div style="margin-top:clamp(2.5rem,2rem + 2vw,3.5rem)">
       <h2 class="group-h" data-group="specialty">What kind of care do you deliver?</h2>
       <p class="group-lead" data-group="specialty">Benchmarks, policy sets and training are calibrated to
       the specialty, which is what makes the findings usable rather than generic.</p>
@@ -103,12 +103,12 @@ const body = `
 
 <section class="sec solid" id="what-we-offer">
   <div class="wrap">
-    <div class="sec-head rv">
+    <div class="sec-head">
       <h2>The same four products underneath.</h2>
       <p class="sec-lead">Your setting changes the configuration, not the platform. Take the whole suite or
       the single piece you are missing.</p>
     </div>
-    <ul class="suite rv">
+    <ul class="suite">
       ${suite.map((p) => `<li class="prod">
         <div class="prod-h">
           <span class="prod-name">${esc(p.name)}</span>
@@ -124,12 +124,12 @@ const body = `
 
 <section class="sec sec-soft field" id="why-hcp">
   <div class="wrap">
-    <div class="sec-head rv">
+    <div class="sec-head">
       <h2>Software alone does not make you compliant.</h2>
       <p class="sec-lead">Anyone can sell you a login. When protected health information goes to the wrong
       patient, a login does not help. Your team does.</p>
     </div>
-    <ul class="diffs rv">
+    <ul class="diffs">
       ${differentiators.map((d) => `<li><span class="bar" aria-hidden="true"></span><p>${esc(d)}</p></li>`).join('')}
     </ul>
   </div>
@@ -137,12 +137,12 @@ const body = `
 
 <section class="sec solid" id="use-cases">
   <div class="wrap">
-    <div class="sec-head rv">
+    <div class="sec-head">
       <h2>What this looks like in practice</h2>
       <p class="sec-lead">Organizations across orthopedics, behavioral health, cardiology and private
       equity, each configured for their own setting.</p>
     </div>
-    <ul class="quotes rv">
+    <ul class="quotes">
       ${testimonials.map((t) => `<li><figure class="quote">
         <span class="quote-tag">${esc(t.tag)}</span>
         <span class="quote-mk" aria-hidden="true">&ldquo;</span>
@@ -155,10 +155,10 @@ const body = `
 
 <section class="sec sec-soft field" id="faq">
   <div class="narrow">
-    <div class="sec-head rv">
+    <div class="sec-head">
       <h2>Choosing the right route</h2>
     </div>
-    <div class="faqs rv">
+    <div class="faqs">
       ${faqs.map((f, i) => `<details class="faq"${i === 0 ? ' open' : ''}>
         <summary><span>${esc(f.q)}</span>${icon('plus', 'ic ic-sm')}</summary>
         <div class="faq-a"><p>${esc(f.a)}</p></div>
@@ -170,7 +170,7 @@ const body = `
 <section class="close" id="start">
   <div class="wrap sec">
     <div class="lead-grid">
-      <div class="rv">
+      <div>
         <h2>Not sure which one you are?</h2>
         <p class="sec-lead">Plenty of organizations sit across more than one of these. Twenty minutes with
         an advisor settles it, and you leave with a written gap analysis for your actual setting.</p>
@@ -181,7 +181,7 @@ const body = `
           <li><div><b>Prefer to talk now?</b><p>Call <a href="tel:${site.phoneE164}" style="color:var(--lime)">${site.phoneDisplay}</a> and ask for a compliance advisor.</p></div></li>
         </ul>
       </div>
-      <form class="lead-form f rv" data-lead="${site.email}" novalidate>
+      <form class="lead-form f" data-lead="${site.email}" novalidate>
         <h3>Request your free compliance review</h3>
         <p>An advisor familiar with your setting will follow up, usually within one business day.</p>
         <div class="f-row f-row-2">

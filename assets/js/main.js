@@ -124,27 +124,6 @@
   window.addEventListener('resize', closeAll);
 })();
 
-/* Scroll reveals. Every element is visible without JS, and the stylesheet
-   carries a failsafe animation in case this never runs, so a failure here
-   degrades to "no animation" rather than "blank page". */
-(function () {
-  var targets = document.querySelectorAll('.rv');
-  if (!targets.length) return;
-  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (reduce || !('IntersectionObserver' in window)) {
-    targets.forEach(function (el) { el.classList.add('in'); });
-    return;
-  }
-  var io = new IntersectionObserver(function (entries) {
-    entries.forEach(function (e) {
-      if (!e.isIntersecting) return;
-      e.target.classList.add('in');
-      io.unobserve(e.target);
-    });
-  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.1 });
-  targets.forEach(function (el) { io.observe(el); });
-})();
-
 /* Hero video. Playback is skipped only for reasons that genuinely matter:
    an explicit reduced-motion preference, or a connection the visitor is
    paying for. Deliberately no viewport-width gate -- any browser window

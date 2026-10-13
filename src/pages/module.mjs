@@ -69,8 +69,8 @@ function build(m) {
 
 <section class="sec sec-loose field" id="what-it-covers">
   <div class="wrap">
-    <div class="sec-head rv"><h2>What it covers</h2></div>
-    <ol class="modfeat rv">
+    <div class="sec-head"><h2>What it covers</h2></div>
+    <ol class="modfeat">
       ${m.features.map(([t, b], i) => `<li>
         <span class="modfeat-n">${String(i + 1).padStart(2, '0')}</span>
         <div><b>${esc(t)}</b><p>${esc(b)}</p></div>
@@ -81,23 +81,23 @@ function build(m) {
 
 ${m.key === 'corporate' ? `<section class="sec sec-soft solid" id="seven-elements">
   <div class="wrap">
-    <div class="sec-head rv">
+    <div class="sec-head">
       <h2>The seven elements</h2>
       <p class="sec-lead">The Office of Inspector General defines what an effective compliance program
       requires. This module is where all seven are maintained.</p>
     </div>
-    <ol class="chain rv">
+    <ol class="chain">
       ${sevenElements.map((e, i) => `<li><span class="chain-n">${String(i + 1).padStart(2, '0')}</span><span class="chain-t">${esc(e)}</span></li>`).join('')}
     </ol>
   </div>
 </section>` : `<section class="sec sec-soft solid" id="in-shield">
   <div class="wrap">
-    <div class="sec-head rv">
+    <div class="sec-head">
       <h2>Where this sits</h2>
       <p class="sec-lead">${esc(m.name)} is one of four modules inside SHIELD. They share one login, one
       completion view and one documentation vault, which is the whole point of not buying them separately.</p>
     </div>
-    <ul class="modsibs rv">
+    <ul class="modsibs">
       ${siblings.map((o) => `<li><a href="${o.href}"><b>${esc(o.name)}</b><span>${esc(o.tag)}</span></a></li>`).join('')}
     </ul>
   </div>
@@ -105,8 +105,8 @@ ${m.key === 'corporate' ? `<section class="sec sec-soft solid" id="seven-element
 
 <section class="sec field" id="why-hcp">
   <div class="wrap">
-    <div class="sec-head rv"><h2>Why run it with HCP</h2></div>
-    <ul class="whygrid rv">
+    <div class="sec-head"><h2>Why run it with HCP</h2></div>
+    <ul class="whygrid">
       ${differentiators.map((x, i) => `<li><span class="whygrid-n">${String(i + 1).padStart(2, '0')}</span><p>${esc(x)}</p></li>`).join('')}
     </ul>
   </div>
@@ -114,12 +114,12 @@ ${m.key === 'corporate' ? `<section class="sec sec-soft solid" id="seven-element
 
 <section class="sec sec-soft solid" id="use-cases">
   <div class="wrap">
-    <div class="sec-head rv"><h2>In practice</h2></div>
-    <figure class="bigquote rv">
+    <div class="sec-head"><h2>In practice</h2></div>
+    <figure class="bigquote">
       <blockquote>${esc(testimonials[0].quote)}</blockquote>
       <figcaption>${esc(testimonials[0].who)}<span>${esc(testimonials[0].org)}</span></figcaption>
     </figure>
-    <ul class="stats rv">
+    <ul class="stats">
       ${stats.map((s) => `<li class="stat"><b>${esc(s.figure)}</b><span>${esc(s.label)}</span></li>`).join('')}
     </ul>
   </div>
@@ -127,8 +127,8 @@ ${m.key === 'corporate' ? `<section class="sec sec-soft solid" id="seven-element
 
 <section class="sec field" id="faq">
   <div class="narrow">
-    <div class="sec-head rv"><h2>Questions about ${esc(m.name.toLowerCase())}</h2></div>
-    <div class="faqs rv">
+    <div class="sec-head"><h2>Questions about ${esc(m.name.toLowerCase())}</h2></div>
+    <div class="faqs">
       ${faqs.map((f, i) => `<details class="faq"${i === 0 ? ' open' : ''}>
         <summary><span>${esc(f.q)}</span>${icon('plus', 'ic ic-sm')}</summary>
         <div class="faq-a"><p>${esc(f.a)}</p></div>
@@ -140,7 +140,7 @@ ${m.key === 'corporate' ? `<section class="sec sec-soft solid" id="seven-element
 <section class="close" id="start">
   <div class="wrap sec">
     <div class="lead-grid">
-      <div class="rv">
+      <div>
         <h2>See where you stand on ${esc(m.name.toLowerCase())}.</h2>
         <p class="sec-lead">Twenty minutes with an advisor produces a written gap analysis for your own
         setting, ranked by what would actually hurt you first.</p>
