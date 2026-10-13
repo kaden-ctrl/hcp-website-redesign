@@ -946,3 +946,53 @@
   border-radius:0 8px 8px 0;max-width:34rem}
 .legal-addr a{color:var(--lime);text-decoration:none}
 .legal-addr a:hover{text-decoration:underline}
+
+/* ---- Secondary pages: leadership and client results ------------------
+   Same parts as the homepage: mono eyebrow, display heading, ruled figure
+   band. Only the two page-specific objects are new. */
+.page-head{max-width:52rem}
+.page-head h1{margin:.5rem 0 .7rem}
+
+/* People. The portrait sits in a square frame with a lime rule under it,
+   and anyone without a photo gets their initials at the same size rather
+   than a smaller placeholder, so the grid stays even. */
+.people{list-style:none;margin:0;padding:0;display:grid;
+  grid-template-columns:repeat(3,1fr);gap:clamp(1.6rem,1rem + 2.4vw,2.8rem)}
+.people > li{min-width:0}
+.people-pic{position:relative;aspect-ratio:1;border-radius:var(--r);overflow:hidden;
+  margin-bottom:1.1rem;background:var(--bg-elev-2);border-bottom:3px solid var(--lime);
+  display:grid;place-items:center}
+.people-pic img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block}
+.people-initials{font-family:var(--head);font-weight:900;letter-spacing:-.02em;
+  font-size:clamp(2.6rem,2rem + 2.4vw,3.6rem);color:var(--sky)}
+.people h2{margin:0 0 .15rem;font-size:clamp(1.1rem,1rem + .5vw,1.35rem)}
+.people-role{margin:0;font-family:var(--mono);font-weight:500;font-size:.74rem;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--lime)}
+
+.narrow-block{max-width:52rem;padding-top:clamp(1.6rem,1.2rem + 1.6vw,2.4rem);
+  border-top:1px solid var(--line)}
+.narrow-block h2{margin:0 0 .9rem}
+.narrow-block p{color:var(--on-dark-soft);font-size:1.02rem;line-height:1.7;margin:0 0 1rem;max-width:62ch}
+
+/* Stories. One per row with a hairline between. The label sits above the
+   quote rather than beside it, so every quote starts on the same left edge
+   as the heading and the figure band: an alternating version put them at
+   242px and 0 by turns, which reads as misalignment rather than rhythm. */
+.story{margin:0;padding:clamp(1.8rem,1.4rem + 1.6vw,2.6rem) 0;border-top:1px solid var(--line)}
+.story:first-of-type{border-top:0;padding-top:0}
+.story-meta{display:flex;align-items:baseline;gap:1rem;flex-wrap:wrap;margin-bottom:1rem}
+.story-tag{font-family:var(--mono);font-weight:500;font-size:.72rem;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--lime)}
+.story-link{font-size:.84rem;color:var(--on-dark-mute);text-decoration:none;border-bottom:1px solid var(--line)}
+.story-link:hover{color:#fff;border-bottom-color:var(--lime)}
+.story blockquote{margin:0 0 1.2rem;font-family:var(--head);font-weight:700;color:#fff;
+  font-size:clamp(1.15rem,1rem + 1vw,1.7rem);line-height:1.38;letter-spacing:-.01em;max-width:52ch}
+.story blockquote::before{content:"\201C";color:var(--lime)}
+.story blockquote::after{content:"\201D";color:var(--lime)}
+.story figcaption b{font-family:var(--head);font-weight:700;font-size:.98rem;color:#fff;display:block}
+.story figcaption span{display:block;font-size:.9rem;color:var(--on-dark-soft);margin-top:.15rem}
+
+@media (max-width:900px){
+  .people{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:560px){.people{grid-template-columns:1fr}}

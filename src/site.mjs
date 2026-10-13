@@ -74,10 +74,10 @@ export const footerNav = [
     heading: 'Expert Services',
     links: [
       { label: 'Fractional Compliance Officer', href: '/fractional-compliance-officer/' },
-      { label: 'On-Site Services', href: '/on-site-services/' },
-      { label: 'Credential Manager', href: '/credential-manager/' },
-      { label: 'Background Checks', href: '/background-checks/' },
-      { label: 'Free Risk Assessment', href: '/compliance-assessment/' }
+      { label: 'On-Site Services', href: '/compliance-solution/osha/' },
+      { label: 'Credential Manager', href: '/compliance-solution/corporate-compliance/' },
+      { label: 'Background Checks', href: '/compliance-solution/corporate-compliance/' },
+      { label: 'Free Risk Assessment', href: '/contact/' }
     ]
   },
   {
@@ -96,20 +96,14 @@ export const footerNav = [
     links: [
       { label: 'About HCP', href: '/about/' },
       { label: 'Our Team', href: '/our-team/' },
-      { label: 'Partner Program', href: '/partners/' },
       { label: 'Testimonials', href: '/testimonials/' },
-      { label: 'Careers', href: '/careers/' },
       { label: 'Contact', href: '/contact/' }
     ]
   },
   {
     heading: 'Resources',
     links: [
-      { label: 'Blog', href: '/blog/' },
-      { label: 'Webinars', href: '/webinars/' },
-      { label: 'Podcasts', href: '/podcasts/' },
-      { label: 'Events', href: '/events/' },
-      { label: 'Compliance Tips & FAQ', href: '/tips-faqs/' }
+      { label: 'Blog', href: '/blog/' }
     ]
   }
 ];
@@ -524,11 +518,7 @@ export const nav = [
     label: 'News & Events',
     href: '/blog/',
     items: [
-      { label: 'Blog', href: '/blog/' },
-      { label: 'Events', href: '/events/' },
-      { label: 'Podcasts', href: '/podcasts/' },
-      { label: 'Webinars', href: '/webinars/' },
-      { label: 'FAQ', href: '/tips-faqs/' }
+      { label: 'Blog', href: '/blog/' }
     ]
   },
   {
@@ -537,9 +527,7 @@ export const nav = [
     items: [
       { label: 'Our Team', href: '/our-team/' },
       { label: 'About Us', href: '/about/' },
-      { label: 'Partners', href: '/partners/' },
-      { label: 'Testimonials', href: '/testimonials/' },
-      { label: 'Careers', href: '/careers/' }
+      { label: 'Testimonials', href: '/testimonials/' }
     ]
   },
   { label: 'Contact', href: '/contact/' }

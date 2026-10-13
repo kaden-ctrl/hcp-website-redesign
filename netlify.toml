@@ -16,6 +16,27 @@
   status = 302
   force = false
 
+# Four service URLs were linked in the footer with no page behind them. The
+# capabilities exist, inside SHIELD and the module pages, so these resolve
+# there rather than 404. 301 because the destinations are permanent and the
+# old URLs may carry inbound links from their current site.
+[[redirects]]
+  from = "/on-site-services/"
+  to = "/compliance-solution/osha/"
+  status = 301
+[[redirects]]
+  from = "/credential-manager/"
+  to = "/compliance-solution/corporate-compliance/"
+  status = 301
+[[redirects]]
+  from = "/background-checks/"
+  to = "/compliance-solution/corporate-compliance/"
+  status = 301
+[[redirects]]
+  from = "/compliance-assessment/"
+  to = "/contact/"
+  status = 301
+
 # Specialty pages moved to their canonical top-level URLs.
 [[redirects]]
   from = "/specialties/dermatology/*"
