@@ -340,6 +340,10 @@ function footer() {
         <a href="${site.loginUrl}" rel="nofollow">Client login</a>
       </p>
     </div>
+      <p class="footer__credit">
+        Website by <a href="https://duogroup.com" target="_blank"
+        rel="nofollow noopener">Duo Group</a>
+      </p>
   </div>
 </footer>`;
 }
