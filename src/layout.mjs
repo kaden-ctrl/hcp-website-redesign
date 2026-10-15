@@ -64,6 +64,7 @@ function organizationSchema() {
     '@id': abs('/#organization'),
     name: site.name,
     legalName: site.legalName,
+    foundingDate: site.founded,
     alternateName: site.shortName,
     url: abs('/'),
     logo: {

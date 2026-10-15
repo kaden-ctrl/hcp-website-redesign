@@ -9,9 +9,9 @@ export const site = {
   legalName: 'Healthcare Compliance Pros, LLC',
   origin: 'https://www.healthcarecompliancepros.com',
   tagline: 'Healthcare compliance software, backed by compliance experts.',
-  /* No founding year. 2009 was a placeholder with nothing behind it, and
-     foundingDate is a factual claim served to crawlers. Restore it only
-     with a date the client confirms. */
+  /* "Protecting providers since March 2011", from their own SHIELD
+     presentation. Replaces the 2009 that was previously guessed here. */
+  founded: '2011-03',
   phone: '855-427-0427',
   phoneE164: '+1-855-427-0427',
   phoneDisplay: '(855) 427-0427',
@@ -116,6 +116,45 @@ export const footerNav = [
    --------------------------------------------------------------- */
 
 // The four products. Defence and offence, which is how the deck frames it.
+/* The four SHIELD differentiators as their own team words them, kept apart
+   from the generic `differentiators` list so the SHIELD pages can argue for
+   SHIELD rather than for HCP in general. */
+/* How SENTRY actually works, from the SHIELD presentation. The 5% figure
+   and the 12-month window are theirs, not ours, and are the kind of
+   specific that should not be paraphrased loosely. */
+export const sentryMethod = {
+  lede: 'Internal monitoring and auditing branches into SENTRY. It analyzes the last twelve months of coding and billing per provider.',
+  steps: [
+    ['Flags risk areas', 'And recommends auditing 5% of claims per provider.'],
+    ['Targeted, not blanket', 'The highest-risk areas are prioritized first.'],
+    ['Finds revenue', 'Shows revenue being left on the table and addresses undercoding through process improvement.'],
+    ['Protects against clawback', 'Documents support for the codes used, balancing OIG recommendations with a revenue focus.']
+  ]
+};
+
+export const shieldDiff = [
+  ['Software and experts in one program',
+   'A platform that runs your program, backed by compliance advisors who know your requirements, not a self-serve tool you are left to figure out alone.'],
+  ['Built on the OIG seven elements',
+   'Every policy, training, assessment and reminder maps to what the OIG expects of an effective compliance program.'],
+  ['HIPAA and corporate compliance in one home',
+   'Your SRA, policies, training and hotline in one place, instead of a binder, a spreadsheet and three vendors.'],
+  ['Customized to you, not a template',
+   'Advisors identify your specific requirements by organization type, size and state, then build your program around them.']
+];
+
+/* How an engagement runs. Their deck is explicit that final pricing is
+   calculated at consultation, so there are no numbers here and there should
+   not be: the shape of the engagement is the thing being described. */
+export const engagement = [
+  ['Implement', 'Guidance from day one',
+   ['Customized compliance plan', 'Unlimited support']],
+  ['Maintain', 'Regulatory R&D',
+   ['Ongoing compliance advice', 'Updates included']],
+  ['Assess', 'Quarterly review',
+   ['Requirement assistance', 'Reporting']]
+];
+
 export const suite = [
   { side: 'defense', key: 'shield', posture: 'DEFENSIVE', tagline: 'The audit that never surprises you, because it never stopped running.', name: 'SHIELD', kind: 'Compliance software', icon: 'shield',
     href: '/compliance-solution/',

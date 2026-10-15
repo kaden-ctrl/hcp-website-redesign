@@ -1,6 +1,7 @@
 import { icon, img, esc } from '../layout.mjs';
 import {
   site, suite, productDetail, sevenElements, stats, differentiators, testimonials,
+  shieldDiff, engagement, sentryMethod,
   sentryLoop, sentryQuarters, sentryDirections, sentryCompare,
   fcoTimeline, diligenceStages
 } from '../site.mjs';
@@ -283,12 +284,53 @@ function build(p) {
 
 ${signature[p.key](p, d)}
 
+${p.key === 'sentry' ? `
+<section class="sec field" id="method">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>How it actually works</h2>
+      <p class="sec-lead">${esc(sentryMethod.lede)}</p>
+    </div>
+    <ol class="engage">
+      ${sentryMethod.steps.map(([name, body], i) => `<li>
+        <span class="engage-n">${String(i + 1).padStart(2, '0')}</span>
+        <b>${esc(name)}</b>
+        <p class="engage-body">${esc(body)}</p>
+      </li>`).join('')}
+    </ol>
+  </div>
+</section>` : ''}
+
+${p.key === 'shield' ? `
+<section class="sec field" id="engagement">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Priced for your program, not a template</h2>
+      <p class="sec-lead">Final pricing is calculated at consultation, based on your organization and
+      your requirements. Every engagement runs in the same three parts.</p>
+    </div>
+    <ol class="engage">
+      ${engagement.map(([name, sub, items], i) => `<li>
+        <span class="engage-n">${String(i + 1).padStart(2, '0')}</span>
+        <b>${esc(name)}</b>
+        <span class="engage-sub">${esc(sub)}</span>
+        <ul>${items.map((x) => `<li>${esc(x)}</li>`).join('')}</ul>
+      </li>`).join('')}
+    </ol>
+  </div>
+</section>` : ''}
+
 <section class="sec solid" id="why-hcp">
   <div class="wrap">
     <div class="sec-head"><h2>Why ${esc(p.name)} rather than a point tool</h2></div>
-    <ul class="whygrid">
+    ${p.key === 'shield' ? `<ul class="sdiff">
+      ${shieldDiff.map(([h, b], i) => `<li>
+        <span class="sdiff-n">${String(i + 1).padStart(2, '0')}</span>
+        <div><b>${esc(h)}</b><p>${esc(b)}</p></div>
+      </li>`).join('')}
+    </ul>` : `<ul class="whygrid">
       ${differentiators.map((x, i) => `<li><span class="whygrid-n">${String(i + 1).padStart(2, '0')}</span><p>${esc(x)}</p></li>`).join('')}
-    </ul>
+    </ul>`}
   </div>
 </section>
 
