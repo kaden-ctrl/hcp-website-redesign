@@ -456,3 +456,46 @@
   addEventListener('resize', sync, { passive: true });
   sync();
 })();
+
+/* Cookie consent, and the analytics loader behind it.
+   The beacon used to sit in the head and fire on load. It no longer loads
+   itself: nothing is requested from the analytics host until a visitor has
+   accepted, so declining is a real decline rather than a hidden opt-out,
+   and a visitor who never answers is never measured. */
+(function () {
+  var KEY = 'hcp-analytics-consent';
+  var bar = document.getElementById('cookie-consent');
+
+  function read() {
+    try { return localStorage.getItem(KEY); } catch (e) { return null; }
+  }
+  function write(v) {
+    try { localStorage.setItem(KEY, v); } catch (e) { /* private mode; honour it for this visit only */ }
+  }
+
+  function loadBeacon() {
+    if (document.querySelector('script[data-sa]')) return;
+    var s = document.createElement('script');
+    s.src = 'https://analytics.duogroup.com/s.js';
+    s.defer = true;
+    s.setAttribute('data-sa', '');
+    s.setAttribute('data-domain', 'healthcarecompliancepros.com');
+    s.setAttribute('data-site-token', 'pst_86f8358e7bf696cf3e41c449');
+    s.setAttribute('data-api', 'https://analytics.duogroup.com/v1/beacons');
+    document.head.appendChild(s);
+  }
+
+  if (read() === 'accepted') { loadBeacon(); return; }
+  if (read() === 'declined') return;
+  if (!bar) return;
+
+  bar.hidden = false;
+  bar.addEventListener('click', function (e) {
+    var btn = e.target.closest('[data-cc]');
+    if (!btn) return;
+    var choice = btn.getAttribute('data-cc');
+    write(choice === 'accept' ? 'accepted' : 'declined');
+    bar.hidden = true;
+    if (choice === 'accept') loadBeacon();
+  });
+})();

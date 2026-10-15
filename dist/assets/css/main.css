@@ -1003,3 +1003,36 @@
   font-size:.82rem;color:var(--on-dark-mute)}
 .footer__credit a{color:var(--on-dark-soft);text-decoration:none;border-bottom:1px solid var(--line)}
 .footer__credit a:hover{color:var(--lime);border-bottom-color:var(--lime)}
+
+/* ---- Cookie consent --------------------------------------------------
+   Anchored bottom-left rather than across the whole viewport: it has to be
+   answerable, not unmissable, and a full-width bar over a dark page reads
+   as a second footer. */
+.cc[hidden]{display:none}
+.cc{position:fixed;left:clamp(.8rem,2vw,1.6rem);bottom:clamp(.8rem,2vw,1.6rem);
+  z-index:260;max-width:min(32rem,calc(100vw - 2rem));
+  background:rgba(10,32,54,.97);backdrop-filter:blur(14px) saturate(130%);
+  -webkit-backdrop-filter:blur(14px) saturate(130%);
+  border:1px solid rgba(255,255,255,.14);border-radius:12px;
+  box-shadow:0 24px 60px rgba(0,0,0,.55);padding:1.2rem 1.3rem}
+.cc-in{display:grid;gap:1rem}
+.cc-h{margin:0 0 .35rem;font-family:var(--head);font-weight:700;font-size:1rem;color:#fff}
+.cc-d{margin:0;font-size:.88rem;line-height:1.6;color:var(--on-dark-soft)}
+.cc-d a{color:var(--lime)}
+.cc-acts{display:flex;gap:.6rem;flex-wrap:wrap}
+.cc-acts .btn{padding:.6rem 1.1rem;font-size:.88rem;border-radius:6px}
+.cc-no{color:var(--on-dark-soft);border-color:var(--line)}
+.cc-no:hover{color:#fff;border-color:rgba(255,255,255,.4)}
+@media (max-width:520px){.cc{left:.8rem;right:.8rem;max-width:none}.cc-acts .btn{flex:1}}
+
+/* ---- Ported pages ----------------------------------------------------
+   Their copy is a flat run of headings and paragraphs, grouped back into
+   sections on h2. Measure capped for reading; the container is wider than
+   a comfortable line now. */
+.ported{max-width:none}
+.ported h2{font-size:clamp(1.3rem,1.1rem + 1vw,1.9rem);margin:0 0 1rem;max-width:34ch}
+.ported p{color:var(--on-dark-soft);font-size:1.02rem;line-height:1.72;margin:0 0 1rem;max-width:70ch}
+.ported ul{margin:0 0 1.3rem;padding-left:1.15rem;display:grid;gap:.55rem;max-width:70ch}
+.ported li{color:var(--on-dark-soft);font-size:1rem;line-height:1.65}
+.ported li::marker{color:var(--lime)}
+.ported > :last-child{margin-bottom:0}

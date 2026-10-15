@@ -515,19 +515,27 @@ export const nav = [
   },
   { label: 'Specialties', href: '/specialties/' },
   {
-    label: 'News & Events',
+    label: 'Resources',
     href: '/blog/',
     items: [
-      { label: 'Blog', href: '/blog/' }
+      { label: 'Blog', href: '/blog/' },
+      { label: 'Compliance tips and FAQs', href: '/tips-faqs/' },
+      { label: 'Compliance webinars', href: '/webinars/' },
+      { label: 'The compliance podcast', href: '/podcasts/' },
+      { label: 'Events and conferences', href: '/events/' },
+      { label: 'Compliance checklists', href: '/checklists/' }
     ]
   },
   {
     label: 'About',
     href: '/about/',
     items: [
-      { label: 'Our Team', href: '/our-team/' },
       { label: 'About Us', href: '/about/' },
-      { label: 'Testimonials', href: '/testimonials/' }
+      { label: 'Our Team', href: '/our-team/' },
+      { label: 'Testimonials', href: '/testimonials/' },
+      { label: 'Partners and affiliations', href: '/partners/' },
+      { label: 'Who writes this', href: '/our-authorship/' },
+      { label: 'Careers at HCP', href: '/careers/' }
     ]
   },
   { label: 'Contact', href: '/contact/' }

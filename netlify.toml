@@ -37,6 +37,27 @@
   to = "/contact/"
   status = 301
 
+# Pages carried over from their current site. The services overview lived at
+# three campaign URLs with identical content; all three resolve to the one
+# copy. The pricing calculator is a JS app we have not rebuilt, so it goes to
+# the people who can price it.
+[[redirects]]
+  from = "/google/detailed-services-overview"
+  to = "/detailed-services-overview/"
+  status = 301
+[[redirects]]
+  from = "/linkedin/detailed-services-overview"
+  to = "/detailed-services-overview/"
+  status = 301
+[[redirects]]
+  from = "/compliance-solution-duplicate/detailed-services-overview2"
+  to = "/detailed-services-overview/"
+  status = 301
+[[redirects]]
+  from = "/calculator"
+  to = "/contact/"
+  status = 302
+
 # Specialty pages moved to their canonical top-level URLs.
 [[redirects]]
   from = "/specialties/dermatology/*"

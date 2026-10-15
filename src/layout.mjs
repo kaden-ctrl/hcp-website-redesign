@@ -223,11 +223,7 @@ function head(page, criticalCss, cssHash) {
 <style>${criticalCss}</style>
 <noscript><link rel="stylesheet" href="/assets/css/main.css?v=${cssHash}"></noscript>
 <script type="application/ld+json">${buildGraph(page)}</script>
-<script>${ANALYTICS_INLINE}</script>
-<script defer src="https://analytics.duogroup.com/s.js"
-  data-domain="healthcarecompliancepros.com"
-  data-site-token="pst_86f8358e7bf696cf3e41c449"
-  data-api="https://analytics.duogroup.com/v1/beacons"></script>`;
+<script>${ANALYTICS_INLINE}</script>`;
 }
 
 /* ------------------------------------------------------------------ *
@@ -370,6 +366,21 @@ ${head(page, criticalCss, cssHash)}
 <div class="cursor-glow" aria-hidden="true"></div>
 <div class="cur-ring" aria-hidden="true"></div>
 <div class="cur-dot" aria-hidden="true"></div>
+<div class="cc" id="cookie-consent" hidden
+     role="dialog" aria-modal="false" aria-labelledby="cc-h" aria-describedby="cc-d">
+  <div class="cc-in">
+    <div>
+      <p class="cc-h" id="cc-h">Cookies and analytics</p>
+      <p class="cc-d" id="cc-d">We use a privacy-focused analytics beacon to count visits and see
+      which pages get read. Nothing loads until you choose. See the
+      <a href="/privacypolicy/">privacy policy</a> for what is collected.</p>
+    </div>
+    <div class="cc-acts">
+      <button type="button" class="btn btn-ghost cc-no" data-cc="decline">Decline</button>
+      <button type="button" class="btn btn-primary cc-yes" data-cc="accept">Accept</button>
+    </div>
+  </div>
+</div>
 <div class="scrollbar" id="scrollbar" aria-hidden="true"></div>
 ${railNav(page)}
 ${spriteFor(shell)}
