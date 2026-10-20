@@ -166,18 +166,29 @@ const body = `
       the same platform underneath, scoped and priced to the organization using it.</p>
     </div>
 
-    <!-- The cards are gone. Each market is a photo with its numeral sitting
-         across the lower edge and the text on the open field underneath.
-         The overlap is what stops three of anything reading as a grid. -->
-    <ol class="mk">
-      ${markets.map((m, i) => `<li>
-        <div class="mk-pic" aria-hidden="true">
-          <span class="mk-n">${String(i + 1).padStart(2, '0')}</span>
-        </div>
-        <h3>${esc(m.title)}</h3>
-        <p>${esc(m.body)}</p>
-      </li>`).join('')}
-    </ol>
+    <!-- The deck runs this as tabs rather than three cards side by side:
+         one market at a time, with the reasoning for that segment rather
+         than just its profile. Tabs are real buttons in a tablist, so this
+         works from the keyboard and reads correctly to a screen reader,
+         which a div-with-click-handler would not. -->
+    <div class="mkt">
+      <div class="mkt-tabs" role="tablist" aria-label="Markets served">
+        ${markets.map((m, i) => `<button type="button" role="tab" class="mkt-tab${i === 0 ? ' on' : ''}"
+          id="mkt-t${i}" aria-controls="mkt-p${i}" aria-selected="${i === 0}" tabindex="${i === 0 ? '0' : '-1'}">
+          <span class="mkt-idx">${esc(m.n)}</span><span class="mkt-t">${esc(m.title)}</span>
+        </button>`).join('')}
+      </div>
+      <div class="mkt-panels">
+        ${markets.map((m, i) => `<div role="tabpanel" class="mkt-panel${i === 0 ? ' on' : ''}"
+          id="mkt-p${i}" aria-labelledby="mkt-t${i}"${i === 0 ? '' : ' hidden'}>
+          <h3>${esc(m.title)}</h3>
+          <span class="mkt-rule" aria-hidden="true"></span>
+          <span class="mono-label">Ideal profile</span>
+          <p class="mkt-profile">${esc(m.body)}</p>
+          <p class="mkt-why">${esc(m.why)}</p>
+        </div>`).join('')}
+      </div>
+    </div>
 
     <!-- 30+ set at display size so one number anchors the section, with the
          specialties running past it. -->

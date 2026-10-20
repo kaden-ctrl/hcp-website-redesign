@@ -499,3 +499,41 @@
     if (choice === 'accept') loadBeacon();
   });
 })();
+
+/* Market tabs. Arrow keys move between tabs and Home/End jump to the ends,
+   which is what the tablist pattern requires and what a click-only version
+   would miss. Roving tabindex, so Tab enters the group once and then the
+   arrows take over rather than walking through every tab. */
+(function () {
+  var list = document.querySelector('.mkt-tabs');
+  if (!list) return;
+  var tabs = [].slice.call(list.querySelectorAll('.mkt-tab'));
+  var panels = [].slice.call(document.querySelectorAll('.mkt-panel'));
+  if (tabs.length !== panels.length) return;
+
+  function select(i, focus) {
+    tabs.forEach(function (t, n) {
+      var on = n === i;
+      t.classList.toggle('on', on);
+      t.setAttribute('aria-selected', on);
+      t.tabIndex = on ? 0 : -1;
+      panels[n].classList.toggle('on', on);
+      panels[n].hidden = !on;
+    });
+    if (focus) tabs[i].focus();
+  }
+
+  tabs.forEach(function (t, i) {
+    t.addEventListener('click', function () { select(i); });
+    t.addEventListener('keydown', function (e) {
+      var k = e.key, next = null;
+      if (k === 'ArrowDown' || k === 'ArrowRight') next = (i + 1) % tabs.length;
+      else if (k === 'ArrowUp' || k === 'ArrowLeft') next = (i - 1 + tabs.length) % tabs.length;
+      else if (k === 'Home') next = 0;
+      else if (k === 'End') next = tabs.length - 1;
+      if (next === null) return;
+      e.preventDefault();
+      select(next, true);
+    });
+  });
+})();

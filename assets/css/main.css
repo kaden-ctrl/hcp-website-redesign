@@ -1064,3 +1064,36 @@
 .engage ul li::before{content:"";position:absolute;left:0;top:.62em;width:5px;height:5px;
   border-radius:50%;background:var(--lime)}
 @media (max-width:860px){.sdiff,.engage{grid-template-columns:1fr}}
+
+/* ---- Market tabs -----------------------------------------------------
+   The deck's layout: a column of tabs on the left, one panel at a time on
+   the right. Panels are toggled with [hidden] as well as a class, so the
+   inactive ones are out of the accessibility tree rather than merely
+   invisible. */
+.mkt{display:grid;grid-template-columns:minmax(220px,300px) 1fr;
+  gap:clamp(1.6rem,1rem + 3vw,3.5rem);align-items:start}
+.mkt-tabs{display:flex;flex-direction:column;gap:.6rem}
+.mkt-tab{display:flex;align-items:center;gap:.9rem;text-align:left;cursor:pointer;
+  padding:1.05rem 1.2rem;border-radius:10px;border:1px solid transparent;background:transparent;
+  color:var(--on-dark-soft);font:inherit;transition:background .25s ease,color .25s ease,border-color .25s ease}
+.mkt-tab:hover{background:rgba(255,255,255,.06);color:#fff}
+.mkt-tab.on{background:rgba(255,255,255,.07);border-color:var(--line);color:#fff}
+.mkt-tab:focus-visible{outline:2px solid var(--lime);outline-offset:2px}
+/* The deck sets the inactive numeral at .28 alpha, which measures 2.44:1.
+   Lifted to .62 so an unselected tab is still readable; it is a number the
+   reader is meant to use, not a texture. */
+.mkt-idx{font-family:var(--head);font-weight:900;font-size:1.1rem;color:rgba(255,255,255,.62);
+  font-variant-numeric:tabular-nums;transition:color .25s ease}
+.mkt-tab.on .mkt-idx,.mkt-tab:hover .mkt-idx{color:var(--lime)}
+.mkt-t{font-size:.95rem;font-weight:500}
+.mkt-panel[hidden]{display:none}
+.mkt-panel h3{margin:0;font-size:clamp(1.3rem,1.1rem + 1.1vw,1.9rem);max-width:30ch}
+.mkt-rule{display:block;width:56px;height:2px;background:var(--lime);margin:1rem 0 1.4rem}
+.mkt-profile{margin:.5rem 0 0;font-size:1rem;line-height:1.65;color:var(--on-dark-soft);max-width:62ch}
+.mkt-why{margin:1.1rem 0 0;padding-top:1.1rem;border-top:1px solid var(--line);
+  font-size:.98rem;line-height:1.65;color:#fff;max-width:62ch}
+@media (max-width:860px){
+  .mkt{grid-template-columns:1fr}
+  .mkt-tabs{flex-direction:row;flex-wrap:wrap}
+  .mkt-tab{flex:1 1 auto;min-width:140px}
+}

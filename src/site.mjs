@@ -201,15 +201,18 @@ export const markets = [
   { n: '01', title: 'Independent and group practices',
     body: 'Independent and group practices through to business associates, 1 to 100+ physicians across all major specialties.',
     img: '/assets/img/site/about-1.webp',
-    alt: 'A clinician reviewing records on a tablet in a practice corridor' },
+    alt: 'A clinician reviewing records on a tablet in a practice corridor',
+    why: 'Practices need a compliance infrastructure without a compliance department. HCP delivers the full stack at a fraction of in-house cost.' },
   { n: '02', title: 'PE-backed portfolio companies',
     body: 'Healthcare platform builds, add-on acquisitions, and portfolio ops teams requiring pre- and post-close compliance infrastructure.',
     img: '/assets/img/site/aud-private-equity.webp',
-    alt: 'Two people shaking hands after closing a healthcare transaction' },
+    alt: 'Two people shaking hands after closing a healthcare transaction',
+    why: 'PE sponsors need diligence-grade audit support at close and compliance monitoring post-acquisition. HCP delivers both, in sequence.' },
   { n: '03', title: 'Channel and referral partners',
     body: 'Healthcare law firms, malpractice carriers, RCM companies and M&A advisory firms refer HCP to their provider clients.',
     img: '/assets/img/site/svc-fractional.webp',
-    alt: 'Two advisors reviewing a client compliance program together' }
+    alt: 'Two advisors reviewing a client compliance program together',
+    why: 'Partners already have the client relationships. HCP provides the compliance infrastructure, turning referrals into recurring revenue.' }
 ];
 
 export const differentiators = [
