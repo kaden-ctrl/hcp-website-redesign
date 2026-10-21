@@ -48,9 +48,9 @@ const sevenB = () => `
   </ul>`;
 
 const sevenC = () => `
-  <ul class="sv7c">
-    ${sevenElements.map((e, i) => `<li><b>${n2(i)}</b><span>${esc(e)}</span></li>`).join('')}
-  </ul>`;
+  <ol class="seven">
+    ${sevenElements.map((e) => `<li><span>${esc(e)}</span></li>`).join('')}
+  </ol>`;
 
 const sevenD = () => `
   <ul class="sv7d">
@@ -106,19 +106,19 @@ const ELEMENT_DETAIL = [
 ];
 
 const threadPlain = `
-  <ul class="sv7c">
-    ${sevenElements.map((e, i) => `<li><b>${n2(i)}</b><span>${esc(e)}</span></li>`).join('')}
-  </ul>`;
+  <ol class="seven">
+    ${sevenElements.map((e) => `<li><span>${esc(e)}</span></li>`).join('')}
+  </ol>`;
 
 const threadPick = `
-  <ul class="sv7c sv7c-pick">
+  <ol class="seven seven-pick">
     ${sevenElements.map((e, i) => `<li>
       <label for="sv7p${i + 1}">
         <input class="sv7pick" type="radio" name="sv7pick" id="sv7p${i + 1}"${i === 0 ? ' checked' : ''}>
         <b>${n2(i)}</b><span>${esc(e)}</span>
       </label>
     </li>`).join('')}
-  </ul>`;
+  </ol>`;
 
 const shield = testimonials[0];
 
@@ -154,16 +154,16 @@ const RIGHT = [
       ${ELEMENT_DETAIL.map((d, i) => `<p class="d${i + 1}">${esc(d)}</p>`).join('')}
     </div>` },
 
-  { k: '4', name: 'The empty half becomes the ask', cls: 'sv7r-call',
-    note: 'The dead space turns into the point of the section. Somebody reading a list of seven obligations is exactly the person who wants to know where they stand, and right now the nearest way to ask is at the bottom of the page.',
+  { k: '4', name: 'The empty half becomes the ask (now live)', cls: 'seven-call',
+    note: 'The dead space turns into the point of the section. Somebody reading a list of seven obligations is exactly the person who wants to know where they stand, and the nearest way to ask used to be the foot of the page. This is what the homepage runs now.',
     left: threadPlain,
-    right: `<div class="sv7r-call">
+    right: `<div class="seven-call">
       <h3>Which of the seven are you missing?</h3>
       <p>Twenty minutes with an advisor produces a written gap analysis against all seven,
       ranked by what would actually hurt you first. The findings are yours whether or not
       you become a client.</p>
       <a class="btn btn-primary" href="/contact/">Book the free review</a>
-      <span class="sv7r-tel">Or call <a href="tel:${site.phoneE164}">${site.phoneDisplay}</a>
+      <span class="seven-tel">Or call <a href="tel:${site.phoneE164}">${site.phoneDisplay}</a>
       and ask for a compliance advisor.</span>
     </div>` }
 ];
@@ -179,7 +179,7 @@ const rightOptions = RIGHT.map((o) => `
       ${o.k === '1' ? '' : `<h3 style="margin:0 0 .4rem">The seven elements. Covered.</h3>
       <p class="sec-lead" style="font-size:1rem;margin-bottom:1.5rem">The Office of Inspector General
       defines what an effective compliance program requires. SHIELD delivers all seven.</p>`}
-      <div class="sv7r ${o.cls}">
+      <div class="seven-grid ${o.cls}">
         ${o.left}
         ${o.right}
       </div>
@@ -328,10 +328,10 @@ const body = `
     <div class="page-head">
       <span class="mono-label">Review</span>
       <h1>Open design decisions</h1>
-      <p class="sec-lead">You picked Seven C, the thread, and it leaves the right half of the
-      page empty. Four ways to use that half are first, each one still free of panels and fills.
-      Under them, the other three seven treatments for reference, then the five section 01
-      grounds and three list treatments you did not pick.</p>
+      <p class="sec-lead">Section 03 now runs Seven C, the thread, with Right 4 beside it: the
+      empty half carries the free review. The other three right hand options are kept below,
+      then the three seven treatments you did not pick, then the five section 01 grounds and
+      three list treatments.</p>
     </div>
   </div>
 </section>
@@ -343,7 +343,7 @@ const body = `
       <div><h2>Four ways to fill the right of C</h2>
       <p>The thread is one narrow column, so half the width sits empty beside it. None of these
       adds a panel or a fill, and only the third needs copy that does not already exist on the
-      site.</p></div>
+      site. Right 4 is the one now live.</p></div>
     </div>
   </div>
 </section>

@@ -245,15 +245,26 @@ const body = `
       </div>`;
     }).join('')}
 
+    <!-- The seven as a thread, with the right half carrying the ask. The
+         list was a two column grid: seven is odd, so the eighth cell was
+         an empty hole, and the labels that wrapped to two lines pushed
+         their row out of line with the one beside it. -->
     <div class="seven-block">
-      <div class="showcase">
-        <div>
-          <h3>The seven elements. Covered.</h3>
-          <p class="sec-lead" style="font-size:1rem;margin-bottom:1.5rem">The Office of Inspector General
-          defines what an effective compliance program requires. SHIELD delivers all seven.</p>
-          <ol class="seven">
-            ${sevenElements.map((e) => `<li><span>${esc(e)}</span></li>`).join('')}
-          </ol>
+      <h3>The seven elements. Covered.</h3>
+      <p class="sec-lead" style="font-size:1rem;margin-bottom:1.5rem">The Office of Inspector General
+      defines what an effective compliance program requires. SHIELD delivers all seven.</p>
+      <div class="seven-grid">
+        <ol class="seven">
+          ${sevenElements.map((e) => `<li><span>${esc(e)}</span></li>`).join('')}
+        </ol>
+        <div class="seven-call">
+          <h3>Which of the seven are you missing?</h3>
+          <p>Twenty minutes with an advisor produces a written gap analysis against all seven,
+          ranked by what would actually hurt you first. The findings are yours whether or not
+          you become a client.</p>
+          <a class="btn btn-primary" href="/contact/">Book the free review</a>
+          <span class="seven-tel">Or call <a href="tel:${site.phoneE164}">${site.phoneDisplay}</a>
+          and ask for a compliance advisor.</span>
         </div>
       </div>
     </div>

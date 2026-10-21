@@ -173,13 +173,35 @@
 .quote figcaption span{display:block;font-family:var(--body);font-weight:400;font-size:.85rem;color:var(--ink-mute);margin-top:.1rem}
 
 /* ---- Seven elements ---- */
-.seven{list-style:none;margin:0;padding:0;counter-reset:sv;display:grid;gap:0;
-  border-top:1px solid var(--line)}
-.seven li{counter-increment:sv;display:flex;align-items:center;gap:1.1rem;
-  padding:1.05rem .2rem;border-bottom:1px solid var(--line);color:var(--on-dark)}
-.seven li::before{content:"0" counter(sv);font-family:var(--head);font-weight:700;font-size:.95rem;
-  color:var(--lime);flex:none;width:2rem;font-variant-numeric:tabular-nums}
-.seven li span{font-family:var(--head);font-weight:700;font-size:1.02rem}
+/* The seven elements as a thread: one lime hairline down the left with a
+   tick at each element, so they read as a program running in order rather
+   than as an inventory of parts. This replaced a two column grid, where
+   seven being an odd number left an empty eighth cell and the labels that
+   wrapped to two lines pushed their row out of line with the one beside
+   it. The tick is an absolutely positioned ::after so it stays out of the
+   grid flow and the numeral keeps the first column. */
+.seven{list-style:none;margin:0;padding:0;counter-reset:sv;display:grid;
+  border-left:1px solid rgba(162,199,57,.4)}
+.seven li{counter-increment:sv;position:relative;display:grid;
+  grid-template-columns:auto 1fr;align-items:center;gap:1.1rem;
+  padding:.95rem 0 .95rem 1.5rem}
+.seven li::before{content:"0" counter(sv);font-family:var(--mono);font-weight:500;font-size:.72rem;
+  letter-spacing:.1em;color:var(--lime);font-variant-numeric:tabular-nums}
+.seven li::after{content:"";position:absolute;left:0;top:50%;width:.95rem;height:1px;
+  background:var(--lime)}
+.seven li span{font-family:var(--head);font-weight:700;font-size:1.05rem;color:var(--on-dark)}
+
+/* The thread is one narrow column, so the right half carries the ask.
+   Somebody reading seven obligations is the person who wants to know
+   where they stand, and the nearest way to ask was the foot of the page. */
+.seven-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+  gap:clamp(2rem,1.2rem + 4vw,4.5rem);align-items:start}
+.seven-call h3{margin:0 0 .6rem;font-family:var(--head);font-weight:900;
+  font-size:clamp(1.4rem,1.15rem + 1.1vw,2rem);line-height:1.15}
+.seven-call p{margin:0 0 1.6rem;color:var(--on-dark-soft);font-size:1.02rem;line-height:1.65}
+.seven-tel{display:block;margin-top:1.1rem;font-size:.95rem;color:var(--on-dark-soft)}
+.seven-tel a{color:var(--lime);text-decoration:none}
+@media (max-width:900px){.seven-grid{grid-template-columns:1fr;gap:2.4rem}}
 
 /* ---- Leadership ---- */
 .team{list-style:none;margin:0;padding:0;display:grid;gap:1.1rem;grid-template-columns:repeat(3,1fr)}
@@ -862,12 +884,6 @@
 .about-team-lbl{display:block;font-family:var(--head);font-weight:700;font-size:.72rem;
   letter-spacing:.16em;text-transform:uppercase;color:var(--on-dark-mute);margin-bottom:1.3rem}
 
-/* Seven elements -- the numerals were decoration; now they set the rhythm */
-.seven{grid-template-columns:repeat(2,1fr);column-gap:clamp(1.4rem,1rem + 2vw,2.6rem)}
-.seven li{padding:.85rem 0;border-bottom:1px solid var(--line-soft)}
-.seven li:last-child{border-bottom:0}
-.seven li::before{font-size:1.5rem;color:var(--lime);opacity:.9;min-width:2.1rem}
-
 @media (max-width:900px){
   .recko{grid-template-columns:1fr}
   .recko-is{border-left:0;border-top:2px solid var(--lime);padding-left:0;padding-top:1.6rem}
@@ -1249,18 +1265,6 @@
 .sv7b span{font-family:var(--head);font-weight:700;font-size:1rem;line-height:1.32;
   color:var(--on-dark)}
 
-/* c -- the thread. One lime hairline down the left with a tick at each
-   element, so the seven read as a program rather than an inventory. */
-.sv7c{list-style:none;margin:0;padding:0;display:grid;
-  border-left:1px solid rgba(163,199,57,.4)}
-.sv7c li{display:grid;grid-template-columns:auto 1fr;align-items:center;gap:1.1rem;
-  padding:.95rem 0 .95rem 1.5rem;position:relative}
-.sv7c li::before{content:"";position:absolute;left:0;top:50%;width:.95rem;height:1px;
-  background:var(--lime)}
-.sv7c b{font-family:var(--mono);font-weight:500;font-size:.72rem;letter-spacing:.1em;
-  color:var(--lime)}
-.sv7c span{font-family:var(--head);font-weight:700;font-size:1.05rem;color:var(--on-dark)}
-
 /* d -- the running index. Set as one continuous run that wraps like
    prose, the lime numerals doing the separating. The lightest of the
    four and the one that takes the least height. */
@@ -1287,9 +1291,6 @@
 /* ---- Review page: filling the right of Seven C -----------------------
    C is one narrow column, so half the page is empty beside it. Four ways
    to use that half, none of them adding a panel or a fill. */
-.sv7r{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);
-  gap:clamp(2rem,1.2rem + 4vw,4.5rem);align-items:start}
-
 /* the right column, in its four forms */
 .sv7r-said h3{margin:0 0 .5rem;font-size:clamp(1.4rem,1.15rem + 1.1vw,2rem)}
 .sv7r-said p{margin:0 0 1.4rem;color:var(--on-dark-soft);font-size:1.02rem;line-height:1.65}
@@ -1312,11 +1313,12 @@
 
 /* detail: the right side answers whichever element is selected */
 .sv7pick{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none}
-.sv7c-pick li{cursor:pointer}
-.sv7c-pick label{display:grid;grid-template-columns:auto 1fr;align-items:center;gap:1.1rem;
+.seven-pick li{cursor:pointer;display:block}
+.seven-pick li::before{content:none}
+.seven-pick label{display:grid;grid-template-columns:auto 1fr;align-items:center;gap:1.1rem;
   cursor:pointer}
-.sv7c-pick li:has(.sv7pick:checked) span{color:var(--lime)}
-.sv7c-pick li:has(.sv7pick:focus-visible){outline:3px solid var(--lime);outline-offset:2px}
+.seven-pick li:has(.sv7pick:checked) span{color:var(--lime)}
+.seven-pick li:has(.sv7pick:focus-visible){outline:3px solid var(--lime);outline-offset:2px}
 .sv7det{min-height:9rem}
 .sv7det-lbl{display:block;font-family:var(--mono);font-weight:500;font-size:.7rem;
   letter-spacing:.14em;text-transform:uppercase;color:var(--on-dark-mute);margin-bottom:.9rem}
@@ -1330,14 +1332,4 @@
 .sv7r-detail:has(#sv7p6:checked) .d6,
 .sv7r-detail:has(#sv7p7:checked) .d7{display:block}
 
-/* call: the dead half becomes the point of the section */
-.sv7r-call h3{margin:0 0 .6rem;font-family:var(--head);font-weight:900;
-  font-size:clamp(1.4rem,1.15rem + 1.1vw,2rem);line-height:1.15}
-.sv7r-call p{margin:0 0 1.6rem;color:var(--on-dark-soft);font-size:1.02rem;line-height:1.65}
-.sv7r-call .sv7r-tel{display:block;margin-top:1.1rem;font-size:.95rem;color:var(--on-dark-soft)}
-.sv7r-call .sv7r-tel a{color:var(--lime);text-decoration:none}
-
-@media (max-width:900px){
-  .sv7r{grid-template-columns:1fr;gap:2.4rem}
-  .sv7det{min-height:0}
-}
+@media (max-width:900px){.sv7det{min-height:0}}
