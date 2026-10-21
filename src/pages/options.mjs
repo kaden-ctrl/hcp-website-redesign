@@ -44,29 +44,28 @@ const sevenA = () => `
 
 const sevenB = () => `
   <ul class="sv7b">
-    ${sevenElements.map((e, i) => `<li><b>${n2(i)}</b><span>${esc(e)}</span><i>Covered</i></li>`).join('')}
+    ${sevenElements.map((e, i) => `<li><b>${n2(i)}</b><span>${esc(e)}</span></li>`).join('')}
   </ul>`;
 
 const sevenC = () => `
   <ul class="sv7c">
-    ${sevenElements.map((e) => `<li><span class="sv7c-tick" aria-hidden="true"></span><span>${esc(e)}</span></li>`).join('')}
+    ${sevenElements.map((e, i) => `<li><b>${n2(i)}</b><span>${esc(e)}</span></li>`).join('')}
   </ul>`;
 
 const sevenD = () => `
   <ul class="sv7d">
     ${sevenElements.map((e, i) => `<li><b>${n2(i)}</b><span>${esc(e)}</span></li>`).join('')}
-    <li class="sv7d-end"><p>All seven, in one program, with the records to show it.</p></li>
   </ul>`;
 
 const SEVEN = [
   { k: 'A', name: 'One band of seven', html: sevenA,
-    note: 'Seven equal columns across the full width, numeral above label. The odd count stops being a problem because the row is the shape, so there is nothing left over and no second column to misalign with.' },
-  { k: 'B', name: 'Ruled rows, full width', html: sevenB,
-    note: 'One column, seven rows, each confirming itself as covered. Nothing wraps and nothing is left over. It costs the most vertical space of the four.' },
-  { k: 'C', name: 'Said once per element', html: sevenC,
-    note: 'The heading already says Covered, so each row says it too, with a check rather than a numeral. The seventh spans both columns, which is what closes the hole.' },
-  { k: 'D', name: 'The eighth cell carries the payoff', html: sevenD,
-    note: 'Closest to what is there now: the same two columns, ruled into a panel. The empty eighth cell becomes the conclusion instead of a gap.' }
+    note: 'Seven equal columns across the full width, numeral above label, divided by hairlines. The odd count stops being a problem because the row is the shape, so nothing is left over and there is no second column to fall out of line with.' },
+  { k: 'B', name: 'Open four and three', html: sevenB,
+    note: 'No rules at all, just type and space. Four across, then three, with the short second row reading as deliberate rather than as a gap. The most open of the four and the one that looks least like a table.' },
+  { k: 'C', name: 'The thread', html: sevenC,
+    note: 'A single lime hairline down the left with a tick at each element. The seven read as a program running in order rather than as an inventory of parts.' },
+  { k: 'D', name: 'The running index', html: sevenD,
+    note: 'Set as one continuous run that wraps like prose, the lime numerals doing the separating. The lightest of the four and the one that takes the least height.' }
 ];
 
 const sevenOptions = SEVEN.map((o) => `
@@ -76,7 +75,7 @@ const sevenOptions = SEVEN.map((o) => `
       <span class="opt-k">Seven ${o.k}</span>
       <div><h2>${esc(o.name)}</h2><p>${esc(o.note)}</p></div>
     </div>
-    <div class="s01-card">
+    <div class="seven-block">
       <h3 style="margin:0 0 .4rem">The seven elements. Covered.</h3>
       <p class="sec-lead" style="font-size:1rem;margin-bottom:1.5rem">The Office of Inspector General
       defines what an effective compliance program requires. SHIELD delivers all seven.</p>
@@ -226,10 +225,10 @@ const body = `
     <div class="page-head">
       <span class="mono-label">Review</span>
       <h1>Open design decisions</h1>
-      <p class="sec-lead">First, four treatments for the OIG seven elements, shown in the framed
-      panel they would sit in. Then the five section 01 grounds you did not pick, and the three
-      list treatments you did not pick. Section 01 is already live on ground F with list
-      treatment D, and the italic line under the list is gone.</p>
+      <p class="sec-lead">First, four treatments for the OIG seven elements, none of them on a
+      panel or a fill. Then the five section 01 grounds you did not pick, and the three list
+      treatments you did not pick. Section 01 is already live on ground F with list treatment D,
+      and the italic line under the list is gone.</p>
     </div>
   </div>
 </section>
@@ -239,9 +238,10 @@ const body = `
     <div class="opt-head">
       <span class="opt-k">The seven</span>
       <div><h2>Four treatments for the seven elements</h2>
-      <p>Seven is an odd number. The block is two columns today, so the eighth cell is an empty
-      hole and the items that wrap to two lines push the two columns out of line with each
-      other. Each of these answers that a different way.</p></div>
+      <p>No panel, no card, no fill. Each one sits straight on the page ground, which is what
+      section 03 actually is. They are all answering the same two faults: seven is odd, so the
+      two column grid leaves an empty eighth cell, and the items that wrap to two lines push
+      their row taller than the one beside it.</p></div>
     </div>
   </div>
 </section>
