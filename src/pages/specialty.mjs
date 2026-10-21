@@ -178,7 +178,7 @@ function build(d) {
       We are betting it becomes a board-level advantage.</p>
     </div>
     <ul class="diffs">
-      ${differentiators.map((x) => `<li><span class="bar" aria-hidden="true"></span><p>${esc(x)}</p></li>`).join('')}
+      ${differentiators.map((x) => `<li><p>${esc(x)}</p></li>`).join('')}
     </ul>
   </div>
 </section>

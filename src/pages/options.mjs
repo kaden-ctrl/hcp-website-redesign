@@ -63,7 +63,7 @@ const diffC = () => `
   </ul>`;
 
 const diffD = () => `
-  <ul class="dfd">
+  <ul class="diffs">
     ${differentiators.map((d) => `<li><p>${esc(d)}</p></li>`).join('')}
   </ul>`;
 
@@ -74,8 +74,8 @@ const DIFFS = [
     note: 'A lime rule over each claim and room around it, set in display weight. More air than four across, and the claims that run long do not get squeezed into a narrow column.' },
   { k: '3', name: 'The claim, and what it means', html: diffC,
     note: 'The width gets filled with a second column that says what each claim actually gets you. The only one that needs copy the client has not seen, and the only one where the empty half stops being empty for a reason.' },
-  { k: '4', name: 'Four statements', html: diffD,
-    note: 'Drops the list framing. Four statements at display size, ruled apart, numbered small in the margin. The most confident of the four and the one that reads least like a feature list.' }
+  { k: '4', name: 'Four statements (now live)', html: diffD,
+    note: 'Drops the list framing. Four statements at display size, ruled apart, numbered small in the margin. The most confident of the four and the one that reads least like a feature list. This is what the site runs now, on every page that carries the block.' }
 ];
 
 const diffOptions = DIFFS.map((o) => `
@@ -393,10 +393,10 @@ const body = `
     <div class="page-head">
       <span class="mono-label">Review</span>
       <h1>Open design decisions</h1>
-      <p class="sec-lead">Newest first: four ways to rebuild the differentiators, which currently
-      run as four light slabs that are 65 per cent empty. Under them, the right hand options for
-      section 03 that were not picked, the three seven treatments that were not picked, and the
-      five section 01 grounds and three list treatments.</p>
+      <p class="sec-lead">Everything picked so far is live: the differentiators as four
+      statements, section 03 as the thread with the free review beside it, section 01 on the
+      framed ground with the mark beside each item. What is left here is the alternatives, kept
+      until you say to delete them.</p>
     </div>
   </div>
 </section>
@@ -418,11 +418,10 @@ const body = `
     <div class="opt-head">
       <span class="opt-k">The claims</span>
       <div><h2>Four ways to rebuild the differentiators</h2>
-      <p>What ships is four full width light slabs with an 86px lime block on each that carries
-      nothing. Measured at 1440 the row is 1296px and the text in it is 457px, so 839px of every
-      slab is empty surface. Four of them stacked read as unfilled progress bars. None of these
-      uses a fill. This block is shared by the ported pages and the team page, so whichever one
-      wins lands on about a hundred pages.</p></div>
+      <p>4 is live, on every page that carries the block. What it replaced was four full width
+      light slabs with an 86px lime rectangle on each that carried nothing: at 1440 the row was
+      1296px and the text in it 457px, so 839px of every slab was empty surface. The other three
+      are kept here until this is settled.</p></div>
     </div>
   </div>
 </section>

@@ -58,7 +58,7 @@ const whyBlock = (lead) => `
     <div class="sec-head"><h2>Why it matters who is on it</h2>
     <p class="sec-lead">${esc(lead)}</p></div>
     <ul class="diffs">
-      ${differentiators.map((d) => `<li><span class="bar" aria-hidden="true"></span><p>${esc(d)}</p></li>`).join('')}
+      ${differentiators.map((d) => `<li><p>${esc(d)}</p></li>`).join('')}
     </ul>
   </div>
 </section>`;

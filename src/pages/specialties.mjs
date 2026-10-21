@@ -130,7 +130,7 @@ const body = `
       patient, a login does not help. Your team does.</p>
     </div>
     <ul class="diffs">
-      ${differentiators.map((d) => `<li><span class="bar" aria-hidden="true"></span><p>${esc(d)}</p></li>`).join('')}
+      ${differentiators.map((d) => `<li><p>${esc(d)}</p></li>`).join('')}
     </ul>
   </div>
 </section>
