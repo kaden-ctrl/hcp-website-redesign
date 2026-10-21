@@ -1,67 +1,237 @@
 import { esc } from '../layout.mjs';
+import { stats } from '../site.mjs';
 
-/* Background options. Each one gets a full viewport height with real
-   content on top, because a background cannot be judged as a swatch: the
-   question is what it does underneath a heading and a paragraph at the
-   scale you actually meet it.
+/* Review page for homepage section 01, the "what is it" section with the
+   struck list in it. Two separate decisions live here and they compose:
+   the background the section sits on, and the list treatment inside it.
 
-   The page suppresses the site's own fixed layers so each sample is seen
-   on its own rather than through the grid and aurora it is replacing.
+   Part one repeats the whole section six times, once per ground, with the
+   section exactly as it ships today. The site's own fixed grid and aurora
+   stay on, because the question is what a section ground does on top of
+   the page ground, not what it looks like in isolation.
+
+   Every ground is painted with layered `background` on the section itself
+   rather than a pseudo-element. The previous version of this page used
+   `::before{z-index:-1}` over an opaque section background: a negative
+   z-index child of a positioned element that is not a stacking context
+   paints below that element's own background, so five of the six textures
+   were never visible and the page showed flat ground six times.
+
    noindex, out of the sitemap. Delete once a direction is chosen. */
 
-const SAMPLE = (n, name, note) => `
-<section class="bgopt bgopt-${n}">
-  <div class="wrap bgopt-in">
-    <div class="bgopt-meta">
-      <span class="opt-k">Option ${esc(n.toUpperCase())}</span>
-      <h2>${esc(name)}</h2>
-      <p>${esc(note)}</p>
-    </div>
-    <div class="bgopt-demo">
-      <span class="mono-label">The platform</span>
-      <h3>One screen for the whole program.</h3>
-      <p>Completion, policy status, risk analysis and exclusion monitoring, across every
-      location, live rather than assembled for the request.</p>
-      <ul class="bgopt-figs">
-        <li><b>1,000+</b><span>Provider groups</span></li>
-        <li><b>50</b><span>States</span></li>
-        <li><b>15+</b><span>Years</span></li>
+const SCATTERED = [
+  'A separate learning system',
+  'A policy tool',
+  'An incident tracker',
+  'A hotline vendor',
+  'A spreadsheet nobody owns'
+];
+
+const REPLACED = ['Learning', 'Policies', 'Incidents', 'Hotline', 'Evidence'];
+
+/* ---------------- Part 1: the section ground ---------------- */
+
+/* Section 01, reproduced. Same copy, same markup, same classes, so the
+   only variable between the six is the ground underneath. */
+const section01 = `
+  <div class="sec-head">
+    <h2>One platform that runs your compliance program and watches your billing.</h2>
+    <p class="sec-lead">Healthcare Compliance Pros is a compliance and revenue integrity partner for
+    healthcare providers. <strong>SHIELD</strong> runs the compliance program: policies, training, risk
+    analysis and the documentation an investigator asks for. <strong>SENTRY</strong> watches the revenue
+    side, benchmarking your claims every quarter against your specialty.</p>
+  </div>
+
+  <div class="recko">
+    <div class="recko-was">
+      <span class="recko-lbl">What most organizations run</span>
+      <ul class="strike">
+        ${SCATTERED.map((x, i) => `<li style="--i:${i}">${esc(x)}</li>`).join('')}
       </ul>
+      <p class="recko-note">Fine until somebody asks for proof on a deadline.</p>
+    </div>
+    <div class="recko-is">
+      <span class="recko-lbl recko-lbl-on">What you run instead</span>
+      <p class="recko-big">Your whole program, documented in one place.</p>
+      <p>One platform, one login, one completion view across every location, with dated
+      records generated as your team works rather than assembled after the request arrives.</p>
+      <p class="recko-sig">SHIELD runs it. SENTRY watches the revenue. People stand behind both.</p>
     </div>
   </div>
-</section>`;
 
-const body = `
-<section class="sec sec-tight bgopt-head">
+  <ul class="figs">
+    ${stats.map((s) => `<li><b>${esc(s.figure)}</b><span>${esc(s.label)}</span></li>`).join('')}
+  </ul>`;
+
+const GROUNDS = [
+  ['a', 'Raised panel',
+   'The section lifts off the page as one lighter slab, hairlines top and bottom. The simplest way to say this is a distinct part of the argument.'],
+  ['b', 'Inset trough',
+   'The opposite move. The section sinks below the page with the edges shaded, which reads quieter and keeps all the lift for the sections around it.'],
+  ['c', 'Lit on the right',
+   'Flat ground that brightens across the section from left to right, so the half carrying the answer is physically lighter than the half carrying the problem.'],
+  ['d', 'Blueprint panel',
+   'A raised panel with the column grid drawn inside it. The technical texture belongs to this section rather than running the length of the page.'],
+  ['e', 'Edge glow, no panel',
+   'No fill at all. Two soft glows bleed in from opposite corners over the page ground, so the section is marked by light rather than by a surface.'],
+  ['f', 'Framed card',
+   'The content sits inside a bordered panel inset from the page edges, with a lime top edge. The strongest separation of the six.']
+];
+
+const groundOptions = GROUNDS.map(([k, name, note]) => `
+<section class="sec sec-tight">
   <div class="wrap">
-    <div class="page-head">
-      <span class="mono-label">Backgrounds</span>
-      <h1>Six grounds, at full height</h1>
-      <p class="sec-lead">The current one is a 64px wireframe grid, three drifting glows and the
-      cursor light. Each option below replaces that whole stack. Scroll: a background is a
-      thing you meet at full size, not a swatch.</p>
+    <div class="opt-head">
+      <span class="opt-k">Ground ${esc(k.toUpperCase())}</span>
+      <div><h2>${esc(name)}</h2><p>${esc(note)}</p></div>
     </div>
   </div>
 </section>
 
-${SAMPLE('a', 'Nothing at all',
-  'Flat ground, no grid, no glows. Only the cursor light stays. The quietest option and the one that makes a long page feel calmest.')}
-${SAMPLE('b', 'Contour lines',
-  'Slow organic curves instead of a square grid. Reads as considered rather than as graph paper, and does not repeat on a visible tile.')}
-${SAMPLE('c', 'Column rules',
-  'Faint vertical lines on the layout grid itself, so the structure of the page is the texture. Architectural rather than technical.')}
-${SAMPLE('d', 'Deep wash and grain',
-  'A vertical gradient from near black to a warmer navy, with fine film grain. No geometry at all. The most editorial of the six.')}
-${SAMPLE('e', 'Sparse dot field',
-  'Widely spaced dots rather than ruled lines. The same technical register as the current grid, at a fraction of the weight.')}
-${SAMPLE('f', 'Horizon glow',
-  'One wide band of light low on the page, fixed, with nothing above it. Gives the dark somewhere to go without filling the whole field.')}
+<section class="sec sec-loose s01 s01-${k}">
+  <div class="wrap">
+    ${section01}
+  </div>
+</section>`).join('');
+
+/* ---------------- Part 2: the list inside it ---------------- */
+
+/* A -- superseded, not crossed out. Each tool is dimmed and carries the
+   thing that replaces it, so the eye reads a swap rather than a deletion. */
+const optA = () => `
+  <div class="xa">
+    <span class="xa-lbl">What most organizations run</span>
+    <ul class="xa-list">
+      ${SCATTERED.map((t, i) => `<li>
+        <span class="xa-old">${esc(t)}</span>
+        <span class="xa-arrow" aria-hidden="true">&rarr;</span>
+        <span class="xa-new">${esc(REPLACED[i])}</span>
+      </li>`).join('')}
+    </ul>
+    <p class="xa-note">All five live in SHIELD, in one place, with dated records.</p>
+  </div>`;
+
+/* B -- the count leads. One figure carries the argument and the tools sit
+   under it as plain text, fully legible, no device at all. */
+const optB = () => `
+  <div class="xb">
+    <div class="xb-head">
+      <span class="xb-fig">5</span>
+      <div>
+        <b>systems. Five logins. Five places to look.</b>
+        <p>A learning system, a policy tool, an incident tracker, a hotline vendor,
+        and a spreadsheet nobody owns.</p>
+      </div>
+    </div>
+  </div>`;
+
+/* C -- the ledger. Two columns facing each other: what you run now, what
+   replaces it. Opposition does the work instead of typography. */
+const optC = () => `
+  <div class="xc">
+    <div class="xc-col">
+      <span class="xc-lbl">Today</span>
+      <ul>${SCATTERED.map((t) => `<li>${esc(t)}</li>`).join('')}</ul>
+      <p class="xc-foot">Five contracts, five renewal dates, five exports.</p>
+    </div>
+    <span class="xc-seam" aria-hidden="true"></span>
+    <div class="xc-col xc-on">
+      <span class="xc-lbl xc-lbl-on">With SHIELD</span>
+      <ul>${REPLACED.map((t) => `<li>${esc(t)}</li>`).join('')}</ul>
+      <p class="xc-foot">One login, one completion view, one documentation vault.</p>
+    </div>
+  </div>`;
+
+/* D -- struck, but beside the word rather than through it. Keeps the
+   crossed-off reading that the current version was after, without putting
+   anything across the letterforms. */
+const optD = () => `
+  <div class="xd">
+    <span class="xd-lbl">What most organizations run</span>
+    <ul class="xd-list">
+      ${SCATTERED.map((t) => `<li><span class="xd-mark" aria-hidden="true"></span>${esc(t)}</li>`).join('')}
+    </ul>
+    <p class="xd-note">Every one of them replaced by a single system.</p>
+  </div>`;
+
+const LIST_OPTIONS = [
+  { k: 'A', name: 'Superseded, not crossed out', html: optA,
+    note: 'Each tool is dimmed and paired with what replaces it. The eye reads a swap rather than a deletion, and nothing sits on top of the words.' },
+  { k: 'B', name: 'The count leads', html: optB,
+    note: 'One figure carries the argument; the tools become a plain sentence underneath. No device at all, which makes it the most legible and the least decorated.' },
+  { k: 'C', name: 'The ledger', html: optC,
+    note: 'Two columns facing across a lit seam: what you run today, what replaces it. Opposition does the work instead of typography.' },
+  { k: 'D', name: 'Struck beside, not through', html: optD,
+    note: 'Keeps the crossed-off reading the current version wanted, with the mark to the left of each item instead of across the letterforms.' }
+];
+
+/* The closing line, in four registers. The current one is too indirect:
+   it has to be read twice to land. */
+const LINES = [
+  ['Current', 'Fine until somebody asks for proof on a deadline.'],
+  ['Plainer', 'It works until an auditor gives you two weeks to produce the evidence.'],
+  ['Blunter', 'Then the request arrives, and the proof is in five places.'],
+  ['Concrete', 'An OIG letter gives you 30 days. Five systems do not add up to one answer.']
+];
+
+const body = `
+<section class="sec sec-tight">
+  <div class="wrap">
+    <div class="page-head">
+      <span class="mono-label">Section 01</span>
+      <h1>Six grounds for one section</h1>
+      <p class="sec-lead">Only the section you sent, repeated six times with a different ground
+      under it and the content left exactly as it ships. The site grid and glows stay on behind
+      each one, because that is what the section will actually sit on. Further down, the list
+      treatments and the closing line, which are separate choices that drop into whichever
+      ground you pick.</p>
+    </div>
+  </div>
+</section>
+
+${groundOptions}
+
+<section class="sec sec-tight">
+  <div class="wrap">
+    <div class="opt-head">
+      <span class="opt-k">The list</span>
+      <div><h2>Four replacements for the struck list</h2>
+      <p>None of these run a rule through the words. Shown on plain ground so the treatment is
+      the only thing being judged.</p></div>
+    </div>
+  </div>
+</section>
+
+${LIST_OPTIONS.map((o) => `
+<section class="sec sec-tight">
+  <div class="wrap">
+    <div class="opt-head">
+      <span class="opt-k">List ${o.k}</span>
+      <div><h2>${esc(o.name)}</h2><p>${esc(o.note)}</p></div>
+    </div>
+    ${o.html()}
+  </div>
+</section>`).join('')}
+
+<section class="sec sec-tight">
+  <div class="wrap">
+    <div class="opt-head">
+      <span class="opt-k">Closing line</span>
+      <div><h2>And the sentence underneath</h2>
+      <p>You asked what the current one means: it means the scattered setup works day to day,
+      until someone demands documentation by a date. If it needs explaining, it is too indirect.</p></div>
+    </div>
+    <ul class="xline">
+      ${LINES.map(([k, t]) => `<li><span class="xline-k">${esc(k)}</span><p>${esc(t)}</p></li>`).join('')}
+    </ul>
+  </div>
+</section>
 `;
 
 export default {
   path: '/design-options/',
-  title: 'Background options | HCP',
-  description: 'Six full-height background treatments for the site ground, each shown with real content on top so the effect can be judged at the scale it is met.',
+  title: 'Section 01 options | HCP',
+  description: 'Six background treatments for homepage section 01, each shown with the real section on top, plus four list treatments and four closing lines.',
   noindex: true,
   body
 };
