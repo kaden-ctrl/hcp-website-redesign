@@ -760,23 +760,28 @@
    What follows takes the boxes off wherever the content can carry itself
    and lets scale, rules and overlap do the work instead. */
 
-/* 01 -- the reckoning. Five things crossed out against one that is not. */
+/* 01 -- the reckoning. Five things being replaced against one that is
+   replacing them. */
 .recko{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(2rem,1rem + 4vw,4.5rem);
   align-items:start;position:relative}
 .recko-lbl{display:block;font-family:var(--head);font-weight:700;font-size:.72rem;letter-spacing:.17em;
   text-transform:uppercase;color:var(--on-dark-mute);margin-bottom:1.1rem}
 .recko-lbl-on{color:var(--lime)}
+/* The rule used to run through the letterforms. It measured fine for
+   contrast and still read badly: a 2px line across every glyph damages
+   legibility whatever the ratio says, which is what contrast does not
+   measure. The mark now sits beside the word and carries the same
+   crossed-off reading without touching the text. The opacity ramp went
+   with it, for the same reason: the point of the list is that these five
+   things exist, so making the last ones harder to read was working
+   against the sentence. */
 .strike{list-style:none;margin:0 0 1.1rem;padding:0}
-.strike li{font-family:var(--head);font-weight:700;font-size:clamp(1rem,.95rem + .35vw,1.18rem);
-  color:var(--on-dark-soft);padding:.5rem 0;border-bottom:1px solid var(--line-soft);
-  line-height:1.25;
-  text-decoration:line-through;text-decoration-color:rgba(163,199,57,.7);text-decoration-thickness:2px;
-  /* each one further down the stack is a little harder to find, which is
-     the whole complaint the list is making */
-  /* The fade stops at .68: a .11 step put the fifth item at 4.29:1, under
-     AA. Still reads as a ramp, still legible at the bottom of it. */
-  opacity:calc(1 - (var(--i) * .08))}
+.strike li{display:flex;align-items:center;gap:.95rem;
+  font-family:var(--head);font-weight:700;font-size:clamp(1rem,.95rem + .35vw,1.18rem);
+  color:var(--on-dark-soft);padding:.6rem 0;border-bottom:1px solid var(--line-soft);
+  line-height:1.25}
 .strike li:last-child{border-bottom:0}
+.strike-mark{flex:none;width:22px;height:2px;border-radius:1px;background:var(--lime)}
 .recko-note{margin:0;font-size:.95rem;color:var(--on-dark-mute);font-style:italic}
 .recko-is{border-left:2px solid var(--lime);padding-left:clamp(1.4rem,1rem + 1.6vw,2.4rem)}
 .recko-big{font-family:var(--head);font-weight:900;letter-spacing:-.02em;color:#fff;

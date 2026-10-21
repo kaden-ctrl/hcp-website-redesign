@@ -126,15 +126,15 @@ const body = `
       <strong>diligence</strong> review.</p>
     </div>
 
-    <!-- No cards here. The argument is five things crossed out against one
-         thing that is not, so the strikethrough carries it and a box would
-         only get in the way. The ramp in opacity is the point: the further
-         down the stack, the less anyone can find it. -->
+    <!-- No cards here. The argument is five things being replaced by one,
+         so the list carries it and a box would only get in the way. The
+         mark sits beside each item rather than through it: a rule across
+         the letterforms passed every contrast check and still read badly. -->
     <div class="recko">
       <div class="recko-was">
         <span class="recko-lbl">What most organizations run</span>
         <ul class="strike">
-          ${scattered.map((x, i) => `<li style="--i:${i}">${esc(x)}</li>`).join('')}
+          ${scattered.map((x) => `<li><span class="strike-mark" aria-hidden="true"></span>${esc(x)}</li>`).join('')}
         </ul>
         <p class="recko-note">Fine until somebody asks for proof on a deadline.</p>
       </div>

@@ -46,7 +46,7 @@ const section01 = `
     <div class="recko-was">
       <span class="recko-lbl">What most organizations run</span>
       <ul class="strike">
-        ${SCATTERED.map((x, i) => `<li style="--i:${i}">${esc(x)}</li>`).join('')}
+        ${SCATTERED.map((x) => `<li><span class="strike-mark" aria-hidden="true"></span>${esc(x)}</li>`).join('')}
       </ul>
       <p class="recko-note">Fine until somebody asks for proof on a deadline.</p>
     </div>
@@ -161,8 +161,8 @@ const LIST_OPTIONS = [
     note: 'One figure carries the argument; the tools become a plain sentence underneath. No device at all, which makes it the most legible and the least decorated.' },
   { k: 'C', name: 'The ledger', html: optC,
     note: 'Two columns facing across a lit seam: what you run today, what replaces it. Opposition does the work instead of typography.' },
-  { k: 'D', name: 'Struck beside, not through', html: optD,
-    note: 'Keeps the crossed-off reading the current version wanted, with the mark to the left of each item instead of across the letterforms.' }
+  { k: 'D', name: 'Struck beside, not through (now live)', html: optD,
+    note: 'Keeps the crossed-off reading the old version wanted, with the mark to the left of each item instead of across the letterforms. This is what the homepage runs now.' }
 ];
 
 /* The closing line, in four registers. The current one is too indirect:
@@ -180,11 +180,11 @@ const body = `
     <div class="page-head">
       <span class="mono-label">Section 01</span>
       <h1>Six grounds for one section</h1>
-      <p class="sec-lead">Only the section you sent, repeated six times with a different ground
-      under it and the content left exactly as it ships. The site grid and glows stay on behind
-      each one, because that is what the section will actually sit on. Further down, the list
-      treatments and the closing line, which are separate choices that drop into whichever
-      ground you pick.</p>
+      <p class="sec-lead">The rule no longer runs through the words. The list now carries a lime
+      mark beside each item, which is list treatment D below, and that is what is on the homepage
+      as of now. Above, the same section repeated six times with a different ground under it.
+      Below, the three other list treatments and four versions of the closing line, any of which
+      can replace what is live in a minute.</p>
     </div>
   </div>
 </section>
@@ -195,9 +195,10 @@ ${groundOptions}
   <div class="wrap">
     <div class="opt-head">
       <span class="opt-k">The list</span>
-      <div><h2>Four replacements for the struck list</h2>
-      <p>None of these run a rule through the words. Shown on plain ground so the treatment is
-      the only thing being judged.</p></div>
+      <div><h2>Four treatments for that list</h2>
+      <p>None of these run a rule through the words. D is the one now live on the homepage,
+      because it keeps the crossed-off reading without competing with the column beside it.
+      Shown on plain ground so the treatment is the only thing being judged.</p></div>
     </div>
   </div>
 </section>
