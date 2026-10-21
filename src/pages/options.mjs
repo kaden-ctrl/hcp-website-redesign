@@ -48,7 +48,6 @@ const section01 = `
       <ul class="strike">
         ${SCATTERED.map((x) => `<li><span class="strike-mark" aria-hidden="true"></span>${esc(x)}</li>`).join('')}
       </ul>
-      <p class="recko-note">Fine until somebody asks for proof on a deadline.</p>
     </div>
     <div class="recko-is">
       <span class="recko-lbl recko-lbl-on">What you run instead</span>
@@ -165,15 +164,6 @@ const LIST_OPTIONS = [
     note: 'Keeps the crossed-off reading the old version wanted, with the mark to the left of each item instead of across the letterforms. This is what the homepage runs now.' }
 ];
 
-/* The closing line, in four registers. The current one is too indirect:
-   it has to be read twice to land. */
-const LINES = [
-  ['Current', 'Fine until somebody asks for proof on a deadline.'],
-  ['Plainer', 'It works until an auditor gives you two weeks to produce the evidence.'],
-  ['Blunter', 'Then the request arrives, and the proof is in five places.'],
-  ['Concrete', 'An OIG letter gives you 30 days. Five systems do not add up to one answer.']
-];
-
 const body = `
 <section class="sec sec-tight">
   <div class="wrap">
@@ -181,9 +171,9 @@ const body = `
       <span class="mono-label">Section 01</span>
       <h1>Six grounds for one section</h1>
       <p class="sec-lead">The homepage now runs ground F with list treatment D: a framed panel
-      with a lime top edge, and a mark beside each item rather than a rule through it. The five
-      other grounds are below, then the three other list treatments and four versions of the
-      closing line. Any of them can replace what is live in a minute.</p>
+      with a lime top edge, and a mark beside each item rather than a rule through it. The
+      italic line under the list is gone. The five other grounds are below, then the three
+      other list treatments, any of which can replace what is live in a minute.</p>
     </div>
   </div>
 </section>
@@ -197,7 +187,8 @@ ${groundOptions}
       <div><h2>Four treatments for that list</h2>
       <p>None of these run a rule through the words. D is the one now live on the homepage,
       because it keeps the crossed-off reading without competing with the column beside it.
-      Shown on plain ground so the treatment is the only thing being judged.</p></div>
+      Shown on plain ground so the treatment is the only thing being judged. The closing
+      lines that used to sit under this section are gone with the line itself.</p></div>
     </div>
   </div>
 </section>
@@ -213,19 +204,6 @@ ${LIST_OPTIONS.map((o) => `
   </div>
 </section>`).join('')}
 
-<section class="sec sec-tight">
-  <div class="wrap">
-    <div class="opt-head">
-      <span class="opt-k">Closing line</span>
-      <div><h2>And the sentence underneath</h2>
-      <p>You asked what the current one means: it means the scattered setup works day to day,
-      until someone demands documentation by a date. If it needs explaining, it is too indirect.</p></div>
-    </div>
-    <ul class="xline">
-      ${LINES.map(([k, t]) => `<li><span class="xline-k">${esc(k)}</span><p>${esc(t)}</p></li>`).join('')}
-    </ul>
-  </div>
-</section>
 `;
 
 export default {

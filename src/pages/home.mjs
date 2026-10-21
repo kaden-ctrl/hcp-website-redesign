@@ -137,7 +137,6 @@ const body = `
         <ul class="strike">
           ${scattered.map((x) => `<li><span class="strike-mark" aria-hidden="true"></span>${esc(x)}</li>`).join('')}
         </ul>
-        <p class="recko-note">Fine until somebody asks for proof on a deadline.</p>
       </div>
       <div class="recko-is">
         <span class="recko-lbl recko-lbl-on">What you run instead</span>
