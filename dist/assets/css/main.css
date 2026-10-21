@@ -1097,3 +1097,76 @@
   .mkt-tabs{flex-direction:row;flex-wrap:wrap}
   .mkt-tab{flex:1 1 auto;min-width:140px}
 }
+
+/* ---- Review page: struck-list replacements ---------------------------
+   Scoped under .opt-* and .x[a-d]. Delete with src/pages/options.mjs once
+   a direction is picked. Nothing here puts a rule through text. */
+.opt-head{display:flex;gap:1.25rem;align-items:flex-start;margin-bottom:2.25rem;max-width:64rem}
+.opt-k{flex:none;font-family:var(--mono);font-weight:500;font-size:.7rem;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--lime);border:1px solid var(--lime);border-radius:6px;
+  padding:.42rem .8rem;margin-top:.3rem;white-space:nowrap}
+.opt-head h2{margin:0 0 .5rem;font-size:clamp(1.5rem,1.2rem + 1.2vw,2.1rem)}
+.opt-head p{margin:0;color:var(--on-dark-soft);font-size:1rem;line-height:1.6}
+
+/* A -- superseded */
+.xa-lbl,.xd-lbl,.xc-lbl{display:block;font-family:var(--mono);font-weight:500;font-size:.7rem;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--on-dark-mute);margin-bottom:1.1rem}
+.xa-list{list-style:none;margin:0 0 1.2rem;padding:0}
+.xa-list li{display:grid;grid-template-columns:1fr 2rem auto;align-items:baseline;gap:.6rem;
+  padding:.72rem 0;border-bottom:1px solid var(--line-soft)}
+.xa-list li:last-child{border-bottom:0}
+.xa-old{font-family:var(--head);font-weight:700;font-size:1.08rem;color:var(--on-dark-mute)}
+.xa-arrow{color:var(--lime);text-align:center}
+.xa-new{font-family:var(--head);font-weight:700;font-size:1.08rem;color:#fff}
+.xa-note{margin:0;font-size:.98rem;color:var(--on-dark-soft)}
+
+/* B -- the count */
+.xb-head{display:flex;align-items:flex-start;gap:clamp(1.2rem,.8rem + 2vw,2.4rem)}
+.xb-fig{flex:none;font-family:var(--head);font-weight:900;letter-spacing:-.05em;color:var(--lime);
+  font-size:clamp(4.5rem,3rem + 7vw,9rem);line-height:.78}
+.xb-head b{display:block;font-family:var(--head);font-weight:900;color:#fff;
+  font-size:clamp(1.3rem,1.1rem + 1.1vw,2rem);line-height:1.2;margin-top:.4rem}
+.xb-head p{margin:.9rem 0 0;font-size:1.02rem;line-height:1.7;color:var(--on-dark-soft);max-width:48rem}
+
+/* C -- the ledger */
+.xc{display:grid;grid-template-columns:1fr 1px 1fr;gap:0}
+.xc-seam{background:linear-gradient(180deg,transparent,var(--lime) 18%,var(--lime) 82%,transparent);
+  box-shadow:0 0 16px rgba(162,199,57,.35)}
+.xc-col{padding:.25rem clamp(1.4rem,1rem + 2vw,2.6rem)}
+.xc-lbl-on{color:var(--lime)}
+.xc-col ul{list-style:none;margin:0 0 1.2rem;padding:0;display:grid;gap:.1rem}
+.xc-col li{font-family:var(--head);font-weight:700;font-size:1.05rem;color:var(--on-dark-mute);
+  padding:.6rem 0;border-bottom:1px solid var(--line-soft)}
+.xc-col li:last-child{border-bottom:0}
+.xc-on li{color:#fff}
+.xc-foot{margin:0;font-size:.92rem;color:var(--on-dark-soft)}
+
+/* D -- struck beside */
+.xd-list{list-style:none;margin:0 0 1.2rem;padding:0}
+.xd-list li{display:flex;align-items:center;gap:.9rem;padding:.72rem 0;
+  border-bottom:1px solid var(--line-soft);
+  font-family:var(--head);font-weight:700;font-size:1.08rem;color:var(--on-dark-soft)}
+.xd-list li:last-child{border-bottom:0}
+.xd-mark{flex:none;width:22px;height:2px;background:var(--lime);border-radius:1px}
+.xd-note{margin:0;font-size:.98rem;color:var(--on-dark-soft)}
+
+/* the closing-line options */
+.xline{list-style:none;margin:0;padding:0;display:grid;gap:0}
+.xline li{display:grid;grid-template-columns:7rem 1fr;gap:1.2rem;align-items:baseline;
+  padding:1.1rem 0;border-bottom:1px solid var(--line-soft)}
+.xline li:last-child{border-bottom:0}
+.xline-k{font-family:var(--mono);font-weight:500;font-size:.7rem;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--lime)}
+.xline p{margin:0;font-family:var(--head);font-weight:700;color:#fff;
+  font-size:clamp(1rem,.95rem + .5vw,1.25rem);line-height:1.45}
+
+@media (max-width:860px){
+  .xc{grid-template-columns:1fr}
+  .xc-seam{height:1px;background:linear-gradient(90deg,transparent,var(--lime),transparent);margin:1.5rem 0}
+  .xc-col{padding:0}
+  .xa-list li{grid-template-columns:1fr auto;gap:.5rem}
+  .xa-arrow{display:none}
+  .xb-head{flex-direction:column;gap:.5rem}
+  .xline li{grid-template-columns:1fr;gap:.3rem}
+  .opt-head{flex-direction:column;gap:.75rem}
+}
