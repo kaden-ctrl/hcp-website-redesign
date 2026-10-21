@@ -1,5 +1,5 @@
 import { esc } from '../layout.mjs';
-import { stats, sevenElements } from '../site.mjs';
+import { stats, sevenElements, testimonials, site } from '../site.mjs';
 
 /* Review page for homepage section 01, the "what is it" section with the
    struck list in it. Two separate decisions live here and they compose:
@@ -84,7 +84,110 @@ const sevenOptions = SEVEN.map((o) => `
   </div>
 </section>`).join('');
 
-/* ---------------- Part 2: the section 01 ground ---------------- */
+/* ---------------- Part 2: filling the right of Seven C ----------------
+   C is one narrow column, so the right half of the page sits empty beside
+   it. Four ways to use that half. None of them adds a panel or a fill,
+   and only one of them needs copy that does not already exist.
+
+   The element descriptions in the third are plain restatements of the
+   public OIG framework, written here rather than taken from the client's
+   SHIELD deck: that deck's seven element detail is flagged draft
+   throughout, with its own authors asking for compliance review before
+   anything goes public. These still need their sign-off before launch. */
+
+const ELEMENT_DETAIL = [
+  'Standards of conduct and the policies that put them into practice, written for your setting and acknowledged by the people they bind.',
+  'A named compliance officer with the authority to act, and a governing body that actually reviews what the officer reports.',
+  'Role appropriate training for everyone the rule touches, assigned on a schedule and recorded as it is completed.',
+  'A route for staff to raise a concern, including anonymously, and a documented policy that nobody is punished for using it.',
+  'Published consequences applied the same way every time, because a standard nobody enforces is not a standard.',
+  'Auditing against your own risk areas on a schedule, with the findings written down while they are still findings.',
+  'Investigating what surfaces, correcting it, and keeping the record of both, which is the part an investigator asks to see.'
+];
+
+const threadPlain = `
+  <ul class="sv7c">
+    ${sevenElements.map((e, i) => `<li><b>${n2(i)}</b><span>${esc(e)}</span></li>`).join('')}
+  </ul>`;
+
+const threadPick = `
+  <ul class="sv7c sv7c-pick">
+    ${sevenElements.map((e, i) => `<li>
+      <label for="sv7p${i + 1}">
+        <input class="sv7pick" type="radio" name="sv7pick" id="sv7p${i + 1}"${i === 0 ? ' checked' : ''}>
+        <b>${n2(i)}</b><span>${esc(e)}</span>
+      </label>
+    </li>`).join('')}
+  </ul>`;
+
+const shield = testimonials[0];
+
+const RIGHT = [
+  { k: '1', name: 'The heading moves across', cls: 'sv7r-said',
+    note: 'The heading and the OIG sentence leave the top and sit opposite the thread, with a link through to SHIELD underneath. No new copy at all, and the section stops being a column with a title over it.',
+    left: threadPlain,
+    right: `<div class="sv7r-said">
+      <h3>The seven elements. Covered.</h3>
+      <p>The Office of Inspector General defines what an effective compliance program requires.
+      SHIELD delivers all seven, in one place, with the dated records to show for each.</p>
+      <a class="sv7r-link" href="/compliance-solution/">How SHIELD runs them</a>
+    </div>` },
+
+  { k: '2', name: 'Proof beside the program', cls: 'sv7r-proof',
+    note: 'The right side carries a client on what changed, and the two figures that bear on it. Everything here is already on the site, so it costs nothing to approve.',
+    left: threadPlain,
+    right: `<div class="sv7r-proof">
+      <figure style="margin:0">
+        <blockquote>${esc(shield.quote)}</blockquote>
+        <figcaption><b>${esc(shield.who)}</b>${esc(shield.org)}</figcaption>
+      </figure>
+      <ul class="sv7r-figs">
+        ${stats.slice(0, 2).map((x) => `<li><b>${esc(x.figure)}</b><span>${esc(x.label)}</span></li>`).join('')}
+      </ul>
+    </div>` },
+
+  { k: '3', name: 'The right side answers the left', cls: 'sv7r-detail',
+    note: 'The thread becomes selectable and the right half says what that element actually requires. Click or arrow through it. This is the only one that needs new copy, and that copy is about regulatory requirements, so it needs the client to sign it off before launch.',
+    left: threadPick,
+    right: `<div class="sv7det">
+      <span class="sv7det-lbl">What the element requires</span>
+      ${ELEMENT_DETAIL.map((d, i) => `<p class="d${i + 1}">${esc(d)}</p>`).join('')}
+    </div>` },
+
+  { k: '4', name: 'The empty half becomes the ask', cls: 'sv7r-call',
+    note: 'The dead space turns into the point of the section. Somebody reading a list of seven obligations is exactly the person who wants to know where they stand, and right now the nearest way to ask is at the bottom of the page.',
+    left: threadPlain,
+    right: `<div class="sv7r-call">
+      <h3>Which of the seven are you missing?</h3>
+      <p>Twenty minutes with an advisor produces a written gap analysis against all seven,
+      ranked by what would actually hurt you first. The findings are yours whether or not
+      you become a client.</p>
+      <a class="btn btn-primary" href="/contact/">Book the free review</a>
+      <span class="sv7r-tel">Or call <a href="tel:${site.phoneE164}">${site.phoneDisplay}</a>
+      and ask for a compliance advisor.</span>
+    </div>` }
+];
+
+const rightOptions = RIGHT.map((o) => `
+<section class="sec sec-tight">
+  <div class="wrap">
+    <div class="opt-head">
+      <span class="opt-k">Right ${o.k}</span>
+      <div><h2>${esc(o.name)}</h2><p>${esc(o.note)}</p></div>
+    </div>
+    <div class="seven-block">
+      ${o.k === '1' ? '' : `<h3 style="margin:0 0 .4rem">The seven elements. Covered.</h3>
+      <p class="sec-lead" style="font-size:1rem;margin-bottom:1.5rem">The Office of Inspector General
+      defines what an effective compliance program requires. SHIELD delivers all seven.</p>`}
+      <div class="sv7r ${o.cls}">
+        ${o.left}
+        ${o.right}
+      </div>
+    </div>
+  </div>
+</section>`).join('');
+
+/* ---------------- Part 3: the section 01 ground ---------------- */
 
 /* Section 01, reproduced. Same copy, same markup, same classes, so the
    only variable between the six is the ground underneath. */
@@ -148,7 +251,7 @@ const groundOptions = GROUNDS.map(([k, name, note]) => `
   </div>
 </section>`).join('');
 
-/* ---------------- Part 3: the list inside section 01 ---------------- */
+/* ---------------- Part 4: the list inside section 01 ---------------- */
 
 /* A -- superseded, not crossed out. Each tool is dimmed and carries the
    thing that replaces it, so the eye reads a swap rather than a deletion. */
@@ -225,10 +328,10 @@ const body = `
     <div class="page-head">
       <span class="mono-label">Review</span>
       <h1>Open design decisions</h1>
-      <p class="sec-lead">First, four treatments for the OIG seven elements, none of them on a
-      panel or a fill. Then the five section 01 grounds you did not pick, and the three list
-      treatments you did not pick. Section 01 is already live on ground F with list treatment D,
-      and the italic line under the list is gone.</p>
+      <p class="sec-lead">You picked Seven C, the thread, and it leaves the right half of the
+      page empty. Four ways to use that half are first, each one still free of panels and fills.
+      Under them, the other three seven treatments for reference, then the five section 01
+      grounds and three list treatments you did not pick.</p>
     </div>
   </div>
 </section>
@@ -237,11 +340,23 @@ const body = `
   <div class="wrap">
     <div class="opt-head">
       <span class="opt-k">The seven</span>
-      <div><h2>Four treatments for the seven elements</h2>
-      <p>No panel, no card, no fill. Each one sits straight on the page ground, which is what
-      section 03 actually is. They are all answering the same two faults: seven is odd, so the
-      two column grid leaves an empty eighth cell, and the items that wrap to two lines push
-      their row taller than the one beside it.</p></div>
+      <div><h2>Four ways to fill the right of C</h2>
+      <p>The thread is one narrow column, so half the width sits empty beside it. None of these
+      adds a panel or a fill, and only the third needs copy that does not already exist on the
+      site.</p></div>
+    </div>
+  </div>
+</section>
+
+${rightOptions}
+
+<section class="sec sec-tight">
+  <div class="wrap">
+    <div class="opt-head">
+      <span class="opt-k">For reference</span>
+      <div><h2>The other three seven treatments</h2>
+      <p>C is the one you picked and it is the first of these. A, B and D are kept here until
+      the right hand side is settled.</p></div>
     </div>
   </div>
 </section>
