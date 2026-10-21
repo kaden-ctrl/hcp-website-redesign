@@ -866,7 +866,13 @@
 .spec-head p{margin:.5rem 0 0;font-size:1.02rem;line-height:1.65;color:var(--on-dark-soft);max-width:44rem}
 
 /* Testimonials -- one carries it, three support */
-.lede-q{margin:0;padding:0 0 clamp(2rem,1.5rem + 2vw,3rem);border-bottom:1px solid var(--line)}
+/* The quote sits on a panel, the same surface and radius as the section 01
+   card so the two read as one system. No lime top edge on this one: the
+   opening and closing quote marks are already lime and directly under it.
+   The bottom rule that used to separate this from the row of short quotes
+   is gone, because the panel edge now does that. */
+.lede-q{margin:0;padding:clamp(1.9rem,1.3rem + 2.4vw,3.4rem);background:var(--bg-elev);
+  border:1px solid var(--line-soft);border-radius:var(--r-lg)}
 /* The quote takes the whole content column. It was capped at 52rem inside
    a 1296px column, so it filled 64% of the width and sat hard left while
    the rest of the section ran full width. text-wrap:balance evens the
