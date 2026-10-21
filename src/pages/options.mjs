@@ -1,5 +1,5 @@
 import { esc } from '../layout.mjs';
-import { stats } from '../site.mjs';
+import { stats, sevenElements } from '../site.mjs';
 
 /* Review page for homepage section 01, the "what is it" section with the
    struck list in it. Two separate decisions live here and they compose:
@@ -29,7 +29,63 @@ const SCATTERED = [
 
 const REPLACED = ['Learning', 'Policies', 'Incidents', 'Hotline', 'Evidence'];
 
-/* ---------------- Part 1: the section ground ---------------- */
+/* ---------------- Part 1: the OIG seven elements ----------------
+   Seven is an odd number and the block is currently a two column grid, so
+   the last cell is an empty hole and the items that wrap to two lines pull
+   the two columns out of line with each other. Each of these answers that
+   a different way. */
+
+const n2 = (i) => String(i + 1).padStart(2, '0');
+
+const sevenA = () => `
+  <ul class="sv7a">
+    ${sevenElements.map((e, i) => `<li><b>${n2(i)}</b><span>${esc(e)}</span></li>`).join('')}
+  </ul>`;
+
+const sevenB = () => `
+  <ul class="sv7b">
+    ${sevenElements.map((e, i) => `<li><b>${n2(i)}</b><span>${esc(e)}</span><i>Covered</i></li>`).join('')}
+  </ul>`;
+
+const sevenC = () => `
+  <ul class="sv7c">
+    ${sevenElements.map((e) => `<li><span class="sv7c-tick" aria-hidden="true"></span><span>${esc(e)}</span></li>`).join('')}
+  </ul>`;
+
+const sevenD = () => `
+  <ul class="sv7d">
+    ${sevenElements.map((e, i) => `<li><b>${n2(i)}</b><span>${esc(e)}</span></li>`).join('')}
+    <li class="sv7d-end"><p>All seven, in one program, with the records to show it.</p></li>
+  </ul>`;
+
+const SEVEN = [
+  { k: 'A', name: 'One band of seven', html: sevenA,
+    note: 'Seven equal columns across the full width, numeral above label. The odd count stops being a problem because the row is the shape, so there is nothing left over and no second column to misalign with.' },
+  { k: 'B', name: 'Ruled rows, full width', html: sevenB,
+    note: 'One column, seven rows, each confirming itself as covered. Nothing wraps and nothing is left over. It costs the most vertical space of the four.' },
+  { k: 'C', name: 'Said once per element', html: sevenC,
+    note: 'The heading already says Covered, so each row says it too, with a check rather than a numeral. The seventh spans both columns, which is what closes the hole.' },
+  { k: 'D', name: 'The eighth cell carries the payoff', html: sevenD,
+    note: 'Closest to what is there now: the same two columns, ruled into a panel. The empty eighth cell becomes the conclusion instead of a gap.' }
+];
+
+const sevenOptions = SEVEN.map((o) => `
+<section class="sec sec-tight">
+  <div class="wrap">
+    <div class="opt-head">
+      <span class="opt-k">Seven ${o.k}</span>
+      <div><h2>${esc(o.name)}</h2><p>${esc(o.note)}</p></div>
+    </div>
+    <div class="s01-card">
+      <h3 style="margin:0 0 .4rem">The seven elements. Covered.</h3>
+      <p class="sec-lead" style="font-size:1rem;margin-bottom:1.5rem">The Office of Inspector General
+      defines what an effective compliance program requires. SHIELD delivers all seven.</p>
+      ${o.html()}
+    </div>
+  </div>
+</section>`).join('');
+
+/* ---------------- Part 2: the section 01 ground ---------------- */
 
 /* Section 01, reproduced. Same copy, same markup, same classes, so the
    only variable between the six is the ground underneath. */
@@ -93,7 +149,7 @@ const groundOptions = GROUNDS.map(([k, name, note]) => `
   </div>
 </section>`).join('');
 
-/* ---------------- Part 2: the list inside it ---------------- */
+/* ---------------- Part 3: the list inside section 01 ---------------- */
 
 /* A -- superseded, not crossed out. Each tool is dimmed and carries the
    thing that replaces it, so the eye reads a swap rather than a deletion. */
@@ -168,12 +224,37 @@ const body = `
 <section class="sec sec-tight">
   <div class="wrap">
     <div class="page-head">
-      <span class="mono-label">Section 01</span>
-      <h1>Six grounds for one section</h1>
-      <p class="sec-lead">The homepage now runs ground F with list treatment D: a framed panel
-      with a lime top edge, and a mark beside each item rather than a rule through it. The
-      italic line under the list is gone. The five other grounds are below, then the three
-      other list treatments, any of which can replace what is live in a minute.</p>
+      <span class="mono-label">Review</span>
+      <h1>Open design decisions</h1>
+      <p class="sec-lead">First, four treatments for the OIG seven elements, shown in the framed
+      panel they would sit in. Then the five section 01 grounds you did not pick, and the three
+      list treatments you did not pick. Section 01 is already live on ground F with list
+      treatment D, and the italic line under the list is gone.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec-tight">
+  <div class="wrap">
+    <div class="opt-head">
+      <span class="opt-k">The seven</span>
+      <div><h2>Four treatments for the seven elements</h2>
+      <p>Seven is an odd number. The block is two columns today, so the eighth cell is an empty
+      hole and the items that wrap to two lines push the two columns out of line with each
+      other. Each of these answers that a different way.</p></div>
+    </div>
+  </div>
+</section>
+
+${sevenOptions}
+
+<section class="sec sec-tight">
+  <div class="wrap">
+    <div class="opt-head">
+      <span class="opt-k">The ground</span>
+      <div><h2>The five section 01 grounds you did not pick</h2>
+      <p>F is live. The rest are here in case you want to see them against the current section
+      again before they are deleted.</p></div>
     </div>
   </div>
 </section>
@@ -208,8 +289,8 @@ ${LIST_OPTIONS.map((o) => `
 
 export default {
   path: '/design-options/',
-  title: 'Section 01 options | HCP',
-  description: 'Six background treatments for homepage section 01, each shown with the real section on top, plus four list treatments and four closing lines.',
+  title: 'Open design decisions | HCP',
+  description: 'Open design decisions for the homepage: four treatments for the OIG seven elements, plus the section 01 grounds and list treatments still on the table.',
   noindex: true,
   body
 };

@@ -1219,3 +1219,73 @@
   .xline li{grid-template-columns:1fr;gap:.3rem}
   .opt-head{flex-direction:column;gap:.75rem}
 }
+
+/* ---- Review page: the OIG seven elements ------------------------------
+   Four treatments for the .seven list in section 03. The problem each one
+   is answering is that seven is odd: a two column grid of it leaves a
+   visible hole bottom right, and the rows that wrap to two lines throw the
+   two columns out of alignment with each other. */
+
+/* a -- one band of seven. The odd count stops mattering when the row is
+   the shape, so nothing is left over. */
+.sv7a{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(7,1fr);
+  border-top:1px solid var(--line)}
+.sv7a li{padding:1.25rem 1rem 1.35rem 0;border-right:1px solid var(--line-soft)}
+.sv7a li:last-child{border-right:0;padding-right:0}
+.sv7a b{display:block;font-family:var(--head);font-weight:900;font-size:1.5rem;color:var(--lime);
+  font-variant-numeric:tabular-nums;line-height:1;margin-bottom:.75rem}
+.sv7a span{font-family:var(--head);font-weight:700;font-size:.92rem;line-height:1.3;
+  color:var(--on-dark)}
+
+/* b -- ruled rows the full width. Nothing wraps and nothing is left over,
+   at the cost of height. */
+.sv7b{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.sv7b li{display:grid;grid-template-columns:3.2rem 1fr auto;align-items:center;gap:1.2rem;
+  padding:1rem .2rem;border-bottom:1px solid var(--line-soft)}
+.sv7b li:last-child{border-bottom:1px solid var(--line)}
+.sv7b b{font-family:var(--head);font-weight:900;font-size:1.45rem;color:var(--lime);
+  font-variant-numeric:tabular-nums}
+.sv7b span{font-family:var(--head);font-weight:700;font-size:1.05rem;color:var(--on-dark)}
+.sv7b i{font-family:var(--mono);font-style:normal;font-size:.68rem;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--lime)}
+
+/* c -- the heading says Covered, so every row says it too. The seventh
+   spans both columns, which is what fills the hole. */
+.sv7c{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,1fr);
+  column-gap:clamp(1.4rem,1rem + 2vw,2.6rem);border-top:1px solid var(--line)}
+.sv7c li{display:flex;align-items:flex-start;gap:.9rem;padding:.95rem 0;
+  border-bottom:1px solid var(--line-soft)}
+.sv7c li:last-child{grid-column:1 / -1;border-bottom:0}
+.sv7c-tick{flex:none;width:20px;height:20px;border-radius:50%;border:1.5px solid var(--lime);
+  display:grid;place-items:center;margin-top:.15rem}
+.sv7c-tick::before{content:"";width:8px;height:4px;border-left:2px solid var(--lime);
+  border-bottom:2px solid var(--lime);transform:rotate(-45deg) translate(1px,-1px)}
+.sv7c span{font-family:var(--head);font-weight:700;font-size:1.02rem;color:var(--on-dark)}
+
+/* d -- closest to what is there now. Same two columns, but the eighth
+   cell carries the payoff instead of being empty. */
+.sv7d{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,1fr);gap:1px;
+  background:var(--line-soft);border:1px solid var(--line-soft);border-radius:var(--r);
+  overflow:hidden}
+.sv7d li{background:var(--bg-elev);padding:1.15rem 1.3rem;display:flex;align-items:center;gap:1.1rem}
+.sv7d b{font-family:var(--head);font-weight:900;font-size:1.4rem;color:var(--lime);
+  font-variant-numeric:tabular-nums;flex:none}
+.sv7d span{font-family:var(--head);font-weight:700;font-size:1rem;color:var(--on-dark);line-height:1.3}
+.sv7d-end{background:var(--lime)}
+.sv7d-end p{margin:0;font-family:var(--head);font-weight:900;font-size:1.05rem;line-height:1.25;
+  color:#0c1a08}
+
+@media (max-width:1100px){
+  .sv7a{grid-template-columns:repeat(4,1fr)}
+  .sv7a li:nth-child(4){border-right:0}
+  .sv7a li:last-child{border-right:1px solid var(--line-soft)}
+}
+@media (max-width:680px){
+  .sv7a{grid-template-columns:repeat(2,1fr)}
+  .sv7a li{border-right:1px solid var(--line-soft)}
+  .sv7a li:nth-child(even){border-right:0}
+  .sv7b li{grid-template-columns:2.6rem 1fr;gap:.9rem}
+  .sv7b i{grid-column:2;margin-top:-.4rem}
+  .sv7c{grid-template-columns:1fr}
+  .sv7d{grid-template-columns:1fr}
+}
