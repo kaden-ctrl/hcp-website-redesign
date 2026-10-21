@@ -1,5 +1,5 @@
 import { esc } from '../layout.mjs';
-import { stats, sevenElements, testimonials, site } from '../site.mjs';
+import { stats, sevenElements, testimonials, site, differentiators } from '../site.mjs';
 
 /* Review page for homepage section 01, the "what is it" section with the
    struck list in it. Two separate decisions live here and they compose:
@@ -29,7 +29,72 @@ const SCATTERED = [
 
 const REPLACED = ['Learning', 'Policies', 'Incidents', 'Hotline', 'Evidence'];
 
-/* ---------------- Part 1: the OIG seven elements ----------------
+/* ---------------- Part 1: the four differentiators ----------------
+   What ships is four full width light slabs with an 86px lime block on
+   each that carries nothing. At 1440 the row is 1296px and the text in it
+   is 457px, so 839px of every slab is empty surface, and four of them
+   stacked read as unfilled progress bars. None of these uses a fill.
+
+   The second column in the third option is new copy. It describes what
+   HCP does rather than what anyone else does not, which keeps it clear of
+   the comparative claims the existing four already make, but it is still
+   copy the client has not seen. */
+
+const DIFF_MEANS = [
+  'The same evidence serves an audit and a payer review, because both sit in one system rather than two.',
+  'Diligence grade records from the first day of the program, not reconstructed once a transaction starts.',
+  'Policies, training and risk areas set for your specialty rather than filled in from a generic template.',
+  'The platform and the advisors who answer for it come from the same place, on one agreement.'
+];
+
+const diffA = () => `
+  <ul class="dfa">
+    ${differentiators.map((d) => `<li><p>${esc(d)}</p></li>`).join('')}
+  </ul>`;
+
+const diffB = () => `
+  <ul class="dfb">
+    ${differentiators.map((d) => `<li><p>${esc(d)}</p></li>`).join('')}
+  </ul>`;
+
+const diffC = () => `
+  <ul class="dfc">
+    ${differentiators.map((d, i) => `<li><b>${esc(d)}</b><span>${esc(DIFF_MEANS[i])}</span></li>`).join('')}
+  </ul>`;
+
+const diffD = () => `
+  <ul class="dfd">
+    ${differentiators.map((d) => `<li><p>${esc(d)}</p></li>`).join('')}
+  </ul>`;
+
+const DIFFS = [
+  { k: '1', name: 'Four across', html: diffA,
+    note: 'One row of four, divided by hairlines, a short lime rule over each. Uses the full width instead of leaving 839px of empty slab on every line, and takes the least height of the four.' },
+  { k: '2', name: 'Two by two', html: diffB,
+    note: 'A lime rule over each claim and room around it, set in display weight. More air than four across, and the claims that run long do not get squeezed into a narrow column.' },
+  { k: '3', name: 'The claim, and what it means', html: diffC,
+    note: 'The width gets filled with a second column that says what each claim actually gets you. The only one that needs copy the client has not seen, and the only one where the empty half stops being empty for a reason.' },
+  { k: '4', name: 'Four statements', html: diffD,
+    note: 'Drops the list framing. Four statements at display size, ruled apart, numbered small in the margin. The most confident of the four and the one that reads least like a feature list.' }
+];
+
+const diffOptions = DIFFS.map((o) => `
+<section class="sec sec-tight">
+  <div class="wrap">
+    <div class="opt-head">
+      <span class="opt-k">Diff ${o.k}</span>
+      <div><h2>${esc(o.name)}</h2><p>${esc(o.note)}</p></div>
+    </div>
+    <div class="sec-head">
+      <h3 style="margin:0 0 .35rem;font-size:clamp(1.4rem,1.15rem + 1.1vw,2rem)">Software alone does not make you compliant.</h3>
+      <p class="sec-lead" style="font-size:1rem">Anyone can sell you a login. When protected health
+      information goes to the wrong patient, a login does not help. Your team does.</p>
+    </div>
+    ${o.html()}
+  </div>
+</section>`).join('');
+
+/* ---------------- Part 2: the OIG seven elements ----------------
    Seven is an odd number and the block is currently a two column grid, so
    the last cell is an empty hole and the items that wrap to two lines pull
    the two columns out of line with each other. Each of these answers that
@@ -84,7 +149,7 @@ const sevenOptions = SEVEN.map((o) => `
   </div>
 </section>`).join('');
 
-/* ---------------- Part 2: filling the right of Seven C ----------------
+/* ---------------- Part 3: filling the right of Seven C ----------------
    C is one narrow column, so the right half of the page sits empty beside
    it. Four ways to use that half. None of them adds a panel or a fill,
    and only one of them needs copy that does not already exist.
@@ -187,7 +252,7 @@ const rightOptions = RIGHT.map((o) => `
   </div>
 </section>`).join('');
 
-/* ---------------- Part 3: the section 01 ground ---------------- */
+/* ---------------- Part 4: the section 01 ground ---------------- */
 
 /* Section 01, reproduced. Same copy, same markup, same classes, so the
    only variable between the six is the ground underneath. */
@@ -251,7 +316,7 @@ const groundOptions = GROUNDS.map(([k, name, note]) => `
   </div>
 </section>`).join('');
 
-/* ---------------- Part 4: the list inside section 01 ---------------- */
+/* ---------------- Part 5: the list inside section 01 ---------------- */
 
 /* A -- superseded, not crossed out. Each tool is dimmed and carries the
    thing that replaces it, so the eye reads a swap rather than a deletion. */
@@ -328,10 +393,10 @@ const body = `
     <div class="page-head">
       <span class="mono-label">Review</span>
       <h1>Open design decisions</h1>
-      <p class="sec-lead">Section 03 now runs Seven C, the thread, with Right 4 beside it: the
-      empty half carries the free review. The other three right hand options are kept below,
-      then the three seven treatments you did not pick, then the five section 01 grounds and
-      three list treatments.</p>
+      <p class="sec-lead">Newest first: four ways to rebuild the differentiators, which currently
+      run as four light slabs that are 65 per cent empty. Under them, the right hand options for
+      section 03 that were not picked, the three seven treatments that were not picked, and the
+      five section 01 grounds and three list treatments.</p>
     </div>
   </div>
 </section>
@@ -340,10 +405,36 @@ const body = `
   <div class="wrap">
     <div class="opt-head">
       <span class="opt-k">The seven</span>
-      <div><h2>Four ways to fill the right of C</h2>
+      <div><h2>The four right hand options</h2>
       <p>The thread is one narrow column, so half the width sits empty beside it. None of these
       adds a panel or a fill, and only the third needs copy that does not already exist on the
       site. Right 4 is the one now live.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec-tight">
+  <div class="wrap">
+    <div class="opt-head">
+      <span class="opt-k">The claims</span>
+      <div><h2>Four ways to rebuild the differentiators</h2>
+      <p>What ships is four full width light slabs with an 86px lime block on each that carries
+      nothing. Measured at 1440 the row is 1296px and the text in it is 457px, so 839px of every
+      slab is empty surface. Four of them stacked read as unfilled progress bars. None of these
+      uses a fill. This block is shared by the ported pages and the team page, so whichever one
+      wins lands on about a hundred pages.</p></div>
+    </div>
+  </div>
+</section>
+
+${diffOptions}
+
+<section class="sec sec-tight">
+  <div class="wrap">
+    <div class="opt-head">
+      <span class="opt-k">For reference</span>
+      <div><h2>The right hand options for section 03</h2>
+      <p>Right 4 is live. The other three are kept until this is settled.</p></div>
     </div>
   </div>
 </section>

@@ -1339,3 +1339,60 @@
 .sv7r-detail:has(#sv7p7:checked) .d7{display:block}
 
 @media (max-width:900px){.sv7det{min-height:0}}
+
+/* ---- Review page: the four differentiators --------------------------
+   What ships is four full width light slabs, each with an 86px lime block
+   that carries nothing. Measured at 1440: the row is 1296px and the text
+   in it is 457px, so 839px of every slab is empty surface. Four of them
+   stacked reads as four unfilled progress bars.
+
+   None of these four uses a fill. .diffs is shared by the ported pages
+   and the team page, so whichever wins lands on about a hundred pages. */
+
+/* 1 -- four across, hairlines only */
+.dfa{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);
+  border-top:1px solid var(--line)}
+.dfa li{padding:1.4rem 1.4rem 1.5rem 0;border-right:1px solid var(--line-soft)}
+.dfa li:last-child{border-right:0;padding-right:0}
+.dfa li::before{content:"";display:block;width:28px;height:2px;background:var(--lime);
+  margin-bottom:1rem}
+.dfa p{margin:0;font-family:var(--head);font-weight:700;font-size:1.05rem;line-height:1.35;
+  color:var(--on-dark)}
+
+/* 2 -- two by two, a lime rule over each */
+.dfb{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,1fr);
+  gap:clamp(1.8rem,1.2rem + 2.4vw,3rem) clamp(2rem,1.4rem + 3vw,4rem)}
+.dfb li{padding-top:1.3rem;border-top:2px solid var(--lime)}
+.dfb p{margin:0;font-family:var(--head);font-weight:900;color:#fff;
+  font-size:clamp(1.15rem,1rem + .8vw,1.6rem);line-height:1.25;text-wrap:balance}
+
+/* 3 -- the claim, and what it means, across the full width */
+.dfc{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.dfc li{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);
+  gap:clamp(1.6rem,1rem + 3vw,3.5rem);align-items:baseline;padding:1.5rem 0;
+  border-bottom:1px solid var(--line-soft)}
+.dfc b{font-family:var(--head);font-weight:900;color:#fff;
+  font-size:clamp(1.05rem,.98rem + .6vw,1.35rem);line-height:1.3}
+.dfc span{color:var(--on-dark-soft);font-size:1rem;line-height:1.6}
+
+/* 4 -- four statements at display size */
+.dfd{list-style:none;margin:0;padding:0;counter-reset:df}
+.dfd li{counter-increment:df;display:grid;grid-template-columns:auto 1fr;gap:1.4rem;
+  align-items:baseline;padding:1.6rem 0;border-bottom:1px solid var(--line-soft)}
+.dfd li:first-child{border-top:1px solid var(--line)}
+.dfd li::before{content:"0" counter(df);font-family:var(--mono);font-weight:500;font-size:.72rem;
+  letter-spacing:.1em;color:var(--lime)}
+.dfd p{margin:0;font-family:var(--head);font-weight:900;color:#fff;
+  font-size:clamp(1.25rem,1.05rem + 1.3vw,2.1rem);line-height:1.2;text-wrap:balance}
+
+@media (max-width:980px){
+  .dfa{grid-template-columns:repeat(2,1fr)}
+  .dfa li{border-right:1px solid var(--line-soft)}
+  .dfa li:nth-child(even){border-right:0;padding-right:0}
+  .dfc li{grid-template-columns:1fr;gap:.6rem}
+}
+@media (max-width:620px){
+  .dfa{grid-template-columns:1fr}
+  .dfa li{border-right:0;padding-right:0;border-bottom:1px solid var(--line-soft)}
+  .dfb{grid-template-columns:1fr}
+}
