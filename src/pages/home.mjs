@@ -116,6 +116,7 @@ const body = `
 <!-- ============ 01. What is it? ============ -->
 <section class="sec sec-loose field" id="what-it-is">
   <div class="wrap">
+   <div class="s01-card">
     <div class="sec-head">
       <h2>One platform that runs your compliance program and watches your billing.</h2>
       <p class="sec-lead">Healthcare Compliance Pros is a compliance and revenue integrity partner for
@@ -154,6 +155,7 @@ const body = `
     <ul class="figs">
       ${stats.map((s) => `<li><b>${esc(s.figure)}</b><span>${esc(s.label)}</span></li>`).join('')}
     </ul>
+   </div>
   </div>
 </section>
 

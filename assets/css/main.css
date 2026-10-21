@@ -760,6 +760,18 @@
    What follows takes the boxes off wherever the content can carry itself
    and lets scale, rules and overlap do the work instead. */
 
+/* The framed card, chosen from six grounds on the review page. The frame
+   takes the content column, so the text inside it sits in from where the
+   neighbouring sections' text starts. That inset is the point: it is what
+   makes the panel read as a panel instead of a full-bleed colour change,
+   and it holds at every width rather than only above 1440.
+
+   The lime top edge is an inset shadow rather than a border so it does
+   not add to the box and so the rounded corners carry it. */
+.s01-card{background:var(--bg-elev);border:1px solid var(--line-soft);
+  border-radius:var(--r-lg);box-shadow:inset 0 3px 0 var(--lime);
+  padding:clamp(1.75rem,1.2rem + 2.4vw,3.25rem)}
+
 /* 01 -- the reckoning. Five things being replaced against one that is
    replacing them. */
 .recko{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(2rem,1rem + 4vw,4.5rem);
@@ -1144,10 +1156,7 @@
   radial-gradient(70% 62% at 0% 0%,rgba(98,157,203,.18),rgba(98,157,203,0) 62%),
   radial-gradient(62% 70% at 100% 100%,rgba(162,199,57,.12),rgba(162,199,57,0) 62%)}
 
-/* f -- framed card */
-.s01-f .wrap{background:var(--bg-elev);border:1px solid var(--line-soft);
-  border-radius:var(--r-lg);box-shadow:inset 0 3px 0 var(--lime);
-  padding:clamp(1.9rem,1.3rem + 2.4vw,3.4rem)}
+/* f -- framed card. Uses the real .s01-card now live on the homepage. */
 
 /* a -- superseded */
 .xa-lbl,.xd-lbl,.xc-lbl{display:block;font-family:var(--mono);font-weight:500;font-size:.7rem;

@@ -74,8 +74,8 @@ const GROUNDS = [
    'A raised panel with the column grid drawn inside it. The technical texture belongs to this section rather than running the length of the page.'],
   ['e', 'Edge glow, no panel',
    'No fill at all. Two soft glows bleed in from opposite corners over the page ground, so the section is marked by light rather than by a surface.'],
-  ['f', 'Framed card',
-   'The content sits inside a bordered panel inset from the page edges, with a lime top edge. The strongest separation of the six.']
+  ['f', 'Framed card (now live)',
+   'The content sits inside a bordered panel with a lime top edge, inset from where the surrounding sections start. The strongest separation of the six, and the one now on the homepage.']
 ];
 
 const groundOptions = GROUNDS.map(([k, name, note]) => `
@@ -90,7 +90,7 @@ const groundOptions = GROUNDS.map(([k, name, note]) => `
 
 <section class="sec sec-loose s01 s01-${k}">
   <div class="wrap">
-    ${section01}
+    ${k === 'f' ? `<div class="s01-card">${section01}</div>` : section01}
   </div>
 </section>`).join('');
 
@@ -180,11 +180,10 @@ const body = `
     <div class="page-head">
       <span class="mono-label">Section 01</span>
       <h1>Six grounds for one section</h1>
-      <p class="sec-lead">The rule no longer runs through the words. The list now carries a lime
-      mark beside each item, which is list treatment D below, and that is what is on the homepage
-      as of now. Above, the same section repeated six times with a different ground under it.
-      Below, the three other list treatments and four versions of the closing line, any of which
-      can replace what is live in a minute.</p>
+      <p class="sec-lead">The homepage now runs ground F with list treatment D: a framed panel
+      with a lime top edge, and a mark beside each item rather than a rule through it. The five
+      other grounds are below, then the three other list treatments and four versions of the
+      closing line. Any of them can replace what is live in a minute.</p>
     </div>
   </div>
 </section>
