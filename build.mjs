@@ -67,8 +67,13 @@ function checkCss(name, css) {
   for (const raw of css.split('\n')) {
     line++;
     const t = raw.trim();
+    /* A declaration ends in ; or }. A selector carrying a pseudo-class,
+       `body:has(.x) .y,`, also starts "word:" and used to trip this: the
+       guard flagged valid CSS as debris. Requiring the terminator tells
+       the two apart. */
     if (depth === 0 && t && !t.startsWith('/*') && !t.startsWith('*') && !t.startsWith('@')
-        && !t.startsWith('}') && !t.includes('{') && /^[a-z-]+\s*:/i.test(t)) {
+        && !t.startsWith('}') && !t.includes('{') && /^[a-z-]+\s*:/i.test(t)
+        && /[;}]$/.test(t)) {
       errs.push(`${name}:${line} declaration at top level (orphaned rule body): ${t.slice(0, 60)}`);
     }
     depth += (raw.match(/\{/g) || []).length - (raw.match(/\}/g) || []).length;

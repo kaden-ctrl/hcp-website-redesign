@@ -1098,75 +1098,79 @@
   .mkt-tab{flex:1 1 auto;min-width:140px}
 }
 
-/* ---- Review page: struck-list replacements ---------------------------
-   Scoped under .opt-* and .x[a-d]. Delete with src/pages/options.mjs once
-   a direction is picked. Nothing here puts a rule through text. */
-.opt-head{display:flex;gap:1.25rem;align-items:flex-start;margin-bottom:2.25rem;max-width:64rem}
-.opt-k{flex:none;font-family:var(--mono);font-weight:500;font-size:.7rem;letter-spacing:.14em;
-  text-transform:uppercase;color:var(--lime);border:1px solid var(--lime);border-radius:6px;
-  padding:.42rem .8rem;margin-top:.3rem;white-space:nowrap}
-.opt-head h2{margin:0 0 .5rem;font-size:clamp(1.5rem,1.2rem + 1.2vw,2.1rem)}
-.opt-head p{margin:0;color:var(--on-dark-soft);font-size:1rem;line-height:1.6}
 
-/* A -- superseded */
-.xa-lbl,.xd-lbl,.xc-lbl{display:block;font-family:var(--mono);font-weight:500;font-size:.7rem;
-  letter-spacing:.16em;text-transform:uppercase;color:var(--on-dark-mute);margin-bottom:1.1rem}
-.xa-list{list-style:none;margin:0 0 1.2rem;padding:0}
-.xa-list li{display:grid;grid-template-columns:1fr 2rem auto;align-items:baseline;gap:.6rem;
-  padding:.72rem 0;border-bottom:1px solid var(--line-soft)}
-.xa-list li:last-child{border-bottom:0}
-.xa-old{font-family:var(--head);font-weight:700;font-size:1.08rem;color:var(--on-dark-mute)}
-.xa-arrow{color:var(--lime);text-align:center}
-.xa-new{font-family:var(--head);font-weight:700;font-size:1.08rem;color:#fff}
-.xa-note{margin:0;font-size:.98rem;color:var(--on-dark-soft)}
+/* ---- Review page: background options ---------------------------------
+   Each sample is a full viewport so the ground is judged at the size it
+   is actually met. The site's own fixed layers are suppressed on this
+   page only, or every sample would be seen through the grid and aurora
+   it is meant to replace. Delete with src/pages/options.mjs. */
+body:has(.bgopt) .grid-bg,
+body:has(.bgopt) .aurora{display:none}
 
-/* B -- the count */
-.xb-head{display:flex;align-items:flex-start;gap:clamp(1.2rem,.8rem + 2vw,2.4rem)}
-.xb-fig{flex:none;font-family:var(--head);font-weight:900;letter-spacing:-.05em;color:var(--lime);
-  font-size:clamp(4.5rem,3rem + 7vw,9rem);line-height:.78}
-.xb-head b{display:block;font-family:var(--head);font-weight:900;color:#fff;
-  font-size:clamp(1.3rem,1.1rem + 1.1vw,2rem);line-height:1.2;margin-top:.4rem}
-.xb-head p{margin:.9rem 0 0;font-size:1.02rem;line-height:1.7;color:var(--on-dark-soft);max-width:48rem}
+.opt-k{display:inline-block;font-family:var(--mono);font-weight:500;font-size:.7rem;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--lime);
+  border:1px solid var(--lime);border-radius:6px;padding:.4rem .75rem;margin-bottom:.9rem}
+.bgopt-head{position:relative;z-index:1}
 
-/* C -- the ledger */
-.xc{display:grid;grid-template-columns:1fr 1px 1fr;gap:0}
-.xc-seam{background:linear-gradient(180deg,transparent,var(--lime) 18%,var(--lime) 82%,transparent);
-  box-shadow:0 0 16px rgba(162,199,57,.35)}
-.xc-col{padding:.25rem clamp(1.4rem,1rem + 2vw,2.6rem)}
-.xc-lbl-on{color:var(--lime)}
-.xc-col ul{list-style:none;margin:0 0 1.2rem;padding:0;display:grid;gap:.1rem}
-.xc-col li{font-family:var(--head);font-weight:700;font-size:1.05rem;color:var(--on-dark-mute);
-  padding:.6rem 0;border-bottom:1px solid var(--line-soft)}
-.xc-col li:last-child{border-bottom:0}
-.xc-on li{color:#fff}
-.xc-foot{margin:0;font-size:.92rem;color:var(--on-dark-soft)}
+.bgopt{position:relative;min-height:100svh;display:grid;align-items:center;
+  border-top:1px solid var(--line);overflow:hidden;isolation:isolate}
+.bgopt-in{display:grid;grid-template-columns:minmax(220px,300px) 1fr;
+  gap:clamp(1.6rem,1rem + 3vw,3.5rem);align-items:start;position:relative;z-index:2}
+.bgopt-meta h2{margin:0 0 .6rem;font-size:clamp(1.4rem,1.2rem + 1vw,2rem)}
+.bgopt-meta p{margin:0;font-size:.95rem;line-height:1.6;color:var(--on-dark-soft);max-width:34ch}
+.bgopt-demo h3{margin:.6rem 0 .8rem;font-size:clamp(1.5rem,1.2rem + 1.6vw,2.4rem);max-width:22ch}
+.bgopt-demo > p{margin:0 0 1.8rem;font-size:1.02rem;line-height:1.7;color:var(--on-dark-soft);max-width:54ch}
+.bgopt-figs{list-style:none;margin:0;padding:1.3rem 0 0;display:flex;gap:clamp(1.6rem,1rem + 3vw,3.5rem);
+  border-top:1px solid var(--line)}
+.bgopt-figs b{display:block;font-family:var(--head);font-weight:900;color:var(--lime);
+  font-size:clamp(1.6rem,1.3rem + 1.4vw,2.4rem);line-height:1}
+.bgopt-figs span{display:block;font-size:.86rem;color:var(--on-dark-soft);margin-top:.3rem}
 
-/* D -- struck beside */
-.xd-list{list-style:none;margin:0 0 1.2rem;padding:0}
-.xd-list li{display:flex;align-items:center;gap:.9rem;padding:.72rem 0;
-  border-bottom:1px solid var(--line-soft);
-  font-family:var(--head);font-weight:700;font-size:1.08rem;color:var(--on-dark-soft)}
-.xd-list li:last-child{border-bottom:0}
-.xd-mark{flex:none;width:22px;height:2px;background:var(--lime);border-radius:1px}
-.xd-note{margin:0;font-size:.98rem;color:var(--on-dark-soft)}
+/* a -- nothing at all */
+.bgopt-a{background:var(--bg)}
 
-/* the closing-line options */
-.xline{list-style:none;margin:0;padding:0;display:grid;gap:0}
-.xline li{display:grid;grid-template-columns:7rem 1fr;gap:1.2rem;align-items:baseline;
-  padding:1.1rem 0;border-bottom:1px solid var(--line-soft)}
-.xline li:last-child{border-bottom:0}
-.xline-k{font-family:var(--mono);font-weight:500;font-size:.7rem;letter-spacing:.14em;
-  text-transform:uppercase;color:var(--lime)}
-.xline p{margin:0;font-family:var(--head);font-weight:700;color:#fff;
-  font-size:clamp(1rem,.95rem + .5vw,1.25rem);line-height:1.45}
+/* b -- contour lines. Stacked wide ellipses at low alpha; because each ring
+   is its own gradient there is no tile to spot repeating. */
+.bgopt-b{background:var(--bg)}
+.bgopt-b::before{content:"";position:absolute;inset:-20%;z-index:-1;pointer-events:none;opacity:.55;
+  background:
+    radial-gradient(60% 38% at 30% 20%,transparent 48%,rgba(98,157,203,.10) 49%,transparent 50%),
+    radial-gradient(70% 44% at 35% 35%,transparent 48%,rgba(98,157,203,.09) 49%,transparent 50%),
+    radial-gradient(80% 50% at 40% 52%,transparent 48%,rgba(98,157,203,.08) 49%,transparent 50%),
+    radial-gradient(92% 58% at 46% 70%,transparent 48%,rgba(98,157,203,.07) 49%,transparent 50%),
+    radial-gradient(106% 66% at 52% 90%,transparent 48%,rgba(162,199,57,.06) 49%,transparent 50%)}
+
+/* c -- column rules on the layout grid itself */
+.bgopt-c{background:var(--bg)}
+.bgopt-c::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+  max-width:1440px;margin-inline:auto;
+  background-image:repeating-linear-gradient(90deg,
+    rgba(98,157,203,.10) 0 1px, transparent 1px calc(100% / 12));
+  -webkit-mask-image:linear-gradient(180deg,transparent,#000 18%,#000 82%,transparent);
+  mask-image:linear-gradient(180deg,transparent,#000 18%,#000 82%,transparent)}
+
+/* d -- deep wash and grain. The grain is an inline SVG turbulence, so it
+   costs no request and does not tile visibly. */
+.bgopt-d{background:linear-gradient(180deg,#02080e 0%,#050f18 45%,#0a1f33 100%)}
+.bgopt-d::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:.22;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E")}
+
+/* e -- sparse dot field */
+.bgopt-e{background:var(--bg)}
+.bgopt-e::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background-image:radial-gradient(rgba(98,157,203,.16) 1px,transparent 1px);
+  background-size:38px 38px;
+  -webkit-mask-image:radial-gradient(120% 80% at 50% 30%,#000 30%,transparent 76%);
+  mask-image:radial-gradient(120% 80% at 50% 30%,#000 30%,transparent 76%)}
+
+/* f -- horizon glow */
+.bgopt-f{background:var(--bg)}
+.bgopt-f::before{content:"";position:absolute;left:-10%;right:-10%;bottom:-18%;height:62%;z-index:-1;
+  pointer-events:none;border-radius:50% 50% 0 0;
+  background:radial-gradient(60% 100% at 50% 100%,rgba(98,157,203,.22),rgba(16,73,119,.10) 45%,transparent 72%)}
 
 @media (max-width:860px){
-  .xc{grid-template-columns:1fr}
-  .xc-seam{height:1px;background:linear-gradient(90deg,transparent,var(--lime),transparent);margin:1.5rem 0}
-  .xc-col{padding:0}
-  .xa-list li{grid-template-columns:1fr auto;gap:.5rem}
-  .xa-arrow{display:none}
-  .xb-head{flex-direction:column;gap:.5rem}
-  .xline li{grid-template-columns:1fr;gap:.3rem}
-  .opt-head{flex-direction:column;gap:.75rem}
+  .bgopt-in{grid-template-columns:1fr}
+  .bgopt{min-height:auto;padding-block:clamp(3rem,2rem + 6vw,5rem)}
+  .bgopt-figs{gap:1.4rem}
 }
