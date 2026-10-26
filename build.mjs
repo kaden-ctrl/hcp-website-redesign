@@ -137,12 +137,23 @@ function checkPage(page, html, allCss = '') {
   else if (desc[1].length > MAX_DESC) add(8, `meta description ${desc[1].length} chars (max ${MAX_DESC})`);
   else if (desc[1].length < MIN_DESC) add(8, `meta description only ${desc[1].length} chars (min ${MIN_DESC})`);
 
-  // 6 — no render-blocking resources
-  if (/<link[^>]+rel="stylesheet"/.test(html.split('</head>')[0].replace(/<noscript>[\s\S]*?<\/noscript>/g, '')))
-    add(6, 'render-blocking stylesheet in <head>');
+  /* 6 — head resource loading.
+
+     This check used to forbid a stylesheet in <head>, and the site loaded
+     main.css from the deferred main.js instead. Measured on the live site,
+     that put the stylesheet request at 2740ms against a document that was
+     interactive at 2624ms: every navigation painted on the inline critical
+     CSS alone, which carries no section padding and no list resets, then
+     reflowed the whole page when the real sheet landed. A visible glitch on
+     every page change, traded for about 20ms of first paint on a 19KB
+     gzipped file from a CDN. The trade was wrong, so the rule is now the
+     other way round: the sheet must be in the head, blocking, and must not
+     be smuggled in from script. */
+  const headOnly = html.split('</head>')[0].replace(/<noscript>[\s\S]*?<\/noscript>/g, '');
+  if (!/<link rel="stylesheet" href="\/assets\/css\/main\.css/.test(headOnly))
+    add(6, 'main.css is not linked in <head>');
+  if (/data-css=/.test(html)) add(6, 'stylesheet handed to script via data-css');
   if (/onload=/.test(html)) add(6, 'inline onload handler present — blocked by our CSP');
-  const headNoNoscript = html.split('</head>')[0].replace(/<noscript>[\s\S]*?<\/noscript>/g, '');
-  if (/<link[^>]+stylesheet/.test(headNoNoscript)) add(6, 'render-blocking stylesheet outside <noscript>');
   /* What this is guarding against is a blocking *request*, plus enough
      synchronous work to delay first paint. A src without defer/async is
      always both. An inline block makes no request, so it is judged on
@@ -389,14 +400,14 @@ function webmanifest() {
 async function build() {
   const pages = await loadPages();
 
-  // All CSS is inlined into every page. An inline <style> is not a
-  // render-blocking *request*, and it avoids the preload -> stylesheet swap,
-  // which relies on an inline onload handler that our own CSP (script-src
-  // 'self') correctly blocks.
-  // Only the above-the-fold critical CSS is inlined. The rest is fetched by
-  // the deferred main.js, which keeps the HTML small (the archive has ~1,000
-  // short articles where 27KB of inlined CSS would sink the text ratio) while
-  // still avoiding a render-blocking stylesheet request.
+  // main.css is a normal blocking stylesheet in the head. The critical CSS
+  // stays inlined above it: it is what declares the nine @font-face rules,
+  // so keeping it means the font downloads start while the head is still
+  // being parsed rather than after main.css arrives. It is no longer doing
+  // the job its name suggests, since nothing paints before main.css now,
+  // and the font faces could be moved out and the rest dropped. That is a
+  // separate change: ~12KB per page, and the ratio check is tuned around
+  // the current figure.
   const min = (css) => css.replace(/\/\*[\s\S]*?\*\//g, '').replace(/\s*\n\s*/g, '').trim();
   const mainCss = await readFile(path.join(root, 'assets/css/main.css'), 'utf8');
   const criticalCss = min(await readFile(path.join(root, 'assets/css/critical.css'), 'utf8'));
@@ -477,7 +488,7 @@ async function build() {
   const totalWords = report.reduce((a, r) => a + r.words, 0);
   console.log(`\n  ${report.length} pages -> dist/`);
   console.log(`  ${totalWords.toLocaleString()} words  |  avg content-to-code ${(avgRatio * 100).toFixed(1)}%  |  avg page ${(report.reduce((a, r) => a + Number(r.kb), 0) / report.length).toFixed(1)} KB`);
-  console.log(`  css ${(Buffer.byteLength(mainCss) / 1024).toFixed(1)} KB (async)  |  js ${(Buffer.byteLength(mainJs) / 1024).toFixed(1)} KB (deferred)  |  critical inline ${(Buffer.byteLength(criticalCss) / 1024).toFixed(1)} KB`);
+  console.log(`  css ${(Buffer.byteLength(mainCss) / 1024).toFixed(1)} KB (blocking)  |  js ${(Buffer.byteLength(mainJs) / 1024).toFixed(1)} KB (deferred)  |  critical inline ${(Buffer.byteLength(criticalCss) / 1024).toFixed(1)} KB`);
 
   if (failures) {
     console.error(`\n  BUILD FAILED: ${failures} audit violation(s)\n`);

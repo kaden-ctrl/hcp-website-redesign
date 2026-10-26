@@ -222,7 +222,7 @@ function head(page, criticalCss, cssHash) {
 <link rel="manifest" href="/site.webmanifest">
 <link rel="sitemap" type="application/xml" href="/sitemap.xml">
 <style>${criticalCss}</style>
-<noscript><link rel="stylesheet" href="/assets/css/main.css?v=${cssHash}"></noscript>
+<link rel="stylesheet" href="/assets/css/main.css?v=${cssHash}">
 <script type="application/ld+json">${buildGraph(page)}</script>
 <script>${ANALYTICS_INLINE}</script>`;
 }
@@ -357,7 +357,7 @@ ${page.body}
 </main>
 ${footer()}`;
   return `<!doctype html>
-<html lang="en-US" data-css="/assets/css/main.css?v=${cssHash}">
+<html lang="en-US">
 <head>
 ${head(page, criticalCss, cssHash)}
 </head>

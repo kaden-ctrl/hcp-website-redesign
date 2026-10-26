@@ -1,19 +1,5 @@
 /* Progressive enhancement only. The page is fully usable without this file. */
 
-/* Load the deferred stylesheet. Injected from script rather than with a
-   <link rel=preload onload>, because the Content-Security-Policy on this
-   site sets script-src 'self', which blocks inline event handlers: the
-   sheet would download and never apply. */
-(function () {
-  var href = document.documentElement.getAttribute('data-css');
-  if (!href || document.querySelector('link[data-main-css]')) return;
-  var l = document.createElement('link');
-  l.rel = 'stylesheet';
-  l.href = href;
-  l.setAttribute('data-main-css', '');
-  document.head.appendChild(l);
-})();
-
 /* Mobile navigation. */
 (function () {
   var burger = document.querySelector('.burger');
