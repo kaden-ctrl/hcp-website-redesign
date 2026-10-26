@@ -156,25 +156,25 @@ export const engagement = [
 ];
 
 export const suite = [
-  { side: 'defense', key: 'shield', posture: 'DEFENSIVE', tagline: 'The audit that never surprises you, because it never stopped running.', name: 'SHIELD', kind: 'Compliance software', icon: 'shield',
+  { side: 'defense', key: 'shield', posture: 'DEFENSIVE', tagline: 'The audit that never surprises you, because it never stopped running.', name: 'SHIELD', kind: 'Compliance Software', icon: 'shield',
     href: '/compliance-solution/',
     blurb: 'Your whole compliance program in one system. HIPAA, OSHA and corporate compliance, with a real team behind every element.',
     items: ['Real-time compliance dashboard', 'Policy and documentation management',
             'Security Risk Analysis (SRA)', 'Learning management system',
             'Exclusion monitoring and incident management'] },
-  { side: 'defense', key: 'fco', posture: 'STRATEGIC', tagline: 'Compliance expertise on call, without a headcount line.', name: 'FCO', kind: 'Fractional compliance officer', icon: 'users',
+  { side: 'defense', key: 'fco', posture: 'STRATEGIC', tagline: 'Compliance expertise on call, without a headcount line.', name: 'FCO', kind: 'Fractional Compliance Officer', icon: 'users',
     href: '/fractional-compliance-officer/',
     blurb: 'A dedicated compliance expert on call, without carrying the role as a full-time hire.',
     items: ['Dedicated compliance expert', 'On-call regulatory guidance',
             'OIG and CMS policy interpretation', 'Staff education and culture building',
             'Scalable engagement model'] },
-  { side: 'offense', key: 'sentry', posture: 'OFFENSIVE', tagline: 'Revenue leakage does not hide from software that never blinks.', name: 'SENTRY', kind: 'Billing intelligence software', icon: 'chart',
+  { side: 'offense', key: 'sentry', posture: 'OFFENSIVE', tagline: 'Revenue leakage does not hide from software that never blinks.', name: 'SENTRY', kind: 'Billing Intelligence Software', icon: 'chart',
     href: '/coding-compliance/',
     blurb: 'Payers downcode automatically and send no notice. SENTRY finds the pattern in the quarter it starts.',
     items: ['Continuous claims monitoring', 'Specialty benchmark comparison',
             'Revenue optimisation alerts', 'Denial pattern detection',
             'Compliance risk scoring'] },
-  { side: 'offense', key: 'diligence', posture: 'TRANSACTIONAL', tagline: 'Every claim gets read before the deal does.', name: 'DILIGENCE', kind: 'Billing and coding audit', icon: 'doc',
+  { side: 'offense', key: 'diligence', posture: 'TRANSACTIONAL', tagline: 'Every claim gets read before the deal does.', name: 'DILIGENCE', kind: 'Billing and Coding Audit', icon: 'doc',
     href: '/diligence/',
     blurb: 'Transaction-grade review for buyers and sellers, written for the deal room.',
     items: ['12 to 24 months of claims data reviewed', 'CPC-certified coding specialists',
@@ -482,7 +482,7 @@ export const diligenceStages = [
    --------------------------------------------------------------- */
 export const modules = [
   {
-    key: 'hipaa', name: 'HIPAA compliance', href: '/compliance-solution/hipaa/',
+    key: 'hipaa', name: 'HIPAA Compliance', href: '/compliance-solution/hipaa/',
     tag: 'Privacy and Security',
     lede: 'Privacy and Security coverage from the risk analysis through to incident response, with the dated evidence an investigator asks for.',
     img: '/assets/img/site/prog-hipaa.webp',
@@ -495,7 +495,7 @@ export const modules = [
     why: 'Policies prove you wrote something. They do not prove your risk analysis reflects the systems you run today.'
   },
   {
-    key: 'osha', name: 'OSHA compliance', href: '/compliance-solution/osha/',
+    key: 'osha', name: 'OSHA Compliance', href: '/compliance-solution/osha/',
     tag: 'Workplace safety',
     lede: 'Workplace safety built for clinical environments rather than issued as a generic template.',
     img: '/assets/img/site/prog-osha.webp',
@@ -507,7 +507,7 @@ export const modules = [
     why: 'A binder nobody can find during an inspection is the same as no binder at all.'
   },
   {
-    key: 'corporate', name: 'Corporate compliance', href: '/compliance-solution/corporate-compliance/',
+    key: 'corporate', name: 'Corporate Compliance', href: '/compliance-solution/corporate-compliance/',
     tag: 'The seven elements',
     lede: 'The seven elements of an effective compliance program, maintained rather than written once and filed.',
     img: '/assets/img/site/about-2.webp',
@@ -519,7 +519,7 @@ export const modules = [
     why: 'The OIG does not ask whether you intended to run a program. It asks for the records the program produced.'
   },
   {
-    key: 'lms', name: 'Learning management', href: '/compliance-solution/lms/',
+    key: 'lms', name: 'Learning Management', href: '/compliance-solution/lms/',
     tag: 'Training and education',
     lede: 'More than 130 course titles, assigned by role, with completion tracked for every employee.',
     img: '/assets/img/site/prog-lms.webp',
@@ -561,11 +561,11 @@ export const nav = [
     href: '/blog/',
     items: [
       { label: 'Blog', href: '/blog/' },
-      { label: 'Compliance tips and FAQs', href: '/tips-faqs/' },
-      { label: 'Compliance webinars', href: '/webinars/' },
-      { label: 'The compliance podcast', href: '/podcasts/' },
-      { label: 'Events and conferences', href: '/events/' },
-      { label: 'Compliance checklists', href: '/checklists/' }
+      { label: 'Compliance Tips and FAQs', href: '/tips-faqs/' },
+      { label: 'Compliance Webinars', href: '/webinars/' },
+      { label: 'The Compliance Podcast', href: '/podcasts/' },
+      { label: 'Events and Conferences', href: '/events/' },
+      { label: 'Compliance Checklists', href: '/checklists/' }
     ]
   },
   {
@@ -575,8 +575,8 @@ export const nav = [
       { label: 'About Us', href: '/about/' },
       { label: 'Our Team', href: '/our-team/' },
       { label: 'Testimonials', href: '/testimonials/' },
-      { label: 'Partners and affiliations', href: '/partners/' },
-      { label: 'Who writes this', href: '/our-authorship/' },
+      { label: 'Partners and Affiliations', href: '/partners/' },
+      { label: 'Who Writes This', href: '/our-authorship/' },
       { label: 'Careers at HCP', href: '/careers/' }
     ]
   },
