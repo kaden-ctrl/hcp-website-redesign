@@ -336,11 +336,11 @@ function footer() {
         <a href="/fulfillment-policy/">Fulfillment policy</a> &nbsp;&middot;&nbsp;
         <a href="${site.loginUrl}" rel="nofollow">Client login</a>
       </p>
-    </div>
       <p class="footer__credit">
         Website by <a href="https://duogroup.com" target="_blank"
         rel="nofollow noopener">Duo Group</a>
       </p>
+    </div>
   </div>
 </footer>`;
 }

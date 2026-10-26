@@ -1047,10 +1047,11 @@
 }
 @media (max-width:560px){.people{grid-template-columns:1fr}}
 
-/* Agency credit. Sits under the legal row, quieter than it so it reads as
-   a signature rather than another footer link. */
-.footer__credit{margin:1.4rem 0 0;padding-top:1.1rem;border-top:1px solid var(--line-soft);
-  font-size:.82rem;color:var(--on-dark-mute)}
+/* Agency credit. Sits in the base row with everything else, quieter than
+   the links beside it so it reads as a signature rather than another
+   footer link. It used to be a sibling after that row with its own top
+   rule, which put it on a line of its own at the very bottom. */
+.footer__credit{margin:0;font-size:.88rem;color:var(--on-dark-mute)}
 .footer__credit a{color:var(--on-dark-soft);text-decoration:none;border-bottom:1px solid var(--line)}
 .footer__credit a:hover{color:var(--lime);border-bottom-color:var(--lime)}
 
