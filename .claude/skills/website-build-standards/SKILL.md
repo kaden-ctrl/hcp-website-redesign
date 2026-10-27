@@ -25,6 +25,7 @@ not verification. Run the command and record the output.
 | `references/copy-and-design-rules.md` | The banned phrase list, hero and CTA rewrites, design specifics with the CSS to avoid |
 | `references/automated-verification.md` | The Playwright suite: install, configure, run, what each spec covers, and what it does not |
 | `references/staging-workflow.md` | One-time project setup: staging branch, Netlify branch deploys, CLAUDE.md, keeping internal files off the public site |
+| `references/build-tracker.md` | The shared progress doc: structure, status vocabulary and colours, grouping rules, and the Google Docs API traps |
 | `scripts/scan-copy.sh` | Static scanner. Greps source for every banned phrase and prohibited pattern. Exit 0 required before launch. |
 | `scripts/install-playwright.sh` | Installs the Playwright verification suite into a project |
 | `templates/playwright/` | The suite itself: config plus seven spec files |
@@ -38,6 +39,13 @@ workflow, commit the rule to the default branch, branch staging from that same
 commit, enable Netlify branch deploys, bootstrap with an empty commit, and exclude
 `CLAUDE.md` and other internal files from the published site. Skip this on a project
 that already has a staging branch with a working preview URL.
+
+Then create the build tracker from `references/build-tracker.md`. Derive the page
+list from the build output rather than typing it: that inventory pass is also a
+content audit, and on the project this spec came from it caught two real bugs no one
+had noticed. Keep **Built** and **Approved** as separate states from the first
+version; collapsing them into one "Done" column is the mistake that spec exists to
+prevent.
 
 **1. Intake.** Collect before writing anything: business legal name, address, phone,
 support email, domain, logo files, brand hex colors, jurisdiction for legal pages,

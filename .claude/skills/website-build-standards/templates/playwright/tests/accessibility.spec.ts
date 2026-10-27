@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test'
 import AxeBuilder from '@axe-core/playwright'
-import site from '../site.config'
+import site from '../config'
 
 for (const path of site.pages) {
   test.describe(`Accessibility ${path}`, () => {

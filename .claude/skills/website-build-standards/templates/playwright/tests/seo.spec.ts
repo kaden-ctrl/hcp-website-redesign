@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test'
-import site from '../site.config'
+import site from '../config'
 
 // SEO is viewport-independent. Run once.
 const pages = site.pages.filter(p => !site.skipSeoChecks.includes(p))

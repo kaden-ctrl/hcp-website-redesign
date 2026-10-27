@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test'
-import site from '../site.config'
+import site from '../config'
 
 // This spec is the reason the config defines seven viewport projects.
 // It runs in all of them.

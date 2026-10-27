@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test'
-import site from '../site.config'
+import site from '../config'
 
 // scan-copy.sh greps source files. This spec checks the RENDERED result, which
 // catches violations that arrive through utility classes, CSS variables, or

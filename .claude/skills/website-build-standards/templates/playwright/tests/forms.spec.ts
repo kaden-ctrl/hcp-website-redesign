@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test'
-import site from '../site.config'
+import site from '../config'
 
 const f = site.form
 

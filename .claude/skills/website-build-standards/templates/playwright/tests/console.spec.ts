@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test'
-import site from '../site.config'
+import site from '../config'
 
 for (const path of site.pages) {
   test(`no console errors on ${path}`, async ({ page }) => {

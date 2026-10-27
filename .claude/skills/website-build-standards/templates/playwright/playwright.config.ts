@@ -1,5 +1,5 @@
 import { defineConfig, devices } from '@playwright/test'
-import site from './site.config'
+import site from './config'
 
 // Only responsive.spec.ts needs to run in every viewport. Everything else is
 // viewport-independent and runs once, on desktop-1280. Without this split the

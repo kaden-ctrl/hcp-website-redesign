@@ -15,6 +15,8 @@ DEST="$(pwd)/verification"
 echo "Installing verification suite into $DEST"
 mkdir -p "$DEST/tests"
 cp "$SKILL/templates/playwright/playwright.config.ts" "$DEST/"
+# config.ts normalizes site.config.ts and is ours, so it is always refreshed.
+cp "$SKILL/templates/playwright/config.ts" "$DEST/"
 cp "$SKILL/templates/playwright/package.json" "$DEST/"
 cp "$SKILL/templates/playwright/tests/"*.spec.ts "$DEST/tests/"
 
