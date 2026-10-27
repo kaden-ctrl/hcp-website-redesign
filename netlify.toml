@@ -107,6 +107,46 @@
   to = "/contact/"
   status = 301
 
+# Their site has no terms page. /terms, /terms-of-use, /legal and
+# /cookie-policy all 301 to their homepage, which is a soft 404: somebody
+# looking for the terms lands on marketing. The document that actually
+# holds the terms is their privacy page, titled "Legal Disclaimers" on
+# their site, carrying the website disclaimers and the intellectual
+# property terms alongside the privacy policy and the cookie section.
+# These point at it. Nothing new is written and nothing is invented.
+[[redirects]]
+  from = "/terms"
+  to = "/privacypolicy/"
+  status = 301
+[[redirects]]
+  from = "/terms-of-use"
+  to = "/privacypolicy/"
+  status = 301
+[[redirects]]
+  from = "/terms-and-conditions"
+  to = "/privacypolicy/"
+  status = 301
+[[redirects]]
+  from = "/terms-of-service"
+  to = "/privacypolicy/"
+  status = 301
+[[redirects]]
+  from = "/legal"
+  to = "/privacypolicy/"
+  status = 301
+[[redirects]]
+  from = "/legal-disclaimers"
+  to = "/privacypolicy/"
+  status = 301
+[[redirects]]
+  from = "/cookie-policy"
+  to = "/privacypolicy/"
+  status = 301
+[[redirects]]
+  from = "/cookies"
+  to = "/privacypolicy/"
+  status = 301
+
 [[redirects]]
   from = "/*"
   to = "/404/index.html"
