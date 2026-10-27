@@ -496,6 +496,22 @@ async function build() {
     }
   }
 
+  /* The same trap by a second route. site.loginUrl is an absolute link to
+     the client login, rendered into the nav and footer of every page, so
+     after cutover 1,104 pages link to this site's own /index/login-page,
+     which the redirect above bounces straight back. The netlify.toml check
+     alone would not see it. */
+  if (site.canonicalDomainLive && /^https?:/.test(site.loginUrl || '')) {
+    const canonical = new URL(site.origin).hostname.replace(/^www\./, '');
+    if (new URL(site.loginUrl).hostname.replace(/^www\./, '') === canonical) {
+      failures++;
+      console.error('\n  FAIL site.loginUrl points at this site');
+      console.error(`       ${site.loginUrl}`);
+      console.error('       Rendered as an absolute link on every page. Point it at the legacy');
+      console.error('       origin, or make it a relative path once the login is served here.');
+    }
+  }
+
   const navErrs = checkNav(pages);
   if (navErrs.length) {
     failures += navErrs.length;
