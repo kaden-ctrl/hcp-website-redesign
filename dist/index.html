@@ -105,7 +105,10 @@
   <div class="hero-glow-a" aria-hidden="true"></div>
   <div class="hero-glow-b" aria-hidden="true"></div>
   <div class="wrap hero-in">
-    <h1>Compliance. Revenue.<br><em>Confidence.</em></h1>
+    <!-- The space before the break matters: it renders the same on two
+         lines, but without it every text extraction of this h1, ours and
+         everyone else's, reads "Revenue.Confidence". -->
+    <h1>Compliance. Revenue. <br><em>Confidence.</em></h1>
     <p class="hero-lead">The only partner built to protect providers, optimize revenue and de-risk
     healthcare transactions, all in one platform.</p>
     <p class="hero-cta">

@@ -44,7 +44,10 @@ function voice(d) {
     };
   }
   const n = d.name;
-  const lower = n.charAt(0).toLowerCase() + n.slice(1);
+  /* Lowercase the first letter only when the name is an ordinary capitalised
+     word. ENT and OB/GYN are acronyms, and blanket lowercasing turned them
+     into "eNT" and "oB/GYN" in every heading on those two pages. */
+  const lower = /^[A-Z][a-z]/.test(n) ? n.charAt(0).toLowerCase() + n.slice(1) : n;
   const unit = d.kind === 'organization' ? lower : `${lower} practices`;
   return {
     h1: `Compliance and revenue integrity for ${lower}`,
