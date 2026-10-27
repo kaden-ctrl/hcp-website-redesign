@@ -467,6 +467,7 @@
     s.setAttribute('data-sa', '');
     s.setAttribute('data-domain', 'healthcarecompliancepros.com');
     s.setAttribute('data-site-token', 'pst_86f8358e7bf696cf3e41c449');
+    s.setAttribute('data-cookie', 'false');
     s.setAttribute('data-api', 'https://analytics.duogroup.com/v1/beacons');
     document.head.appendChild(s);
   }

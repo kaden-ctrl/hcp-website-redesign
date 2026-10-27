@@ -115,6 +115,15 @@ const privacyBody = `
   cookies are being sent. If they do so, note that some parts of the site may not function
   properly.</p>
 
+  <h3>Website analytics</h3>
+  <p>With your consent, we use Duo Group Analytics, an analytics service operated by Duo Group,
+  the company that built this website, to count visits and see which pages get read. Nothing is
+  loaded until you choose Accept on the banner, and choosing Decline means it never runs. It is
+  configured not to use cookies and not to store an identifier in your browser, and it does not
+  track you across other websites. It records only aggregate information such as the pages
+  viewed, the referring site, and general device and location type. It does not receive anything
+  you type into our forms, and it does not collect protected health information.</p>
+
   <h3>How we use collected information</h3>
   <p>Healthcare Compliance Pros may collect and use users' personal information for the following
   purposes:</p>
