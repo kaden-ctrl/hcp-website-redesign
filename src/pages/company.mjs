@@ -143,7 +143,7 @@ const about = {
         <ul class="why">
           <li><div><b>Genuinely free</b><p>No cost, no obligation, and the written findings are yours whether or not you become a client.</p></div></li>
           <li><div><b>An advisor, not a sales script</b><p>Your first conversation is with someone who can actually answer compliance questions.</p></div></li>
-          <li><div><b>Prefer to talk now?</b><p>Call <a href="tel:${site.phoneE164}" style="color:var(--lime)">${site.phoneDisplay}</a> and ask for a compliance advisor.</p></div></li>
+          <li><div><b>Prefer to talk now?</b><p>Call <a href="tel:${site.phoneE164}" class="inline-link">${site.phoneDisplay}</a> and ask for a compliance advisor.</p></div></li>
         </ul>
       </div>
       ${leadForm()}
@@ -243,8 +243,8 @@ const contact = {
         <p class="sec-lead">Tell us roughly what you are and an advisor familiar with that setting will
         follow up, usually within one business day.</p>
         <ul class="why">
-          <li><div><b>Prefer to talk now?</b><p>Call <a href="tel:${site.phoneE164}" style="color:var(--lime)">${site.phoneDisplay}</a> and ask for a compliance advisor.</p></div></li>
-          <li><div><b>Already a client?</b><p>Sign in through the <a href="${site.loginUrl}" rel="nofollow" style="color:var(--lime)">client login</a>, or ask for your account specialist.</p></div></li>
+          <li><div><b>Prefer to talk now?</b><p>Call <a href="tel:${site.phoneE164}" class="inline-link">${site.phoneDisplay}</a> and ask for a compliance advisor.</p></div></li>
+          <li><div><b>Already a client?</b><p>Sign in through the <a href="${site.loginUrl}" rel="nofollow" class="inline-link">client login</a>, or ask for your account specialist.</p></div></li>
         </ul>
       </div>
       ${leadForm('Request your free compliance review', 'No cost, no obligation, and the findings are yours either way.')}

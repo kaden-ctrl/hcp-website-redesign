@@ -55,7 +55,7 @@ function build(m) {
             loading: 'eager', fetchpriority: 'high', sizes: '100vw' })}
   </div>
   <div class="wrap hero-in">
-    <p class="prod-posture" style="color:var(--lime)">SHIELD module &middot; ${esc(m.tag)}</p>
+    <p class="prod-posture" class="inline-link">SHIELD module &middot; ${esc(m.tag)}</p>
     <h1>${esc(m.name)}</h1>
     <p class="hero-lead">${esc(m.lede)}</p>
     <p class="hero-cta">
@@ -146,7 +146,7 @@ ${m.key === 'corporate' ? `<section class="sec sec-soft solid" id="seven-element
         setting, ranked by what would actually hurt you first.</p>
         <ul class="why">
           <li><div><b>Genuinely free</b><p>No cost, no obligation, and the written findings are yours whether or not you become a client.</p></div></li>
-          <li><div><b>Prefer to talk now?</b><p>Call <a href="tel:${site.phoneE164}" style="color:var(--lime)">${site.phoneDisplay}</a> and ask for a compliance advisor.</p></div></li>
+          <li><div><b>Prefer to talk now?</b><p>Call <a href="tel:${site.phoneE164}" class="inline-link">${site.phoneDisplay}</a> and ask for a compliance advisor.</p></div></li>
         </ul>
       </div>
       ${leadForm()}

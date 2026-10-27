@@ -402,7 +402,7 @@ ${ctaFor(p)}
         setting, ranked by what would actually hurt you first.</p>
         <ul class="why">
           <li><div><b>Genuinely free</b><p>No cost, no obligation, and the written findings are yours whether or not you become a client.</p></div></li>
-          <li><div><b>Prefer to talk now?</b><p>Call <a href="tel:${site.phoneE164}" style="color:var(--lime)">${site.phoneDisplay}</a> and ask for a compliance advisor.</p></div></li>
+          <li><div><b>Prefer to talk now?</b><p>Call <a href="tel:${site.phoneE164}" class="inline-link">${site.phoneDisplay}</a> and ask for a compliance advisor.</p></div></li>
         </ul>
       </div>
       ${leadFormLazy()}

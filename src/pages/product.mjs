@@ -243,7 +243,7 @@ const signature = {
 const heroFor = (p, d) => {
   if (p.key === 'sentry') {
     return `<div class="wrap hero-in">
-      <p class="prod-posture" style="color:var(--lime)">${esc(p.posture)} &middot; ${esc(p.kind)}</p>
+      <p class="prod-posture" class="inline-link">${esc(p.posture)} &middot; ${esc(p.kind)}</p>
       <h1>${esc(p.name)}</h1>
       <p class="hero-lead">${esc(d.lede)}</p>
       <p class="hero-cta"><a class="btn btn-primary" href="#start">See what is leaking</a>
@@ -251,7 +251,7 @@ const heroFor = (p, d) => {
     </div>`;
   }
   return `<div class="wrap hero-in">
-    <p class="prod-posture" style="color:var(--lime)">${esc(p.posture)} &middot; ${esc(p.kind)}</p>
+    <p class="prod-posture" class="inline-link">${esc(p.posture)} &middot; ${esc(p.kind)}</p>
     <h1>${esc(p.name)}</h1>
     <p class="hero-lead">${esc(d.lede)}</p>
     <p class="hero-cta"><a class="btn btn-primary" href="#start">Get your free compliance review</a>
@@ -383,7 +383,7 @@ ${p.key === 'shield' ? `
         <ul class="why">
           <li><div><b>Genuinely free</b><p>No cost, no obligation, and the written findings are yours whether or not you become a client.</p></div></li>
           <li><div><b>An advisor, not a sales script</b><p>Your first conversation is with someone who can actually answer compliance questions.</p></div></li>
-          <li><div><b>Prefer to talk now?</b><p>Call <a href="tel:${site.phoneE164}" style="color:var(--lime)">${site.phoneDisplay}</a> and ask for a compliance advisor.</p></div></li>
+          <li><div><b>Prefer to talk now?</b><p>Call <a href="tel:${site.phoneE164}" class="inline-link">${site.phoneDisplay}</a> and ask for a compliance advisor.</p></div></li>
         </ul>
       </div>
       ${leadForm()}

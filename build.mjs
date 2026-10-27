@@ -408,7 +408,15 @@ async function build() {
   // and the font faces could be moved out and the rest dropped. That is a
   // separate change: ~12KB per page, and the ratio check is tuned around
   // the current figure.
-  const min = (css) => css.replace(/\/\*[\s\S]*?\*\//g, '').replace(/\s*\n\s*/g, '').trim();
+  /* Comments out, indentation collapsed. Newlines become a single space
+     rather than nothing: rules here wrap mid-value, and joining those with
+     no separator silently welds tokens together ("1rem" + "2rem"). A space
+     is always safe between CSS tokens and costs a handful of bytes. */
+  const min = (css) => css
+    .replace(/\/\*[\s\S]*?\*\//g, '')
+    .replace(/\s*\n\s*/g, ' ')
+    .replace(/ {2,}/g, ' ')
+    .trim();
   const mainCss = await readFile(path.join(root, 'assets/css/main.css'), 'utf8');
   const criticalCss = min(await readFile(path.join(root, 'assets/css/critical.css'), 'utf8'));
   const mainJs = await readFile(path.join(root, 'assets/js/main.js'), 'utf8');
@@ -419,6 +427,9 @@ async function build() {
   await rm(dist, { recursive: true, force: true });
   await mkdir(dist, { recursive: true });
   await cp(path.join(root, 'assets'), path.join(dist, 'assets'), { recursive: true });
+  /* main.css is render-blocking now, so its bytes are on the critical path
+     of every page. Lighthouse put the indentation at 4 KiB. */
+  await writeFile(path.join(dist, 'assets/css/main.css'), min(mainCss));
 
   let failures = 0;
   let autoNoindexed = 0;
