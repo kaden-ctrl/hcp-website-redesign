@@ -1,10 +1,24 @@
 import { icon, esc } from '../layout.mjs';
-import { site } from '../site.mjs';
+import { site, testimonials } from '../site.mjs';
+import { whyBlock, faqBlock, useCases, figureBand, closeBlock } from '../parts.mjs';
 import { readdirSync, readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 
-/* Blog: the 50 most recent posts from the migrated archive.
+/* Blog: the whole migrated archive, 1,022 posts.
+
+   It used to publish the 50 most recent. That cut was by date and nothing
+   else, so it dropped four of the ten highest-traffic pages on the site,
+   including the single strongest content page at 4.9K views. GA4 only
+   shows us the top of a 139K-view site, so there is no safe way to choose
+   what to drop: a 404 loses the URL, the inbound links and the ranking,
+   while a published page keeps all three.
+
+   Posts carry archive:true, which halves the content-to-code floor and
+   lets build.mjs measure each page and mark the thin ones noindex. They
+   stay reachable and keep passing link equity; they just do not compete
+   in the index. 182 are flagged thin in the scrape, and the measurement
+   rather than that flag decides.
 
    Posts are published at the URL they already live at, taken from the
    scrape rather than composed from the slug. Their CMS puts 102 of the
@@ -55,14 +69,8 @@ function sanitise(html) {
   // external links open safely
   s = s.replace(/<a\b([^>]*href="https?:\/\/[^"]*"[^>]*)>/gi,
     (m, attrs) => /rel=/i.test(attrs) ? m : `<a${attrs} rel="noopener">`);
-  /* Em dashes. The house rule is none on the site, and these are their own
-     published articles rather than copy we wrote, so this edits their text:
-     113 of them across the 50 posts, almost all appositive (word-dash-word).
-     A comma carries that correctly where the next word is lower case; where
-     it is capitalised the dash was doing the work of a colon, so a colon
-     goes in instead. Both read as written rather than as substituted. */
-  s = s.replace(/\s*(?:&mdash;|\u2014)\s*(<[^>]+>)?\s*([A-Za-z0-9&])/g,
-    (m, tag, ch) => (ch === ch.toUpperCase() && /[A-Za-z]/.test(ch) ? ': ' : ', ') + (tag || '') + ch);
+  /* Em dashes, see noDash. */
+  s = noDash(s);
   // tidy anything the substitution doubled up
   s = s.replace(/,\s*,/g, ',').replace(/\s+,/g, ',').replace(/,\s*([.;:!?])/g, '$1');
 
@@ -83,8 +91,13 @@ const posts = readdirSync(dir)
   .map((f) => JSON.parse(readFileSync(path.join(dir, f), 'utf8')))
   .filter((p) => p.title && p.date && p.body)
   .sort((a, b) => (a.date < b.date ? 1 : -1))
-  .slice(0, 50)
-  .map((p) => ({ ...p, clean: sanitise(p.body) }));
+  .map((p) => ({
+    ...p,
+    title: noDash(p.title),
+    titleTag: p.titleTag ? noDash(p.titleTag) : p.titleTag,
+    description: p.description ? noDash(p.description) : p.description,
+    clean: sanitise(p.body)
+  }));
 
 /* The call to action under each post, matched to what the post is about.
    GA4 says the blog draws the traffic and /contact takes 89% of the key
@@ -154,6 +167,30 @@ const ctaFor = (p) => {
 </section>`;
 };
 
+/* Em dashes. The house rule is none on the site, and these are their own
+   published articles rather than copy we wrote, so this edits their text.
+   Almost all are appositive (word-dash-word). A comma carries that where
+   the next word is lower case; where it is capitalised the dash was doing
+   the work of a colon, so a colon goes in instead. Both read as written
+   rather than as substituted.
+
+   It runs on titles and descriptions as well as bodies. It used to live
+   inside sanitise(), which only ever saw the body, so a dash in a headline
+   survived: harmless across 50 posts, nine build failures across 1,022. */
+function noDash(s) {
+  return s.replace(/\s*(?:&mdash;|\u2014)\s*(<[^>]+>)?\s*([A-Za-z0-9&])/g,
+    (m, tag, ch) => (ch === ch.toUpperCase() && /[A-Za-z]/.test(ch) ? ': ' : ', ') + (tag || '') + ch);
+}
+
+/* Trim a description so the *escaped* form fits the audit's 155 character
+   ceiling, cutting on a word boundary. */
+function fit(text, max = 155) {
+  let t = text.trim();
+  if (esc(t).length <= max) return t;
+  while (t.length > 1 && esc(t).length > max - 3) t = t.slice(0, -1);
+  return t.replace(/\s+\S*$/, '').replace(/[,;:.\s]+$/, '') + '...';
+}
+
 /* ---------------- index ---------------- */
 
 const byYear = posts.reduce((acc, p) => {
@@ -161,6 +198,27 @@ const byYear = posts.reduce((acc, p) => {
   (acc[y] = acc[y] || []).push(p);
   return acc;
 }, {});
+
+const YEARS = Object.keys(byYear).sort().reverse();
+const RECENT = 40;
+
+/* A year list rather than 1,022 rows on one page. The index carries the
+   most recent 40 and hands the rest to a page per year. */
+const yearNav = `
+<nav class="yearnav" aria-label="Archive by year">
+  ${YEARS.map((y) => `<a href="/blog/${y}/">${esc(y)}<span>${byYear[y].length}</span></a>`).join('')}
+</nav>`;
+
+const postList = (list) => `
+<ul class="postlist">
+  ${list.map((p) => `<li>
+    <a href="${esc(p.url)}">
+      <time datetime="${esc(p.date)}">${esc(pretty(p.date))}</time>
+      <b>${esc(p.title)}</b>
+      ${p.description ? `<span>${esc(p.description)}</span>` : ''}
+    </a>
+  </li>`).join('')}
+</ul>`;
 
 const indexBody = `
 <section class="statement field">
@@ -174,19 +232,16 @@ const indexBody = `
 
 <section class="sec solid" id="posts">
   <div class="wrap">
-    ${Object.keys(byYear).sort().reverse().map((y) => `
     <div class="postyear">
-      <h2>${esc(y)}</h2>
-      <ul class="postlist">
-        ${byYear[y].map((p) => `<li>
-          <a href="${esc(p.url)}">
-            <time datetime="${esc(p.date)}">${esc(pretty(p.date))}</time>
-            <b>${esc(p.title)}</b>
-            ${p.description ? `<span>${esc(p.description)}</span>` : ''}
-          </a>
-        </li>`).join('')}
-      </ul>
-    </div>`).join('')}
+      <h2>Latest</h2>
+      ${postList(posts.slice(0, RECENT))}
+    </div>
+    <div class="postyear">
+      <h2>Every year since 2011</h2>
+      <p class="sec-lead" style="margin-bottom:1.6rem">${posts.length.toLocaleString()} pieces,
+      going back to the year HCP started. Pick a year to read it.</p>
+      ${yearNav}
+    </div>
   </div>
 </section>
 
@@ -239,6 +294,47 @@ const index = {
     { q: 'Who writes it?', a: 'The compliance advisors and coding specialists who work with client programmes day to day.' }
   ]
 };
+
+/* ---------------- one page per year ---------------- */
+
+const yearPages = YEARS.map((y) => ({
+  path: `/blog/${y}/`,
+  title: `Compliance Insider ${y} archive | HCP`,
+  description: `Every compliance article Healthcare Compliance Pros published in ${y}: ${byYear[y].length} pieces on HIPAA, OSHA, billing and enforcement.`,
+  archive: true,
+  parent: { name: 'Compliance Insider', path: '/blog/' },
+  body: `
+<section class="sec sec-tight field">
+  <div class="wrap">
+    <div class="page-head">
+      <span class="mono-label">Archive</span>
+      <h1>Everything we published in ${esc(y)}</h1>
+      <p class="sec-lead">${byYear[y].length} pieces. The whole archive runs from 2011 to today.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec solid" id="posts">
+  <div class="wrap">
+    ${postList(byYear[y])}
+    ${yearNav}
+  </div>
+</section>
+
+${whyBlock('Anyone can sell you a login. When something goes wrong, a login does not help and a named advisor does.')}
+${faqBlock([
+  { q: 'Is this the whole archive?',
+    a: 'Yes. Every piece published that year is listed here, including the short news items. Nothing has been pruned.' },
+  { q: 'Can we ask an advisor about something covered here?',
+    a: `Yes. Call ${site.phoneDisplay} and ask for a compliance advisor. There is no charge for the conversation and you do not need to be a client.` },
+  { q: 'How often do you publish?',
+    a: 'Whenever something changes that affects how a healthcare organization has to operate, rather than on a fixed schedule.' }
+])}
+${useCases('What that looks like in practice', testimonials[0])}
+${figureBand}
+${closeBlock('See where you stand.',
+  'Twenty minutes with an advisor produces a written gap analysis for your own setting, ranked by what would actually hurt you first.')}`
+}));
 
 /* ---------------- individual posts ---------------- */
 
@@ -315,18 +411,41 @@ ${ctaFor(p)}
 </section>
 `;
 
-  const title = (p.titleTag || p.title).slice(0, 52) + ' | HCP';
-  let description = (p.description || '').trim();
-  if (description.length > 155) description = description.slice(0, 152).replace(/\s+\S*$/, '') + '...';
+  /* The audit caps the title at 65. This used to slice the headline at 52
+     characters flat, which cut mid-word: "A Compliance Guid | HCP". Trim
+     on a word boundary instead, and drop the suffix entirely rather than
+     eat the headline when the headline alone fills the budget. */
+  let head = (p.titleTag || p.title).trim();
+  let title = `${head} | HCP`;
+  if (title.length > 65) {
+    while (head.length && `${head} | HCP`.length > 65) head = head.replace(/\s*\S+$/, '');
+    title = head.length > 20 ? `${head} | HCP` : (p.titleTag || p.title).trim().slice(0, 62).replace(/\s*\S+$/, '') + '...';
+  }
+  /* The audit measures the rendered attribute, and esc() expands &, < and
+     " into entities, so a 155 character string can render at 175. Trim
+     against the escaped length rather than the source length. */
+  let description = fit(p.description || '');
   if (description.length < 70) {
-    description = `${p.title}. Compliance guidance for healthcare organizations from Healthcare Compliance Pros.`.slice(0, 155);
+    description = fit(`${p.title}. Compliance guidance for healthcare organizations from Healthcare Compliance Pros.`);
   }
 
   return {
     path: p.url,
-    title: title.length > 65 ? title.slice(0, 62) + '...' : title,
+    title,
     description,
     body,
+    archive: true,
+    /* Thin posts stay reachable and keep passing link equity, they just do
+       not compete in the index. `thin` in the scrape means under 200
+       words, which is 182 of the 1,022.
+
+       build.mjs has an auto-noindex that measures the rendered page, and
+       it caught none of these: a 60 word article still clears the floor
+       once the CTA, the why block, the FAQ and the close block are on the
+       page. The furniture was satisfying the measurement instead of the
+       article. Thinness is a property of the piece, so it is decided on
+       the piece. */
+    noindex: p.thin || undefined,
     ogType: 'article',
     parent: { name: 'Compliance Insider', path: '/blog/' },
     article: { published: p.date, modified: p.updated || p.date, headline: p.title }
@@ -362,4 +481,4 @@ function leadFormLazy() {
   </form>`;
 }
 
-export default [index, ...postPages];
+export default [index, ...yearPages, ...postPages];
