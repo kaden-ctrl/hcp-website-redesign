@@ -460,6 +460,31 @@ async function build() {
     cssErrs.forEach((e) => console.error(`       ${e}`));
   }
 
+  /* The client login is a fifth of all traffic and it is not a page we
+     build: netlify.toml hands /index/login-page to their existing app by
+     absolute URL. That is right while this site sits on a Netlify host and
+     theirs is on the real domain. The day this site becomes the real
+     domain the rule points at itself, and the login is an infinite
+     redirect. Nothing in the config changes on that day, which is why the
+     check is gated on site.canonicalDomainLive rather than run always:
+     flipping that flag at cutover is what makes this fail, and it stays
+     failing until the login has somewhere real to go. */
+  const toml = site.canonicalDomainLive
+    ? await readFile(path.join(root, 'netlify.toml'), 'utf8').catch(() => '')
+    : '';
+  const loginTo = (toml.match(/from = "\/index\/login-page"[\s\S]{0,160}?to = "([^"]+)"/) || [])[1];
+  if (loginTo && /^https?:/.test(loginTo)) {
+    const canonical = new URL(site.origin).hostname.replace(/^www\./, '');
+    const target = new URL(loginTo).hostname.replace(/^www\./, '');
+    if (target === canonical) {
+      failures++;
+      console.error('\n  FAIL client login redirect loops');
+      console.error(`       /index/login-page -> ${loginTo}`);
+      console.error(`       ${target} is this site's own canonical host, so the rule points at itself.`);
+      console.error('       Point it at the legacy origin, or remove it and serve the login here.');
+    }
+  }
+
   const navErrs = checkNav(pages);
   if (navErrs.length) {
     failures += navErrs.length;

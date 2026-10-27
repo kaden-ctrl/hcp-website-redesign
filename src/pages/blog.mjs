@@ -86,6 +86,74 @@ const posts = readdirSync(dir)
   .slice(0, 50)
   .map((p) => ({ ...p, clean: sanitise(p.body) }));
 
+/* The call to action under each post, matched to what the post is about.
+   GA4 says the blog draws the traffic and /contact takes 89% of the key
+   events, so the generic form at the foot of every post is the only bridge
+   between the two and it does not mention the subject the reader came for.
+   These do, and each points at the service page that answers it.
+
+   Matched on the slug and title, most specific pattern first. Anything
+   unmatched falls through to the suite page rather than guessing. */
+const CTAS = [
+  { re: /osha|biohazard|ppe|donning|doffing|hazard|sds|safety-data|bloodborne|needlestick/,
+    href: '/compliance-solution/osha/',
+    h: 'Get an OSHA compliance assessment',
+    p: 'An advisor reviews your exposure plan, training records and SDS binder against what an inspector would ask for, and tells you which gaps would actually be cited.',
+    cta: 'See the OSHA program' },
+
+  { re: /upcoding|downcoding|e-m-coding|em-coding|billing|claims|payer|revenue|reimburse|modifier|outlier/,
+    href: '/coding-compliance/',
+    h: 'Find out what your claims data says',
+    p: 'SENTRY benchmarks your coding against your own specialty every quarter, so a downcoding or outlier pattern surfaces while it can still be corrected.',
+    cta: 'See how SENTRY works' },
+
+  { re: /fractional|compliance-officer|in-house-hire/,
+    href: '/fractional-compliance-officer/',
+    h: 'Talk to a fractional compliance officer',
+    p: 'The role, without the headcount. A named officer who runs the program, signs off on it and answers for it when somebody asks.',
+    cta: 'See the FCO service' },
+
+  { re: /training|course|education|lms|learning|onboard/,
+    href: '/compliance-solution/lms/',
+    h: 'See what your training records would show',
+    p: 'Role-based assignment, automatic reminders and a completion record per person, which is the part an investigator asks to see.',
+    cta: 'See the training system' },
+
+  { re: /fraud|waste|abuse|exclusion|hotline|credential|background-check|stark|anti-kickback|corporate-compliance|seven-element|oig/,
+    href: '/compliance-solution/corporate-compliance/',
+    h: 'Check your program against the seven elements',
+    p: 'A free review covers all seven OIG elements for your own setting and ranks the gaps by what would hurt you first.',
+    cta: 'See the corporate compliance program' },
+
+  { re: /hipaa|privacy-rule|security-rule|breach|phi|risk-analysis|cybersecurity|offboard|audit-log|ocr|telehealth|ai/,
+    href: '/compliance-solution/hipaa/',
+    h: 'Get a HIPAA risk analysis',
+    p: 'A documented analysis of the systems you actually run, not a template, and the written evidence that it was done on a date.',
+    cta: 'See the HIPAA program' },
+
+  { re: /./,
+    href: '/compliance-solution/',
+    h: 'See where your program stands',
+    p: 'Twenty minutes with an advisor produces a written gap analysis for your own setting, ranked by what would actually hurt you first.',
+    cta: 'See the compliance platform' }
+];
+
+const ctaFor = (p) => {
+  const hay = `${p.slug} ${p.title}`.toLowerCase();
+  const c = CTAS.find((x) => x.re.test(hay));
+  return `
+<section class="sec sec-tight field">
+  <div class="narrow">
+    <aside class="post-cta">
+      <span class="post-cta-k">Next step</span>
+      <h2>${esc(c.h)}</h2>
+      <p>${esc(c.p)}</p>
+      <a class="btn btn-primary" href="${c.href}">${esc(c.cta)}</a>
+    </aside>
+  </div>
+</section>`;
+};
+
 /* ---------------- index ---------------- */
 
 const byYear = posts.reduce((acc, p) => {
@@ -194,6 +262,7 @@ const postPages = posts.map((p, i) => {
     </div>
   </div>
 </article>
+${ctaFor(p)}
 
 <section class="sec field" id="use-cases">
   <div class="narrow">

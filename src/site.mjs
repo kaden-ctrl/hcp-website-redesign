@@ -8,6 +8,14 @@ export const site = {
   shortName: 'HCP',
   legalName: 'Healthcare Compliance Pros, LLC',
   origin: 'https://www.healthcarecompliancepros.com',
+  /* Flip to true on the day healthcarecompliancepros.com starts resolving
+     to this site. It gates the build guard on the client login redirect:
+     netlify.toml hands /index/login-page to their existing app by absolute
+     URL at that same domain, which works while we are on a Netlify host
+     and becomes an infinite redirect the moment we are the domain. That
+     page is a fifth of all site traffic. Nothing about the config changes
+     at cutover, so nothing would warn us. This does. */
+  canonicalDomainLive: false,
   tagline: 'Healthcare compliance software, backed by compliance experts.',
   /* "Protecting providers since March 2011", from their own SHIELD
      presentation. Replaces the 2009 that was previously guessed here. */

@@ -1148,3 +1148,13 @@
   .mkt-tabs{flex-direction:row;flex-wrap:wrap}
   .mkt-tab{flex:1 1 auto;min-width:140px}
 }
+
+/* The topic-matched call to action under each post. No fill: a lime rule
+   down the left, the same device the seven elements use, so it reads as
+   part of the page rather than an ad dropped into it. */
+.post-cta{border-left:2px solid var(--lime);padding-left:clamp(1.3rem,1rem + 1.4vw,2.2rem)}
+.post-cta-k{display:block;font-family:var(--mono);font-weight:500;font-size:.7rem;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--on-dark-mute);margin-bottom:.9rem}
+.post-cta h2{margin:0 0 .6rem;font-size:clamp(1.35rem,1.1rem + 1.1vw,1.95rem);line-height:1.15}
+.post-cta p{margin:0 0 1.5rem;color:var(--on-dark-soft);font-size:1.02rem;line-height:1.65;
+  max-width:58ch}
