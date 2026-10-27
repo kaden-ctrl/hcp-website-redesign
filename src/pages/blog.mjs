@@ -6,6 +6,14 @@ import path from 'node:path';
 
 /* Blog: the 50 most recent posts from the migrated archive.
 
+   Posts are published at the URL they already live at, taken from the
+   scrape rather than composed from the slug. Their CMS puts 102 of the
+   1,022 articles at the root and the rest under /blog/, and 45 of these
+   50 are root level ones. Forcing every post to /blog/<slug>/ moved 45
+   live, ranking URLs with nothing left behind them. GA4 shows the top
+   article alone at 4.9K views, so that is not a cosmetic difference.
+   build.mjs emits a 301 from the /blog/ form to the real one.
+
    Images are stripped entirely, as asked. That covers the cover photo and
    also every inline <img> in the body, because the two are the same asset
    library and half-removing them would leave 405 broken references across
@@ -103,7 +111,7 @@ const indexBody = `
       <h2>${esc(y)}</h2>
       <ul class="postlist">
         ${byYear[y].map((p) => `<li>
-          <a href="/blog/${esc(p.slug)}/">
+          <a href="${esc(p.url)}">
             <time datetime="${esc(p.date)}">${esc(pretty(p.date))}</time>
             <b>${esc(p.title)}</b>
             ${p.description ? `<span>${esc(p.description)}</span>` : ''}
@@ -190,8 +198,8 @@ const postPages = posts.map((p, i) => {
 <section class="sec field" id="use-cases">
   <div class="narrow">
     <nav class="postnav" aria-label="More posts">
-      ${prev ? `<a class="postnav-prev" href="/blog/${esc(prev.slug)}/"><span>Previous</span><b>${esc(prev.title)}</b></a>` : ''}
-      ${next ? `<a class="postnav-next" href="/blog/${esc(next.slug)}/"><span>Next</span><b>${esc(next.title)}</b></a>` : ''}
+      ${prev ? `<a class="postnav-prev" href="${esc(prev.url)}"><span>Previous</span><b>${esc(prev.title)}</b></a>` : ''}
+      ${next ? `<a class="postnav-next" href="${esc(next.url)}"><span>Next</span><b>${esc(next.title)}</b></a>` : ''}
     </nav>
   </div>
 </section>
@@ -246,7 +254,7 @@ const postPages = posts.map((p, i) => {
   }
 
   return {
-    path: `/blog/${p.slug}/`,
+    path: p.url,
     title: title.length > 65 ? title.slice(0, 62) + '...' : title,
     description,
     body,
@@ -255,6 +263,12 @@ const postPages = posts.map((p, i) => {
     article: { published: p.date, modified: p.updated || p.date, headline: p.title }
   };
 });
+
+/* The /blog/<slug>/ form every post was published at until now. Exported
+   so build.mjs can leave a 301 behind each one that has moved. */
+export const movedBlogUrls = posts
+  .map((p) => [`/blog/${p.slug}/`, p.url])
+  .filter(([from, to]) => from !== to);
 
 /* Imported lazily to avoid a circular import with product.mjs. */
 function leadFormLazy() {
