@@ -28,11 +28,17 @@ import path from 'node:path';
    article alone at 4.9K views, so that is not a cosmetic difference.
    build.mjs emits a 301 from the /blog/ form to the real one.
 
-   Images are stripped entirely, as asked. That covers the cover photo and
-   also every inline <img> in the body, because the two are the same asset
-   library and half-removing them would leave 405 broken references across
-   the archive. Figures and picture wrappers go with them, so nothing is
-   left holding an empty caption.
+   Images are back. They were stripped because the raw scrape pointed at
+   their CDN and half of it was dead, so keeping any meant keeping broken
+   ones. The migration that followed fixed that and the decision was never
+   revisited: all 405 references resolve to local webp with responsive
+   variants, verified against the filesystem, and 38 MB of them were
+   deploying to a site that referenced none of them.
+
+   The tags already carry alt, title, loading and decoding, and 372 of the
+   405 carry srcset and sizes. What none of them carry is width and height,
+   so every one was a layout shift waiting to happen. Those come from
+   content/blog-image-dims.json, read out of the webp headers.
 
    The body HTML is from their CMS, so it is sanitised rather than trusted:
    script, style, iframe and event handlers are removed, and the surviving
@@ -44,9 +50,15 @@ import path from 'node:path';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
 const dir = path.join(root, 'content', 'blog');
 
+/* Intrinsic sizes, read straight out of the webp headers rather than
+   guessed. Regenerate with scripts/blog-image-dims.mjs if the library
+   changes. */
+const IMG_DIMS = JSON.parse(readFileSync(path.join(root, 'content', 'blog-image-dims.json'), 'utf8'));
+
 const ALLOWED = new Set([
   'p','br','strong','em','b','i','u','a','ul','ol','li','h2','h3','h4',
-  'blockquote','table','thead','tbody','tr','td','th','hr','sup','sub','span','div'
+  'blockquote','table','thead','tbody','tr','td','th','hr','sup','sub','span','div',
+  'img','figure','figcaption','picture','source'
 ]);
 
 function sanitise(html) {
@@ -54,12 +66,17 @@ function sanitise(html) {
   // whole elements that should never survive a migration
   s = s.replace(/<(script|style|iframe|object|embed|form|input|button)[\s\S]*?<\/\1>/gi, '');
   s = s.replace(/<(script|style|iframe|object|embed|input)\b[^>]*\/?>/gi, '');
-  // every image, and the wrappers that exist only to hold one
-  s = s.replace(/<img\b[^>]*>/gi, '');
-  s = s.replace(/<picture\b[\s\S]*?<\/picture>/gi, '');
-  s = s.replace(/<figure\b[^>]*>([\s\S]*?)<\/figure>/gi, (m, inner) =>
-    /<(p|ul|ol|table|h[2-4])\b/i.test(inner) ? inner : '');
-  s = s.replace(/<figcaption\b[\s\S]*?<\/figcaption>/gi, '');
+  /* Images stay. Give each one its intrinsic size so the browser can
+     reserve the space before the file arrives: without width and height a
+     405-image archive is 405 layout shifts. Anything whose file we cannot
+     measure is dropped rather than shipped unsized. */
+  s = s.replace(/<img\b([^>]*)>/gi, (tag, attrs) => {
+    const src = (attrs.match(/\ssrc=["']([^"']+)["']/i) || [])[1];
+    const d = src && IMG_DIMS[src];
+    if (!d) return '';
+    if (/\swidth=/i.test(attrs)) return tag;
+    return `<img${attrs} width="${d[0]}" height="${d[1]}">`;
+  });
   // inline handlers and javascript: urls
   s = s.replace(/\son\w+\s*=\s*(?:"[^"]*"|'[^']*'|[^\s>]+)/gi, '');
   s = s.replace(/(href|src)\s*=\s*(["'])\s*javascript:[^"']*\2/gi, '$1="#"');
