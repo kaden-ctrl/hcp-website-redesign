@@ -1168,3 +1168,19 @@
 .post-cta h2{margin:0 0 .6rem;font-size:clamp(1.35rem,1.1rem + 1.1vw,1.95rem);line-height:1.15}
 .post-cta p{margin:0 0 1.5rem;color:var(--on-dark-soft);font-size:1.02rem;line-height:1.65;
   max-width:58ch}
+
+/* ---- 404 ------------------------------------------------------------
+   A set of routes, not an apology. No fill: hairlines and type, the same
+   register as the seven elements. */
+.nf-routes{list-style:none;margin:0;padding:0;display:grid;
+  grid-template-columns:repeat(2,1fr);gap:0 clamp(1.6rem,1rem + 3vw,3.5rem);
+  border-top:1px solid var(--line)}
+.nf-routes li{border-bottom:1px solid var(--line-soft)}
+.nf-routes a{display:grid;gap:.3rem;padding:1.15rem 0;text-decoration:none}
+.nf-routes b{font-family:var(--head);font-weight:900;color:#fff;
+  font-size:clamp(1.05rem,.98rem + .5vw,1.3rem);line-height:1.2}
+.nf-routes span{color:var(--on-dark-soft);font-size:.95rem;line-height:1.5}
+.nf-routes a:hover b{color:var(--lime)}
+.nf-foot{margin-top:clamp(2rem,1.5rem + 2vw,3rem);max-width:60ch}
+.nf-foot p{margin:0 0 .7rem;color:var(--on-dark-soft);font-size:1rem;line-height:1.65}
+@media (max-width:700px){.nf-routes{grid-template-columns:1fr}}
