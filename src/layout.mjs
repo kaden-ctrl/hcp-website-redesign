@@ -125,12 +125,12 @@ function websiteSchema() {
     alternateName: `${site.shortName} Compliance`,
     description: site.tagline,
     inLanguage: 'en-US',
-    publisher: { '@id': abs('/#organization') },
-    potentialAction: {
-      '@type': 'SearchAction',
-      target: { '@type': 'EntryPoint', urlTemplate: abs('/search/?q={search_term_string}') },
-      'query-input': 'required name=search_term_string'
-    }
+    publisher: { '@id': abs('/#organization') }
+    /* No SearchAction. It declared a search endpoint at /search/ that this
+       site does not have, and the feature it existed for is gone anyway:
+       Google retired the sitelinks search box on 21 November 2024 and
+       stopped acting on the markup. The rest of the WebSite node still
+       does work, site name in particular, so only the action is removed. */
   };
 }
 
